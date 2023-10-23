@@ -1,0 +1,21 @@
+@media(width <= 768px){
+    #header-wrap{
+        /* background-color: transparent !important; */
+        /* border-bottom: none; */
+    }     
+}
+#header-wrap{
+    position: fixed !important;
+}
+.logo-default{
+    height: 55px !important;
+}
+.logo-dark{
+    height: 55px !important;
+}
+.menu-item > .menu-link:hover{
+    color: #d6d6d6 !important;
+}
+.menu-item.current > .menu-link {
+    color: #d6d6d6 !important;
+}
