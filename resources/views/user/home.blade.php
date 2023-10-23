@@ -4,6 +4,12 @@
 Home
 @endsection
 
-@section("content")
+@section("cover")
+<?= url('images/gedung.png') ?>
+@endsection
 
+@section("content")
+<p>
+    
+</p>
 @endsection

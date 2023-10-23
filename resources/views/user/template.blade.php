@@ -28,6 +28,8 @@
 	<link href="{{ url('images/logosaja.png') }}" rel="icon" type="image/png">
 	<title>@yield("title") | {{ config("app.name") }}</title>
 
+	@yield("style")
+
 </head>
 
 <body class="stretched">
@@ -154,7 +156,7 @@
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
 
-		<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 dark include-header" style="background: url(<?= url('images/gedung.png') ?>) center center no-repeat; background-size: cover">
+		<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 dark include-header" style="background: url(@yield('cover')) center center no-repeat; background-size: cover">
 			<div class="slider-inner">
 
 				<div class="vertical-middle slider-element-fade">
@@ -173,9 +175,7 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-			<div class="content-wrap">
-				@yield("content")
-			</div>
+			@yield("content")
 		</section><!-- #content end -->
 
 		<!-- Footer
@@ -433,6 +433,8 @@
 	============================================= -->
 	<script src="{{ url('canvas') }}/js/plugins.min.js"></script>
 	<script src="{{ url('canvas') }}/js/functions.bundle.js"></script>
+
+	@yield("script")
 
 </body>
 </html>
