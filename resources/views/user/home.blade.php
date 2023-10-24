@@ -9,7 +9,9 @@ Home
 @endsection
 
 @section("content")
-<p>
-    
-</p>
+<div class="container mt-5">
+    <p>
+        Hallo
+    </p>
+</div>
 @endsection
