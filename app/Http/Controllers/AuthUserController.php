@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthPartnerController extends Controller
+class AuthUserController extends Controller
 {
     public function masuk()
     {
-        return view('partner.login', []);
+        return view('user.login', []);
     }
 
     public function proses_masuk(Request $request)
@@ -17,13 +18,13 @@ class AuthPartnerController extends Controller
 
         $username = $request->input('username');
         $password = $request->input('password');
-        if (Auth::guard('partner')->attempt(['username' => $username, 'password' => $password])) {
-            if (Auth::guard('partner')->user()->active == 1) {
+        if (auth()->attempt(['username' => $username, 'password' => $password])) {
+            if (auth()->user()->active == 1) {
                 session([
-                    'partner_id' => Auth::guard('partner')->user()->id,
+                    'user_id' => auth()->user()->id,
                 ]);
                 $request->session()->regenerate();
-                return redirect()->to("/app-mitra/dashboard");
+                return redirect()->to("/dashboard");
             } else {
                 session()->flash('msg', "<strong>Maaf, login gagal.</strong> <br> Akun anda tidak aktif !");
                 session()->flash('msg_status', 'danger');
@@ -38,12 +39,12 @@ class AuthPartnerController extends Controller
 
     public function keluar()
     {
-        Auth::guard('partner')->logout();
+        auth()->logout();
 
         request()->session()->invalidate();
 
         request()->session()->regenerateToken();
 
-        return redirect('/app-mitra');
+        return redirect('/masuk');
     }
 }
