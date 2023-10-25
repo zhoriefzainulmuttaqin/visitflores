@@ -17,13 +17,37 @@ class GallerySeeder extends Seeder
             ([
                 "data_id"   => 1,
                 "name"   => "Foto Depan",
-                "picture"   => "galery.jpg",
+                "picture"   => "waduk.png",
+                "type"   => 1,
+            ]),
+            ([
+                "data_id"   => 2,
+                "name"   => "Foto Depan",
+                "picture"   => "waduk.png",
+                "type"   => 1,
+            ]),
+            ([
+                "data_id"   => 3,
+                "name"   => "Foto Depan",
+                "picture"   => "waduk.png",
                 "type"   => 1,
             ]),
             ([
                 "data_id"   => 1,
                 "name"   => "Foto Depan",
-                "picture"   => "galery.jpg",
+                "picture"   => "hotel.png",
+                "type"   => 2,
+            ]),
+            ([
+                "data_id"   => 2,
+                "name"   => "Foto Depan",
+                "picture"   => "hotel.png",
+                "type"   => 2,
+            ]),
+            ([
+                "data_id"   => 3,
+                "name"   => "Foto Depan",
+                "picture"   => "hotel.png",
                 "type"   => 2,
             ]),
         ]);
