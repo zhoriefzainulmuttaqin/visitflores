@@ -4,6 +4,14 @@
 Wisata
 @endsection
 
-@section("content")
+@section("cover")
+<?= url('images/gedung.png') ?>
+@endsection
 
+@section("content")
+<div class="container mt-5">
+    <p>
+        Hallo
+    </p>
+</div>
 @endsection
