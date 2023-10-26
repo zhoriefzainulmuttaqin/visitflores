@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->bigInteger('child_id')->unsigned();
+            $table->string('username');
+            $table->string('password');
+            $table->string('email');
+            $table->string('name');
+            $table->string('phone');
+            $table->tinyInteger('active');
+            $table->integer('type');
         });
     }
 

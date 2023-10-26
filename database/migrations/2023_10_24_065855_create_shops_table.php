@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('cover_picture');
             $table->string('name');
             $table->string('slug');
+            $table->longText('details');
             $table->longText('address');
             $table->longText('facilities');
         });
