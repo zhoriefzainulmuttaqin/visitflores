@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ServiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,12 @@ Route::get('/', function () {
 Route::get('wisata', function () {
     return view('user.wisata');
 });
+
+Route::get("layanan-produk",[ServiceController::class,"product_services"]);
+Route::get("layanan-jasa",[ServiceController::class,"our_services"]);
+Route::get("layanan-jasa/konsultan",[ServiceController::class,"service_consultant"]);
+Route::get("layanan-jasa/konseptor",[ServiceController::class,"service_conceptor"]);
+Route::get("layanan-jasa/pemasaran",[ServiceController::class,"service_marketing"]);
 
 Route::get("landing",function(){
     return view("landing_2");

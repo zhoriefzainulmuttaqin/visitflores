@@ -60,10 +60,10 @@
 								<ul class="menu-container one-page-menu">
 									<li class="menu-item"><a class="menu-link" href="{{ url('/') }}"><div>Home</div></a></li>
 									<li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}"><div>Wisata</div></a></li>
-									<li class="menu-item"><a class="menu-link" href="#"><div>Event</div></a></li>
-									<li class="menu-item"><a class="menu-link" href="#"><div>Kuliner</div></a></li>
-									<li class="menu-item"><a class="menu-link" href="#"><div>Oleh - oleh</div></a></li>
-									<li class="menu-item"><a class="menu-link" href="#"><div>Berita</div></a></li>
+									<li class="menu-item"><a class="menu-link" href="{{ url('event') }}"><div>Event</div></a></li>
+									<li class="menu-item"><a class="menu-link" href="{{ url('kuliner') }}"><div>Kuliner</div></a></li>
+									<li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}"><div>Oleh - oleh</div></a></li>
+									<li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li>
 									<li class="menu-item">
 										<a class="menu-link" href="#">
 											<div>
@@ -73,10 +73,10 @@
 										</a>
 										<ul class="sub-menu-container mega-menu-dropdown p-lg-0">
 											<li class="menu-item">
-												<a class="menu-link" href="#"><div>Produk</div></a>
+												<a class="menu-link" href="{{ url('layanan-produk') }}"><div>Produk</div></a>
 											</li>
 											<li class="menu-item">
-												<a class="menu-link" href="#"><div>Jasa</div></a>
+												<a class="menu-link" href="{{ url('layanan-jasa') }}"><div>Jasa</div></a>
 											</li>
 										</ul>
 									</li>
@@ -86,14 +86,14 @@
 							<!-- Top Notif
 							============================================= -->
 							<div id="top-notif" class="header-misc-icon">
-								<a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">5</span></a>								
+								<a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">0</span></a>								
 							</div><!-- #top-notif end -->
 							<!-- Top Cart
 							============================================= -->
 							<div id="top-cart" class="header-misc-icon">
 								<a href="#" id="top-cart-trigger">
 									<i class="bi-cart"></i>
-									<span class="top-cart-number bg-danger">5</span>
+									<span class="top-cart-number bg-danger">0</span>
 								</a>
 							</div><!-- #top-cart end -->
 							<a href="#" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
@@ -113,28 +113,28 @@
 						<nav class="primary-menu d-block d-sm-block d-md-block d-lg-none d-xl-none">
 
 							<ul class="menu-container">
-                                <li class="menu-item"><a class="menu-link" href="{{ url('/') }}"><div>Home</div></a></li>
-                                <li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}"><div>Wisata</div></a></li>
-                                <li class="menu-item"><a class="menu-link" href="#"><div>Event</div></a></li>
-                                <li class="menu-item"><a class="menu-link" href="#"><div>Kuliner</div></a></li>
-                                <li class="menu-item"><a class="menu-link" href="#"><div>Oleh - oleh</div></a></li>
-                                <li class="menu-item"><a class="menu-link" href="#"><div>Berita</div></a></li>
-                                <li class="menu-item">
-                                    <a class="menu-link" href="#">
-                                        <div>
-                                            Layanan
-                                            <i class="bi-caret-down-fill text-smaller d-none d-lg-inline-block d-lg-inline-block d-xl-inline-block me-0"></i>
-                                        </div>
-                                    </a>
-                                    <ul class="sub-menu-container mega-menu-dropdown p-lg-0">
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="menu-dropdowns-blur.html"><div>Produk</div></a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="menu-link" href="menu-dropdowns-colors.html"><div>Jasa</div></a>
-                                        </li>
-                                    </ul>
-                                </li>
+							<li class="menu-item"><a class="menu-link" href="{{ url('/') }}"><div>Home</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}"><div>Wisata</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="{{ url('event') }}"><div>Event</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="{{ url('kuliner') }}"><div>Kuliner</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}"><div>Oleh - oleh</div></a></li>
+								<li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li>
+								<li class="menu-item">
+									<a class="menu-link" href="#">
+										<div>
+											Layanan
+											<i class="bi-caret-down-fill text-smaller d-none d-lg-inline-block d-lg-inline-block d-xl-inline-block me-0"></i>
+										</div>
+									</a>
+									<ul class="sub-menu-container mega-menu-dropdown p-lg-0">
+										<li class="menu-item">
+											<a class="menu-link" href="{{ url('layanan-produk') }}"><div>Produk</div></a>
+										</li>
+										<li class="menu-item">
+											<a class="menu-link" href="{{ url('layanan-jasa') }}"><div>Jasa</div></a>
+										</li>
+									</ul>
+								</li>
 								<li class="menu-item d-block d-md-none d-xl-none mb-3">
 									<a class="menu-link btn btn-danger btn-sm" href="#" data-href="#section-buy">
 										<div>
