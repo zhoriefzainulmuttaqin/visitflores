@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class LinkSeeder extends Seeder
+class AccomodationLinkSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -46,6 +46,6 @@ class LinkSeeder extends Seeder
             ]),
         ]);
 
-        DB::table('links')->insert($links);
+        DB::table('accomodation_links')->insert($links);
     }
 }

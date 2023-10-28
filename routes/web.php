@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TourController;
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +21,19 @@ use App\Http\Controllers\ServiceController;
 Route::get('/', function () {
     return view('user.home');
 });
-Route::get('wisata', function () {
-    return view('user.wisata');
-});
+// Route::get('wisata', function () {
+//     return view('user.tours');
+// });
+Route::get('/wisata', [TourController::class, 'tours']);
+Route::get('/kuliner', [RestaurantController::class, 'restaurants']);
+Route::get('/oleh-oleh', [ShopController::class, 'shops']);
 
-Route::get("layanan-produk",[ServiceController::class,"product_services"]);
-Route::get("layanan-jasa",[ServiceController::class,"our_services"]);
-Route::get("layanan-jasa/konsultan",[ServiceController::class,"service_consultant"]);
-Route::get("layanan-jasa/konseptor",[ServiceController::class,"service_conceptor"]);
-Route::get("layanan-jasa/pemasaran",[ServiceController::class,"service_marketing"]);
+Route::get("layanan-produk", [ServiceController::class, "product_services"]);
+Route::get("layanan-jasa", [ServiceController::class, "our_services"]);
+Route::get("layanan-jasa/konsultan", [ServiceController::class, "service_consultant"]);
+Route::get("layanan-jasa/konseptor", [ServiceController::class, "service_conceptor"]);
+Route::get("layanan-jasa/pemasaran", [ServiceController::class, "service_marketing"]);
 
-Route::get("landing",function(){
+Route::get("landing", function () {
     return view("landing_2");
 });
