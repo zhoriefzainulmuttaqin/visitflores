@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string("picture",255);
-            $table->string("cover_picture",255);
+            $table->string("picture",255)->nullable();
+            $table->string("cover_picture",255)->nullable();
             $table->string("name",255);
             $table->string("slug",255);
             $table->integer("minimum");

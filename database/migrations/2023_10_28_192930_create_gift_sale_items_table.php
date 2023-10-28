@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sale_package_items', function (Blueprint $table) {
+        Schema::create('gift_sale_items', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("sale_id")->unsigned();
-            $table->bigInteger("package_id")->unsigned();
+            $table->bigInteger("gift_id")->unsigned();
+            $table->integer("quantity");
             $table->string("snapshot_name",255);
-            $table->integer("snapshot_minimum");
             $table->string("snapshot_unit",255);
             $table->double("snapshot_price");
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sale_package_items');
+        Schema::dropIfExists('gift_sale_items');
     }
 };

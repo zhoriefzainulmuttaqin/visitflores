@@ -19,3 +19,8 @@
 .menu-item.current > .menu-link {
     color: #d6d6d6 !important;
 }
+#chatWA{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}

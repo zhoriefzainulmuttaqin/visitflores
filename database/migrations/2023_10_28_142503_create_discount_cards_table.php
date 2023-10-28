@@ -14,21 +14,18 @@ return new class extends Migration
         Schema::create('discount_cards', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("user_id")->unsigned();
-            $table->bigInteger("payment_id")->unsigned();
-            $table->bigInteger("admin_confirm_id")->unsigned();
+            $table->bigInteger("sale_id")->unsigned();
             $table->string("code",255);
-            $table->string("owner_name",255);
-            $table->string("owner_phone",255);
-            $table->string("owner_email",255);
-            $table->date("date_carted");
-            $table->string("time_carted",25);
-            $table->date("date_paid");
-            $table->string("time_paid",25);
-            $table->date("date_confirmed");
-            $table->string("time_confirmed",25);
-            $table->date("date_expired");
-            $table->string("time_expired",25);
-            $table->integer("status");
+            $table->string("owner_name",255)->nullable();
+            $table->string("owner_phone",255)->nullable();
+            $table->string("owner_email",255)->nullable();
+            $table->date("date_created");
+            $table->string("time_created",25);
+            $table->date("date_activated")->nullable();
+            $table->string("time_activated",25)->nullable();
+            $table->date("date_expired")->nullable();
+            $table->string("time_expired",25)->nullable();
+            $table->integer("status")->default(1);
         });
     }
 
