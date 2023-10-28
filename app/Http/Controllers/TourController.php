@@ -31,14 +31,16 @@ class TourController extends Controller
             ->where('categories.type', 3)
             ->where('tours.name', 'like',  '%' . $keyword . '%')
             ->where(function (Builder $query) use ($cat_list, $request) {
-                if ($request->cat_list[0] != "0") {
-                    $query->where(
-                        function (Builder $q) use ($cat_list) {
-                            foreach ($cat_list as $key => $value) {
-                                $q->orWhere('tours.category_id', $value);
+                if ($request->cat_list) {
+                    if ($request->cat_list[0] != "0") {
+                        $query->where(
+                            function (Builder $q) use ($cat_list) {
+                                foreach ($cat_list as $key => $value) {
+                                    $q->orWhere('tours.category_id', $value);
+                                }
                             }
-                        }
-                    );
+                        );
+                    }
                 }
             })
             ->select(['tours.*', 'categories.name as category_name'])
