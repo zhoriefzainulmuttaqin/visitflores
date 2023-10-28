@@ -165,7 +165,7 @@
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
 
-		<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 dark include-header" style="background: url(@yield('cover')) center center no-repeat; background-size: cover">
+		<section id="slider" class="slider-element slider-parallax min-vh-20 min-vh-md-40 dark include-header" style="background: url(<?= url('assets/header_cover.jpg') ?>) center center no-repeat; background-size: cover">
 			<div class="slider-inner">
 
 				<div class="vertical-middle slider-element-fade">
@@ -437,9 +437,8 @@
 	<!-- Go To Top
 	============================================= -->
 	<!-- <div id="gotoTop" class="uil uil-angle-up"></div> -->
-
 	<a href="https://wa.me/6285156878608" target="_blank" id="chatWA">
-		<img src="{{ url('assets/logo-wa.png') }}" width="80px" class="rounded-circle">
+		<img src="{{ url('assets/logo-wa.png') }}" width="60px" class="rounded-circle">
 	</a>
 
 	<!-- JavaScripts

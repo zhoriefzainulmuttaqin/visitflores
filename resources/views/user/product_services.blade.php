@@ -14,7 +14,7 @@ Layanan Produk
         <b>Tourism Card</b>
     </h1>
     <div class="container mt-5">
-        <div class="card shadow">
+        <div class="card shadow" id="BuyTourismCard">
             <div class="card-body p-5">
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-5 align-items-center">
@@ -34,6 +34,14 @@ Layanan Produk
                         <p class="h3">
                         <b>Kegunaan Kartu :</b> Kartu member yang bisa digunakan wisatawan untuk mendapatkan potongan harga dan promo spesial lainnya dari mitra yang bekerja sama dengan <span class="text-warning">VISITCIREBON.ID.</span>
                         </p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row mt-5">
+                    <div class="col-md-12 d-grid gap-2">
+                        <a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-success btn-lg">
+                            Beli Tourism Card
+                        </a>
                     </div>
                 </div>
             </div>

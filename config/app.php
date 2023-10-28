@@ -18,6 +18,8 @@ return [
 
     'name' => "Visit Cirebon",
 
+    'slogan' => "Never - Ending Experience",
+
     'cities'    => ([
         "Kota Cirebon",
         "Kabupaten Cirebon",
