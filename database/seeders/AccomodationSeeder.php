@@ -16,8 +16,8 @@ class AccomodationSeeder extends Seeder
         $accomodations = ([
             ([
                 "city"   => "Cirebon",
-                "picture"   => "akomodasi.jpg",
-                "cover_picture"   => "cover-akomodasi.jpg",
+                "picture"   => "hotel.png",
+                "cover_picture"   => "bg.png",
                 "name"   => "Aston",
                 "slug"   => "aston",
                 "details"   => "ini details tentang akomodasi aston yang ada di cirebon",
@@ -34,8 +34,8 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Cirebon",
-                "picture"   => "akomodasi.jpg",
-                "cover_picture"   => "cover-akomodasi.jpg",
+                "picture"   => "hotel.png",
+                "cover_picture"   => "bg.png",
                 "name"   => "Apita",
                 "slug"   => "apita",
                 "details"   => "ini details tentang akomodasi Apita yang ada di Cirebon",
@@ -52,8 +52,8 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Cirebon",
-                "picture"   => "akomodasi.jpg",
-                "cover_picture"   => "cover-akomodasi.jpg",
+                "picture"   => "hotel.png",
+                "cover_picture"   => "bg.png",
                 "name"   => "Garden",
                 "slug"   => "garden",
                 "details"   => "ini details tentang akomodasi Garden yang ada di Cirebon",

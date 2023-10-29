@@ -40,8 +40,8 @@
                         <div class="card shadow h-shadow-sm mb-5 overflow-hidden" style="border-radius: 40px">
                             <div class="row g-0">
                                 <div class="col-md-3">
-                                    <img src="{{ url('assets/hotel/hotel.png') }}" class="img-fluid w-100 h-100"
-                                        alt="...">
+                                    <img src='{{ url("assets/hotel/$accomodation->picture") }}'
+                                        class="img-fluid w-100 h-100" alt="...">
                                 </div>
                                 <div class="col-md-9 ps-3 pe-1">
                                     <h4 class="card-title fs-3">

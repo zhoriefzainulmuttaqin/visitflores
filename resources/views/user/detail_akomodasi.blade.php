@@ -12,7 +12,7 @@
 @endsection
 @section('content')
     <div class="container-lg mt-5">
-        <div class="row mb-5">
+        <div class="row">
             <div class="col-md-8">
                 <h1 class="fs-2 fw-bold">
                     {{ $accomodation->name }}
@@ -39,7 +39,9 @@
                         {{ $accomodation->phone }}
                         <br>
                         <i class="uil fs-3 text-warning uil-map-marker"></i>
-                        {{ $accomodation->address }}
+                        {{ $accomodation->address }}.<a href="{{ $accomodation->link_maps }}" class="text-warning fw-bold">
+                            Lihat
+                            Peta</a>
                     </div>
                 </h1>
             </div>
@@ -57,10 +59,20 @@
                     </div>
                 </font>
             </div>
-            <img src="{{ url('assets/hotel/bg.png') }}" class="img-fluid w-100 h-100" alt="...">
+        </div>
+        <div class="masonry-thumbs grid-container row row-cols-4 has-init-isotope" data-big="1" data-lightbox="gallery"
+            style="position: relative; height: 585.564px;">
+            <a class="grid-item grid-item-big" href='{{ url("assets/hotel/$accomodation->cover_picture") }}'
+                data-lightbox="gallery-item" style="position: absolute; left: 0%; top: 0px; width: 519.188px;"><img
+                    src="{{ url("assets/hotel/$accomodation->cover_picture") }}" alt="{{ $accomodation->name }}"></a>
+            @foreach ($accomodation->accomodation_galleries as $item)
+                <a class="grid-item" href="{{ url("assets/hotel/$item->picture") }}" data-lightbox="gallery-item"
+                    style="position: absolute; left: 39.9991%; top: 0px;"><img
+                        src="{{ url("assets/hotel/$item->picture") }}" alt="{{ $item->name }}"></a>
+            @endforeach
         </div>
         <div class="row my-5">
-            <div class="col-md-4 d-flex mb-3 mb-sm-0">
+            <div class="col-md-4 mb-1 mb-sm-0">
                 <div class="card w-100 border-1 mb-5 overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
@@ -78,49 +90,81 @@
                             <div class="text-lg fw-normal mt-2 fs-5">
                                 {{ nl2br($accomodation->details) }}
                             </div>
-                            <div class="fs-3 text-lg">
-                                @if (
-                                    $accomodation->link_youtube != null ||
-                                        $accomodation->link_instagram != null ||
-                                        $accomodation->link_facebook != null ||
-                                        $accomodation->link_tiktok != null)
-                                    <div class="entry-meta no-separator mb-3">
-                                        <ul>
-                                            @if ($accomodation->link_youtube != null)
-                                                <li><a href="{{ $accomodation->link_youtube }}"
-                                                        class="fw-normal text-dark"><i
-                                                            class="uil fs-2 link-warning text-dark uil-youtube"></i>
-                                                    </a></li>
-                                            @endif
-                                            @if ($accomodation->link_instagram != null)
-                                                <li><a href="{{ $accomodation->link_instagram }}"
-                                                        class="fw-normal text-dark"><i
-                                                            class="uil fs-2 link-warning text-dark bi-instagram"></i>
-                                                    </a></li>
-                                            @endif
-                                            @if ($accomodation->link_facebook != null)
-                                                <li><a href="{{ $accomodation->link_facebook }}"
-                                                        class="fw-normal text-dark"><i
-                                                            class="uil fs-2 link-warning text-dark uil-facebook"></i>
-                                                    </a></li>
-                                            @endif
-                                            @if ($accomodation->link_tiktok != null)
-                                                <li><a href="{{ $accomodation->link_tiktok }}"
-                                                        class="fw-normal text-dark"><i
-                                                            class="uil fs-2 link-warning text-dark fa-brands fa-tiktok"></i>
-                                                    </a></li>
-                                            @endif
-                                        </ul>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="fs-5 text-left float-start text-lg">
+                                        <font class="fs-4">
+                                            Pesan Sekarang :
+                                        </font>
+                                        <div class="entry-meta no-separator mb-3">
+                                            <ul>
+                                                @if ($accomodation->accomodation_links === true)
+                                                    @foreach ($accomodation->accomodation_links as $item)
+                                                        <li>
+                                                            <a href="{{ $item->url }}"
+                                                                class="fw-normal link-warning text-dark">
+                                                                {{ $item->source_name }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li class="fw-normal text-white"><i
+                                                            class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
                                     </div>
-                                @else
-                                    <div class="entry-meta no-separator mb-3">
-                                        <ul>
-                                            <li class="fw-normal text-white"><i
-                                                    class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
-                                            </li>
-                                        </ul>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="fs-3 text-right float-end text-lg">
+                                        <font class="fs-4">
+                                            Kunjungi :
+                                        </font>
+                                        @if (
+                                            $accomodation->link_youtube != null ||
+                                                $accomodation->link_instagram != null ||
+                                                $accomodation->link_facebook != null ||
+                                                $accomodation->link_tiktok != null)
+                                            <div class="entry-meta no-separator mb-3">
+                                                <ul>
+                                                    @if ($accomodation->link_youtube != null)
+                                                        <li><a href="{{ $accomodation->link_youtube }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark uil-youtube"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_instagram != null)
+                                                        <li><a href="{{ $accomodation->link_instagram }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark bi-instagram"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_facebook != null)
+                                                        <li><a href="{{ $accomodation->link_facebook }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark uil-facebook"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_tiktok != null)
+                                                        <li><a href="{{ $accomodation->link_tiktok }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark fa-brands fa-tiktok"></i>
+                                                            </a></li>
+                                                    @endif
+                                                </ul>
+                                            </div>
+                                        @else
+                                            <div class="entry-meta no-separator mb-3">
+                                                <ul>
+                                                    <li class="fw-normal text-white"><i
+                                                            class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endif
                                     </div>
-                                @endif
+                                </div>
                             </div>
                         </h5>
                     </div>
