@@ -10,6 +10,7 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/', function () {
 Route::get('/wisata', [TourController::class, 'tours']);
 Route::get('/kuliner', [RestaurantController::class, 'restaurants']);
 Route::get('/oleh-oleh', [ShopController::class, 'shops']);
+Route::get('/profil', [ProfileController::class, 'profile']);
 
 Route::get("layanan-produk", [ServiceController::class, "product_services"]);
 Route::get("layanan-jasa", [ServiceController::class, "our_services"]);
