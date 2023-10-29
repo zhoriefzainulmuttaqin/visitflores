@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger("payment_id")->unsigned()->nullable();
             $table->bigInteger("admin_confirm_id")->unsigned()->nullable();
             $table->integer("quantity");
+            $table->double("price");
             $table->date("date_carted");
             $table->string("time_carted",25);
             $table->string("paid_confirmation_file",255)->nullable();

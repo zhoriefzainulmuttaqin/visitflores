@@ -12,9 +12,9 @@ Pembelian Tourism Card Berhasil
     <div class="container mt-5">
         <div class="card shadow" id="BuyTourismCard">
             <div class="card-body p-5">
-                <div class="alert alert-success">
+                <div class="alert alert-info">
                     <b>Berhasil</b> <br>
-                    Pembelian Tourism Card berhasil, silahkan lakukan pembayaran kemudian konfirmasi melalui halaman konfirmasi pembayaran.
+                    Pemesanan Tourism Card berhasil, silahkan lakukan pembayaran kemudian konfirmasi melalui halaman konfirmasi pembayaran.
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center">
@@ -37,8 +37,11 @@ Pembelian Tourism Card Berhasil
                         $saleNo = "0".$sale->id;                        
                     }
                     ?>
-                    <b class="h3">Pembelian#{{ $saleNo }}</b>
+                    <b class="h2">Pembelian#{{ $saleNo }}</b>
                     <br>
+                </p>
+                <p>
+                    <b class="h3">Rp. {{ number_format(($sale->quantity * $sale->price),0,",",".") }}</b> <br>
                     Jumlah : {{ $sale->quantity }}
                 </p>
                 <p>

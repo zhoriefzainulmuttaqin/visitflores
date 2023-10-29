@@ -438,7 +438,7 @@
 	============================================= -->
 	<!-- <div id="gotoTop" class="uil uil-angle-up"></div> -->
 	<a href="https://wa.me/6285156878608" target="_blank" id="chatWA">
-		<img src="{{ url('assets/logo-wa.png') }}" width="60px" class="rounded-circle">
+		<img src="{{ url('assets/logo-wa.png') }}" width="50px" class="rounded-circle">
 	</a>
 
 	<!-- JavaScripts

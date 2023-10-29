@@ -40,6 +40,7 @@ class ServiceController extends Controller
             "user_id"   => Auth()->user()->id,
             "payment_id" => $request->payment,
             "quantity" => $request->quantity,
+            "price" => $request->price,
             "date_carted"   => date("Y-m-d"),
             "time_carted" => date("H:i"),
             "status" => 1

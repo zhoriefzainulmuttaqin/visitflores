@@ -23,6 +23,7 @@ Beli Tourism Card
                 <div class="clearfix"></div>
                 <form method="post" action="{{ url('proses-beli/tourism-card') }}" class="mt-5">
                     @csrf
+                    <input type="hidden" name="price" value="{{ getOption('tourism_card_price') }}">
                     <div class="row justify-content-center">
                         <div class="col-md-7">
                             <div class="mb-3">
@@ -50,6 +51,13 @@ Beli Tourism Card
                                 </div>
                                 @endforeach
                             </div>
+                            <div class="mb-2">
+                                <div class="row mt-5">
+                                    <p class="h3 text-center">
+                                        <b id="cardPrice">Harga : Rp. {{ number_format(getOption('tourism_card_price'),0,",",".") }}</b>
+                                    </p>
+                                </div>
+                            </div>
                             <div class="mb-2 d-grid gap-2">
                                 <button type="submit" class="btn btn-success">
                                     Beli Tourism Card
@@ -70,20 +78,32 @@ Beli Tourism Card
 <script>
 
 function minQuantity(){
+    let cardPrice = parseInt(<?= getOption('tourism_card_price') ?>);
     let cardQuantity = parseInt($("#CardQuantity").val());
+    let cardTotalPrice = 0;
 
     if(cardQuantity > 1){
         cardQuantity -= 1;
     }
 
+    cardTotalPrice = cardQuantity * cardPrice;
+    let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
+
+    $("#cardPrice").html(`Harga : Rp. ${cardValuePrice}`);
     $("#CardQuantity").val(cardQuantity);
 }
 
 function plusQuantity(){
+    let cardPrice = parseInt(<?= getOption('tourism_card_price') ?>);
     let cardQuantity = parseInt($("#CardQuantity").val());
+    let cardTotalPrice = 0;
 
     cardQuantity += 1;
 
+    cardTotalPrice = cardQuantity * cardPrice;
+    let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
+
+    $("#cardPrice").html(`Harga : Rp. ${cardValuePrice}`);
     $("#CardQuantity").val(cardQuantity);
 }
 
