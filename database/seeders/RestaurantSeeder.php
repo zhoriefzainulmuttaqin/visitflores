@@ -22,6 +22,12 @@ class RestaurantSeeder extends Seeder
                 "slug"   => "resto-a",
                 "address"   => "Jln. Pahlawan No. 70",
                 "facilities"   => "Minum Gratis, Wifi, Parkir Luas",
+                "phone"   => "2312313",
+                "price"   => 25000,
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
             ]),
             ([
                 "city"   => "Cirebon",
@@ -31,6 +37,12 @@ class RestaurantSeeder extends Seeder
                 "slug"   => "resto-b",
                 "address"   => "Jln. Pahlawan No. 70",
                 "facilities"   => "Minum Gratis, Wifi, Parkir Luas",
+                "phone"   => "2312313",
+                "price"   => 25000,
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
             ]),
             ([
                 "city"   => "Cirebon",
@@ -40,6 +52,12 @@ class RestaurantSeeder extends Seeder
                 "slug"   => "resto-c",
                 "address"   => "Jln. Pahlawan No. 70",
                 "facilities"   => "Minum Gratis, Wifi, Parkir Luas",
+                "phone"   => "2312313",
+                "price"   => 25000,
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
             ]),
         ]);
 

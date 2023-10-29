@@ -59,6 +59,10 @@ Layanan Jasa Konsultan Bisnis Pariwisata
             <i class='fa fa-arrow-left'></i>
             Kembali
         </a>
+        <a href="https://wa.me/6285156878608" target="_blank" class="btn btn-success">
+            <i class="bi-whatsapp"></i>
+            Mari Diskusi
+        </a>
     </div>
     <div class="mt-5 mb-5"></div>
     <div class="clearfix"></div>

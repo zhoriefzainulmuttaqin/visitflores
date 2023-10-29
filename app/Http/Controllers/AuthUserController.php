@@ -10,7 +10,11 @@ class AuthUserController extends Controller
 {
     public function masuk()
     {
-        return view('user.login', []);
+        if(Auth()->check()){
+            return redirect('/');
+        }else{
+            return view('user.login', []);
+        }
     }
 
     public function proses_masuk(Request $request)
@@ -24,7 +28,7 @@ class AuthUserController extends Controller
                     'user_id' => auth()->user()->id,
                 ]);
                 $request->session()->regenerate();
-                return redirect()->to("/dashboard");
+                return redirect()->to("/");
             } else {
                 session()->flash('msg', "<strong>Maaf, login gagal.</strong> <br> Akun anda tidak aktif !");
                 session()->flash('msg_status', 'danger');
@@ -40,11 +44,8 @@ class AuthUserController extends Controller
     public function keluar()
     {
         auth()->logout();
-
         request()->session()->invalidate();
-
         request()->session()->regenerateToken();
-
         return redirect('/masuk');
     }
 }

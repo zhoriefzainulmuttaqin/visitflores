@@ -4,8 +4,8 @@
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta http-equiv="x-ua-compatible" content="IE=edge">
-	<meta name="author" content="SemiColonWeb">
-	<meta name="description" content="Get Canvas to build powerful websites easily with the Highly Customizable &amp; Best Selling Bootstrap Template, today.">
+	<meta name="author" content="{{ config('app.name') }}">
+	<meta name="description" content="{{ config('app.name') }} - {{ config('app.slogan') }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Font Imports -->
@@ -26,7 +26,7 @@
 	<!-- Document Title
 	============================================= -->
 	<link href="{{ url('images/logosaja.png') }}" rel="icon" type="image/png">
-	<title>@yield("title") | {{ config("app.name") }}</title>
+	<title>@yield("title") | {{ config("app.name") }} - {{ config('app.slogan') }}</title>
 
 	@yield("style")
 
@@ -48,8 +48,8 @@
 						============================================= -->
 						<div id="logo">
 							<a href="{{ url('/') }}" class="ps-2">
-								<img class="logo-default py-1" srcset="{{ url('images/logo-visit.png') }}" src="{{ url('images/logo-visit.png') }}" alt="Logo Visit Cirebon">
-								<img class="logo-dark py-1" srcset="{{ url('images/logo.png') }}" src="{{ url('images/logo.png') }}" alt="Logo Visit Cirebon">
+								<img class="logo-default py-1" srcset="{{ url('assets/logo-dark.png') }}" src="{{ url('assets/logo-dark.png') }}" alt="Logo Visit Cirebon">
+								<img class="logo-dark py-1" srcset="{{ url('assets/logo-light.png') }}" src="{{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
 							</a>
 						</div><!-- #logo end -->
 
@@ -63,7 +63,7 @@
 									<li class="menu-item"><a class="menu-link" href="{{ url('event') }}"><div>Event</div></a></li>
 									<li class="menu-item"><a class="menu-link" href="{{ url('kuliner') }}"><div>Kuliner</div></a></li>
 									<li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}"><div>Oleh - oleh</div></a></li>
-									<li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li>
+									<!-- <li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li> -->
 									<li class="menu-item">
 										<a class="menu-link" href="#">
 											<div>
@@ -85,21 +85,30 @@
 							</nav><!-- #primary-menu end -->
 							<!-- Top Notif
 							============================================= -->
-							<div id="top-notif" class="header-misc-icon">
+							<!-- <div id="top-notif" class="header-misc-icon">
 								<a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">0</span></a>								
-							</div><!-- #top-notif end -->
+							</div> -->
+							<!-- #top-notif end -->
 							<!-- Top Cart
 							============================================= -->
-							<div id="top-cart" class="header-misc-icon">
+							<!-- <div id="top-cart" class="header-misc-icon">
 								<a href="#" id="top-cart-trigger">
 									<i class="bi-cart"></i>
 									<span class="top-cart-number bg-danger">0</span>
 								</a>
-							</div><!-- #top-cart end -->
-							<a href="#" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
+							</div> -->
+							<!-- #top-cart end -->
+							@if(Auth()->check())
+							<a href="{{ url('profil') }}" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
+								<i class="uil-user"></i>
+								Profil
+							</a>
+							@else
+							<a href="{{ url('login') }}" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
 								<i class="uil-signin"></i>
 								Login
 							</a>
+							@endif
 							
 						</div>
 						<div class="primary-menu-trigger">
@@ -118,7 +127,7 @@
 								<li class="menu-item"><a class="menu-link" href="{{ url('event') }}"><div>Event</div></a></li>
 								<li class="menu-item"><a class="menu-link" href="{{ url('kuliner') }}"><div>Kuliner</div></a></li>
 								<li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}"><div>Oleh - oleh</div></a></li>
-								<li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li>
+								<!-- <li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li> -->
 								<li class="menu-item">
 									<a class="menu-link" href="#">
 										<div>
@@ -136,7 +145,7 @@
 									</ul>
 								</li>
 								<li class="menu-item d-block d-md-none d-xl-none mb-3">
-									<a class="menu-link btn btn-danger btn-sm" href="#" data-href="#section-buy">
+									<a class="menu-link btn btn-danger btn-sm" href="{{ url('login') }}" data-href="#section-buy">
 										<div>
 											<i class="uil-signin"></i>
 											Login
@@ -427,10 +436,15 @@
 
 	<!-- Go To Top
 	============================================= -->
-	<div id="gotoTop" class="uil uil-angle-up"></div>
+	<!-- <div id="gotoTop" class="uil uil-angle-up"></div> -->
+
+	<a href="https://wa.me/6285156878608" target="_blank" id="chatWA">
+		<img src="{{ url('assets/logo-wa.png') }}" width="80px" class="rounded-circle">
+	</a>
 
 	<!-- JavaScripts
 	============================================= -->
+	<script src="{{ url('js/jquery-3.7.1.min.js') }}"></script>
 	<script src="{{ url('canvas') }}/js/plugins.min.js"></script>
 	<script src="{{ url('canvas') }}/js/functions.bundle.js"></script>
 

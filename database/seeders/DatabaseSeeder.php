@@ -23,16 +23,13 @@ class DatabaseSeeder extends Seeder
             AdministratorSeeder::class,
             AccomodationSeeder::class,
             CategorySeeder::class,
-            CulinarySeeder::class,
             EventSeeder::class,
-            GallerySeeder::class,
-            LinkSeeder::class,
+            AccomodationGallerySeeder::class,
+            AccomodationLinkSeeder::class,
             NewsSeeder::class,
             PartnerSeeder::class,
-            ProductSeeder::class,
             RestaurantSeeder::class,
             ShopSeeder::class,
-            TicketSeeder::class,
             TourSeeder::class,
         ]);
     }
