@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 class GiftSaleItem extends Model
 {
     use HasFactory;
@@ -12,4 +14,8 @@ class GiftSaleItem extends Model
     protected $table = 'gift_sale_items';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
+    public function gift(){
+        return $this->belongsTo(Gift::class,'gift_id','id');
+    }
 }

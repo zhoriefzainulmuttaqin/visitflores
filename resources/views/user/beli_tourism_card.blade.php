@@ -29,9 +29,9 @@ Beli Tourism Card
                             <div class="mb-3">
                                 <label>Jumlah</label>
                                 <div class="input-group input-group-lg">
-                                    <button class="btn btn-info text-white" onclick="minQuantity()" type="button">-</button>
+                                    <button class="btn btn-info bg-btn-visit text-white" onclick="minQuantity()" type="button">-</button>
                                     <input type="number" class="form-control" name="quantity" min="1" value="1" placeholder="Jumlah Tourism Card Yang Dibeli" id="CardQuantity">
-                                    <button class="btn btn-info text-white" onclick="plusQuantity()" type="button">+</button>
+                                    <button class="btn btn-info bg-btn-visit text-white" onclick="plusQuantity()" type="button">+</button>
                                 </div>
                             </div>
                             <div class="mb-2">

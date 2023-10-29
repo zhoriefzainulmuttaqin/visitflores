@@ -1,7 +1,7 @@
 @extends("user.template_no_cover")
 
 @section("title")
-Pembelian Tourism Card Berhasil
+Konfirmasi Pembelian Tourism Card
 @endsection
 
 @section("content")
@@ -14,7 +14,7 @@ Pembelian Tourism Card Berhasil
             <div class="card-body p-5">
                 <div class="alert alert-info">
                     <b>Berhasil</b> <br>
-                    Pemesanan Tourism Card berhasil, silahkan lakukan pembayaran kemudian konfirmasi melalui halaman konfirmasi pembayaran.
+                    Pemesanan Tourism Card berhasil, silahkan lakukan pembayaran kemudian konfirmasi pembayaran melalui chat admin dengan klik tombol di bawah.
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center">
@@ -36,8 +36,9 @@ Pembelian Tourism Card Berhasil
                     }else{
                         $saleNo = "0".$sale->id;                        
                     }
+                    $saleKode = "#".date("ymd",strtotime($sale->date_carted)).$sale->user_id.$saleNo;
                     ?>
-                    <b class="h2">Pembelian#{{ $saleNo }}</b>
+                    <b class="h2">{{ $saleKode }}</b>
                     <br>
                 </p>
                 <p>
@@ -50,6 +51,11 @@ Pembelian Tourism Card Berhasil
                     {{ $sale->payment->account_name }} <br>
                     {{ $sale->payment->account_number }}
                 </p>
+                <div class="d-grid gap-2">
+                    <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=Halo, saya *<?= Auth()->user()->name ?>* ingin konfirmasi pembayaran untuk pembelian Tourism Card *No.<?= str_replace('#','',$saleKode) ?>*." target="_blank" class="btn btn-info text-white">
+                        Konfirmasi Pembayaran
+                    </a>
+                </div>
             </div>
         </div>
     </div>    

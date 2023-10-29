@@ -23,6 +23,30 @@ class OptionSeeder extends Seeder
             ([
                 "option_code" => "cs_phone",
                 "option_value" => "089123123",
+            ]),
+            ([
+                "option_code" => "email",
+                "option_value" => "visitcirebon@gmail.com",
+            ]),
+            ([
+                "option_code" => "slogan",
+                "option_value" => "Never-Ending Experience",
+            ]),
+            ([
+                "option_code" => "fb_link",
+                "option_value" => "https://facebook.com/",
+            ]),
+            ([
+                "option_code" => "ig_link",
+                "option_value" => "https://instagram.com/",
+            ]),
+            ([
+                "option_code" => "tiktok_link",
+                "option_value" => "https://tiktok.com/",
+            ]),
+            ([
+                "option_code" => "youtube_link",
+                "option_value" => "https://www.youtube.com",
             ])
         ]);
 

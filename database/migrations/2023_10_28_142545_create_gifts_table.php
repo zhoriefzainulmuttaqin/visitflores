@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("slug",255);
             $table->double("price");
             $table->string("unit",255);
+            $table->double("weight");
             $table->longText("contents");
         });
     }
