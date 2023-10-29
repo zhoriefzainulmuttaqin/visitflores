@@ -30,6 +30,7 @@ class AccomodationSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/TLv38Mh5z1fifei68",
             ]),
             ([
                 "city"   => "Cirebon",
@@ -47,6 +48,7 @@ class AccomodationSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/TLv38Mh5z1fifei68",
             ]),
             ([
                 "city"   => "Cirebon",
@@ -64,6 +66,7 @@ class AccomodationSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/TLv38Mh5z1fifei68",
             ]),
         ]);
 
