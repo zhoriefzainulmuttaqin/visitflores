@@ -41,8 +41,8 @@ Route::get("layanan-jasa/pemasaran", [ServiceController::class, "service_marketi
 Route::get("event", [EventController::class, "event"]);
 Route::get("akomodasi", [AkomodasiController::class, "akomodasi"]);
 Route::get("berita", [BeritaController::class, "berita"]);
-Route::get("detail-berita", [BeritaController::class, "detail_berita"]);
-Route::get("detail-akomodasi", [AkomodasiController::class, "detail_akomodasi"]);
+Route::get("detail-berita/{slug}", [BeritaController::class, "detail_berita"]);
+Route::get("detail-akomodasi/{slug}", [AkomodasiController::class, "detail_akomodasi"]);
 
 Route::get("landing", function () {
     return view("landing_2");

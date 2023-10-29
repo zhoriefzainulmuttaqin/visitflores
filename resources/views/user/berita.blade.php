@@ -19,42 +19,62 @@
 
         <div class="row my-5">
             <div class="col col-md-8 mb-3 mb-sm-0">
-                @for ($i = 0; $i < 2; $i++)
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card shadow h-shadow-sm mb-5 overflow-hidden">
-                                <div class="row g-0">
-                                    <div class="col-md-3">
-                                        <img src="{{ url('assets/berita/berita1.png') }}" class="img-fluid w-100 h-100"
-                                            alt="...">
-                                    </div>
-                                    <div class="col-md-9 ps-3 pe-1">
-                                        <h4 class="card-title fs-3">
-                                            <small class="rounded fs-5 text-warning me-2">
-                                                Wisata
-                                            </small>
-                                            <br>
-                                            26 Wiasata di Cirebon Terbaru yang Lagi Hits, Wajib Banget dikunjungi
-                                            <div class="text-lg fw-normal fs-5">
-                                                8 Agustus 2023
-                                            </div>
-                                        </h4>
+                <?php
+                $i = 0;
+                ?>
+                @foreach ($news as $new)
+                    @if ($i <= $batas)
+                        <?php
+                        $i++;
+                        ?>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card shadow h-shadow-sm mb-5 overflow-hidden">
+                                    <div class="row g-0">
+                                        <div class="col-md-3">
+                                            <img src="{{ url("assets/berita/$new->cover_picture") }}"
+                                                class="img-fluid w-100 h-100">
+                                        </div>
+                                        <div class="col-md-9 ps-3 pe-1">
+                                            <h4 class="card-title fs-3">
+                                                <small class="rounded fs-5 text-warning me-2">
+                                                    {{ $new->category_name }}
+                                                </small>
+                                                <br>
+                                                <a href='{{ url("/detail-berita/$new->slug") }}'
+                                                    class="link-underline-opacity-0 text-dark">
+                                                    {{ $new->name }}
+                                                </a>
+                                                <div class="text-lg fw-normal fs-5">
+                                                    <?php
+                                                    $date = date_create($new->published_date);
+                                                    $days = config('app.days');
+                                                    $months = config('app.months');
+                                                    $hari = $days[date_format($date, 'l')];
+                                                    $tanggal = date_format($date, 'd');
+                                                    $bulan = $months[date_format($date, 'F')];
+                                                    $tahun = date_format($date, 'Y');
+                                                    echo "$hari, $tanggal $bulan $tahun";
+                                                    ?>
+                                                </div>
+                                            </h4>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endfor
+                    @endif
+                @endforeach
             </div>
 
             <div class="col col-md-4">
-                @for ($i = 0; $i < 2; $i++)
+                @foreach ($news->skip($i) as $new)
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card mb-3 shadow h-shadow-sm">
                                 <div class="row g-0">
                                     <div class="col-md-12">
-                                        <img src="{{ url('assets/berita/berita3.png') }}"
+                                        <img src="{{ url("assets/berita/$new->cover_picture") }}"
                                             style="object-fit: cover;
                                     width: 100%;
                                     height: 200px;"
@@ -64,16 +84,19 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <small class="rounded fs-5 text-warning me-2">
-                                            Wisata
+                                            {{ $new->category_name }}
                                         </small>
-                                        <p class="card-text">26 Wiasata di Cirebon Terbaru yang Lagi Hits, Wajib Banget
-                                            dikunjungi</p>
+                                        <br>
+                                        <a href='{{ url("/detail-berita/$new->slug") }}'
+                                            class="link-underline-opacity-0 link-info text-dark">
+                                            {{ $new->name }}
+                                        </a>
                                     </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
 
