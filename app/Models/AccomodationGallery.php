@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VoucherItem extends Model
+class Gallery extends Model
 {
     use HasFactory;
-    protected $table = 'voucher_items';
+    public $timestamps = false;
+    protected $table = 'accomodation_galleries';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
 }

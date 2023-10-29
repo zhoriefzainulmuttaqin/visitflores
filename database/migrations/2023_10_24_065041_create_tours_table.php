@@ -21,6 +21,12 @@ return new class extends Migration
             $table->string('cover_picture');
             $table->longText('address');
             $table->longText('facilities');
+            $table->longText('phone');
+            $table->longText('price');
+            $table->string('link_instagram')->nullable();
+            $table->string('link_facebook')->nullable();
+            $table->string('link_tiktok')->nullable();
+            $table->string('link_youtube')->nullable();
         });
     }
 

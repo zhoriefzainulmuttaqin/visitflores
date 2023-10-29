@@ -23,6 +23,12 @@ return new class extends Migration
             $table->integer('star');
             $table->double('price_start_from');
             $table->longText('facilities');
+            $table->longText('phone');
+            $table->string('link_instagram')->nullable();
+            $table->string('link_facebook')->nullable();
+            $table->string('link_tiktok')->nullable();
+            $table->string('link_youtube')->nullable();
+            $table->string('link_maps')->nullable();
         });
     }
 

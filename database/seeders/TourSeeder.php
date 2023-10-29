@@ -23,6 +23,12 @@ class TourSeeder extends Seeder
                 "cover_picture"   => "cover-tour.png",
                 "address"   => "Jln. Pahlawan No 45, Cirebon",
                 "facilities"   => "Mobil AC, Makan Gratis, Tiker Gratis",
+                "phone"   => "4231432",
+                "price"   => 24000,
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
             ]),
             ([
                 "category_id"   => 3,
@@ -33,6 +39,12 @@ class TourSeeder extends Seeder
                 "cover_picture"   => "cover-tour.png",
                 "address"   => "Jln. Pahlawan No 45, Tegal",
                 "facilities"   => "Mobil AC, Makan Gratis, Tiker Gratis",
+                "phone"   => "2312313",
+                "price"   => 25000,
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
             ]),
             ([
                 "category_id"   => 3,
@@ -43,6 +55,12 @@ class TourSeeder extends Seeder
                 "cover_picture"   => "cover-tour.png",
                 "address"   => "Jln. Pahlawan No 45, Pemalang",
                 "facilities"   => "Mobil AC, Makan Gratis, Tiker Gratis",
+                "phone"   => "77636345",
+                "price"   => 26000,
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
             ]),
         ]);
 

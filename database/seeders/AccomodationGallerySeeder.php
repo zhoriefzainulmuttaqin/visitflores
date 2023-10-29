@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class GallerySeeder extends Seeder
+class AccomodationGallerySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -52,6 +52,6 @@ class GallerySeeder extends Seeder
             ]),
         ]);
 
-        DB::table('galleries')->insert($galleries);
+        DB::table('accomodation_galleries')->insert($galleries);
     }
 }

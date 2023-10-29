@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->id();
-            $table->string("option_code",255);
+            $table->string("option_code", 255);
             $table->longText("option_value")->nullable();
         });
     }

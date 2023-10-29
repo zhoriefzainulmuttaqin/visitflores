@@ -25,6 +25,12 @@ class AccomodationSeeder extends Seeder
                 "star"   => 4,
                 "price_start_from"   => 500000,
                 "facilities"   => "Wifi, TV 4K, Double Bad",
+                "phone"   => "2312313",
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/TLv38Mh5z1fifei68",
             ]),
             ([
                 "city"   => "Cirebon",
@@ -37,6 +43,12 @@ class AccomodationSeeder extends Seeder
                 "star"   => 5,
                 "price_start_from"   => 700000,
                 "facilities"   => "Wifi, TV 4K, Double Bad",
+                "phone"   => "2312313",
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/TLv38Mh5z1fifei68",
             ]),
             ([
                 "city"   => "Cirebon",
@@ -49,6 +61,12 @@ class AccomodationSeeder extends Seeder
                 "star"   => 3,
                 "price_start_from"   => 800000,
                 "facilities"   => "Wifi, TV 4K, Double Bad",
+                "phone"   => "2312313",
+                "link_youtube"   => "https://www.youtube.com/",
+                "link_tiktok"   => "https://www.tiktok.com/",
+                "link_facebook"   => "https://www.facebook.com/",
+                "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/TLv38Mh5z1fifei68",
             ]),
         ]);
 
