@@ -48,39 +48,65 @@
         
                             <div class="accordion-header">
                                 <div class="accordion-icon">
-                                    <i class="accordion-closed fa-solid fa-lock"></i>
-                                    <i class="accordion-open bi-unlock"></i>
+                                    <i class="accordion-closed bi-person"></i>
+                                    <i class="accordion-open bi-check-circle-fill"></i>
                                 </div>
                                 <div class="accordion-title">
-                                    Masuk Akun
+                                    Daftar Akun Baru
                                 </div>
                             </div>
                             <div class="accordion-content">
-                                <form id="login-form" name="login-form" class="row mb-0" action="{{ url('proses-login') }}" method="post">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role="alert">
+                                        @foreach ($errors->all() as $error)
+                                            <i class="uil fa-brands bi-dot text-dark"></i> {{ $error }} <br>
+                                        @endforeach
+                                    </div>
+                                @endif
+                                <form id="register-form" name="register-form" class="row mb-0" action="{{ url('proses-registrasi') }}" method="post">
                                     @csrf
                                     <div class="col-12 form-group">
-                                        <label for="login-form-username">Username</label>
-                                        <input type="text" id="login-form-username" name="username" value="" class="form-control">
+                                        <label for="register-form-name">Nama</label>
+                                        <input type="text" id="register-form-name" name="name" value="{{ old('name') }}" class="form-control" required>
                                     </div>
         
                                     <div class="col-12 form-group">
-                                        <label for="login-form-password">Password</label>
-                                        <input type="password" id="login-form-password" name="password" value="" class="form-control">
+                                        <label for="register-form-email">Email</label>
+                                        <input type="text" id="register-form-email" name="email" value="{{ old('email') }}" class="form-control" required>
                                     </div>
         
                                     <div class="col-12 form-group">
+                                        <label for="register-form-username">Username:</label>
+                                        <input type="text" id="register-form-username" name="username" value="{{ old('username') }}" class="form-control" required>
+                                    </div>
+        
+                                    <div class="col-12 form-group">
+                                        <label for="register-form-phone">No. Handphone</label>
+                                        <input type="text" id="register-form-phone" name="phone" value="{{ old('phone') }}" class="form-control" required>
+                                    </div>
+        
+                                    <div class="col-12 form-group">
+                                        <label for="register-form-password">Password</label>
+                                        <input type="password" id="register-form-password" name="password" value="{{ old('password') }}" class="form-control" required>
+                                    </div>
+        
+                                    <div class="col-12 form-group">
+                                        <label for="register-form-repassword">Konfirmasi Password</label>
+                                        <input type="password" id="register-form-repassword" name="password_confirmation" value="{{ old('password_confirmation') }}" class="form-control" required>
+                                    </div>
+                                     <div class="col-12 form-group">
                                         <div class="d-flex justify-content-between">
-                                            <button class="button button-3d button-black m-0" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+                                            <button class="button button-3d button-black m-0" id="register-form-submit" name="register-form-submit" value="register">Daftar Sekarang</button>
                                             <a href="{{ url('/') }}">Kembali ke home</a>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="col-12 mt-3">
-                                        <p class="text-center">Belum punya akun? <a href="{{ url('registrasi') }}">Daftar Sekarang !</a></p>
+                                        <p class="text-center">Sudah punya akun? <a href="{{ url('login') }}">Login !</a></p>
                                     </div>
                                 </form>
                             </div>
-
+        
                         </div>
                     </div>
                     <div class="col-md-4 d-none d-md-block">

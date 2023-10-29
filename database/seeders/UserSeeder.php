@@ -24,7 +24,9 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123456789'),
             'email' => 'ahmad@gmail.com',
             'phone' => '089123123',
-            'address' => 'Talun'
+            'address' => 'Talun',
+            'picture' => 'picture.jpg',
+            'active' => 1,
         ]);
     }
 }

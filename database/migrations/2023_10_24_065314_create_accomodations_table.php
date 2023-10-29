@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('link_facebook')->nullable();
             $table->string('link_tiktok')->nullable();
             $table->string('link_youtube')->nullable();
+            $table->string('link_maps')->nullable();
         });
     }
 
