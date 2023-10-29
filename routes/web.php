@@ -42,6 +42,8 @@ Route::get("landing", function () {
 
 Route::get("login", [AuthUserController::class, "masuk"]);
 Route::post("proses-login", [AuthUserController::class, "proses_masuk"]);
+Route::get("registrasi", [AuthUserController::class, "registrasi"]);
+Route::post("proses-registrasi", [AuthUserController::class, "proses_registrasi"]);
 
 Route::get("layanan-produk", [ServiceController::class, "product_services"]);
 Route::get("layanan-produk/tourism-card", [ServiceController::class, "tourism_card"]);

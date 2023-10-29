@@ -20,8 +20,8 @@ return new class extends Migration
             // $table->rememberToken();
             // $table->timestamps();
             $table->string('phone');
-            $table->string('piture');
-            $table->longText('address');
+            $table->string('picture')->nullable();
+            $table->longText('address')->nullable();
             $table->tinyInteger('active');
         });
     }
