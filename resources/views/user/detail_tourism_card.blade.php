@@ -34,6 +34,13 @@ Tourism Card
                 </div>
                 <div class="clearfix"></div>
                 <div class="row mt-5">
+                    <div class="col-md-12">
+                        <p class="h2 text-center">
+                            <b>Harga : Rp. {{ number_format(getOption('tourism_card_price'),0,",",".") }}</b>
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-2">
                     <div class="col-md-12 d-grid gap-2">
                         <a href="{{ url('beli/tourism-card') }}" class="btn btn-success btn-lg">
                             Beli Tourism Card

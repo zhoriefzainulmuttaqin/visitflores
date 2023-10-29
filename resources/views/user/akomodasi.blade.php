@@ -1,7 +1,7 @@
 @extends('user.template')
 
 @section('title')
-    Hotel
+    Akomodasi
 @endsection
 
 @section('cover')

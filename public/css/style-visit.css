@@ -23,4 +23,12 @@
     position: fixed;
     bottom: 15px;
     right: 15px;
+    z-index: 25;
+}
+.bg-btn-visit{
+    background-color: #122f4d !important;
+    border-color: #122f4d !important;
+}
+.bg-blue-visit{
+    background-color: #122f4d !important;
 }
