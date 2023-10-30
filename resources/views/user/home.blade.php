@@ -5,6 +5,7 @@
 @endsection
 
 @section('style')
+    <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
     <link rel="stylesheet" href="{{ url('swiperjs/swiper-bundle.min.css') }}" />
     <style>
         #home-event-container {
@@ -333,6 +334,32 @@
                                                     <img class="rounded-circle mx-auto w-auto mb-4"
                                                         src="{{ url('assets/profil/user_default.png') }}" width="64"
                                                         height="64" alt="Customer Testimonails">
+                                                    <div
+                                                        class="rating-container theme-krajee-svg rating-md rating-animate">
+                                                        <div class="rating-stars" tabindex="0"><span
+                                                                class="empty-stars"><span class="star"
+                                                                    title="One Star"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Two Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Three Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Four Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Five Stars"><span
+                                                                        class="bi-star"></span></span></span><span
+                                                                class="filled-stars" style="width: 100%;"><span
+                                                                    class="star" title="One Star"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Two Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Three Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Four Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Five Stars"><span
+                                                                        class="bi-star-fill"></span></span></span></div>
+                                                    </div>
                                                     <p class="mb-4 font-secondary"
                                                         style="font-size: 1.125rem; line-height: 1.65;">Pelayanan yang
                                                         bagus, cepat, dan dapat dipercaya. Senang bisa menggunakan produk
@@ -360,6 +387,32 @@
                                                     <img class="rounded-circle mx-auto w-auto mb-4"
                                                         src="{{ url('assets/profil/user_default.png') }}" width="64"
                                                         height="64" alt="Customer Testimonails">
+                                                    <div
+                                                        class="rating-container theme-krajee-svg rating-md rating-animate">
+                                                        <div class="rating-stars" tabindex="0"><span
+                                                                class="empty-stars"><span class="star"
+                                                                    title="One Star"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Two Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Three Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Four Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Five Stars"><span
+                                                                        class="bi-star"></span></span></span><span
+                                                                class="filled-stars" style="width: 100%;"><span
+                                                                    class="star" title="One Star"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Two Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Three Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Four Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Five Stars"><span
+                                                                        class="bi-star-fill"></span></span></span></div>
+                                                    </div>
                                                     <p class="mb-4 font-secondary"
                                                         style="font-size: 1.125rem; line-height: 1.65;">Antarmukanya
                                                         sederhana dan user-friendly sehingga mudah digunakan bagi saya
@@ -387,6 +440,32 @@
                                                     <img class="rounded-circle mx-auto w-auto mb-4"
                                                         src="{{ url('assets/profil/user_default.png') }}" width="64"
                                                         height="64" alt="Customer Testimonails">
+                                                    <div
+                                                        class="rating-container theme-krajee-svg rating-md rating-animate">
+                                                        <div class="rating-stars" tabindex="0"><span
+                                                                class="empty-stars"><span class="star"
+                                                                    title="One Star"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Two Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Three Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Four Stars"><span
+                                                                        class="bi-star"></span></span><span class="star"
+                                                                    title="Five Stars"><span
+                                                                        class="bi-star"></span></span></span><span
+                                                                class="filled-stars" style="width: 100%;"><span
+                                                                    class="star" title="One Star"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Two Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Three Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Four Stars"><span
+                                                                        class="bi-star-fill"></span></span><span
+                                                                    class="star" title="Five Stars"><span
+                                                                        class="bi-star-fill"></span></span></span></div>
+                                                    </div>
                                                     <p class="mb-4 font-secondary"
                                                         style="font-size: 1.125rem; line-height: 1.65;">Asik dan
                                                         menyenangkan sekali menggunakan produk tourism card, bisa
