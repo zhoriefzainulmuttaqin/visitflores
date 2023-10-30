@@ -80,7 +80,7 @@
                                             echo "$hari, $tanggal $bulan $tahun";
                                             ?>
                                             <br>
-                                            Mulai Pukul {{ $event->star_time }} - {{ $event->end_time }}
+                                            Mulai Pukul {{ $event->start_time }} - {{ $event->end_time }}
                                         </a>
                                     </li>
                                 </ul>

@@ -58,6 +58,7 @@
                                                     ?>
                                                 </div>
                                             </h4>
+                                            {!! mb_substr(nl2br($new->content), 0, 50) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -92,6 +93,7 @@
                                             {{ $new->name }}
                                         </a>
                                     </h5>
+                                    {!! mb_substr(nl2br($new->content), 0, 50) !!}
                                 </div>
                             </div>
                         </div>
