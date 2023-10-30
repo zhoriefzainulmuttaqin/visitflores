@@ -29,7 +29,7 @@
                         ?>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="card shadow h-shadow-sm mb-5 overflow-hidden">
+                                <div class="card mb-5 shadow-sm h-shadow all-ts h-translate-y-sm overflow-hidden">
                                     <div class="row g-0">
                                         <div class="col-md-3">
                                             <img src="{{ url("assets/berita/$new->cover_picture") }}"
@@ -42,7 +42,7 @@
                                                 </small>
                                                 <br>
                                                 <a href='{{ url("/detail-berita/$new->slug") }}'
-                                                    class="link-underline-opacity-0 text-dark">
+                                                    class="link-underline-opacity-0 link-info text-dark">
                                                     {{ $new->name }}
                                                 </a>
                                                 <div class="text-lg fw-normal fs-5">
@@ -71,7 +71,7 @@
                 @foreach ($news->skip($i) as $new)
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card mb-3 shadow h-shadow-sm">
+                            <div class="card mb-3 shadow-sm h-shadow all-ts h-translate-y-sm">
                                 <div class="row g-0">
                                     <div class="col-md-12">
                                         <img src="{{ url("assets/berita/$new->cover_picture") }}"
