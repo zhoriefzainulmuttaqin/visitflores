@@ -101,6 +101,6 @@ class AuthUserController extends Controller
         auth()->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('/masuk');
+        return redirect('/login');
     }
 }

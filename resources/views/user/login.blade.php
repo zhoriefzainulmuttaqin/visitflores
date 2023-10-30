@@ -58,6 +58,14 @@
                             <div class="accordion-content">
                                 <form id="login-form" name="login-form" class="row mb-0" action="{{ url('proses-login') }}" method="post">
                                     @csrf
+                                    <?php if (session('msg_status')) : ?>
+                                            <div class="col-12 mx-auto">
+                                                <div class="alert alert-<?= session('msg_status') ?> alert-dismissible fade show" role="alert">
+                                                    <?= session('msg'); ?>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            </div>
+                                    <?php endif; ?>
                                     <div class="col-12 form-group">
                                         <label for="login-form-username">Username</label>
                                         <input type="text" id="login-form-username" name="username" value="" class="form-control">
