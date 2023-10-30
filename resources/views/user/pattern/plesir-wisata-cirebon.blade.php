@@ -1,3 +1,2 @@
-<div>
-    <!-- Do what you can, with what you have, where you are. - Theodore Roosevelt -->
-</div>
+<img src="{{ url('assets/paket-wisata/13.jpg') }}" class="img-fluid">
+<img src="{{ url('assets/paket-wisata/12.jpg') }}" class="img-fluid">

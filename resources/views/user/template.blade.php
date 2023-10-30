@@ -25,7 +25,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<link href="{{ url('images/logosaja.png') }}" rel="icon" type="image/png">
+	<link href="{{ url('assets/logosaja.png') }}" rel="icon" type="image/png">
 	<title>@yield("title") | {{ config("app.name") }} - {{ config('app.slogan') }}</title>
 
 	@yield("style")
@@ -70,9 +70,14 @@
 	============================================= -->
 	<!-- <div id="gotoTop" class="uil uil-angle-up"></div> -->
 
-	<a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>" target="_blank" id="chatWA">
+	<!-- <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>" target="_blank" id="chatWA">
 		<img src="{{ url('assets/logo-wa.png') }}" width="50px" class="rounded-circle">
-	</a>
+	</a> -->
+	<div class="whatsapp-button">
+        <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=Halo, saya ingin diskusi tentang Visit Cirebon." target="_blank">
+            <img src="{{ url('assets/logo-wa.png') }}" alt="WhatsApp">
+        </a>
+    </div>
 
 	<!-- JavaScripts
 	============================================= -->

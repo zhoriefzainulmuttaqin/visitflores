@@ -1,3 +1,1 @@
-<div>
-    <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
-</div>
+<img src="{{ url('assets/paket-wisata/7.jpg') }}" class="img-fluid">

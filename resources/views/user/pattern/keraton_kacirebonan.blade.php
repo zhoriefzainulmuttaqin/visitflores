@@ -1,3 +1,5 @@
-<div>
-    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
-</div>
+<img src="{{ url('assets/paket-wisata/1.jpg') }}" class="img-fluid">
+<img src="{{ url('assets/paket-wisata/2.jpg') }}" class="img-fluid">
+<img src="{{ url('assets/paket-wisata/3.jpg') }}" class="img-fluid">
+<img src="{{ url('assets/paket-wisata/4.jpg') }}" class="img-fluid">
+<img src="{{ url('assets/paket-wisata/5.jpg') }}" class="img-fluid">
