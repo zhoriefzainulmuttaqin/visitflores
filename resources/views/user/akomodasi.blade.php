@@ -127,12 +127,6 @@
                                                 </strong>
                                             </p>
                                         </div>
-                                        <div class="col-md-6 my-2">
-                                            <select class="form-select border-0 fs-5 fw-bold"
-                                                id="exampleFormControlSelect1">
-                                                <option>Termasuk Pajak</option>
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
