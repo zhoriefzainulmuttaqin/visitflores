@@ -18,6 +18,8 @@ return [
 
     'name' => "Visit Cirebon",
 
+    'year_made' => 2023,
+
     'slogan' => "Never - Ending Experience",
 
     'cities'    => ([

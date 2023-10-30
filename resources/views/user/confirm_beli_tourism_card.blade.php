@@ -52,7 +52,8 @@ Konfirmasi Pembelian Tourism Card
                     {{ $sale->payment->account_number }}
                 </p>
                 <div class="d-grid gap-2">
-                    <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=Halo, saya *<?= Auth()->user()->name ?>* ingin konfirmasi pembayaran untuk pembelian Tourism Card *No.<?= str_replace('#','',$saleKode) ?>*." target="_blank" class="btn btn-info text-white">
+                    <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=Halo, saya *<?= Auth()->user()->name ?>* ingin konfirmasi pembayaran untuk pembelian Tourism Card *No.<?= str_replace('#','',$saleKode) ?>*." target="_blank" class="btn btn-info bg-btn-visit text-white">
+                        <i class="bi-whatsapp"></i>
                         Konfirmasi Pembayaran
                     </a>
                 </div>
