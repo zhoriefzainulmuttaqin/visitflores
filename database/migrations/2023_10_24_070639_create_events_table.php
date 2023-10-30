@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('location');
             $table->date('published_date');
-            $table->date('star_date');
-            $table->string('star_time');
+            $table->string('published_time');
+            $table->date('start_date');
+            $table->string('start_time');
             $table->date('end_date');
             $table->string('end_time');
             $table->longText('details');

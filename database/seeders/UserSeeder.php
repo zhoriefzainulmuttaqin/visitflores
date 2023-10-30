@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'email' => 'ahmad@gmail.com',
             'phone' => '089123123',
             'address' => 'Talun',
-            'picture' => 'picture.jpg',
+            'picture' => null,
             'active' => 1,
         ]);
     }

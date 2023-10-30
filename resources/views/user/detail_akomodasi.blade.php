@@ -1,4 +1,4 @@
-@extends('user.template')
+@extends('user.template_no_cover')
 
 @section('title')
     Detail Akomodasi
@@ -11,57 +11,15 @@
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
 @endsection
 @section('content')
-    <div class="modal fade text-start bs-example-modal-scrollable" tabindex="-1" aria-labelledby="scrollableModalLabel"
-        style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
-                    <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-hidden="true"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="mb-0">Objectively disintermediate fully researched metrics via cooperative markets.
-                        Proactively implement superior portals and alternative potentialities. Continually e-enable
-                        multifunctional architectures and resource sucking data. Efficiently productivate e-business
-                        architectures after maintainable internal or "organic" sources. Efficiently administrate equity
-                        invested metrics rather than turnkey networks.
-                        Globally cultivate state of the art outsourcing with 24/365 ideas. Globally disintermediate
-                        clicks-and-mortar mindshare rather than proactive experiences. Assertively synthesize long-term
-                        high-impact processes through premier opportunities. Appropriately utilize extensive core
-                        competencies without ethical systems. Dynamically revolutionize superior architectures after
-                        scalable "outside the box" thinking.
-                        Energistically initiate low-risk high-yield paradigms through viral relationships. Collaboratively
-                        morph inexpensive initiatives vis-a-vis installed base bandwidth. Collaboratively leverage existing
-                        transparent e-commerce before clicks-and-mortar e-commerce. Conveniently morph progressive scenarios
-                        vis-a-vis long-term high-impact strategic theme areas. Objectively impact user friendly users and
-                        performance based vortals.
-                        Objectively disintermediate fully researched metrics via cooperative markets. Proactively implement
-                        superior portals and alternative potentialities. Continually e-enable multifunctional architectures
-                        and resource sucking data. Efficiently productivate e-business architectures after maintainable
-                        internal or "organic" sources. Efficiently administrate equity invested metrics rather than turnkey
-                        networks.
-                        Globally cultivate state of the art outsourcing with 24/365 ideas. Globally disintermediate
-                        clicks-and-mortar mindshare rather than proactive experiences. Assertively synthesize long-term
-                        high-impact processes through premier opportunities. Appropriately utilize extensive core
-                        competencies without ethical systems. Dynamically revolutionize superior architectures after
-                        scalable "outside the box" thinking.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container-lg mt-5">
-        <div class="row mb-5">
+        <div class="row">
             <div class="col-md-8">
                 <h1 class="fs-2 fw-bold">
-                    The Luxton Cirebon Hotel and Convention
+                    {{ $accomodation->name }}
                     <br>
                     <div class="rating-container theme-krajee-svg rating-sm rating-animate">
                         <small class="p-2 rounded text-white me-2" style="background-color: #0F304F">
-                            Hotel
+                            {{ $accomodation->city }}
                         </small>
                         <div class="rating-stars" tabindex="0"><span class="empty-stars"><span class="star"
                                     title="One Star"><span class="bi-star"></span></span><span class="star"
@@ -69,7 +27,7 @@
                                     title="Three Stars"><span class="bi-star"></span></span><span class="star"
                                     title="Four Stars"><span class="bi-star"></span></span><span class="star"
                                     title="Five Stars"><span class="bi-star"></span></span></span><span class="filled-stars"
-                                style="width: 100%;"><span class="star" title="One Star"><span
+                                style="width: {{ $accomodation->star }}%;"><span class="star" title="One Star"><span
                                         class="bi-star-fill"></span></span><span class="star" title="Two Stars"><span
                                         class="bi-star-fill"></span></span><span class="star" title="Three Stars"><span
                                         class="bi-star-fill"></span></span><span class="star" title="Four Stars"><span
@@ -77,11 +35,13 @@
                                         class="bi-star-fill"></span></span></span></div>
                     </div>
                     <div class="text-lg fw-normal fs-5">
-                        <i class="uil fs-3 text-warning fa-solid fa-city"></i>
-                        Cirebon
+                        <i class="uil fs-3 text-warning fa-solid fa-phone"></i>
+                        {{ $accomodation->phone }}
                         <br>
                         <i class="uil fs-3 text-warning uil-map-marker"></i>
-                        Jl. RA.Kartini No.60, Kejaksan, Cirebon
+                        {{ $accomodation->address }}.<a href="{{ $accomodation->link_maps }}" class="text-warning fw-bold">
+                            Lihat
+                            Peta</a>
                     </div>
                 </h1>
             </div>
@@ -90,7 +50,7 @@
                     Harga/kamar/malam mulai dari
                     <br>
                     <font class="text-danger fs-3 float-end">
-                        Rp.880.000
+                        Rp.<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">
@@ -99,24 +59,26 @@
                     </div>
                 </font>
             </div>
-            <img src="{{ url('assets/hotel/bg.png') }}" class="img-fluid w-100 h-100" alt="...">
+        </div>
+        <div class="masonry-thumbs grid-container row row-cols-4 has-init-isotope" data-big="1" data-lightbox="gallery"
+            style="position: relative; height: 585.564px;">
+            <a class="grid-item grid-item-big" href='{{ url("assets/hotel/$accomodation->cover_picture") }}'
+                data-lightbox="gallery-item" style="position: absolute; left: 0%; top: 0px; width: 519.188px;"><img
+                    src="{{ url("assets/hotel/$accomodation->cover_picture") }}" alt="{{ $accomodation->name }}"></a>
+            @foreach ($accomodation->accomodation_galleries as $item)
+                <a class="grid-item" href="{{ url("assets/hotel/$item->picture") }}" data-lightbox="gallery-item"
+                    style="position: absolute; left: 39.9991%; top: 0px;"><img
+                        src="{{ url("assets/hotel/$item->picture") }}" alt="{{ $item->name }}"></a>
+            @endforeach
         </div>
         <div class="row my-5">
-            <div class="col-md-4 d-flex mb-3 mb-sm-0">
+            <div class="col-md-4 mb-1 mb-sm-0">
                 <div class="card w-100 border-1 mb-5 overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
                             Fasilitas
-                            <button class="btn btn-light float-end me-2" data-bs-toggle="modal"
-                                data-bs-target=".bs-example-modal-scrollable">Lihat ></button>
                         </h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item">And a fifth one</li>
-                        </ul>
+                        {{ nl2br($accomodation->facilities) }}
                     </div>
                 </div>
             </div>
@@ -126,9 +88,83 @@
                         <h5 class="card-title fs-4">
                             Tentang Akomodasi
                             <div class="text-lg fw-normal mt-2 fs-5">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sunt dignissimos sapiente
-                                eius autem unde ipsum esse nesciunt provident, sit dolorum rem libero ullam, aperiam et
-                                assumenda debitis dolorem dolore!
+                                {{ nl2br($accomodation->details) }}
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="fs-5 text-left float-start text-lg">
+                                        <font class="fs-4">
+                                            Pesan Sekarang :
+                                        </font>
+                                        <div class="entry-meta no-separator mb-3">
+                                            <ul>
+                                                @if ($accomodation->accomodation_links === true)
+                                                    @foreach ($accomodation->accomodation_links as $item)
+                                                        <li>
+                                                            <a href="{{ $item->url }}"
+                                                                class="fw-normal link-warning text-dark">
+                                                                {{ $item->source_name }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li class="fw-normal text-white"><i
+                                                            class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="fs-3 text-right float-end text-lg">
+                                        <font class="fs-4">
+                                            Kunjungi :
+                                        </font>
+                                        @if (
+                                            $accomodation->link_youtube != null ||
+                                                $accomodation->link_instagram != null ||
+                                                $accomodation->link_facebook != null ||
+                                                $accomodation->link_tiktok != null)
+                                            <div class="entry-meta no-separator mb-3">
+                                                <ul>
+                                                    @if ($accomodation->link_youtube != null)
+                                                        <li><a href="{{ $accomodation->link_youtube }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark uil-youtube"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_instagram != null)
+                                                        <li><a href="{{ $accomodation->link_instagram }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark bi-instagram"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_facebook != null)
+                                                        <li><a href="{{ $accomodation->link_facebook }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark uil-facebook"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_tiktok != null)
+                                                        <li><a href="{{ $accomodation->link_tiktok }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark fa-brands fa-tiktok"></i>
+                                                            </a></li>
+                                                    @endif
+                                                </ul>
+                                            </div>
+                                        @else
+                                            <div class="entry-meta no-separator mb-3">
+                                                <ul>
+                                                    <li class="fw-normal text-white"><i
+                                                            class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                         </h5>
                     </div>

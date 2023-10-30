@@ -17,19 +17,19 @@ class AccomodationGallerySeeder extends Seeder
             ([
                 "data_id"   => 1,
                 "name"   => "Foto Depan",
-                "picture"   => "waduk.png",
+                "picture"   => "bg.png",
                 "type"   => 1,
             ]),
             ([
                 "data_id"   => 2,
                 "name"   => "Foto Depan",
-                "picture"   => "waduk.png",
+                "picture"   => "bg.png",
                 "type"   => 1,
             ]),
             ([
                 "data_id"   => 3,
                 "name"   => "Foto Depan",
-                "picture"   => "waduk.png",
+                "picture"   => "bg.png",
                 "type"   => 1,
             ]),
             ([

@@ -84,7 +84,7 @@ Wisata
 										</div>
 										<div class="entry-meta no-separator mb-3">
 											<ul>
-												<li><a href="#" class="fw-normal"><i class="uil text-warning uil-map-marker"></i> {{ $tour->address }}</a></li>
+												<li class="fw-normal"><i class="uil text-warning uil-map-marker"></i> {{ $tour->address }}</li>
 											</ul>
 										</div>
 										<div class="entry-meta no-separator mb-1">

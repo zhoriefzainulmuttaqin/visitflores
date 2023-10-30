@@ -4,11 +4,40 @@
 Layanan Produk
 @endsection
 
+@section("style")
+<style>
+#service-floating-card{
+}
+</style>
+@endsection
+
 @section("cover")
 <?= url('assets/layanan-produk/bg.png') ?>
 @endsection
 
 @section("content")
+<div class="section" style="margin-top:-100px">
+    <div class="container mt-4" id="service-floating-card">
+        <div class="row justify-content-center">
+            <div class="col-4 text-center">
+                <img src="{{ url('assets/layanan-produk/tourism-card.png') }}" class="img-fluid" width="100px">
+                <br>
+                <b>Tourism Card</b>
+            </div>
+            <div class="col-4 text-center">
+                <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
+                <br>
+                <b>Tour Package</b>
+            </div>
+            <div class="col-4 text-center">
+                <img src="{{ url('assets/layanan-produk/collectible.png') }}" class="img-fluid" width="100px">
+                <br>
+                <b>Souvenirs</b>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-lg mt-5">
     <h1 class="text-center mb-5">
         <b>Tourism Card</b>
@@ -241,68 +270,38 @@ Layanan Produk
     </h1>
     <div class="clearfix"></div>
     <div class="row justify-content-center">
+        @foreach($gifts as $gift)
         <div class="col-sm-12 col-md-6 p-5">
             <div class="card rounded shadow">
                 <div class="card-body">
-                    <img src="{{ url('assets/layanan-produk/oleh.png') }}" class="img-fluid rounded" width="100%">
+                    <img src="{{ url('assets/layanan-produk/'.$gift->picture) }}" class="img-fluid rounded" width="100%">
                     <h4 class="text-center mt-5">
                         <b>
-                            Paket A
+                            {{ $gift->name }}
                         </b>
                     </h4>
                     <div class="container">
                         <p class='h4'>
                             <b>
-                            Rp. 175.000 ,- <br>
-                            Berat Paket 1250 gram <br>
-                            Isi Paket (10 Produk)
+                            Rp. {{ number_format($gift->price,0,",",".") }} ,- <br>
+                            Berat Paket {{ $gift->weight }} gram <br>
+                            Isi Paket ({{ $gift->contents_count }} Produk)
                             </b>
                             <br>
-                            1 pc Blackthins <br>
-                            1 pc Blackmond <br>
-                            1 pc Kurma Tunisia 250 gram <br>
-                            1 pc Chia Seed <br>
-                            2 pcs Veggie Noodles <br>
-                            2 pcs Wedang Uwuh <br>
-                            1 ps Habbats Drink <br>
-                            1 pc Himsalt <br>
-                            Box Hampers Ekslusive
-                        </p>                        
+                            {!! nl2br($gift->contents) !!}
+                        </p>
+                        <div class="row mt-5">
+                            <div class="col-md-12 d-grid gap-2">
+                                <a href="{{ url('beli-layanan-produk/'.$gift->slug) }}" class="btn btn-success btn-lg">
+                                    Beli Paket
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 p-5">
-            <div class="card rounded shadow">
-                <div class="card-body">
-                    <img src="{{ url('assets/layanan-produk/oleh.png') }}" class="img-fluid rounded" width="100%">
-                    <h4 class="text-center mt-5">
-                        <b>
-                            Paket B
-                        </b>
-                    </h4>
-                    <div class="container">
-                        <p class='h4'>
-                            <b>
-                            Rp. 175.000 ,- <br>
-                            Berat Paket 1250 gram <br>
-                            Isi Paket (10 Produk)
-                            </b>
-                            <br>
-                            1 pc Blackthins <br>
-                            1 pc Blackmond <br>
-                            1 pc Kurma Tunisia 250 gram <br>
-                            1 pc Chia Seed <br>
-                            2 pcs Veggie Noodles <br>
-                            2 pcs Wedang Uwuh <br>
-                            1 ps Habbats Drink <br>
-                            1 pc Himsalt <br>
-                            Box Hampers Ekslusive
-                        </p>                        
-                    </div>
-                </div>
-            </div>
-        </div>        
+        @endforeach             
     </div>
 </div>
 <div class="clearfix mb-5"></div>
