@@ -59,7 +59,7 @@
                     <div class="card shadow h-shadow-sm overflow-hidden" style="border-radius: 40px">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src='{{ url("assets/berita/$event->cover_picture") }}' class="img-fluid w-100 h-100"
+                                <img src='{{ url("assets/event/$event->cover_picture") }}' class="img-fluid w-100 h-100"
                                     alt="{{ $event->name }}">
                             </div>
                             <div class="col-md-8 ps-3 pe-1">
