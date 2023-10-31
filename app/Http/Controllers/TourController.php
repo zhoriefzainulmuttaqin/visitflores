@@ -45,7 +45,13 @@ class TourController extends Controller
             })
             ->select(['tours.*', 'categories.name as category_name'])
             ->orderBy('tours.id', 'asc')
-            ->get();
+            ->paginate(10);
+        if ($request->keyword) {
+            $tours->appends(array('keyword' => $keyword));
+        }
+        if ($request->star_list) {
+            $tours->appends($cat_list);
+        }
 
         $categories = Category::where('type', 2)->orderBy('name', 'asc')->get();
         $data = [

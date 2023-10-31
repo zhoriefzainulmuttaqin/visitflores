@@ -86,7 +86,7 @@
                                 </ul>
                             </div>
                             <div class="entry-title nott">
-                                <h3><a href="#">{{ $event->name }}</a></h3>
+                                <h3>{{ $event->name }}</h3>
                             </div>
                             <div class="entry-content my-3">
                                 <p class="mb-0">{{ $event->details }}</p>
@@ -102,6 +102,7 @@
                     </div>
                 </article>
             @endforeach
+            {{ $events->links('vendor.pagination.canvas') }}
         </div>
 
     </div>

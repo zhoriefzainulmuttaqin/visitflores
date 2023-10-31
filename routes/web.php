@@ -11,6 +11,7 @@ use App\Http\Controllers\TourController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -50,10 +51,6 @@ Route::get("berita", [BeritaController::class, "berita"]);
 Route::get("detail-berita/{slug}", [BeritaController::class, "detail_berita"]);
 Route::get("detail-akomodasi/{Accomodation:slug}", [AkomodasiController::class, "detail_akomodasi"]);
 
-Route::get("landing", function () {
-    return view("landing_2");
-});
-
 Route::get("login", [AuthUserController::class, "masuk"]);
 Route::post("proses-login", [AuthUserController::class, "proses_masuk"]);
 Route::get("registrasi", [AuthUserController::class, "registrasi"]);
@@ -62,13 +59,23 @@ Route::get("keluar", [AuthUserController::class, "keluar"]);
 
 Route::get("layanan-produk", [ServiceController::class, "product_services"]);
 Route::get("layanan-produk/tourism-card", [ServiceController::class, "tourism_card"]);
-Route::get("beli/tourism-card", [ServiceController::class, "beli_tourism_card"]);
-Route::post("proses-beli/tourism-card", [ServiceController::class, "proses_beli_tourism_card"]);
-Route::get("konfirmasi-beli/{id}/tourism-card", [ServiceController::class, "konfirmasi_beli_tourism_card"]);
 Route::get("layanan-jasa", [ServiceController::class, "our_services"]);
 Route::get("layanan-jasa/konsultan", [ServiceController::class, "service_consultant"]);
 Route::get("layanan-jasa/konseptor", [ServiceController::class, "service_conceptor"]);
 Route::get("layanan-jasa/pemasaran", [ServiceController::class, "service_marketing"]);
-Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layanan_produk"]);
-Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
-Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
+
+Route::get("paket-wisata/{slug}", [ServiceController::class, "detail_paket_wisata"]);
+
+
+Route::middleware('auth:user')->group(function () {
+    Route::get("beli/tourism-card", [ServiceController::class, "beli_tourism_card"]);
+    Route::post("proses-beli/tourism-card", [ServiceController::class, "proses_beli_tourism_card"]);
+    Route::get("konfirmasi-beli/{id}/tourism-card", [ServiceController::class, "konfirmasi_beli_tourism_card"]);
+    Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layanan_produk"]);
+    Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
+    Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
+});
+
+Route::get("app-admin",[AuthAdminController::class, "masuk"]);
+Route::get("app-admin/proses-login",[AuthAdminController::class, "proses_masuk"]);
+

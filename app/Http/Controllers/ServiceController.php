@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Payment;
+use App\Models\Pattern;
 use App\Models\DiscountCardSale;
 use App\Models\Gift;
 use App\Models\GiftSale;
@@ -15,9 +16,11 @@ class ServiceController extends Controller
     //
     public function product_services(){
         $gifts = Gift::orderBy("name","asc")->get();
+        $patterns = Pattern::orderBy("id","asc")->get();
 
         $data = ([
-            "gifts" => $gifts
+            "patterns" => $patterns,
+            "gifts" => $gifts,
         ]);
 
         return view("user.product_services",$data);
@@ -117,5 +120,14 @@ class ServiceController extends Controller
         ]);
 
         return view("user.confirm_beli_layanan_produk",$data);
+    }
+    public function detail_paket_wisata($slug){
+        $pattern = Pattern::where("slug",$slug)->first();
+
+        $data = ([
+            "pattern"   => $pattern,
+        ]);
+
+        return view("user.detail_paket_wisata",$data);
     }
 }

@@ -31,8 +31,13 @@ class EventController extends Controller
                 }
             })
             ->select(['events.*', 'administrators.name as admin_name'])
-            ->get();
-
+            ->paginate(10);
+        if ($request->keyword) {
+            $events->appends(array('keyword' => $keyword));
+        }
+        if ($request->star_list) {
+            $events->appends($order);
+        }
         $data = [
             'events' => $events,
             'keyword' => $keyword,

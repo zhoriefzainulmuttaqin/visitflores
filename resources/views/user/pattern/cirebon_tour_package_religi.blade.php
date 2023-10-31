@@ -1,0 +1,1 @@
+<img src="{{ url('assets/paket-wisata/7.jpg') }}" class="img-fluid">

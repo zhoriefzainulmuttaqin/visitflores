@@ -101,7 +101,11 @@
                 @endforeach
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-lg-12">
+                {{ $news->links('vendor.pagination.canvas') }}
+            </div>
+        </div>
     </div>
     <div class="clearfix mb-5"></div>
 @endsection

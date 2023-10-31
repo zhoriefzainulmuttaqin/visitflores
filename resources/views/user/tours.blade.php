@@ -142,7 +142,8 @@ Wisata
 									</div>
 								</div>
 							</article>
-						@endforeach                        
+						@endforeach              
+						{{ $tours->links('vendor.pagination.canvas') }}          
 					</div>
 				</div>
 			</div>

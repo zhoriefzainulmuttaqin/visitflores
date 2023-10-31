@@ -8,6 +8,9 @@ Layanan Produk
 <style>
 #service-floating-card{
 }
+.fixed-height{
+    height: 700px !important;
+}
 </style>
 @endsection
 
@@ -83,186 +86,26 @@ Layanan Produk
     </h1>
     <div class="clearfix"></div>
     <div class="row justify-content-center">
+        @foreach($patterns as $pattern)
         <div class="col-sm-12 col-md-6 p-5">
-            <div class="card rounded shadow">
+            <div class="card rounded shadow fixed-height">
+                <img src="{{ url('assets/patterns/'.$pattern->cover_picture) }}" class="card-img-top">
                 <div class="card-body">
-                    <img src="{{ url('assets/layanan-produk/tour.png') }}" class="img-fluid rounded" width="100%">
-                    <h4 class="text-center mt-5">
-                        <b>
-                            Paket A
-                        </b>
-                    </h4>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Destinasi</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Cibulan <br>
-                                    <i class='bi-check'></i>
-                                    Buper Ipukan <br>
-                                    <i class='bi-check'></i>
-                                    Sangkan Park <br>
-                                </p>
-                            </div>
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Fasilitas</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Transportasi <br>
-                                    <i class='bi-check'></i>
-                                    Makan <br>
-                                    <i class='bi-check'></i>
-                                    Tiket Wisata <br>
-                                    <i class='bi-check'></i>
-                                    Dokumentasi <br>
-                                    <i class='bi-check'></i>
-                                    Tol & Parkir
-                                </p>
-                            </div>
-                        </div>
+                    <b class="h3">{{ $pattern->name }}</b>
+                    <p>
+                        {!! $pattern->details !!}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2">
+                        <a href="{{ url('paket-wisata/'.$pattern->slug) }}" class="btn btn-info bg-btn-visit text-white">
+                            Lihat Lebih Lanjut
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 p-5">
-            <div class="card rounded shadow">
-                <div class="card-body">
-                    <img src="{{ url('assets/layanan-produk/tour.png') }}" class="img-fluid rounded" width="100%">
-                    <h4 class="text-center mt-5">
-                        <b>
-                            Paket B
-                        </b>
-                    </h4>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Destinasi</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Cibulan <br>
-                                    <i class='bi-check'></i>
-                                    Buper Ipukan <br>
-                                    <i class='bi-check'></i>
-                                    Sangkan Park <br>
-                                </p>
-                            </div>
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Fasilitas</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Transportasi <br>
-                                    <i class='bi-check'></i>
-                                    Tiket Wisata <br>
-                                    <i class='bi-check'></i>
-                                    Tol & Parkir <br>
-                                    <i class='bi-check'></i>
-                                    Guide Lokal <br>
-                                    <i class='bi-check'></i>
-                                    Tour Leader
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 p-5">
-            <div class="card rounded shadow">
-                <div class="card-body">
-                    <img src="{{ url('assets/layanan-produk/tour.png') }}" class="img-fluid rounded" width="100%">
-                    <h4 class="text-center mt-5">
-                        <b>
-                            Paket C
-                        </b>
-                    </h4>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Destinasi</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Cibulan <br>
-                                    <i class='bi-check'></i>
-                                    Buper Ipukan <br>
-                                    <i class='bi-check'></i>
-                                    Sangkan Park <br>
-                                </p>
-                            </div>
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Fasilitas</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Transportasi <br>
-                                    <i class='bi-check'></i>
-                                    Makan <br>
-                                    <i class='bi-check'></i>
-                                    Tiket Wisata <br>
-                                    <i class='bi-check'></i>
-                                    Dokumentasi <br>
-                                    <i class='bi-check'></i>
-                                    Tol & Parkir <br>
-                                    <i class='bi-check'></i>
-                                    Asuransi <br>
-                                    <i class='bi-check'></i>
-                                    Hotel <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 p-5">
-            <div class="card rounded shadow">
-                <div class="card-body">
-                    <img src="{{ url('assets/layanan-produk/tour.png') }}" class="img-fluid rounded" width="100%">
-                    <h4 class="text-center mt-5">
-                        <b>
-                            Paket D
-                        </b>
-                    </h4>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Destinasi</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Cibulan <br>
-                                    <i class='bi-check'></i>
-                                    Buper Ipukan <br>
-                                    <i class='bi-check'></i>
-                                    Sangkan Park <br>
-                                </p>
-                            </div>
-                            <div class="col-md-12 col-lg-5">
-                                <p class="text-warning h4">Fasilitas</p>
-                                <p class='h4'>
-                                    <i class='bi-check'></i>
-                                    Transportasi <br>
-                                    <i class='bi-check'></i>
-                                    Makan <br>
-                                    <i class='bi-check'></i>
-                                    Tiket Wisata <br>
-                                    <i class='bi-check'></i>
-                                    Dokumentasi <br>
-                                    <i class='bi-check'></i>
-                                    Tol & Parkir <br>
-                                    <i class='bi-check'></i>
-                                    Guide Lokal <br>
-                                    <i class='bi-check'></i>
-                                    Tour Leader <br>
-                                    <i class='bi-check'></i>
-                                    Asuransi <br>
-                                    <i class='bi-check'></i>
-                                    Hotel <br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach        
     </div>
     <div class="clearfix"></div>
     <h1 class="text-center mt-5 mb-3">

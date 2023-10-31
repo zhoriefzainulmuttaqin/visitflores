@@ -22,7 +22,7 @@ class OptionSeeder extends Seeder
             ]),
             ([
                 "option_code" => "cs_phone",
-                "option_value" => "089123123",
+                "option_value" => "+6281392786802",
             ]),
             ([
                 "option_code" => "email",

@@ -39,7 +39,13 @@ class AkomodasiController extends Controller
             })
             ->select(['accomodations.*'])
             ->orderBy('accomodations.name', 'asc')
-            ->get();
+            ->paginate(10);
+        if ($request->keyword) {
+            $accomodations->appends(array('keyword' => $keyword));
+        }
+        if ($request->star_list) {
+            $accomodations->appends($star_list);
+        }
         $data = [
             'accomodations' => $accomodations,
             'star_list' => $star_list_data,

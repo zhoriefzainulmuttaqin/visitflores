@@ -94,7 +94,8 @@ Oleh - Oleh
 									</div>
 								</div>
 							</article>
-						@endforeach                        
+						@endforeach  
+						{{ $shops->links('vendor.pagination.canvas') }}                        
 					</div>
 				</div>
 			</div>

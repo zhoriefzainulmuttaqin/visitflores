@@ -9,7 +9,7 @@ class RestaurantController extends Controller
 {
     public function restaurants()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::paginate(10);
 
         $data = [
             'restaurants' => $restaurants,

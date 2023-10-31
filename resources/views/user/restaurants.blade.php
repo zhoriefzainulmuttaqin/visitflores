@@ -94,7 +94,8 @@ Kuliner
 									</div>
 								</div>
 							</article>
-						@endforeach                        
+						@endforeach      
+						{{ $restaurants->links('vendor.pagination.canvas') }}                      
 					</div>
 				</div>
 			</div>
