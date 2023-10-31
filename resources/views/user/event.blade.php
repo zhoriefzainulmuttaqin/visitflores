@@ -102,6 +102,7 @@
                     </div>
                 </article>
             @endforeach
+            {{ $events->links('vendor.pagination.canvas') }}
         </div>
 
     </div>

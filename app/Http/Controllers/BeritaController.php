@@ -15,7 +15,7 @@ class BeritaController extends Controller
             ->where('categories.type', 1)
             ->select(['news.*', 'categories.name as category_name', 'administrators.name as admin_name'])
             ->orderBy('news.published_date', 'desc')
-            ->get();
+            ->paginate(10);
 
         $batas = (int)(count($news) / 2);
 
