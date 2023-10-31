@@ -54,8 +54,10 @@
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">
-                        <button class="btn btn-warning text-dark" type="button">
-                            <i class="uil fs-5 uil-ticket text-dark"></i> Disc. Card</button>
+                        
+                            <a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-warning text-dark">
+                                <i class="uil fs-5 uil-ticket text-dark"></i> Disc. Card
+                            </a>
                     </div>
                 </font>
             </div>
@@ -98,7 +100,7 @@
                                         </font>
                                         <div class="entry-meta no-separator mb-3">
                                             <ul>
-                                                @if ($accomodation->accomodation_links === true)
+                                                @if (count($accomodation->accomodation_links) > 0)
                                                     @foreach ($accomodation->accomodation_links as $item)
                                                         <li>
                                                             <a href="{{ $item->url }}"

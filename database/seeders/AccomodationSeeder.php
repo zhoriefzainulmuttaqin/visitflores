@@ -60,8 +60,8 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Kota Cirebon",
-                "picture"   => "picture-batiqa.png",
-                "cover_picture"   => "batiqa.png",
+                "picture"   => "picture-batiqa.webp",
+                "cover_picture"   => "batiqa.webp",
                 "name"   => "BATIQA Hotel Cirebon",
                 "slug"   => "batiqa-hotel-cirebon",
                 "details"   => "Batiqa Hotel Cirebon adalah sebuah hotel yang terletak di Jalan Dr. Cipto Mangunkusumo, Kesambi, Cirebon. Penginapan bintang 3 ini berada di tengah kota sehingga mudah ditemukan. Dikelola oleh PT Batiqa Hotel Manajemen, Batiqa menawarkan suasana yang hangat dengan desain minimalis di lobi dan kamar hotel.
@@ -82,8 +82,8 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Kota Cirebon",
-                "picture"   => "picture-cordela.png",
-                "cover_picture"   => "cordela.png",
+                "picture"   => "picture-cordela.webp",
+                "cover_picture"   => "cordela.webp",
                 "name"   => "Cordela Hotel Cirebon",
                 "slug"   => "cordela-hotel-cirebon",
                 "details"   => "Menginap di Cordela Hotel Cirebon tak hanya memberikan kemudahan untuk mengeksplorasi destinasi petualangan Anda, tapi juga menawarkan kenyamanan bagi istirahat Anda.
@@ -104,8 +104,8 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Kota Cirebon",
-                "picture"   => "picture-swiss.png",
-                "cover_picture"   => "swiss.png",
+                "picture"   => "picture-swiss.webp",
+                "cover_picture"   => "swiss.webp",
                 "name"   => "Swiss-Belhotel Cirebon",
                 "slug"   => "swiss-belhotel-cirebon",
                 "details"   => "Swiss-Belhotel Cirebon terletak di pusat Kota Cirebon dan berdampingan dengan CSB Mall. Akomodasi ini dapat dicapai dalam waktu lima menit dari Stasiun Cirebon Kejaksan. Fasilitas dan pelayanannya memiliki standar internasional, karena itu akomodasi ini cocok untuk kegiatan tamu bisnis maupun wisatawan.
@@ -126,8 +126,8 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Kota Cirebon",
-                "picture"   => "picture-grage.png",
-                "cover_picture"   => "grage.png",
+                "picture"   => "picture-grage.webp",
+                "cover_picture"   => "grage.webp",
                 "name"   => "Grage Hotel Cirebon",
                 "slug"   => "gragehotel-cirebon",
                 "details"   => "Dibangun pada 2006, Grage Hotel Cirebon merupakan penginapan bergaya modern. Akomodasi bintang 4 ini berlokasi di Jalan R.A. Kartini No. 77. Lokasinya strategis karena dekat dengan berbagai objek wisata di Kota Cirebon dan stasiun kereta api.
