@@ -69,18 +69,18 @@ Wisata
 							<article class="entry event col-md-6 col-lg-4 mb-0">
 								<div class="grid-inner bg-white row g-0 p-2 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
 									<div class="col-12 mb-md-0">
-										<a href="#" class="entry-image mb-2">
-											<img src="{{ url('assets/wisata/wisata-1.jpg') }}" alt="Inventore voluptates velit totam ipsa tenetur" class="rounded-5">
+										<div class="entry-image mb-2">
+											<img src="{{ url('assets/wisata/' . $tour->picture) }}" alt="Inventore voluptates velit totam ipsa tenetur" class="rounded-5">
 											<div class="bg-overlay">
-											<div class="bg-overlay-content justify-content-start align-items-start">
-												<div class="badge bg-light text-dark rounded-pill">{{ $tour->city }}</div>
+												<div class="bg-overlay-content justify-content-start align-items-start">
+													<div class="badge bg-light text-dark rounded-pill">{{ $tour->city }}</div>
+												</div>
 											</div>
 										</div>
-										</a>
 									</div>
 									<div class="col-12 p-4 pt-0 pb-1">
 										<div class="entry-title nott">
-											<h3><a href="#">{{ $tour->name }}</a></h3>
+											<h3>{{ $tour->name }}</h3>
 										</div>
 										<div class="entry-meta no-separator mb-3">
 											<ul>
@@ -92,9 +92,10 @@ Wisata
 												<li class="text-capitalize"><h5> <span class="badge" style="background-color: #0F304F">{{ $tour->category_name }}</span></h5></li>
 											</ul>
 										</div>
-										<div class="mb-3">
+										{{-- fasilitas --}}
+										{{-- <div class="mb-3">
 											<div class="fw-bold">{{ nl2br($tour->facilities) }}</div>
-										</div>
+										</div> --}}
 										<div class="mb-3">
 											<div class="fw-bold">Rp. <?= number_format($tour->price, 0, ",", ".") ?></div>
 										</div>
@@ -135,7 +136,7 @@ Wisata
 										@endif
 										<div class="entry-meta no-separator mb-3">
 											<ul>
-												<li><a href="#" class="fw-normal text-dark"><i class="uil uil-ticket text-warning"></i> Disc. Card</a></li>
+												<li><a href="{{ url('layanan-produk/tourism-card') }}" class="fw-normal text-dark"><i class="uil uil-ticket text-warning"></i> Disc. Card</a></li>
 											</ul>
 										</div>
 									</div>

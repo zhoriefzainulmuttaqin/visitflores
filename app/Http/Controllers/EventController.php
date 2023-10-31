@@ -21,9 +21,7 @@ class EventController extends Controller
         if ($request->order) {
             $order = explode(",", $request->order);
         }
-        $events = Event::join('categories', 'events.category_id', '=', 'categories.id')
-            ->join('administrators', 'events.admin_id', '=', 'administrators.id')
-            ->where('categories.type', 2)
+        $events = Event::join('administrators', 'events.admin_id', '=', 'administrators.id')
             ->where('events.name', 'like',  '%' . $keyword . '%')
             ->when($order, function (Builder $query, $order) {
                 if ($order) {
@@ -32,7 +30,7 @@ class EventController extends Controller
                     $query->orderBy('events.name', 'asc');
                 }
             })
-            ->select(['events.*', 'categories.name as category_name', 'administrators.name as admin_name'])
+            ->select(['events.*', 'administrators.name as admin_name'])
             ->get();
 
         $data = [
