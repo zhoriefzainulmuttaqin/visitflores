@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PaymentSeeder::class,
             // UserSeeder::class,
+            GiftSeeder::class,
             TourPackageSeeder::class,
         ]);
     }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double("price");
             $table->string("unit",255);
             $table->double("weight");
+            $table->integer("contents_count");
             $table->longText("contents");
         });
     }

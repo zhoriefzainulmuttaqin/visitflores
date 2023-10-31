@@ -62,13 +62,13 @@
         </div>
         <div class="masonry-thumbs grid-container row row-cols-4 has-init-isotope" data-big="1" data-lightbox="gallery"
             style="position: relative; height: 585.564px;">
-            <a class="grid-item grid-item-big" href='{{ url("assets/hotel/$accomodation->cover_picture") }}'
+            <a class="grid-item grid-item-big" href='{{ url("assets/akomodasi/$accomodation->cover_picture") }}'
                 data-lightbox="gallery-item" style="position: absolute; left: 0%; top: 0px; width: 519.188px;"><img
-                    src="{{ url("assets/hotel/$accomodation->cover_picture") }}" alt="{{ $accomodation->name }}"></a>
+                    src="{{ url("assets/akomodasi/$accomodation->cover_picture") }}" alt="{{ $accomodation->name }}"></a>
             @foreach ($accomodation->accomodation_galleries as $item)
-                <a class="grid-item" href="{{ url("assets/hotel/$item->picture") }}" data-lightbox="gallery-item"
+                <a class="grid-item" href="{{ url("assets/akomodasi/$item->picture") }}" data-lightbox="gallery-item"
                     style="position: absolute; left: 39.9991%; top: 0px;"><img
-                        src="{{ url("assets/hotel/$item->picture") }}" alt="{{ $item->name }}"></a>
+                        src="{{ url("assets/akomodasi/$item->picture") }}" alt="{{ $item->name }}"></a>
             @endforeach
         </div>
         <div class="row my-5">

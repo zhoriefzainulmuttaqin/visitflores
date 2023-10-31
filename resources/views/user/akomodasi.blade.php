@@ -5,7 +5,7 @@
 @endsection
 
 @section('cover')
-    <?= url('assets/hotel/bg.png') ?>
+    <?= url('assets/akomodasi/bg.png') ?>
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
@@ -35,15 +35,13 @@
                 </div>
             </div>
             <div class="row mb-5">
-                <div class="col-md-8 mb-3 mb-sm-0">
+                <div class="col-md-9 mb-3 mb-sm-0">
                     @foreach ($accomodations as $accomodation)
                         <div class="card shadow h-shadow-sm mb-5 overflow-hidden" style="border-radius: 40px">
                             <div class="row g-0">
-                                <div class="col-md-3">
-                                    <img src='{{ url("assets/hotel/$accomodation->picture") }}'
-                                        class="img-fluid w-100 h-100" alt="...">
+                                <div class="col-md-5" style="background-image: url(<?= url('assets/akomodasi/'.$accomodation->picture) ?>) !important;background-size:cover !important;image-position:center !important;">
                                 </div>
-                                <div class="col-md-9 ps-3 pe-1">
+                                <div class="col-md-7 ps-3 pe-1">
                                     <h4 class="card-title fs-3">
                                         <a href='{{ url("/detail-akomodasi/$accomodation->slug") }}'
                                             class="link-underline-opacity-0 link-info text-dark">
@@ -134,7 +132,7 @@
                     @endforeach
                     {{ $accomodations->links('vendor.pagination.canvas') }}
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card">
                         <div class="card-body">
                             <strong class="fs-3">

@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\News;
 use App\Models\Restaurant;
 use App\Models\Tour;
+use App\Models\Accomodation;
 
 class UserHomeController extends Controller
 {
@@ -15,7 +16,7 @@ class UserHomeController extends Controller
     public function home()
     {
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
-        $culiners = Restaurant::all();
+        $culiners = Restaurant::limit(3)->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
             ->where('categories.type', 1)
@@ -23,12 +24,15 @@ class UserHomeController extends Controller
             ->limit(3)
             ->orderBy('news.published_date', 'desc')
             ->get();
-        $tours = Tour::all();
+        $tours = Tour::limit(10)->get();
+        $accomodations = Accomodation::limit(10)->get();
+
         $data = ([
             "events" => $events,
             "culiners" => $culiners,
             "news" => $news,
             "tours" => $tours,
+            "accomodations" => $accomodations,
         ]);
 
         return view("user.home", $data);

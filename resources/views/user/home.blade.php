@@ -40,7 +40,7 @@
 @endsection
 
 @section('cover')
-    <?= url('images/gedung.png') ?>
+    <?= url('assets/gedung.png') ?>
 @endsection
 
 @section('content')
@@ -93,13 +93,13 @@
                     <div class="oc-item">
                         <article class="entry event p-3">
                             <div
-                                class="grid-inner bg-contrast-0 row g-0 p-3 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                                 <div class="col-12 mb-md-0">
                                     <a href="{{ url('event') }}" class="entry-image">
                                         <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
                                     </a>
                                 </div>
-                                <div class="col-12 p-4 pt-0">
+                                <div class="col-12 p-4 pt-0 d-none d-md-none d-lg-block">
                                     <div class="entry-title nott">
                                         <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
                                     </div>
@@ -124,8 +124,8 @@
                 @endforeach
             </div>
             <div class="clearfix"></div>
-            <div class="text-center mt-5">
-                <a href="{{ url('event') }}" class="btn btn-lg fs-3 p-4 btn-primary text-white bg-btn-visit">
+            <div class="text-center mt-5 mb-5">
+                <a href="{{ url('event') }}" class="btn fs-3 btn-primary text-white bg-btn-visit">
                     Lihat Semua Event
                     <i class="bi-arrow-right"></i>
                 </a>
@@ -134,82 +134,185 @@
     </div>
     <div class="section">
         <div class="container mt-4">
-            <div class="row mb-5">
-                <div class="col-md-7">
-                    <h1 class="mb-1">
-                        <b>TOP Wisata</b>
-                    </h1>
-                    <div class="text-lg fs-4">
-                        Berikut ini daftar wisata yang sering dikunjungi wisatawan.
+            <div class="d-none d-md-block">
+                <div class="row mb-5">
+                    <div class="col-md-7">
+                        <h1 class="mb-1">
+                            <b>TOP Wisata</b>
+                        </h1>
+                        <div class="text-lg fs-4">
+                            Berikut ini daftar wisata yang sering dikunjungi wisatawan.
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mt-5">
+                            <a href="{{ url('wisata') }}"
+                                class="btn btn-primary fs-4 float-end text-white bg-btn-visit">
+                                Eksplor Semua
+                                <i class="bi-arrow-right"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <div class="mt-5">
-                        <a href="{{ url('wisata') }}"
-                            class="btn btn-primary btn-lg fs-4 p-3 float-end text-white bg-btn-visit">
-                            Eksplor Semua
-                            <i class="bi-arrow-right"></i>
-                        </a>
-                    </div>
+            </div>
+            <div class="d-block d-md-none">
+                <div class="container text-center">
+                    <b class="h1">TOP WISATA</b>
+                    <br>
+                    Berikut ini daftar wisata yang sering dikunjungi wisatawan
                 </div>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($tours as $tour)
-                        <div class="swiper-slide">
-                            <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                        <div class="swiper-slide" style="background-image: url(<?= url('assets/wisata/'.$tour->picture) ?>) !important;background-size:cover !important;">
+                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
                         </div>
                     @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-7">
-                <h1 class="mb-1">
-                    <b>TOP Kuliner</b>
-                </h1>
-                <div class="text-lg fs-4">
-                    Berikut ini daftar kuliner yang sering dinikmati wisatawan.
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="mt-5">
-                    <a href="{{ url('kuliner') }}"
-                        class="btn btn-primary btn-lg fs-4 p-3 float-end text-white bg-btn-visit">
+            <div class="d-block d-md-none">
+                <div class="container text-center">
+                    <a href="{{ url('wisata') }}"
+                        class="btn btn-primary text-white bg-btn-visit">
                         Eksplor Semua
                         <i class="bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            @foreach ($culiners as $culiner)
-                <div class="col-md-4 col-lg-4 col-md-9 mb-2">
-                    <a href="{{ url('kuliner') }}">
-                        <div class="card rounded rounded-3 border-0" style="background-color: transparent">
-                            <img id="GProfile" class="card-img-top w-100"
-                                style="border-radius: 50px; width: 360px; height: 560px; object-fit: cover"
-                                src='{{ url("assets/resto/$culiner->picture") }}' alt="{{ $culiner->name }}">
-                            <div class="bg-overlay">
-                                <div class="bg-overlay-content dark align-items-end justify-content-start">
-                                    <h4 class="mb-0">
-                                        {{ $culiner->name }}</h4>
+    </div>
+    <div class="container">
+        <div class="d-none d-md-block">
+            <div class="row mb-5">
+                <div class="col-md-7">
+                    <h1 class="mb-1">
+                        <b>TOP Kuliner</b>
+                    </h1>
+                    <div class="text-lg fs-4">
+                        Berikut ini daftar kuliner yang sering dinikmati wisatawan.
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="mt-5">
+                        <a href="{{ url('kuliner') }}"
+                            class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
+                            Eksplor Semua
+                            <i class="bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                @foreach ($culiners as $culiner)
+                    <div class="col-md-4 col-lg-4 col-md-9 mb-2">
+                        <a href="{{ url('kuliner') }}">
+                            <div class="card rounded rounded-3 border-0" style="background-color: transparent">
+                                <img id="GProfile" class="card-img-top w-100"
+                                    style="border-radius: 50px; width: 360px; height: 560px; object-fit: cover"
+                                    src='{{ url("assets/resto/$culiner->picture") }}' alt="{{ $culiner->name }}">
+                                <div class="bg-overlay">
+                                    <div class="bg-overlay-content dark align-items-end justify-content-start">
+                                        <h4 class="mb-0">
+                                            {{ $culiner->name }}</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="d-block d-md-none">
+            <div class="container text-center">
+                <b class="h1">TOP KULINER</b>
+                <br>
+                Berikut ini daftar kuliner yang sering dikunjungi wisatawan
+            </div>
+            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                @foreach ($culiners as $culiner)
+                    <div class="oc-item">
+                        <article class="entry event p-3">
+                            <div
+                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                <div class="col-12 mb-md-0">
+                                    <a href="{{ url('event') }}" class="entry-image">
+                                        <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
+                                    </a>
+                                </div>                                
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+            <div class="container mt-5 text-center">
+                <a href="{{ url('kuliner') }}"
+                    class="btn btn-primary text-white bg-btn-visit">
+                    Eksplor Semua
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </div>
+    <div class="section">
+        <div class="container mt-4">
+            <div class="d-none d-md-block">
+                <div class="row mb-5">
+                    <div class="col-md-7">
+                        <h1 class="mb-1">
+                            <b>TOP Akomodasi</b>
+                        </h1>
+                        <div class="text-lg fs-4">
+                            Berikut ini daftar akomdasi yang dikunjungi wisatawan
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="mt-5">
+                            <a href="{{ url('akomodasi') }}"
+                                class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
+                                Eksplor Semua
+                                <i class="bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-block d-md-none">
+                <div class="container text-center">
+                    <b class="h1">TOP AKOMODASI</b>
+                    <br>
+                    Berikut ini daftar akomodasi yang sering dikunjungi wisatawan
+                </div>
+            </div>
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($accomodations as $accomodation)
+                        <div class="swiper-slide" style="background-image: url(<?= url('assets/akomodasi/'.$accomodation->picture) ?>) !important;background-size:cover !important;">
+                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="d-block d-md-none">
+                <div class="container text-center">
+                    <a href="{{ url('akomodasi') }}"
+                        class="btn btn-primary text-white bg-btn-visit">
+                        Eksplor Semua
+                        <i class="bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    
     <div class="container mt-lg-6">
         <div class="row mb-lg-6">
             <div class="col-md-12 text-center">
-                <h1 class="mb-1">
+                <h1 class="mb-5">
                     <b>Berita Terkini</b>
                 </h1>
             </div>
@@ -317,10 +420,41 @@
             </main>
         </div>
     </div>
+    <div class="section" style="margin-top:-100px">
+        <div class="container mt-4" id="service-floating-card">
+            <div class="container text-center mb-5">
+                <b class="h1">PRODUK LAYANAN KAMI</b>
+            </div>
+            <div class="row justify-content-center mt-5 mb-5">
+                <div class="col-4 text-center">
+                    <img src="{{ url('assets/layanan-produk/tourism-card.png') }}" class="img-fluid" width="100px">
+                    <br>
+                    <b>Tourism Card</b>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
+                    <br>
+                    <b>Tour Package</b>
+                </div>
+                <div class="col-4 text-center">
+                    <img src="{{ url('assets/layanan-produk/collectible.png') }}" class="img-fluid" width="100px">
+                    <br>
+                    <b>Souvenirs</b>
+                </div>
+            </div>
+            <div class="container mt-5 text-center">
+                <a href="{{ url('layanan-produk') }}"
+                    class="btn btn-primary text-white bg-btn-visit">
+                    Eksplor Semua
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="container mt-lg-6">
         <div class="row justify-content-between align-items-center">
             <div class="col-md-12">
-                <div class="owl-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="2"
+                <div class="owl-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="1" data-items-md="3"
                     data-autoplay="5000">
                     <div class="owl-stage-outer">
                         <div class="owl-stage"
@@ -495,11 +629,11 @@
         </div>
     </div>
     <div class="section">
-        <h3 class="text-center">Didukung Oleh</h3>
+        <h3 class="text-center">Supported By</h3>
         <div class="container text-center">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
-                data-items-sm="3" data-items-md="5" data-items-lg="5" data-items-xl="5">
+                data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6">
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi.png') }}"
                             height="150px"></a></div>
                 <div class="oc-item align-items-center"><a href="#" class="align-items-center"><img
