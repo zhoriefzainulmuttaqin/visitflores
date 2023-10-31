@@ -1,7 +1,7 @@
 @extends('user.template_no_cover')
 
 @section('title')
-    Detail Akomodasi
+    Detail Akomodasi - {{ $accomodation->name }}
 @endsection
 
 @section('cover')
@@ -104,7 +104,8 @@
                                                     @foreach ($accomodation->accomodation_links as $item)
                                                         <li>
                                                             <a href="{{ $item->url }}"
-                                                                class="fw-normal link-warning text-dark">
+                                                                class="fw-normal link-primary text-primary">
+                                                                <i class='fa fa-link'></i>
                                                                 {{ $item->source_name }}
                                                             </a>
                                                         </li>
