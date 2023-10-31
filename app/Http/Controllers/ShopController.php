@@ -9,7 +9,7 @@ class ShopController extends Controller
 {
     public function shops()
     {
-        $shops = Shop::all();
+        $shops = Shop::paginate(10);
 
         $data = [
             'shops' => $shops,

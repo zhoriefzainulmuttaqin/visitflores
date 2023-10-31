@@ -70,7 +70,7 @@
                                 <ul>
                                     <li><a class="text-uppercase disable-on-hover fw-medium">
                                             <?php
-                                            $date = date_create($event->star_date);
+                                            $date = date_create($event->start_date);
                                             $days = config('app.days');
                                             $months = config('app.months');
                                             $hari = $days[date_format($date, 'l')];

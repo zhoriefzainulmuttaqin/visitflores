@@ -28,7 +28,7 @@ class TourController extends Controller
         };
 
         $tours = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
-            ->where('categories.type', 3)
+            ->where('categories.type', 2)
             ->where('tours.name', 'like',  '%' . $keyword . '%')
             ->where(function (Builder $query) use ($cat_list, $request) {
                 if ($request->cat_list) {
@@ -45,9 +45,15 @@ class TourController extends Controller
             })
             ->select(['tours.*', 'categories.name as category_name'])
             ->orderBy('tours.id', 'asc')
-            ->get();
+            ->paginate(10);
+        if ($request->keyword) {
+            $tours->appends(array('keyword' => $keyword));
+        }
+        if ($request->star_list) {
+            $tours->appends($cat_list);
+        }
 
-        $categories = Category::where('type', 3)->orderBy('name', 'asc')->get();
+        $categories = Category::where('type', 2)->orderBy('name', 'asc')->get();
         $data = [
             'tours' => $tours,
             'categories' => $categories,

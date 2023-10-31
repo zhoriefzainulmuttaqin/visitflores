@@ -52,7 +52,7 @@
                                         alt="Blog Single"></a>
                             </div>
                             <div class="entry-content mt-0">
-                                {!! mb_substr(nl2br($new->content), 0, 50) !!}
+                                {!! nl2br($new->content) !!}
                             </div>
                         </div>
                     </div>

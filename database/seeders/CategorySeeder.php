@@ -15,35 +15,45 @@ class CategorySeeder extends Seeder
     {
         // type :
         //     1 = news
-        //     2 = event
-        //     3 = tour
-        //     4 = product
-        //     5 = food / culiner
+        //     2 = tour
+        //     - = event
+        //     - = product
+        //     - = food / culiner
         $categories = ([
             ([
-                "name"   => "Kategori Berita 001",
-                "details"   => "Ini adalah detail Kategori Berita 001",
-                "type"   => 1,
-            ]),
-            ([
-                "name"   => "Kategori Event(Peristiwa) 001",
-                "details"   => "Ini adalah detail Kategori Event(Peristiwa) 001",
+                "name"   => "Air Terjun",
+                "details"   => "Ini adalah detail Air Terjun",
                 "type"   => 2,
             ]),
             ([
-                "name"   => "Kategori Tour 001",
-                "details"   => "Ini adalah detail Kategori Tour 001",
-                "type"   => 3,
+                "name"   => "Hutan",
+                "details"   => "Ini adalah detail Hutan",
+                "type"   => 2,
             ]),
             ([
-                "name"   => "Kategori Produk 001",
-                "details"   => "Ini adalah detail Kategori Produk 001",
-                "type"   => 4,
+                "name"   => "Gunung",
+                "details"   => "Ini adalah detail Gunung",
+                "type"   => 2,
             ]),
             ([
-                "name"   => "Kategori Kuliner 001",
-                "details"   => "Ini adalah detail Kategori Kuliner 001",
-                "type"   => 5,
+                "name"   => "Pantai",
+                "details"   => "Ini adalah detail Pantai",
+                "type"   => 2,
+            ]),
+            ([
+                "name"   => "Pemandian",
+                "details"   => "Ini adalah detail Pemandian",
+                "type"   => 2,
+            ]),
+            ([
+                "name"   => "Wisata Buatan",
+                "details"   => "Ini adalah detail Wisata Buatan",
+                "type"   => 2,
+            ]),
+            ([
+                "name"   => "Wisata",
+                "details"   => "Ini adalah detail Wisata",
+                "type"   => 1,
             ]),
         ]);
 
