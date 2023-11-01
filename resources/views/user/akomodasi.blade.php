@@ -37,7 +37,8 @@
             <div class="row mb-5">
                 <div class="col-md-8 mb-3 mb-sm-0">
                     @foreach ($accomodations as $accomodation)
-                        <div class="card shadow h-shadow-sm mb-5 overflow-hidden" style="border-radius: 40px">
+                        <div class="card shadow h-shadow-sm h-shadow all-ts h-translate-y-sm mb-5 overflow-hidden"
+                            style="border-radius: 40px">
                             <div class="row g-0">
                                 <div class="col-md-3">
                                     <img src='{{ url("assets/hotel/$accomodation->picture") }}'

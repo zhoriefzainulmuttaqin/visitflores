@@ -18,7 +18,7 @@
         </div>
 
         <div class="row my-5">
-            <div class="col col-md-8 mb-3 mb-sm-0">
+            <div class="col col-md-8 col-lg-8 col-sm-12 mb-3 mb-sm-0">
                 <?php
                 $i = 0;
                 ?>
@@ -68,7 +68,7 @@
                 @endforeach
             </div>
 
-            <div class="col col-md-4">
+            <div class="col col-lg-4 col-sm-12 col-md-4">
                 @foreach ($news->skip($i) as $new)
                     <div class="row">
                         <div class="col-md-12">
