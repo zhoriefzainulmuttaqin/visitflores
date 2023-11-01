@@ -42,13 +42,24 @@
 
 		<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 dark include-header" style="background: url(@yield('cover')) center center no-repeat; background-size: cover">
 			<div class="slider-inner">
-
+				<?php
+				$segments = Request::segments();
+				?>
 				<div class="vertical-middle slider-element-fade">
 					<div class="container-fluid py-5">
-						<div class="heading-block text-center border-bottom-0">
-							<!-- <h1>Starter's Guide to create Landing Pages</h1>
-							<span>Building a Landing Page was never so Easy &amp; Interactive</span> -->
-						</div>						
+						<div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
+							@if($segments == NULL)
+							<img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+							<p class="text-white display-6 d-none d-md-block">
+								PORTAL INFORMASI PARIWISATA CIREBON RAYA <br>
+								(CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+							</p>
+							<p class="text-white d-block d-md-none">
+								PORTAL INFORMASI PARIWISATA CIREBON RAYA <br>
+								(CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+							</p>
+							@endif
+						</div>
 					</div>
 				</div>
 

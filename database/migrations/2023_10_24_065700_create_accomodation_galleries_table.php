@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('data_id')->unsigned();
             $table->string('name');
             $table->string('picture');
-            $table->integer('type');
+            // $table->integer('type');
         });
     }
 

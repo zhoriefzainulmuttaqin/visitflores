@@ -1,7 +1,7 @@
 @extends('user.template_no_cover')
 
 @section('title')
-    Detail Akomodasi
+    Detail Akomodasi - {{ $accomodation->name }}
 @endsection
 
 @section('cover')
@@ -54,21 +54,23 @@
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">
-                        <button class="btn btn-warning text-dark" type="button">
-                            <i class="uil fs-5 uil-ticket text-dark"></i> Disc. Card</button>
+                        
+                            <a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-warning text-dark">
+                                <i class="uil fs-5 uil-ticket text-dark"></i> Disc. Card
+                            </a>
                     </div>
                 </font>
             </div>
         </div>
         <div class="masonry-thumbs grid-container row row-cols-4 has-init-isotope" data-big="1" data-lightbox="gallery"
             style="position: relative; height: 585.564px;">
-            <a class="grid-item grid-item-big" href='{{ url("assets/hotel/$accomodation->cover_picture") }}'
+            <a class="grid-item grid-item-big" href='{{ url("assets/akomodasi/$accomodation->cover_picture") }}'
                 data-lightbox="gallery-item" style="position: absolute; left: 0%; top: 0px; width: 519.188px;"><img
-                    src="{{ url("assets/hotel/$accomodation->cover_picture") }}" alt="{{ $accomodation->name }}"></a>
+                    src="{{ url("assets/akomodasi/$accomodation->cover_picture") }}" alt="{{ $accomodation->name }}"></a>
             @foreach ($accomodation->accomodation_galleries as $item)
-                <a class="grid-item" href="{{ url("assets/hotel/$item->picture") }}" data-lightbox="gallery-item"
+                <a class="grid-item" href="{{ url("assets/akomodasi/$item->picture") }}" data-lightbox="gallery-item"
                     style="position: absolute; left: 39.9991%; top: 0px;"><img
-                        src="{{ url("assets/hotel/$item->picture") }}" alt="{{ $item->name }}"></a>
+                        src="{{ url("assets/akomodasi/$item->picture") }}" alt="{{ $item->name }}"></a>
             @endforeach
         </div>
         <div class="row my-5">
@@ -98,11 +100,12 @@
                                         </font>
                                         <div class="entry-meta no-separator mb-3">
                                             <ul>
-                                                @if ($accomodation->accomodation_links === true)
+                                                @if (count($accomodation->accomodation_links) > 0)
                                                     @foreach ($accomodation->accomodation_links as $item)
                                                         <li>
                                                             <a href="{{ $item->url }}"
-                                                                class="fw-normal link-warning text-dark">
+                                                                class="fw-normal link-primary text-primary">
+                                                                <i class='fa fa-link'></i>
                                                                 {{ $item->source_name }}
                                                             </a>
                                                         </li>

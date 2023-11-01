@@ -17,7 +17,7 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band",
+                "name"   => "Pentas Seni & Festifal Band 2023",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2023-10-20",
@@ -31,7 +31,7 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band",
+                "name"   => "Pentas Seni & Festifal Band 2022",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2022-10-07",
@@ -45,7 +45,7 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band",
+                "name"   => "Pentas Seni & Festifal Band 2021",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2021-10-11",
@@ -59,7 +59,7 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band",
+                "name"   => "Pentas Seni & Festifal Band 2020",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2020-10-11",
@@ -73,7 +73,7 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band",
+                "name"   => "Pentas Seni & Festifal Band 2019",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2019-10-11",
@@ -87,7 +87,7 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band",
+                "name"   => "Pentas Seni & Festifal Band 2018",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2018-10-11",
