@@ -86,42 +86,57 @@
         <div class="container-fluid">
             <h1 class="mb-2 text-center">
                 <b>Kalender Event</b>
+                <!-- <p>
+                    {{ __('content.welcome') }}
+                </p> -->
             </h1>
-            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                @foreach ($events as $event)
+            <div class="d-block d-md-none">
+                <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2" data-items-sm="2" data-items-lg="3" data-items-xl="5">
+                    @foreach ($events as $event)
                     <div class="oc-item">
-                        <article class="entry event p-3">
-                            <div
-                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                <div class="col-12 mb-md-0">
-                                    <a href="{{ url('event') }}" class="entry-image">
-                                        <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
-                                    </a>
-                                </div>
-                                <div class="col-12 p-4 pt-0 d-none d-md-none d-lg-block">
-                                    <div class="entry-title nott">
-                                        <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
-                                    </div>
-                                    <div class="entry-meta no-separator mb-1 mt-0">
-                                        <ul>
-                                            <li>
-                                                <a href="{{ url('event') }}" class="text-uppercase fw-medium">
-                                                    {{ $event->location }}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-content my-3">
-                                        <p class="mb-0">
-                                            <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
+                        <a href="#"><img src="{{ url('assets/event/' . $event->cover_picture) }}" alt="Image 1"></a>
                     </div>
-                @endforeach
+                    @endforeach
+                </div>
+            </div>
+            
+            <div class="d-none d-md-block">
+                <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                    data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                    @foreach ($events as $event)
+                        <div class="oc-item">
+                            <article class="entry event p-3">
+                                <div
+                                    class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                    <div class="col-12 mb-md-0">
+                                        <a href="{{ url('event') }}" class="entry-image">
+                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
+                                        </a>
+                                    </div>
+                                    <div class="col-12 p-0 p-md-4 pt-0">
+                                        <div class="entry-title nott">
+                                            <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                        </div>
+                                        <div class="entry-meta no-separator mb-1 mt-0">
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                        {{ $event->location }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="entry-content my-3">
+                                            <p class="mb-0">
+                                                <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+                </div>                
             </div>
             <div class="clearfix"></div>
             <div class="text-center mt-5 mb-5">
@@ -159,15 +174,21 @@
                 <div class="container text-center">
                     <b class="h1">TOP WISATA</b>
                     <br>
-                    Berikut ini daftar wisata yang sering dikunjungi wisatawan
+                    <div style="font-size:12px">
+                        Berikut ini daftar wisata yang sering dikunjungi wisatawan
+                    </div>
                 </div>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($tours as $tour)
-                        <div class="swiper-slide" style="background-image: url(<?= url('assets/wisata/'.$tour->picture) ?>) !important;background-size:cover !important;">
-                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+                        <div class="swiper-slide">
+                            <img src='{{ url("assets/wisata/$tour->picture") }}' style="object-fit: cover;">
+                            <div class="image-caption">
+                                <b style="font-weight: 800;">Alun-Alun Kejaksan</b><br>
+                                Kejaksan, Kota Cirebon
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -229,7 +250,9 @@
             <div class="container text-center">
                 <b class="h1">TOP KULINER</b>
                 <br>
-                Berikut ini daftar kuliner yang sering dikunjungi wisatawan
+                <div style="font-size:12px">
+                    Berikut ini daftar kuliner yang sering dikunjungi wisatawan
+                </div>
             </div>
             <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
                 data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
@@ -284,7 +307,9 @@
                 <div class="container text-center">
                     <b class="h1">TOP AKOMODASI</b>
                     <br>
-                    Berikut ini daftar akomodasi yang sering dikunjungi wisatawan
+                    <div style="font-size:12px">
+                        Berikut ini daftar akomodasi yang sering dikunjungi wisatawan
+                    </div>
                 </div>
             </div>
             <!-- Swiper -->
@@ -293,6 +318,7 @@
                     @foreach ($accomodations as $accomodation)
                         <div class="swiper-slide" style="background-image: url(<?= url('assets/akomodasi/'.$accomodation->picture) ?>) !important;background-size:cover !important;">
                             <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+                            <div class="title" data-swiper-parallax="-100">Slide 1</div>
                         </div>
                     @endforeach
                 </div>
@@ -309,7 +335,7 @@
             </div>
         </div>
     </div>    
-    <div class="container mt-lg-6">
+    <div class="container mt-lg-6 mb-5">
         <div class="row mb-lg-6">
             <div class="col-md-12 text-center">
                 <h1 class="mb-5">
@@ -322,7 +348,7 @@
                 <div id="posts" class="row gutter-40">
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
-                            <div class="col-md-4">
+                            <div class="col-4">
                                 <div class="entry-image">
                                     <a href='{{ url("assets/berita/{$news[0]->cover_picture}") }}'
                                         data-lightbox="image"><img
@@ -330,21 +356,13 @@
                                             alt="{{ $news[0]->name }}"></a>
                                 </div>
                             </div>
-                            <div class="col-md-8 ps-md-4">
+                            <div class="col-8 ps-md-4">
                                 <div class="entry-title title-sm">
                                     <h2><a href="{{ url("/detail-berita/{$news[0]->slug}") }}">{{ $news[0]->name }}</a>
                                     </h2>
-                                </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li><i class="uil uil-schedule"></i>
-                                            {{ tglIndo($news[0]->published_date, 'd/m/Y') }}</li>
-                                        <li><i class="uil uil-user"></i> {{ $news[0]->admin_name }}</li>
-                                        <li><i class="uil uil-folder-open"></i>{{ $news[0]->category_name }}</li>
-                                    </ul>
-                                </div>
+                                </div>                                
                                 <div class="entry-content">
-                                    {!! mb_substr(nl2br($news[0]->content), 0, 50) !!}
+                                    {!! mb_substr(nl2br($news[0]->content), 0, 500) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">Lanjut
                                         Baca</a>
@@ -354,7 +372,7 @@
                     </div>
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
-                            <div class="col-md-4 order-md-last">
+                            <div class="col-4 order-md-last">
                                 <div class="entry-image">
                                     <a href="{{ url("assets/berita/{$news[1]->cover_picture}") }}"
                                         data-lightbox="image"><img
@@ -362,21 +380,13 @@
                                             alt="{{ $news[1]->name }}"></a>
                                 </div>
                             </div>
-                            <div class="col-md-8 pe-md-4">
+                            <div class="col-8 pe-md-4">
                                 <div class="entry-title title-sm">
                                     <h2><a href="{{ url("/detail-berita/{$news[1]->slug}") }}">{{ $news[1]->name }}</a>
                                     </h2>
                                 </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li><i class="uil uil-schedule"></i>
-                                            {{ tglIndo($news[1]->published_date, 'd/m/Y') }}</li>
-                                        <li><i class="uil uil-user"></i> {{ $news[1]->admin_name }}</li>
-                                        <li><i class="uil uil-folder-open"></i> {{ $news[1]->category_name }}</li>
-                                    </ul>
-                                </div>
                                 <div class="entry-content">
-                                    {!! mb_substr(nl2br($news[1]->content), 0, 50) !!}
+                                    {!! mb_substr(nl2br($news[1]->content), 0, 500) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">Lanjut
                                         baca</a>
@@ -386,7 +396,7 @@
                     </div>
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
-                            <div class="col-md-4">
+                            <div class="col-4">
                                 <div class="entry-image">
                                     <a href='{{ url("assets/berita/{$news[2]->cover_picture}") }}'
                                         data-lightbox="image"><img
@@ -394,21 +404,13 @@
                                             alt="{{ $news[2]->name }}"></a>
                                 </div>
                             </div>
-                            <div class="col-md-8 ps-md-4">
+                            <div class="col-8 ps-md-4">
                                 <div class="entry-title title-sm">
                                     <h2><a href="{{ url("/detail-berita/{$news[2]->slug}") }}">{{ $news[2]->name }}</a>
                                     </h2>
-                                </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li><i class="uil uil-schedule"></i>
-                                            {{ tglIndo($news[2]->published_date, 'd/m/Y') }}</li>
-                                        <li><i class="uil uil-user"></i> {{ $news[2]->admin_name }}</li>
-                                        <li><i class="uil uil-folder-open"></i>{{ $news[2]->category_name }}</li>
-                                    </ul>
-                                </div>
+                                </div>                                
                                 <div class="entry-content">
-                                    {!! mb_substr(nl2br($news[2]->content), 0, 50) !!}
+                                    {!! mb_substr(nl2br($news[2]->content), 0, 500) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">Lanjut
                                         Baca</a>
@@ -420,7 +422,15 @@
             </main>
         </div>
     </div>
-    <div class="section" style="margin-top:-100px">
+    <div class="mt-5"></div>
+    <div class="container mt-5 text-center">
+        <a href="{{ url('berita') }}"
+        class="btn btn-primary text-white bg-btn-visit">
+            Eksplor Semua
+            <i class="bi-arrow-right"></i>
+        </a>
+    </div>
+    <div class="section">
         <div class="container mt-4" id="service-floating-card">
             <div class="container text-center mb-5">
                 <b class="h1">PRODUK LAYANAN KAMI</b>
@@ -623,7 +633,6 @@
                     <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
                                 class="uil uil-angle-left-b"></i></button><button type="button" role="presentation"
                             class="owl-next disabled"><i class="uil uil-angle-right-b"></i></button></div>
-
                 </div>
             </div>
         </div>
@@ -632,8 +641,8 @@
         <h3 class="text-center">Supported By</h3>
         <div class="container text-center">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
-                data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
-                data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6">
+                data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="6"
+                data-items-sm="6" data-items-md="6" data-items-lg="6" data-items-xl="6">
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi.png') }}"
                             height="150px"></a></div>
                 <div class="oc-item align-items-center"><a href="#" class="align-items-center"><img
@@ -665,7 +674,7 @@
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
-            slidesPerView: "auto",
+            slidesPerView: 3,
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
@@ -675,6 +684,9 @@
             },
             pagination: {
                 el: ".swiper-pagination",
+            },
+            autoplay: {
+                delay: 1000,
             },
         });
     </script>

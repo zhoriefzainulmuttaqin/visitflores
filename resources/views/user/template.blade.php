@@ -50,11 +50,11 @@
 						<div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
 							@if($segments == NULL)
 							<img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
-							<p class="text-white display-6 d-none d-md-block">
+							<p class="text-white d-none d-md-block display-6">
 								PORTAL INFORMASI PARIWISATA CIREBON RAYA <br>
 								(CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
 							</p>
-							<p class="text-white d-block d-md-none">
+							<p class="text-white d-block d-md-none" style="font-size:12px">
 								PORTAL INFORMASI PARIWISATA CIREBON RAYA <br>
 								(CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
 							</p>
