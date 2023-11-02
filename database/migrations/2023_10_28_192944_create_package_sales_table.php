@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger("admin_confirm_id")->unsigned()->nullable();
             $table->bigInteger("package_id")->unsigned();
             $table->string("snapshot_name",255);
+            $table->string("snapshot_name_en",255);
             $table->string("snapshot_unit",255);
             $table->double("snapshot_price");
             $table->integer("snapshot_minimum");

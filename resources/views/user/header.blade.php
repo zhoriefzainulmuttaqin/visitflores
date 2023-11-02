@@ -1,3 +1,7 @@
+<?php
+use Illuminate\Support\Facades\App;
+$locale = App::currentLocale();
+?>
 <!-- Header
 ============================================= -->
 <header id="header" class="transparent-header page-section dark" data-sticky-class="not-dark">
@@ -25,6 +29,14 @@
                             <li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}"><div>Oleh - oleh</div></a></li>
                             <li class="menu-item"><a class="menu-link" href="{{ url('akomodasi') }}"><div>Akomodasi</div></a></li>
                             <!-- <li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li> -->
+                            <li class="menu-item">
+                                
+                                @if(App::isLocale("id"))
+                                <a class="menu-link" href="{{ url('atur-bahasa/en') }}"><div>English</div></a>
+                                @else
+                                <a class="menu-link" href="{{ url('atur-bahasa/id') }}"><div>Indonesia</div></a>
+                                @endif
+                            </li>
                             <li class="menu-item">
                                 <a class="menu-link" href="#">
                                     <div>

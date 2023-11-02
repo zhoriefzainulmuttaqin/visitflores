@@ -16,11 +16,13 @@ return new class extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->string('city');
             $table->string('name');
+            $table->string('name_en');
             $table->string('slug');
             $table->string('picture');
             $table->string('cover_picture');
             $table->longText('address');
             $table->longText('facilities');
+            $table->longText('facilities_en');
             $table->longText('phone');
             $table->longText('price');
             $table->string('link_instagram')->nullable();

@@ -13,6 +13,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LocaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::get('/', [UserHomeController::class, "home"]);
 // Route::get('wisata', function () {
 //     return view('user.tours');
 // });
+
+Route::get("atur-bahasa/{locale}",[LocaleController::class,"atur_bahasa"]);
+Route::get("set-bahasa/{locale}",[LocaleController::class,"set_bahasa"]);
+
 Route::get('/wisata', [TourController::class, 'tours']);
 Route::get('/kuliner', [RestaurantController::class, 'restaurants']);
 Route::get('/oleh-oleh', [ShopController::class, 'shops']);

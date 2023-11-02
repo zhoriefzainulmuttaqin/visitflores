@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('patterns', function (Blueprint $table) {
             $table->id();
-            $table->string("picture",255);
+            $table->string("picture",255)->nullable();
             $table->string("cover_picture",255)->nullable();
             $table->string("name",255);
+            $table->string("name_en",255);
             $table->string("slug",255);
             $table->longText("details");
+            $table->longText("details_en");
             $table->string("view_file",255);
         });
     }

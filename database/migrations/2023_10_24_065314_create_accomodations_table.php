@@ -15,14 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('city');
             $table->string('name');
+            $table->string('name_en');
             $table->string('slug');
             $table->string('picture');
             $table->string('cover_picture');
             $table->longText('details');
+            $table->longText('details_en');
             $table->longText('address');
             $table->integer('star');
             $table->double('price_start_from');
             $table->longText('facilities');
+            $table->longText('facilities_en');
             $table->longText('phone');
             $table->string('link_instagram')->nullable();
             $table->string('link_facebook')->nullable();

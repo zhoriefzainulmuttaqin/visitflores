@@ -19,6 +19,7 @@ class GiftSeeder extends Seeder
             ([
                 "picture"   => "oleh.png",
                 "name"      => "Paket A",
+                "name"      => "Package A",
                 "slug"      => "paket-a",
                 "price"     => 175000,
                 "unit"      => "Paket",
@@ -34,6 +35,16 @@ class GiftSeeder extends Seeder
                 1 pcs Habbats Drink
                 1 pc Himsalt
                 Box Hampers Eksklusive",
+                "contents_en"  => "
+                1pc Blackthin
+                1 pc Blackmond
+                1 pc Tunisian Dates 250 grams
+                1 pc Chia Seed
+                2 pcs Veggie Noodles
+                2 pcs Wedang Uwuh
+                1 pc Habbats Drink
+                1 pc Himsalt
+                Exclusive Box Hampers",
             ]),
             ([
                 "picture"   => "oleh.png",
@@ -53,6 +64,16 @@ class GiftSeeder extends Seeder
                 1 pcs Habbats Drink
                 1 pc Himsalt
                 Box Hampers Eksklusive",
+                "contents_en"  => "
+                1 pc Blackthin
+                1 pc Blackmond
+                1 pc Tunisian Dates 250 grams
+                1 pc Chia Seed
+                2 pcs Veggie Noodles
+                2 pcs Wedang Uwuh
+                1 pc Habbats Drink
+                1 pc Himsalt
+                Exclusive Box Hampers",
             ]),
         ]);
 

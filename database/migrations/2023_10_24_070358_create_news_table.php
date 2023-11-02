@@ -17,9 +17,11 @@ return new class extends Migration
             $table->bigInteger('admin_id')->unsigned();
             $table->string('cover_picture');
             $table->string('name');
+            $table->string('name_en');
             $table->string('slug');
             $table->date('published_date');
             $table->longText('content');
+            $table->longText('content_en');
         });
     }
 

@@ -184,7 +184,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($tours as $tour)
                         <div class="swiper-slide">
-                            <img src='{{ url("assets/wisata/$tour->picture") }}' style="object-fit: cover;">
+                            <img src='{{ url("assets/wisata/$tour->picture") }}' class="img-fluid w-100 h-100">
                             <div class="image-caption">
                                 <b style="font-weight: 800;">Alun-Alun Kejaksan</b><br>
                                 Kejaksan, Kota Cirebon
@@ -674,7 +674,7 @@
             effect: "coverflow",
             grabCursor: true,
             centeredSlides: true,
-            slidesPerView: 3,
+            slidesPerView: "auto",
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,

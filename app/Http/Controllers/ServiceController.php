@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\App;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 use App\Models\Payment;
 use App\Models\Pattern;
@@ -14,6 +16,11 @@ use App\Models\GiftSaleItem;
 class ServiceController extends Controller
 {
     //
+    public function __construct(Request $request){
+        $locale = $request->cookie("color");
+        dd($locale);
+        App::setLocale($locale);
+    }
     public function product_services(){
         $gifts = Gift::orderBy("name","asc")->get();
         $patterns = Pattern::orderBy("id","asc")->get();
