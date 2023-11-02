@@ -7,7 +7,7 @@ Tourism Card
 @section("content")
 <div class="container-lg mt-5">
     <h1 class="text-center mb-5">
-        <b>Tourism Card</b>
+        <b>Tourism Card {{ __("content.welcome") }}</b>
     </h1>
     <div class="container mt-5">
         <div class="card shadow" id="BuyTourismCard">

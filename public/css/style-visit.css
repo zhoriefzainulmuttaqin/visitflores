@@ -1,17 +1,11 @@
-@media(width <= 768px){
-    #header-wrap{
-        /* background-color: transparent !important; */
-        /* border-bottom: none; */
-    }     
-}
 #header-wrap{
     position: fixed !important;
 }
 .logo-default{
-    height: 55px !important;
+    height: 40px !important;
 }
 .logo-dark{
-    height: 55px !important;
+    height: 40px !important;
 }
 .menu-item > .menu-link:hover{
     color: #d6d6d6 !important;
@@ -60,4 +54,17 @@
 
 #logo-on-header{
     width: 60% !important;
+}
+
+@media(width <= 768px){
+    #header-wrap{
+        /* background-color: transparent !important; */
+        /* border-bottom: none; */
+    }
+    .logo-default{
+        height: 20px !important;
+    }
+    .logo-dark{
+        height: 20px !important;
+    }
 }
