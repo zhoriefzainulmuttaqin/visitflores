@@ -19,7 +19,7 @@ class GiftSeeder extends Seeder
             ([
                 "picture"   => "oleh.png",
                 "name"      => "Paket A",
-                "name"      => "Package A",
+                "name_en"      => "Package A",
                 "slug"      => "paket-a",
                 "price"     => 175000,
                 "unit"      => "Paket",
@@ -49,6 +49,7 @@ class GiftSeeder extends Seeder
             ([
                 "picture"   => "oleh.png",
                 "name"      => "Paket B",
+                "name_en"      => "Package B",
                 "slug"      => "paket-b",
                 "price"     => 175000,
                 "unit"      => "Paket",
