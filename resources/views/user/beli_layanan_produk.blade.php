@@ -1,16 +1,16 @@
 @extends("user.template_no_cover")
 
 @section("title")
-Beli Layanan Produk Paket Oleh - oleh
+{{ __("services.buy_souvenirs") }}
 @endsection
 
 @section("content")
 <div class="container-lg mt-5">
     <h1 class="text-center mb-5">
-        <b>Beli Layanan Produk Paket Oleh - oleh</b>
+        <b>{{ __("services.buy_souvenirs") }}</b>
     </h1>
     <div class="container mt-5">
-        <div class="card shadow" id="BuyTourismCard">
+        <div class="card shadow">
             <div class="card-body p-5">
                 <div class="row">
                     <div class="col-md-5">
@@ -19,18 +19,26 @@ Beli Layanan Produk Paket Oleh - oleh
                                 <img src="{{ url('assets/layanan-produk/'.$gift->picture) }}" class="img-fluid rounded" width="100%">
                                 <h4 class="text-center mt-5">
                                     <b>
-                                        {{ $gift->name }}
+                                    @if(App::isLocale("id"))
+                                    {{ $gift->name }}
+                                    @else
+                                    {{ $gift->name_en }}
+                                    @endif
                                     </b>
                                 </h4>
                                 <div class="container">
                                     <p class='h4'>
                                         <b>
                                         Rp. {{ number_format($gift->price,0,",",".") }} ,- <br>
-                                        Berat Paket {{ $gift->weight }} gram <br>
-                                        Isi Paket ({{ $gift->contents_count }} Produk)
+                                        {{ __("services.package_weight") }} {{ $gift->weight }} gram <br>
+                                        {{ __("services.package_contents") }} ({{ $gift->contents_count }} {{ __("services.products") }})
                                         </b>
                                         <br>
+                                        @if(App::isLocale("id"))
                                         {!! nl2br($gift->contents) !!}
+                                        @else
+                                        {!! nl2br($gift->contents_en) !!}
+                                        @endif
                                     </p>
                                 </div>
                             </div>
@@ -44,7 +52,7 @@ Beli Layanan Produk Paket Oleh - oleh
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
                                     <div class="mb-3">
-                                        <label>Jumlah</label>
+                                        <label>{{ __("services.quantity") }}</label>
                                         <div class="input-group input-group-lg">
                                             <button class="btn btn-info bg-btn-visit text-white" onclick="minQuantity()" type="button">-</button>
                                             <input type="number" class="form-control" name="quantity" min="1" value="1" placeholder="Jumlah Tourism Card Yang Dibeli" id="CardQuantity">
@@ -52,7 +60,7 @@ Beli Layanan Produk Paket Oleh - oleh
                                         </div>
                                     </div>
                                     <div class="mb-2">
-                                        <label>Metode Pembayaran</label>
+                                        <label>{{ __("services.payment_method") }}</label>
                                         <?php
                                         $pno = 0;
                                         ?>
@@ -71,13 +79,13 @@ Beli Layanan Produk Paket Oleh - oleh
                                     <div class="mb-2">
                                         <div class="row mt-5">
                                             <p class="h3 text-center">
-                                                <b id="cardPrice">Harga : Rp. {{ number_format($gift->price,0,",",".") }}</b>
+                                                <b id="cardPrice">{{ __("services.price") }} : Rp. {{ number_format($gift->price,0,",",".") }}</b>
                                             </p>
                                         </div>
                                     </div>
                                     <div class="mb-2 d-grid gap-2">
                                         <button type="submit" class="btn btn-success">
-                                            Beli Paket
+                                            {{ __("services.buy_package") }}
                                         </button>
                                     </div>
                                 </div>
@@ -109,7 +117,7 @@ function minQuantity(){
     cardTotalPrice = cardQuantity * cardPrice;
     let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
 
-    $("#cardPrice").html(`Harga : Rp. ${cardValuePrice}`);
+    $("#cardPrice").html(`<?= __("services.price") ?> : Rp. ${cardValuePrice}`);
     $("#CardQuantity").val(cardQuantity);
 }
 
@@ -123,7 +131,7 @@ function plusQuantity(){
     cardTotalPrice = cardQuantity * cardPrice;
     let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
 
-    $("#cardPrice").html(`Harga : Rp. ${cardValuePrice}`);
+    $("#cardPrice").html(`<?= __("services.price") ?> : Rp. ${cardValuePrice}`);
     $("#CardQuantity").val(cardQuantity);
 }
 

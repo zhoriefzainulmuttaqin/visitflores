@@ -1,13 +1,13 @@
 @extends("user.template_no_cover")
 
 @section("title")
-Beli Tourism Card
+{{ __ ("services.buy") }} Tourism Card
 @endsection
 
 @section("content")
 <div class="container-lg mt-5">
     <h1 class="text-center mb-5">
-        <b>Beli Tourism Card</b>
+        <b>{{ __ ("services.buy") }} Tourism Card</b>
     </h1>
     <div class="container mt-5">
         <div class="card shadow" id="BuyTourismCard">
@@ -27,7 +27,7 @@ Beli Tourism Card
                     <div class="row justify-content-center">
                         <div class="col-md-7">
                             <div class="mb-3">
-                                <label>Jumlah</label>
+                                <label>{{ __("services.quantity") }}</label>
                                 <div class="input-group input-group-lg">
                                     <button class="btn btn-info bg-btn-visit text-white" onclick="minQuantity()" type="button">-</button>
                                     <input type="number" class="form-control" name="quantity" min="1" value="1" placeholder="Jumlah Tourism Card Yang Dibeli" id="CardQuantity">
@@ -35,7 +35,7 @@ Beli Tourism Card
                                 </div>
                             </div>
                             <div class="mb-2">
-                                <label>Metode Pembayaran</label>
+                                <label>{{ __("services.payment_method") }}</label>
                                 <?php
                                 $pno = 0;
                                 ?>
@@ -54,13 +54,13 @@ Beli Tourism Card
                             <div class="mb-2">
                                 <div class="row mt-5">
                                     <p class="h3 text-center">
-                                        <b id="cardPrice">Harga : Rp. {{ number_format(getOption('tourism_card_price'),0,",",".") }}</b>
+                                        <b id="cardPrice">{{ __("services.price") }} : Rp. {{ number_format(getOption('tourism_card_price'),0,",",".") }}</b>
                                     </p>
                                 </div>
                             </div>
                             <div class="mb-2 d-grid gap-2">
                                 <button type="submit" class="btn btn-success">
-                                    Beli Tourism Card
+                                    {{ __("services.buy") }} Tourism Card
                                 </button>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ function minQuantity(){
     cardTotalPrice = cardQuantity * cardPrice;
     let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
 
-    $("#cardPrice").html(`Harga : Rp. ${cardValuePrice}`);
+    $("#cardPrice").html(`<?= __("services.price") ?> : Rp. ${cardValuePrice}`);
     $("#CardQuantity").val(cardQuantity);
 }
 
@@ -103,7 +103,7 @@ function plusQuantity(){
     cardTotalPrice = cardQuantity * cardPrice;
     let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
 
-    $("#cardPrice").html(`Harga : Rp. ${cardValuePrice}`);
+    $("#cardPrice").html(`<?= __("services.price") ?> : Rp. ${cardValuePrice}`);
     $("#CardQuantity").val(cardQuantity);
 }
 

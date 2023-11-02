@@ -55,7 +55,7 @@ Layanan Jasa Konsultan Bisnis Pariwisata
         </div>
         <div class="clearfix"></div>
         <div class="mb-5"></div>
-        <a href="{{ url('layanan-jasa') }}" class="btn btn-primary">
+        <a href="{{ url('layanan-jasa') }}" class="btn btn-primary bg-btn-visit">
             <i class='fa fa-arrow-left'></i>
             Kembali
         </a>
