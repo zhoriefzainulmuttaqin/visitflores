@@ -1,6 +1,6 @@
 <?php
 
 return [
-    "title" => "souvenirs",
+    "title" => "Souvenirs",
     "desc_title" => "The following are souvenirs that tourists often buy.",
 ];
