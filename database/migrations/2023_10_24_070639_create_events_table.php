@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('admin_id')->unsigned();
             $table->string('cover_picture');
             $table->string('name');
+            $table->string('name_en');
             $table->string('slug');
             $table->longText('location');
             $table->date('published_date');
@@ -25,6 +26,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('end_time');
             $table->longText('details');
+            $table->longText('details_en');
         });
     }
 

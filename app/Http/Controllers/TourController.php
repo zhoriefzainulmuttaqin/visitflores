@@ -30,18 +30,27 @@ class TourController extends Controller
         $tours = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
             ->where('categories.type', 2)
             ->where('tours.name', 'like',  '%' . $keyword . '%')
-            ->where(function (Builder $query) use ($cat_list, $request) {
-                if ($request->cat_list) {
-                    if ($request->cat_list[0] != "0") {
-                        $query->where(
-                            function (Builder $q) use ($cat_list) {
-                                foreach ($cat_list as $key => $value) {
-                                    $q->orWhere('tours.category_id', $value);
-                                }
-                            }
-                        );
+            // ->where(function (Builder $query) use ($cat_list, $request) {
+            //     if ($request->cat_list) {
+            //         if ($request->cat_list[0] != "0") {
+            //             $query->where(
+            //                 function (Builder $q) use ($cat_list) {
+            //                     foreach ($cat_list as $key => $value) {
+            //                         $q->orWhere('tours.category_id', $value);
+            //                     }
+            //                 }
+            //             );
+            //         }
+            //     }
+            // })
+            ->where(function (Builder $query) use ($cat_list) {
+                $query->where(
+                    function (Builder $q) use ($cat_list) {
+                        foreach ($cat_list as $key => $value) {
+                            $q->orWhere('tours.category_id', $value);
+                        }
                     }
-                }
+                );
             })
             ->select(['tours.*', 'categories.name as category_name'])
             ->orderBy('tours.id', 'asc')
@@ -49,7 +58,7 @@ class TourController extends Controller
         if ($request->keyword) {
             $tours->appends(array('keyword' => $keyword));
         }
-        if ($request->star_list) {
+        if ($request->cat_list) {
             $tours->appends($cat_list);
         }
 
@@ -60,5 +69,23 @@ class TourController extends Controller
             "cat_list"   => $cat_list_data,
         ];
         return view('user.tours', $data);
+    }
+
+    public function detail_tour(Request $request)
+    {
+        $tour = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
+            ->where('categories.type', 2)
+            ->select(['tours.*', 'categories.name as category_name'])
+            ->where('tours.slug', $request->slug)->first();
+
+        if ($tour) {
+            $data = [
+                'tour' => $tour,
+            ];
+
+            return view('user.tour_details', $data);
+        } else {
+            return redirect("wisata");
+        }
     }
 }

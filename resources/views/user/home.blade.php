@@ -16,6 +16,13 @@
             padding-top: 100px;
             padding-bottom: 300px;
         }
+
+        @media (max-width: 768px) {
+            #home-event-container {
+                padding-top: 30px;
+                padding-bottom: 40px;
+            }
+        }
     </style>
     <!-- Demo styles -->
     <style>
@@ -86,54 +93,129 @@
         <div class="container-fluid">
             <h1 class="mb-2 text-center">
                 <b>Kalender Event</b>
+                <!-- <p>                                                                                 {{ __('content.welcome') }}
+                        </p> -->
             </h1>
-            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                @foreach ($events as $event)
-                    <div class="oc-item">
-                        <article class="entry event p-3">
-                            <div
-                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                <div class="col-12 mb-md-0">
-                                    <a href="{{ url('event') }}" class="entry-image">
-                                        <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
-                                    </a>
+            <div class="d-block d-md-none">
+                <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
+                    data-items-sm="2" data-items-lg="3" data-items-xl="5">
+                    @foreach ($events as $event)
+                        <div class="oc-item">
+                            <a href="#"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
+                                    alt="Image 1"></a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="d-none d-md-block">
+                <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                    data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                    @foreach ($events as $event)
+                        <div class="oc-item">
+                            <article class="entry event p-3">
+                                <div
+                                    class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                    <div class="col-12 mb-md-0">
+                                        <a href="{{ url('event') }}" class="entry-image">
+                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
+                                        </a>
+                                    </div>
+                                    <div class="col-12 p-0 p-md-4 pt-0">
+                                        <div class="entry-title nott">
+                                            <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                        </div>
+                                        <div class="entry-meta no-separator mb-1 mt-0">
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                        {{ $event->location }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="entry-content my-3">
+                                            <p class="mb-0">
+                                                <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-12 p-4 pt-0 d-none d-md-none d-lg-block">
-                                    <div class="entry-title nott">
-                                        <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
-                                    </div>
-                                    <div class="entry-meta no-separator mb-1 mt-0">
-                                        <ul>
-                                            <li>
-                                                <a href="{{ url('event') }}" class="text-uppercase fw-medium">
-                                                    {{ $event->location }}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-content my-3">
-                                        <p class="mb-0">
-                                            <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                @endforeach
+                            </article>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="clearfix"></div>
-            <div class="text-center mt-5 mb-5">
-                <a href="{{ url('event') }}" class="btn fs-3 btn-primary text-white bg-btn-visit">
+            {{-- css event --}}
+            <style>
+                #but_event {
+                    width: 800px;
+                    height: 100px;
+                    font-size: 24px;
+                    margin-top: 3rem;
+                    margin-left: auto;
+                    margin-right: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 30px;
+                }
+
+                @media (max-width: 768px) {
+
+                    #but_event {
+                        width: 300px;
+                        height: 50px;
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-top: -3rem;
+                        margin-left: auto;
+                        margin-right: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 5px;
+
+                    }
+                }
+            </style>
+            {{-- end css event --}}
+            <div class="text-center">
+                <a href="{{ url('event') }}" id="but_event" class="btn btn-primary text-white bg-btn-visit">
                     Lihat Semua Event
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
         </div>
     </div>
-    <div class="section">
-        <div class="container mt-4">
+
+    {{-- css wisata --}}
+    <style>
+        @media (max-width: 768px) {
+            #top_wisata {
+                margin-bottom: -0.5rem;
+            }
+
+            #but_wisata {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 3rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+
+            }
+        }
+    </style>
+    {{-- end css wisata --}}
+    <div class="section" id="top_wisata">
+        <div class="container">
             <div class="d-none d-md-block">
                 <div class="row mb-5">
                     <div class="col-md-7">
@@ -158,16 +240,21 @@
                 <div class="container text-center">
                     <b class="h1">TOP WISATA</b>
                     <br>
-                    Berikut ini daftar wisata yang sering dikunjungi wisatawan
+                    <div style="font-size:12px; font-weight:500;">
+                        Berikut ini daftar wisata yang sering dikunjungi wisatawan
+                    </div>
                 </div>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($tours as $tour)
-                        <div class="swiper-slide"
-                            style="background-image: url(<?= url('assets/wisata/' . $tour->picture) ?>) !important;background-size:cover !important;">
-                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+                        <div class="swiper-slide">
+                            <img src='{{ url("assets/wisata/$tour->picture") }}' class="img-fluid w-100 h-100">
+                            <div class="image-caption">
+                                <b style="font-weight: 800;">Alun-Alun Kejaksan</b><br>
+                                Kejaksan, Kota Cirebon
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -175,14 +262,35 @@
             </div>
             <div class="d-block d-md-none">
                 <div class="container text-center">
-                    <a href="{{ url('wisata') }}" class="btn btn-primary text-white bg-btn-visit">
-                        Eksplor Semua
+                    <a href="{{ url('wisata') }}" class="btn btn-primary text-white bg-btn-visit" id="but_wisata">
+                        Eksplor Semua Wisata
                         <i class="bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- css kuliner --}}
+    <style>
+        @media (max-width: 768px) {
+            #but_kuliner {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: -1.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {{-- end css kuliner --}}
+
     <div class="container">
         <div class="d-none d-md-block">
             <div class="row mb-5">
@@ -225,10 +333,12 @@
             </div>
         </div>
         <div class="d-block d-md-none">
-            <div class="container text-center">
+            <div class="container text-center" id="top_kuliner">
                 <b class="h1">TOP KULINER</b>
                 <br>
-                Berikut ini daftar kuliner yang sering dikunjungi wisatawan
+                <div style="font-size:12px">
+                    Berikut ini daftar kuliner yang sering dikunjungi wisatawan
+                </div>
             </div>
             <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
                 data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
@@ -248,13 +358,34 @@
                 @endforeach
             </div>
             <div class="container mt-5 text-center">
-                <a href="{{ url('kuliner') }}" class="btn btn-primary text-white bg-btn-visit">
-                    Eksplor Semua
+                <a href="{{ url('kuliner') }}" class="btn btn-primary text-white bg-btn-visit" id="but_kuliner">
+                    Eksplor Semua Kuliner
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
         </div>
     </div>
+
+    {{-- css akomodasi --}}
+    <style>
+        @media (max-width: 768px) {
+            #but_akomodasi {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {{-- end css akomodasi --}}
+
     <div class="section">
         <div class="container mt-4">
             <div class="d-none d-md-block">
@@ -271,7 +402,7 @@
                         <div class="mt-5">
                             <a href="{{ url('akomodasi') }}"
                                 class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
-                                Eksplor Semua
+                                Eksplor Semua Kuliner
                                 <i class="bi-arrow-right"></i>
                             </a>
                         </div>
@@ -282,31 +413,71 @@
                 <div class="container text-center">
                     <b class="h1">TOP AKOMODASI</b>
                     <br>
-                    Berikut ini daftar akomodasi yang sering dikunjungi wisatawan
+                    <div style="font-size:12px">
+                        Berikut ini daftar akomodasi yang sering dikunjungi wisatawan
+                    </div>
                 </div>
             </div>
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($accomodations as $accomodation)
-                        <div class="swiper-slide"
-                            style="background-image: url(<?= url('assets/akomodasi/' . $accomodation->picture) ?>) !important;background-size:cover !important;">
-                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+                        <div class="swiper-slide">
+                            <img src='{{ url("assets/akomodasi/$accomodation->picture") }}'
+                                class="img-fluid w-100 h-100">
+                            <div class="image-caption">
+                                <b style="font-weight: 800;">{{ $accomodation->name }}</b><br>
+
+                            </div>
                         </div>
                     @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+
+            {{-- <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($accomodations as $accomodation)
+                        <div class="swiper-slide"
+                            style="background-image: url(<?= url('assets/akomodasi/' . $accomodation->picture) ?>) !important;background-size:cover !important;">
+                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+
+                        </div>
+                    @endforeach
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div> --}}
             <div class="d-block d-md-none">
                 <div class="container text-center">
-                    <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit">
-                        Eksplor Semua
+                    <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit" id="but_akomodasi">
+                        Eksplor Semua Akomodasi
                         <i class="bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- css berita --}}
+    <style>
+        @media (max-width: 768px) {
+            #but_berita {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {{-- end css berita --}}
+
     <div class="container mt-lg-6">
         <div class="row mb-lg-6">
             <div class="col-md-12 text-center">
@@ -418,7 +589,35 @@
             </main>
         </div>
     </div>
-    <div class="section" style="margin-top:-100px">
+    <div class="mt-5"></div>
+    <div class="container mt-5 text-center">
+        <a href="{{ url('berita') }}" class="btn btn-primary text-white bg-btn-visit" id="but_berita">
+            Eksplor Semua
+            <i class="bi-arrow-right"></i>
+        </a>
+    </div>
+
+    {{-- css layanan --}}
+    <style>
+        @media (max-width: 768px) {
+            #but_layanan {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {{-- end css layanan --}}
+
+    <div class="section">
         <div class="container mt-4" id="service-floating-card">
             <div class="container text-center mb-5">
                 <b class="h1">PRODUK LAYANAN KAMI</b>
@@ -430,7 +629,7 @@
                     <b>Tourism Card</b>
                 </div>
                 <div class="col-4 text-center">
-                    <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
+                    <img src="{{ url('assets/layanan-produk/Ticket.png') }}" class="img-fluid" width="100px">
                     <br>
                     <b>Tour Package</b>
                 </div>
@@ -441,7 +640,7 @@
                 </div>
             </div>
             <div class="container mt-5 text-center">
-                <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit">
+                <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit" id="but_layanan">
                     Eksplor Semua
                     <i class="bi-arrow-right"></i>
                 </a>
@@ -620,7 +819,6 @@
                     <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
                                 class="uil uil-angle-left-b"></i></button><button type="button" role="presentation"
                             class="owl-next disabled"><i class="uil uil-angle-right-b"></i></button></div>
-
                 </div>
             </div>
         </div>
@@ -629,8 +827,8 @@
         <h3 class="text-center">Supported By</h3>
         <div class="container text-center">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
-                data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
-                data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6">
+                data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="6"
+                data-items-sm="6" data-items-md="6" data-items-lg="6" data-items-xl="6">
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi.png') }}"
                             height="150px"></a></div>
                 <div class="oc-item align-items-center"><a href="#" class="align-items-center"><img
@@ -672,6 +870,9 @@
             },
             pagination: {
                 el: ".swiper-pagination",
+            },
+            autoplay: {
+                delay: 1000,
             },
         });
     </script>

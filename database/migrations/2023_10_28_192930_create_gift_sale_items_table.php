@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger("gift_id")->unsigned();
             $table->integer("quantity");
             $table->string("snapshot_name",255);
+            $table->string("snapshot_name_en",255);
             $table->string("snapshot_unit",255);
             $table->double("snapshot_price");
         });

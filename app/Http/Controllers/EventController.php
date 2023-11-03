@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 
 class EventController extends Controller
 {
     public function event(Request $request)
     {
+        $locale = Cookie::get('user-language');
+        App::setLocale($locale);
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {

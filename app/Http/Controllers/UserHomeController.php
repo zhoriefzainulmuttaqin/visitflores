@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 use App\Models\Event;
 use App\Models\News;
@@ -15,6 +16,8 @@ class UserHomeController extends Controller
     //
     public function home()
     {
+        // App::setLocale("id");
+
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
         $culiners = Restaurant::limit(3)->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')

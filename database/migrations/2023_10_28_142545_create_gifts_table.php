@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string("picture",255);
             $table->string("name",255);
+            $table->string("name_en",255);
             $table->string("slug",255);
             $table->double("price");
             $table->string("unit",255);
             $table->double("weight");
             $table->integer("contents_count");
             $table->longText("contents");
+            $table->longText("contents_en");
         });
     }
 

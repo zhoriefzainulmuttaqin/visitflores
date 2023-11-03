@@ -17,10 +17,13 @@ return new class extends Migration
             $table->string('picture');
             $table->string('cover_picture');
             $table->string('name');
+            $table->string('name_en');
             $table->string('slug');
             $table->longText('details');
+            $table->longText('details_en');
             $table->longText('address');
             $table->longText('facilities');
+            $table->longText('facilities_en');
             $table->longText('phone');
             $table->longText('price');
             $table->string('link_instagram')->nullable();
