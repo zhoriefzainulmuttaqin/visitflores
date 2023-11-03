@@ -94,7 +94,7 @@
             <h1 class="mb-2 text-center">
                 <b>Kalender Event</b>
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                    </p> -->
+                        </p> -->
             </h1>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"

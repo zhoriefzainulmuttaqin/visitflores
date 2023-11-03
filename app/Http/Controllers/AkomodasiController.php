@@ -17,6 +17,11 @@ class AkomodasiController extends Controller
         } else {
             $keyword = '';
         }
+        if ($request->order_price) {
+            $order_price = $request->order_price;
+        } else {
+            $order_price = '';
+        }
 
         $star_list = [];
         $star_list_data = [];
@@ -25,6 +30,7 @@ class AkomodasiController extends Controller
             $star_list = $request->star_list;
             $star_list_data = array_fill_keys($request->star_list, 'star');
         };
+
 
         $accomodations = Accomodation::where('accomodations.name', 'like',  '%' . $keyword . '%')
             ->where(function (Builder $query) use ($star_list) {
@@ -37,8 +43,11 @@ class AkomodasiController extends Controller
                     }
                 );
             })
-            ->select(['accomodations.*'])
+            ->when($order_price, function (Builder $query, $order_price) {
+                $query->orderBy("accomodations.price_start_from", $order_price);
+            })
             ->orderBy('accomodations.name', 'asc')
+            ->select(['accomodations.*'])
             ->paginate(10);
         if ($request->keyword) {
             $accomodations->appends(array('keyword' => $keyword));
@@ -46,9 +55,14 @@ class AkomodasiController extends Controller
         if ($request->star_list) {
             $accomodations->appends($star_list);
         }
+        if ($request->order_price) {
+            $accomodations->appends(['order_price' => $request->order_price]);
+        }
+
         $data = [
             'accomodations' => $accomodations,
             'star_list' => $star_list_data,
+            'order_price' => $order_price,
         ];
         return view('user.akomodasi', $data);
     }
