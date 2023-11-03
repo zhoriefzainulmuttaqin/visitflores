@@ -5,11 +5,15 @@ use Illuminate\Support\Facades\App;
 
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
+use Cookie;
 
 class LocaleController extends Controller
 {
     //
+    public function atur_bahasa($locale){
+        Cookie::queue('user-language', $locale, 60*24*365);
+        return back();
+    }
     public function set_bahasa($locale){
         $response = response("Hello");
         $minutes = 60*24*30; // Misalnya, 30 hari
@@ -18,11 +22,8 @@ class LocaleController extends Controller
 
         return redirect("layanan-produk");
     }
-    public function atur_bahasa(Request $request){
-        // echo $locale;
-        // Cookie::queue(Cookie::forget("user_language"));
-        // $response = $this->withCookie('color', 'blue')->get('/');
-        return redirect("layanan-produk")->withCookie("color", 'blue');
-        // echo $request->cookie("user_language");
+    public function getCookie(){
+        $value = Cookie::get('user-language');
+        dd($value);
     }
 }

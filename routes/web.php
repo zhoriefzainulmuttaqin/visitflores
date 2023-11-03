@@ -33,6 +33,7 @@ Route::get('/', [UserHomeController::class, "home"]);
 
 Route::get("atur-bahasa/{locale}",[LocaleController::class,"atur_bahasa"]);
 Route::get("set-bahasa/{locale}",[LocaleController::class,"set_bahasa"]);
+Route::get("get-cookie",[LocaleController::class,"getCookie"]);
 
 Route::get('/wisata', [TourController::class, 'tours']);
 Route::get('/kuliner', [RestaurantController::class, 'restaurants']);
@@ -43,12 +44,6 @@ Route::get('/ubah-biodata-profil', [ProfileController::class, 'change_profile_bi
 Route::post('/proses-ubah-biodata-profil', [ProfileController::class, 'process_change_profile_biodata']);
 Route::get('/ubah-password-profil', [ProfileController::class, 'change_profile_password']);
 Route::post('/proses-ubah-password-profil', [ProfileController::class, 'process_change_profile_password']);
-
-Route::get("layanan-produk", [ServiceController::class, "product_services"]);
-Route::get("layanan-jasa", [ServiceController::class, "our_services"]);
-Route::get("layanan-jasa/konsultan", [ServiceController::class, "service_consultant"]);
-Route::get("layanan-jasa/konseptor", [ServiceController::class, "service_conceptor"]);
-Route::get("layanan-jasa/pemasaran", [ServiceController::class, "service_marketing"]);
 
 Route::get("event", [EventController::class, "event"]);
 Route::get("akomodasi", [AkomodasiController::class, "akomodasi"]);
@@ -62,7 +57,7 @@ Route::get("registrasi", [AuthUserController::class, "registrasi"]);
 Route::post("proses-registrasi", [AuthUserController::class, "proses_registrasi"]);
 Route::get("keluar", [AuthUserController::class, "keluar"]);
 
-Route::get("layanan-produk", [ServiceController::class, "product_services"]);
+Route::get("layanan-produk", [ServiceController::class, "product_services"])->name("layanan-produk");
 Route::get("layanan-produk/tourism-card", [ServiceController::class, "tourism_card"]);
 Route::get("layanan-jasa", [ServiceController::class, "our_services"]);
 Route::get("layanan-jasa/konsultan", [ServiceController::class, "service_consultant"]);

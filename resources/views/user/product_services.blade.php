@@ -1,7 +1,11 @@
 @extends("user.template")
 
+<?php
+use Illuminate\Support\Facades\App;
+?>
+
 @section("title")
-Layanan Produk
+{{ __("services.product_services") }}
 @endsection
 
 @section("style")
@@ -19,31 +23,48 @@ Layanan Produk
 @endsection
 
 @section("content")
-<div class="section" style="margin-top:-100px">
-    <div class="container mt-4" id="service-floating-card">
-        <div class="row justify-content-center">
-            <div class="col-4 text-center">
-                <img src="{{ url('assets/layanan-produk/tourism-card.png') }}" class="img-fluid" width="100px">
-                <br>
-                <b>Tourism Card</b>
-            </div>
-            <div class="col-4 text-center">
-                <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
-                <br>
-                <b>Tour Package</b>
-            </div>
-            <div class="col-4 text-center">
-                <img src="{{ url('assets/layanan-produk/collectible.png') }}" class="img-fluid" width="100px">
-                <br>
-                <b>Souvenirs</b>
+<div class="container mt-4 text-center" id="service-floating-card">
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="row justify-content-center">
+                <div class="col-4 text-center p-4 p-md-0">
+                    <img src="{{ url('assets/layanan-produk/tourism-card.png') }}" class="img-fluid" width="100px">
+                    <br>
+                    <div class="d-none d-md-block">
+                        <b>Tourism Card</b>
+                    </div>
+                    <div class="d-block d-md-none">
+                        <b style="font-size:12px">Tourism Card</b>
+                    </div>
+                </div>
+                <div class="col-4 text-center p-4 p-md-0">
+                    <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
+                    <br>
+                    <div class="d-none d-md-block">
+                        <b>{{ __("services.tour_packages") }}</b>
+                    </div>
+                    <div class="d-block d-md-none">
+                        <b style="font-size:12px">{{ __("services.tour_packages") }}</b>
+                    </div>
+                </div>
+                <div class="col-4 text-center p-4 p-md-0">
+                    <img src="{{ url('assets/layanan-produk/collectible.png') }}" class="img-fluid" width="100px">
+                    <br>
+                    <div class="d-none d-md-block">
+                        <b>{{ __("services.souvenirs") }}</b>
+                    </div>
+                    <div class="d-block d-md-none">
+                        <b style="font-size:12px">{{ __("services.souvenirs") }}</b>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<div class="container-lg mt-5">
+<div class="clearfix"></div>
+<div class="container-lg">
     <h1 class="text-center mb-5">
-        <b>Tourism Card {{ __("content.welcome") }}</b>
+        <b>Tourism Card</b>
     </h1>
     <div class="container mt-5">
         <div class="card shadow" id="BuyTourismCard">
@@ -54,7 +75,7 @@ Layanan Produk
                     </div>
                     <div class="col-md-12 col-lg-7 align-self-center">
                         <p class="h3">
-                        <b>Tourism Card</b> adalah kartu member <span class="text-warning">VISITCIREBON.ID</span> yang bisa digunakan di berbagai destinasi wisata di wilayah Ciayumajakuning. Termasuk dengan kuliner dan oleh-olehnya.
+                        {!! __("services.tourism_card_detail_one") !!}
                         </p>
                     </div>
                 </div>
@@ -64,7 +85,7 @@ Layanan Produk
                     </div>
                     <div class="col-md-12 col-lg-7 align-self-center">
                         <p class="h3">
-                        <b>Kegunaan Kartu :</b> Kartu member yang bisa digunakan wisatawan untuk mendapatkan potongan harga dan promo spesial lainnya dari mitra yang bekerja sama dengan <span class="text-warning">VISITCIREBON.ID.</span>
+                        {!! __("services.tourism_card_detail_two") !!}
                         </p>
                     </div>
                 </div>
@@ -72,7 +93,7 @@ Layanan Produk
                 <div class="row mt-5">
                     <div class="col-md-12 d-grid gap-2">
                         <a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-success btn-lg">
-                            Beli Tourism Card
+                            {{ __("services.buy") }} Tourism Card
                         </a>
                     </div>
                 </div>
@@ -82,7 +103,7 @@ Layanan Produk
     <div class="mt-5 mb-5"></div>
     <div class="clearfix"></div>
     <h1 class="text-center mb-3">
-        <b>Tour Package</b>
+        <b>{{ __("services.tour_packages") }}</b>
     </h1>
     <div class="clearfix"></div>
     <div class="row justify-content-center">
@@ -91,15 +112,22 @@ Layanan Produk
             <div class="card rounded shadow fixed-height">
                 <img src="{{ url('assets/patterns/'.$pattern->cover_picture) }}" class="card-img-top">
                 <div class="card-body">
+                    @if(App::isLocale("id"))
                     <b class="h3">{{ $pattern->name }}</b>
                     <p>
                         {!! $pattern->details !!}
                     </p>
+                    @else
+                    <b class="h3">{{ $pattern->name_en }}</b>
+                    <p>
+                        {!! $pattern->details_en !!}
+                    </p>
+                    @endif
                 </div>
                 <div class="card-footer">
                     <div class="d-grid gap-2">
                         <a href="{{ url('paket-wisata/'.$pattern->slug) }}" class="btn btn-info bg-btn-visit text-white">
-                            Lihat Lebih Lanjut
+                            {{ __("services.show_details") }}
                         </a>
                     </div>
                 </div>
@@ -109,7 +137,7 @@ Layanan Produk
     </div>
     <div class="clearfix"></div>
     <h1 class="text-center mt-5 mb-3">
-        <b>Oleh - oleh</b>
+        <b>{{ __("services.souvenirs") }}</b>
     </h1>
     <div class="clearfix"></div>
     <div class="row justify-content-center">
@@ -120,23 +148,31 @@ Layanan Produk
                     <img src="{{ url('assets/layanan-produk/'.$gift->picture) }}" class="img-fluid rounded" width="100%">
                     <h4 class="text-center mt-5">
                         <b>
+                            @if(App::isLocale("id"))
                             {{ $gift->name }}
+                            @else
+                            {{ $gift->name_en }}
+                            @endif
                         </b>
                     </h4>
                     <div class="container">
                         <p class='h4'>
                             <b>
                             Rp. {{ number_format($gift->price,0,",",".") }} ,- <br>
-                            Berat Paket {{ $gift->weight }} gram <br>
-                            Isi Paket ({{ $gift->contents_count }} Produk)
+                            {{ __("services.package_weight") }} {{ $gift->weight }} gram <br>
+                            {{ __("services.package_contents") }} ({{ $gift->contents_count }} {{ __("services.products") }})
                             </b>
                             <br>
+                            @if(App::isLocale("id"))
                             {!! nl2br($gift->contents) !!}
+                            @else
+                            {!! nl2br($gift->contents_en) !!}
+                            @endif
                         </p>
                         <div class="row mt-5">
                             <div class="col-md-12 d-grid gap-2">
                                 <a href="{{ url('beli-layanan-produk/'.$gift->slug) }}" class="btn btn-success btn-lg">
-                                    Beli Paket
+                                    {{ __("services.buy_package") }}
                                 </a>
                             </div>
                         </div>

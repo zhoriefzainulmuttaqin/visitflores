@@ -1,17 +1,11 @@
-@media (width <= 768px) {
-    #header-wrap {
-        /* background-color: transparent !important; */
-        /* border-bottom: none; */
-    }
-}
 #header-wrap {
     position: fixed !important;
 }
 .logo-default {
-    height: 55px !important;
+    height: 40px !important;
 }
 .logo-dark {
-    height: 55px !important;
+    height: 40px !important;
 }
 
 .menu-item > .menu-link:hover {
@@ -109,5 +103,23 @@
         height: 40px !important;
         position: relative;
         left: -10px;
+    }
+}
+
+#service-floating-card {
+    position: relative !important;
+    top: -100px !important;
+}
+
+@media (width <= 768px) {
+    #header-wrap {
+        /* background-color: transparent !important; */
+        /* border-bottom: none; */
+    }
+    .logo-default {
+        height: 20px !important;
+    }
+    .logo-dark {
+        height: 20px !important;
     }
 }

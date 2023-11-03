@@ -18,7 +18,7 @@ Tourism Card
                     </div>
                     <div class="col-md-12 col-lg-7 align-self-center">
                         <p class="h3">
-                        <b>Tourism Card</b> adalah kartu member <span class="text-warning">VISITCIREBON.ID</span> yang bisa digunakan di berbagai destinasi wisata di wilayah Ciayumajakuning. Termasuk dengan kuliner dan oleh-olehnya.
+                        {!! __("services.tourism_card_detail_one") !!}
                         </p>
                     </div>
                 </div>
@@ -28,7 +28,7 @@ Tourism Card
                     </div>
                     <div class="col-md-12 col-lg-7 align-self-center">
                         <p class="h3">
-                        <b>Kegunaan Kartu :</b> Kartu member yang bisa digunakan wisatawan untuk mendapatkan potongan harga dan promo spesial lainnya dari mitra yang bekerja sama dengan <span class="text-warning">VISITCIREBON.ID.</span>
+                        {!! __("services.tourism_card_detail_two") !!}
                         </p>
                     </div>
                 </div>
@@ -36,14 +36,14 @@ Tourism Card
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <p class="h2 text-center">
-                            <b>Harga : Rp. {{ number_format(getOption('tourism_card_price'),0,",",".") }}</b>
+                            <b>{{ __("services.price") }} : Rp. {{ number_format(getOption('tourism_card_price'),0,",",".") }}</b>
                         </p>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12 d-grid gap-2">
                         <a href="{{ url('beli/tourism-card') }}" class="btn btn-success btn-lg">
-                            Beli Tourism Card
+                        {{ __("services.buy") }} Tourism Card
                         </a>
                     </div>
                 </div>
