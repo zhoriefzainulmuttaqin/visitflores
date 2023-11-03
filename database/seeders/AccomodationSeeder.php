@@ -17,7 +17,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "picture-aston.webp",
-                "cover_picture"   => "aston.webp",
+                "cover_picture"   => "aston.png",
                 "name"   => "ASTON Cirebon Hotel & Convention Center",
                 "name_en"   => "ASTON Cirebon Hotel & Convention Center",
                 "slug"   => "aston-cirebon-hotel-&-convention-center",
@@ -46,7 +46,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "picture-verse.webp",
-                "cover_picture"   => "verse.webp",
+                "cover_picture"   => "verse.png",
                 "name"   => "Verse Hotel Cirebon",
                 "name_en"   => "Verse Cirebon Hotel",
                 "slug"   => "verse-hotel-cirebon",
@@ -75,7 +75,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "picture-batiqa.webp",
-                "cover_picture"   => "batiqa.webp",
+                "cover_picture"   => "batiqa.png",
                 "name"   => "BATIQA Hotel Cirebon",
                 "name_en"   => "BATIQA Cirebon Hotel",
                 "slug"   => "batiqa-hotel-cirebon",
@@ -104,7 +104,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "picture-cordela.webp",
-                "cover_picture"   => "cordela.webp",
+                "cover_picture"   => "cordela.jpg",
                 "name"   => "Cordela Hotel Cirebon",
                 "name_en"   => "Cordela Cirebon Hotel",
                 "slug"   => "cordela-hotel-cirebon",
@@ -133,7 +133,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "picture-swiss.webp",
-                "cover_picture"   => "swiss.webp",
+                "cover_picture"   => "swiss.png",
                 "name"   => "Swiss-Belhotel Cirebon",
                 "name_en"   => "Swiss-Belhotel Cirebon",
                 "slug"   => "swiss-belhotel-cirebon",
@@ -163,7 +163,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "picture-grage.webp",
-                "cover_picture"   => "grage.webp",
+                "cover_picture"   => "grage.png",
                 "name"   => "Grage Hotel Cirebon",
                 "name_en"   => "Grage Cirebon Hotel",
                 "slug"   => "gragehotel-cirebon",
