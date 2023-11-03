@@ -31,6 +31,7 @@ class TourSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/beZMGQTZ2pU2DQMk6",
             ]),
             ([
                 "category_id"   => 5,
@@ -49,6 +50,7 @@ class TourSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/R2hQu7HhmiKSr5QC8",
             ]),
             ([
                 "category_id"   => 1,
@@ -67,6 +69,7 @@ class TourSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/cxB8h3fj9ycZqNTM8",
             ]),
             ([
                 "category_id"   => 6,
@@ -85,6 +88,7 @@ class TourSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/cs4KZkQW5ZhXzHNm6",
             ]),
             ([
                 "category_id"   => 6,
@@ -103,6 +107,7 @@ class TourSeeder extends Seeder
                 "link_tiktok"   => "https://www.tiktok.com/",
                 "link_facebook"   => "https://www.facebook.com/",
                 "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/5AWEcnNrz2rrJAEf7",
             ]),
         ]);
 

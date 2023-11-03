@@ -317,7 +317,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($accomodations as $accomodation)
                         <div class="swiper-slide" style="background-image: url(<?= url('assets/akomodasi/'.$accomodation->picture) ?>) !important;background-size:cover !important;">
-                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
+                            <!-- <img src='{{ url("assets/wisata/$accomodation->picture") }}' /> -->
                             <div class="title" data-swiper-parallax="-100">Slide 1</div>
                         </div>
                     @endforeach

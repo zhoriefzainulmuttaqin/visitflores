@@ -23,12 +23,15 @@ return new class extends Migration
             $table->longText('address');
             $table->longText('facilities');
             $table->longText('facilities_en');
+            $table->longText('description');
+            $table->longText('description_en');
             $table->longText('phone');
             $table->longText('price');
             $table->string('link_instagram')->nullable();
             $table->string('link_facebook')->nullable();
             $table->string('link_tiktok')->nullable();
             $table->string('link_youtube')->nullable();
+            $table->string('link_maps')->nullable();
         });
     }
 

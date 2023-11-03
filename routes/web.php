@@ -31,11 +31,12 @@ Route::get('/', [UserHomeController::class, "home"]);
 //     return view('user.tours');
 // });
 
-Route::get("atur-bahasa/{locale}",[LocaleController::class,"atur_bahasa"]);
-Route::get("set-bahasa/{locale}",[LocaleController::class,"set_bahasa"]);
-Route::get("get-cookie",[LocaleController::class,"getCookie"]);
+Route::get("atur-bahasa/{locale}", [LocaleController::class, "atur_bahasa"]);
+Route::get("set-bahasa/{locale}", [LocaleController::class, "set_bahasa"]);
+Route::get("get-cookie", [LocaleController::class, "getCookie"]);
 
 Route::get('/wisata', [TourController::class, 'tours']);
+Route::get('/detail-wisata/{slug}', [TourController::class, 'detail_tour']);
 Route::get('/kuliner', [RestaurantController::class, 'restaurants']);
 Route::get('/oleh-oleh', [ShopController::class, 'shops']);
 Route::get('/profil', [ProfileController::class, 'profile']);
@@ -74,6 +75,5 @@ Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layana
 Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
 Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
 
-Route::get("app-admin",[AuthAdminController::class, "masuk"]);
-Route::get("app-admin/proses-login",[AuthAdminController::class, "proses_masuk"]);
-
+Route::get("app-admin", [AuthAdminController::class, "masuk"]);
+Route::get("app-admin/proses-login", [AuthAdminController::class, "proses_masuk"]);
