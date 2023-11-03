@@ -162,7 +162,7 @@ $locale = App::currentLocale();
                         </li>
                         @if (Auth()->check())
                             <li class="menu-item d-block d-md-none d-xl-none mb-3">
-                                <a class="menu-link btn btn-danger btn-sm" href="{{ url('login') }}">
+                                <a class="menu-link btn btn-danger btn-sm" href="{{ url('profil') }}">
                                     <div>
                                         <i class="uil-user"></i>
                                         Profil

@@ -28,11 +28,11 @@ class ProfileController extends Controller
         if ($request->file('image')) {
             $user = User::where('id', Auth()->user()->id)->first();
             if ($user->picture != NULL) {
-                unlink(public_path('assets/profil/') . $user->picture);
+                unlink(('./assets/profil/') . $user->picture);
             }
             $image = $request->file('image');
             $nameImage = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path() . '/assets/profil/', $nameImage);
+            $image->move('./assets/profil/', $nameImage);
 
             User::where('id', Auth()->user()->id)
                 ->update([
