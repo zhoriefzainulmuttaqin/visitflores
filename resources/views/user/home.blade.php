@@ -94,7 +94,7 @@
             <h1 class="mb-2 text-center">
                 <b>Kalender Event</b>
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-    </p> -->
+                    </p> -->
             </h1>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
@@ -457,7 +457,28 @@
             </div>
         </div>
     </div>
-    <div class="container mt-lg-6 mb-5">
+
+    {{-- css berita --}}
+    <style>
+        @media (max-width: 768px) {
+            #but_berita {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {{-- end css berita --}}
+
+    <div class="container mt-lg-6">
         <div class="row mb-lg-6">
             <div class="col-md-12 text-center">
                 <h1 class="mb-5">
@@ -470,7 +491,7 @@
                 <div id="posts" class="row gutter-40">
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 <div class="entry-image">
                                     <a href='{{ url("assets/berita/{$news[0]->cover_picture}") }}'
                                         data-lightbox="image"><img
@@ -478,13 +499,21 @@
                                             alt="{{ $news[0]->name }}"></a>
                                 </div>
                             </div>
-                            <div class="col-8 ps-md-4">
+                            <div class="col-md-8 ps-md-4">
                                 <div class="entry-title title-sm">
                                     <h2><a href="{{ url("/detail-berita/{$news[0]->slug}") }}">{{ $news[0]->name }}</a>
                                     </h2>
                                 </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><i class="uil uil-schedule"></i>
+                                            {{ tglIndo($news[0]->published_date, 'd/m/Y') }}</li>
+                                        <li><i class="uil uil-user"></i> {{ $news[0]->admin_name }}</li>
+                                        <li><i class="uil uil-folder-open"></i>{{ $news[0]->category_name }}</li>
+                                    </ul>
+                                </div>
                                 <div class="entry-content">
-                                    {!! mb_substr(nl2br($news[0]->content), 0, 500) !!}
+                                    {!! mb_substr(nl2br($news[0]->content), 0, 50) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">Lanjut
                                         Baca</a>
@@ -494,7 +523,7 @@
                     </div>
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
-                            <div class="col-4 order-md-last">
+                            <div class="col-md-4 order-md-last">
                                 <div class="entry-image">
                                     <a href="{{ url("assets/berita/{$news[1]->cover_picture}") }}"
                                         data-lightbox="image"><img
@@ -502,13 +531,21 @@
                                             alt="{{ $news[1]->name }}"></a>
                                 </div>
                             </div>
-                            <div class="col-8 pe-md-4">
+                            <div class="col-md-8 pe-md-4">
                                 <div class="entry-title title-sm">
                                     <h2><a href="{{ url("/detail-berita/{$news[1]->slug}") }}">{{ $news[1]->name }}</a>
                                     </h2>
                                 </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><i class="uil uil-schedule"></i>
+                                            {{ tglIndo($news[1]->published_date, 'd/m/Y') }}</li>
+                                        <li><i class="uil uil-user"></i> {{ $news[1]->admin_name }}</li>
+                                        <li><i class="uil uil-folder-open"></i> {{ $news[1]->category_name }}</li>
+                                    </ul>
+                                </div>
                                 <div class="entry-content">
-                                    {!! mb_substr(nl2br($news[1]->content), 0, 500) !!}
+                                    {!! mb_substr(nl2br($news[1]->content), 0, 50) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">Lanjut
                                         baca</a>
@@ -518,7 +555,7 @@
                     </div>
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 <div class="entry-image">
                                     <a href='{{ url("assets/berita/{$news[2]->cover_picture}") }}'
                                         data-lightbox="image"><img
@@ -526,13 +563,21 @@
                                             alt="{{ $news[2]->name }}"></a>
                                 </div>
                             </div>
-                            <div class="col-8 ps-md-4">
+                            <div class="col-md-8 ps-md-4">
                                 <div class="entry-title title-sm">
                                     <h2><a href="{{ url("/detail-berita/{$news[2]->slug}") }}">{{ $news[2]->name }}</a>
                                     </h2>
                                 </div>
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li><i class="uil uil-schedule"></i>
+                                            {{ tglIndo($news[2]->published_date, 'd/m/Y') }}</li>
+                                        <li><i class="uil uil-user"></i> {{ $news[2]->admin_name }}</li>
+                                        <li><i class="uil uil-folder-open"></i>{{ $news[2]->category_name }}</li>
+                                    </ul>
+                                </div>
                                 <div class="entry-content">
-                                    {!! mb_substr(nl2br($news[2]->content), 0, 500) !!}
+                                    {!! mb_substr(nl2br($news[2]->content), 0, 50) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">Lanjut
                                         Baca</a>
@@ -546,11 +591,32 @@
     </div>
     <div class="mt-5"></div>
     <div class="container mt-5 text-center">
-        <a href="{{ url('berita') }}" class="btn btn-primary text-white bg-btn-visit">
+        <a href="{{ url('berita') }}" class="btn btn-primary text-white bg-btn-visit" id="but_berita">
             Eksplor Semua
             <i class="bi-arrow-right"></i>
         </a>
     </div>
+
+    {{-- css layanan --}}
+    <style>
+        @media (max-width: 768px) {
+            #but_layanan {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+        }
+    </style>
+    {{-- end css layanan --}}
+
     <div class="section">
         <div class="container mt-4" id="service-floating-card">
             <div class="container text-center mb-5">
@@ -563,7 +629,7 @@
                     <b>Tourism Card</b>
                 </div>
                 <div class="col-4 text-center">
-                    <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
+                    <img src="{{ url('assets/layanan-produk/Ticket.png') }}" class="img-fluid" width="100px">
                     <br>
                     <b>Tour Package</b>
                 </div>
@@ -574,7 +640,7 @@
                 </div>
             </div>
             <div class="container mt-5 text-center">
-                <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit">
+                <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit" id="but_layanan">
                     Eksplor Semua
                     <i class="bi-arrow-right"></i>
                 </a>
