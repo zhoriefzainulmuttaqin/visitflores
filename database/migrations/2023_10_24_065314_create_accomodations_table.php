@@ -24,6 +24,7 @@ return new class extends Migration
             $table->double('price_start_from');
             $table->longText('facilities');
             $table->longText('phone');
+            $table->longText('tax_include');
             $table->string('link_instagram')->nullable();
             $table->string('link_facebook')->nullable();
             $table->string('link_tiktok')->nullable();

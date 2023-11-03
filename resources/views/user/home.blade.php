@@ -146,8 +146,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="mt-5">
-                            <a href="{{ url('wisata') }}"
-                                class="btn btn-primary fs-4 float-end text-white bg-btn-visit">
+                            <a href="{{ url('wisata') }}" class="btn btn-primary fs-4 float-end text-white bg-btn-visit">
                                 Eksplor Semua
                                 <i class="bi-arrow-right"></i>
                             </a>
@@ -166,7 +165,8 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($tours as $tour)
-                        <div class="swiper-slide" style="background-image: url(<?= url('assets/wisata/'.$tour->picture) ?>) !important;background-size:cover !important;">
+                        <div class="swiper-slide"
+                            style="background-image: url(<?= url('assets/wisata/' . $tour->picture) ?>) !important;background-size:cover !important;">
                             <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
                         </div>
                     @endforeach
@@ -175,8 +175,7 @@
             </div>
             <div class="d-block d-md-none">
                 <div class="container text-center">
-                    <a href="{{ url('wisata') }}"
-                        class="btn btn-primary text-white bg-btn-visit">
+                    <a href="{{ url('wisata') }}" class="btn btn-primary text-white bg-btn-visit">
                         Eksplor Semua
                         <i class="bi-arrow-right"></i>
                     </a>
@@ -242,15 +241,14 @@
                                     <a href="{{ url('event') }}" class="entry-image">
                                         <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
                                     </a>
-                                </div>                                
+                                </div>
                             </div>
                         </article>
                     </div>
                 @endforeach
             </div>
             <div class="container mt-5 text-center">
-                <a href="{{ url('kuliner') }}"
-                    class="btn btn-primary text-white bg-btn-visit">
+                <a href="{{ url('kuliner') }}" class="btn btn-primary text-white bg-btn-visit">
                     Eksplor Semua
                     <i class="bi-arrow-right"></i>
                 </a>
@@ -291,7 +289,8 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($accomodations as $accomodation)
-                        <div class="swiper-slide" style="background-image: url(<?= url('assets/akomodasi/'.$accomodation->picture) ?>) !important;background-size:cover !important;">
+                        <div class="swiper-slide"
+                            style="background-image: url(<?= url('assets/akomodasi/' . $accomodation->picture) ?>) !important;background-size:cover !important;">
                             <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
                         </div>
                     @endforeach
@@ -300,15 +299,14 @@
             </div>
             <div class="d-block d-md-none">
                 <div class="container text-center">
-                    <a href="{{ url('akomodasi') }}"
-                        class="btn btn-primary text-white bg-btn-visit">
+                    <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit">
                         Eksplor Semua
                         <i class="bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="container mt-lg-6">
         <div class="row mb-lg-6">
             <div class="col-md-12 text-center">
@@ -443,8 +441,7 @@
                 </div>
             </div>
             <div class="container mt-5 text-center">
-                <a href="{{ url('layanan-produk') }}"
-                    class="btn btn-primary text-white bg-btn-visit">
+                <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit">
                     Eksplor Semua
                     <i class="bi-arrow-right"></i>
                 </a>
@@ -454,8 +451,8 @@
     <div class="container mt-lg-6">
         <div class="row justify-content-between align-items-center">
             <div class="col-md-12">
-                <div class="owl-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="1" data-items-md="3"
-                    data-autoplay="5000">
+                <div class="owl-carousel carousel-widget owl-loaded owl-drag with-carousel-dots" data-items="1"
+                    data-items-md="3" data-autoplay="5000">
                     <div class="owl-stage-outer">
                         <div class="owl-stage"
                             style="transform: translate3d(-383px, 0px, 0px); transition: all 0.25s ease 0s; width: 1149px;">
