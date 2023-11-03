@@ -70,11 +70,15 @@ use Illuminate\Support\Facades\App;
 										<img src="{{ url('assets/wisata/' . $tour->picture) }}" alt="Blog Single">
 										</div><!-- .entry-image end -->
 
-                                         {{ nl2br($tour->description) }}
+										@if(App::isLocale("id"))
+											{{ ($tour->description) }}
+											@else
+											{{ ($tour->description_en) }}
+										@endif
 										
 										<!-- Post Single - Content End -->
-
-                                        <h4 class="mb-2">Fasilitas</h4>
+										
+                                        <h4 class="mb-2 mt-2">{{ __("tours.facilities") }}</h4>
 
                                         <div class="row col-mb-30">
 											<div class="col-lg-12 col-md-12 col-sm-12">
@@ -85,19 +89,29 @@ use Illuminate\Support\Facades\App;
 													<li><i class="fa-solid fa-check"></i> All Meals Included</li>
 													<li><i class="fa-solid fa-check"></i> Adventure Activities</li>
 												</ul> --}}
-                                                {{ nl2br($tour->facilities) }}
+												@if(App::isLocale("id"))
+													{{ ($tour->facilities) }}
+													@else
+													{{ ($tour->facilities_en) }}
+												@endif
 											</div>
 										</div>
 
 										<div class="clear"></div>
 
+										<div class="row mt-3">
+											<div class="col-12 d-flex justify-content-between">
+												<a href="{{ url('layanan-produk') }}" class="btn btn-warning">Tour Packages</a>
+												<a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-warning">Tourism Card</a>
+											</div>
+										</div>
 										<!-- Post Single - Share
 										============================================= -->
                                         @if($tour->link_youtube != null || $tour->link_instagram != null || $tour->link_facebook != null || $tour->link_tiktok != null)
                                             <div class="card border-default my-4">
                                                 <div class="card-body p-3">
                                                     <div class="d-flex align-items-center justify-content-between">
-                                                        <h6 class="fs-6 fw-semibold mb-0">Follow Kami:</h6>
+                                                        <h6 class="fs-6 fw-semibold mb-0">{{ __("tours.follow") }}:</h6>
                                                         <div class="d-flex">
                                                             @if($tour->link_facebook != null)
                                                                 <a target="_blank" href="{{ $tour->link_facebook }}" class="social-icon si-small text-white border-transparent rounded-circle bg-facebook" title="Facebook">

@@ -13,4 +13,6 @@ return [
 
     // detail wisata
     "detail_title" => "Detail Wisata",
+    "facilities" => "Fasilitas",
+    "follow" => "Ikuti Kami",
 ];
