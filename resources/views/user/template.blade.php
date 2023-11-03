@@ -85,7 +85,7 @@
 		<img src="{{ url('assets/logo-wa.png') }}" width="50px" class="rounded-circle">
 	</a> -->
 	<div class="whatsapp-button">
-        <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=Halo, saya ingin diskusi tentang Visit Cirebon." target="_blank">
+        <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text={{ __('content.float_wa_message') }}" target="_blank">
             <img src="{{ url('assets/logo-wa.png') }}" alt="WhatsApp">
         </a>
     </div>

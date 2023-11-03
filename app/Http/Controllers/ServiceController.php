@@ -66,7 +66,7 @@ class ServiceController extends Controller
             ]);
             return view("user.beli_tourism_card",$data);
         }else{
-            return redirect("login");
+            return redirect("login?msg=login_first");
         }
     }
     public function proses_beli_tourism_card(Request $request){
@@ -107,7 +107,7 @@ class ServiceController extends Controller
             ]);
             return view("user.beli_layanan_produk",$data);
         }else{
-            return redirect("login");
+            return redirect("login?msg=login_first");
         }
     }
     public function proses_beli_layanan_produk(Request $request){

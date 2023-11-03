@@ -1,7 +1,7 @@
 @extends("user.template")
 
 @section("title")
-Layanan Jasa Konsultan Bisnis Pariwisata
+{{ __("services.service_consultant") }}
 @endsection
 
 @section("cover")
@@ -12,44 +12,44 @@ Layanan Jasa Konsultan Bisnis Pariwisata
 <div class="container-lg mt-5">
     <img src="{{ url('assets/layanan-jasa/konsultan/konsultan.png') }}" class="img-fluid" width="100%">
     <h1 class="text-center mt-5 mb-5">
-        <b>Konsultan Bisnis Pariwisata</b>
+        <b>{{ __("services.service_consultant") }}</b>
     </h1>
     <div class="container mt-5">
         <div class="row justify-items-center">
             <div class="col-12 col-md-6 border-end border-bottom p-5">
                 <p class="h4 text-center">
                     <i class="text-warning fa-solid fa-user-friends"></i>
-                    Global Qualification
+                    {{ __("services.service_sub_global_qualification") }}
                 </p>
                 <p>
-                Tim konsultan kami terdiri dari berbagai macam bidang yang mempunyai kualifikasi dan sertifikasi global. Bidang keahlian kami beragam mulai dari ahli pariwisata berkelanjutan, pemasaran, keuangan, pendampingan komunitas, lingkungan, sampai dengan keahlian khusus seperti ahli interpretasi, pengembangan wisata sepeda, homestay, digital marketing, dan sebagainya. Hal ini juga dibuktikan dengan sertifikat keahlian yang berskala nasional dan internasional sehingga kemampuannya dapat dipertanggungjawabkan.
+                {{ __("services.service_detail_one") }}
                 </p>
             </div>
             <div class="col-12 col-md-6 border-start border-bottom p-5">
                 <p class="h4 text-center">
                     <i class="text-warning bi-headphones"></i>
-                    Practicioner
+                    {{ __("services.service_sub_practicioner") }}
                 </p>
                 <p>
-                Tim konsultan kami juga merupakan praktisi industri yang berpengalaman sebagai owner dan pengelola sektor usaha di industri pariwisata, seperti general manager di hotel berbintang dan travel expert di perusahaan travel agent. Implikasinya adalah kami menggunakan teori akademik hanya sebatas sebagai kerangka berpikir, namun rekomendasi yang diberikan akan lebih banyak dari sisi praktis industri.
+                {{ __("services.service_detail_two") }}
                 </p>
             </div>
             <div class="col-12 col-md-6 border-end border-top p-5">
                 <p class="h4 text-center">
                     <i class="text-warning uil-file-check-alt"></i>
-                    Experience
+                    {{ __("services.service_sub_experience") }}
                 </p>
                 <p>
-                Pengalaman pengerjaan proyek serta klien kami tidak hanya berskala daerah, namun juga nasional. Selain itu tenaga ahli individu kami beragam, mulai dari 10 tahun hingga 40 tahun pengalaman kerja.
+                {{ __("services.service_detail_three") }}
                 </p>
             </div>
             <div class="col-12 col-md-6 border-start border-top p-5">
                 <p class="h4 text-center">
                     <i class="text-warning fa-solid fa-user-cog"></i>
-                    Sustainability
+                    {{ __("services.service_sub_sustainability") }}
                 </p>
                 <p>
-                Kami mempunyai visi bahwa pariwisata berkelanjutan merupakan masa depan pariwisata global. Untuk iitu setiap pekerjaan yang kami lakukan mempertimbangkan segala aspek dan dampak pariwisata yang ditimbulkannya. Mulai dari aspek lingkungan, sosial ekonomi masyarakat, budaya, dan sistem pengelolaan yang berkelanjutan.
+                {{ __("services.service_detail_four") }}
                 </p>
             </div>
         </div>
@@ -57,11 +57,13 @@ Layanan Jasa Konsultan Bisnis Pariwisata
         <div class="mb-5"></div>
         <a href="{{ url('layanan-jasa') }}" class="btn btn-primary bg-btn-visit">
             <i class='fa fa-arrow-left'></i>
-            Kembali
+            {{ __("services.back") }}
         </a>
-        <a href="https://wa.me/6285156878608" target="_blank" class="btn btn-success">
+        <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=<?= __('services.wa_message_discuss_services',([
+                                "name"=>__("services.service_consultant"),
+                                ])) ?>" target="_blank" class="btn btn-success">
             <i class="bi-whatsapp"></i>
-            Mari Diskusi
+            {{ __("services.lets_discuss") }}
         </a>
     </div>
     <div class="mt-5 mb-5"></div>

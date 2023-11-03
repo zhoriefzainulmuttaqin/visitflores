@@ -11,12 +11,15 @@ use App\Models\Restaurant;
 use App\Models\Tour;
 use App\Models\Accomodation;
 
+use Illuminate\Support\Facades\Cookie;
+
 class UserHomeController extends Controller
 {
     //
     public function home()
     {
-        // App::setLocale("id");
+        $locale = Cookie::get('user-language');
+        App::setLocale($locale);
 
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
         $culiners = Restaurant::limit(3)->get();
