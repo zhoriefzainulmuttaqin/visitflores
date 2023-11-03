@@ -1,7 +1,11 @@
 @extends("user.template")
 
+<?php
+use Illuminate\Support\Facades\App;
+?>
+
 @section("title")
-Oleh - Oleh
+{{ __("shops.title") }}
 @endsection
 
 @section("cover")
@@ -12,8 +16,8 @@ Oleh - Oleh
 <section class="ftco-section services-section" style="margin-top:2rem; margin-bottom:2rem;">
     <div class="container">
         <p class="text-dark" style="font-size: 26px; font-weight: 600;">
-            Oleh -Oleh</p>
-        <p style="font-size: 20px; font-weight: 400; margin-top:-1rem;">Berikut ini oleh-oleh yang sering dibeli wisatawan.</p>
+           {{ __("shops.title") }}</p>
+        <p style="font-size: 20px; font-weight: 400; margin-top:-1rem;">{{ __("shops.desc_title") }}</p>
         
     </div>
 </section>
@@ -37,7 +41,13 @@ Oleh - Oleh
 									</div>
 									<div class="col-12 p-4 pt-0 pb-1">
 										<div class="entry-title nott">
-											<h3>{{ $shop->name }}</h3>
+											<h3>
+												@if(App::isLocale("id"))
+													{{ $shop->name }}
+												@else
+													{{ $shop->name_en }}
+												@endif
+											</h3>
 										</div>
 										<div class="entry-meta no-separator mb-3">
 											<ul>
