@@ -1,7 +1,11 @@
 @extends("user.template")
 
+<?php
+use Illuminate\Support\Facades\App;
+?>
+
 @section("title")
-Wisata
+{{ __("tours.title") }}
 @endsection
 
 @section("cover")
@@ -13,13 +17,12 @@ Wisata
 <section class="ftco-section services-section" style="margin-top:2rem; margin-bottom:2rem;">
     <div class="container">
         <p class="text-dark" style="font-size: 26px; font-weight: 600;">
-            Wisata</p>
-        <p style="font-size: 20px; font-weight: 400; margin-top:-1rem;">Berikut
-            ini daftar wisata yang sering dikunjungi wisatawan.</p>
+            {{ __("tours.title") }}</p>
+        <p style="font-size: 20px; font-weight: 400; margin-top:-1rem;"> {{ __("tours.desc_title") }}</p>
         
         <div class="row">
             <div class="col-lg-4 col-sm-12 mt-4">
-				<h5 class="mb-0">Cari Destinasi</h5>
+				<h5 class="mb-0">{{ __("tours.search_destination") }}</h5>
 					<div class="row">
 						<div class="col-lg-6 col-md-3 col-sm-4">
 							<hr style="height: 2px;
@@ -29,7 +32,7 @@ Wisata
 						<div class="col-lg-6"></div>
 					</div>
                 <div class="input-group w-100 mt-1">
-						<input type="text" id="icons-filter" name="keyword" class="form-control border-end-0" value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}" placeholder="Masukan nama wisata . . .">
+						<input type="text" id="icons-filter" name="keyword" class="form-control border-end-0" value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}" placeholder="{{ __("tours.search_destination_placeholder") }}">
 						<button type="submit" class="input-group-text bg-white border-start-0">
 						<i class="uil uil-search"></i>
 						</button>
@@ -38,7 +41,7 @@ Wisata
             <div class="col-lg-8 col-sm-12 mt-4">
 				<div class="row">
 					<div class="col-6">
-						<h5 class="mb-0">Kategori</h5>
+						<h5 class="mb-0">{{ __("tours.search_categories") }}</h5>
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6">
 									<hr style="height: 2px;
@@ -62,7 +65,7 @@ Wisata
 							}
 							?>
 							<a href="{{ url('wisata?keyword=' . $cari) }}" class="btn btn-sm text-white text-sm" style="background-color: #0F304F;">
-								Reset Kategori</a>
+								{{ __("tours.search_categories_reset") }}</a>
 						</div>
 					</div>
 				</div>
@@ -95,7 +98,14 @@ Wisata
 									{{ !empty($cat_list[$category->id]) ? 'checked' : '' }}
 									onchange="submit()" type="checkbox" name="cat_list[]"
 									value="{{ $category->id }}">
-								<label class="form-check-label" for="cat-list-{{ $loop->iteration }}">{{ $category->name }} </label>
+
+								<label class="form-check-label" for="cat-list-{{ $loop->iteration }}">
+									@if(App::isLocale("id"))
+									{{ $category->name }}
+									@else
+									{{ $category->name_en }}
+									@endif
+								 </label>
 						</div>
 						</div>
 					</div>
@@ -111,7 +121,7 @@ Wisata
 				<div class="container">
 					@if(count($tours) == 0)
 						<div class="text-center">
-							Tidak ada data terkait !
+							{{ __("tours.not_found") }}
 						</div>
 					@endif
 					<div class="row g-4 mb-5">
@@ -130,7 +140,13 @@ Wisata
 									</div>
 									<div class="col-12 p-4 pt-0 pb-1">
 										<div class="entry-title nott">
-											<h3><a href="{{ url('detail-wisata/' . $tour->slug) }}">{{ $tour->name }}</a></h3>
+											<h3><a href="{{ url('detail-wisata/' . $tour->slug) }}">
+												@if(App::isLocale("id"))
+													{{ $tour->name }}
+												@else
+													{{ $tour->name_en }}
+												@endif
+											</a></h3>
 										</div>
 										<div class="entry-meta no-separator mb-3">
 											<ul>
@@ -139,7 +155,15 @@ Wisata
 										</div>
 										<div class="entry-meta no-separator mb-1">
 											<ul>
-												<li class="text-capitalize"><h5> <span class="badge" style="background-color: #0F304F">{{ $tour->category_name }}</span></h5></li>
+												<li class="text-capitalize">
+													<h5> <span class="badge" style="background-color: #0F304F">
+														@if(App::isLocale("id"))
+															{{ $tour->category_name }}
+														@else
+															{{ $tour->category_name_en }}
+														@endif
+													</span></h5>
+											</li>
 											</ul>
 										</div>
 										{{-- fasilitas --}}
@@ -187,7 +211,10 @@ Wisata
 										</div>
 										<div class="entry-meta no-separator float-end">
 											<ul>
-												<li><a  href="{{ url('detail-wisata/' . $tour->slug) }}" class="fw-normal text-dark">    Lihat Detail <i class="uil bi-arrow-right-circle"></i></a></li>
+												<li><a  href="{{ url('detail-wisata/' . $tour->slug) }}" class="fw-normal text-dark"> 
+													{{ __("tours.show_more") }}   
+													<i class="uil bi-arrow-right-circle"></i></a>
+												</li>
 											</ul>
 										</div>
 									</div>
@@ -199,4 +226,5 @@ Wisata
 				</div>
 			</div>
 		</section>
+
 @endsection

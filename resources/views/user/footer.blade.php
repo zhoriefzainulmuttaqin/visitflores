@@ -1,3 +1,11 @@
+{{-- Iklan --}}
+<div class="row">
+    <div class="col-12">
+        <div class="bg-secondary text-white text-center" style="height: 400px;">
+            <p style="padding-top: 200px;" class="mx-auto">Space Available</p>
+        </div>
+    </div>
+</div>
 <!-- Footer
 ============================================= -->
 <footer id="footer" class="dark bg-blue-visit">			

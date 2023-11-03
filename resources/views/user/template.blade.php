@@ -64,10 +64,10 @@
                                 </p>
                             @endif
                             <div class="language">
-                                <a href="{{ url('event') }}" class="btn text-center bg-btn-language but_lang1">
+                                <a href="{{ url('atur-bahasa/id') }}" class="btn text-center bg-btn-language but_lang1">
                                     BAHASA INDONESIA
                                 </a>
-                                <a href="{{ url('event') }}" class="btn text-center bg-btn-language but_lang2">
+                                <a href="{{ url('atur-bahasa/en') }}" class="btn text-center bg-btn-language but_lang2">
                                     ENGLISH
                                 </a>
                             </div>
