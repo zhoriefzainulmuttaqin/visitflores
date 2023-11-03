@@ -26,12 +26,18 @@ class EventController extends Controller
             $order = explode(",", $request->order);
         }
         $events = Event::join('administrators', 'events.admin_id', '=', 'administrators.id')
-            ->where('events.name', 'like',  '%' . $keyword . '%')
             ->when($order, function (Builder $query, $order) {
                 if ($order) {
                     $query->orderBy("events.$order[0]", "$order[1]");
                 } else {
                     $query->orderBy('events.name', 'asc');
+                }
+            })
+            ->when($locale, function (Builder $query, $locale) use ($keyword) {
+                if ($locale == 'en') {
+                    $query->where('events.name_en', 'like',  '%' . $keyword . '%');
+                } else {
+                    $query->where('events.name', 'like',  '%' . $keyword . '%');
                 }
             })
             ->select(['events.*', 'administrators.name as admin_name'])

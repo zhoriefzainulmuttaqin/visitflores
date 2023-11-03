@@ -123,7 +123,7 @@
                                                 </div>
                                             @endif
                                             <p class="card-text">
-                                                <strong class="fs-4 text-danger">Rp.
+                                                <strong class="fs-4 text-danger"> Mulai Dari Rp.
                                                     <?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                                                 </strong>
                                                 @if ($accomodation->tax_include == 1)
@@ -174,8 +174,7 @@
                                 Reset
                             </a>
                             <br>
-                            Urutkan hasil pencarian anda
-                            Berdasarkan :
+                            Urutkan hasil berdasarkan bintang :
                         </div>
                     </div>
                     <div class="card">
