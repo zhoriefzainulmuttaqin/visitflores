@@ -69,7 +69,7 @@ Profil
                         <div class="col-lg-8 col-sm-12 col-md-8 mt-3">
                             <div class="card" style="box-shadow: 0 5px 10px rgba(0,0,0,.2); border-radius: 10px;">
                                 <div class="card-body">
-                                    <h5 class="card-title">Biodata Diri</h5>
+                                    <h5 class="card-title">Biodata Diri <small class="float-end"><a href="<?= url('ubah-biodata-profil') ?>">Ubah Data </a></small></h5>
                                     <table cellpadding="5">
                                         <tr>
                                             <td>Nama</td>
@@ -99,7 +99,7 @@ Profil
                                     </table>
                                     <hr>
                                     <div>
-                                        <a href="<?= url('ubah-biodata-profil') ?>" class="btn btn-dark card-link">Ubah Biodata</a>
+                                        {{-- <a href="<?= url('ubah-biodata-profil') ?>" class="btn btn-dark card-link">Ubah Biodata</a> --}}
                                         <a href="<?= url('ubah-password-profil') ?>" class="btn btn-warning text-white card-link">Reset Password</a>
                                         <a href="<?= url('keluar') ?>" class="card-link btn btn-danger float-end">Logout</a>
                                     </div>

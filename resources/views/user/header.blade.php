@@ -4,16 +4,20 @@ $locale = App::currentLocale();
 ?>
 <!-- Header
 ============================================= -->
+<link rel="stylesheet" href="style.css">
 <header id="header" class="transparent-header page-section dark" data-sticky-class="not-dark">
     <div id="header-wrap">
         <div class="container-fluid">
             <div class="header-row">
                 <!-- Logo
                 ============================================= -->
+
                 <div id="logo">
                     <a href="{{ url('/') }}" class="ps-2">
-                        <img class="logo-default py-1" srcset="{{ url('assets/logo-dark.png') }}" src="{{ url('assets/logo-dark.png') }}" alt="Logo Visit Cirebon">
-                        <img class="logo-dark py-1" srcset="{{ url('assets/logo-light.png') }}" src="{{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
+                        <img class="logo-default py-1" srcset="{{ url('assets/logo-dark.png') }}"
+                            src="{{ url('assets/logo-dark.png') }}" alt="Logo Visit Cirebon">
+                        <img class="logo-dark py-1" srcset="{{ url('assets/logo-light.png') }}"
+                            src="{{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
                     </a>
                 </div><!-- #logo end -->
 
@@ -22,6 +26,7 @@ $locale = App::currentLocale();
                     ============================================= -->
                     <nav class="primary-menu d-none d-sm-none d-md-none d-lg-block d-xl-block">
                         <ul class="menu-container one-page-menu">
+<<<<<<< HEAD
                             <li class="menu-item"><a class="menu-link" href="{{ url('/') }}"><div>Home</div></a></li>
                             <li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}"><div>{{ __("menu.destinations") }}</div></a></li>
                             <li class="menu-item"><a class="menu-link" href="{{ url('event') }}"><div>{{ __("menu.events") }}</div></a></li>
@@ -34,14 +39,64 @@ $locale = App::currentLocale();
                                     <div>
                                         {{ __("menu.services") }}
                                         <i class="bi-caret-down-fill text-smaller d-none d-lg-inline-block d-lg-inline-block d-xl-inline-block me-0"></i>
+=======
+                            <li class="menu-item"><a class="menu-link" href="{{ url('/') }}">
+                                    <div>Home</div>
+                                </a></li>
+                            <li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}">
+                                    <div>Wisata</div>
+                                </a></li>
+                            <li class="menu-item"><a class="menu-link" href="{{ url('event') }}">
+                                    <div>Event</div>
+                                </a></li>
+                            <li class="menu-item"><a class="menu-link" href="{{ url('kuliner') }}">
+                                    <div>Kuliner</div>
+                                </a></li>
+                            <li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}">
+                                    <div>Oleh - oleh</div>
+                                </a></li>
+                            <li class="menu-item"><a class="menu-link" href="{{ url('akomodasi') }}">
+                                    <div>Akomodasi</div>
+                                </a></li>
+                            <!-- <li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li> -->
+                            <li class="menu-item">
+
+                                @if (App::isLocale('id'))
+                                    <a class="menu-link" href="{{ url('atur-bahasa/en') }}">
+                                        <div>English</div>
+                                    </a>
+                                @else
+                                    <a class="menu-link" href="{{ url('atur-bahasa/id') }}">
+                                        <div>Indonesia</div>
+                                    </a>
+                                @endif
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link" href="#">
+                                    <div>
+                                        Layanan
+                                        <i
+                                            class="bi-caret-down-fill text-smaller d-none d-lg-inline-block d-lg-inline-block d-xl-inline-block me-0"></i>
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                                     </div>
                                 </a>
                                 <ul class="sub-menu-container mega-menu-dropdown p-lg-0">
                                     <li class="menu-item">
+<<<<<<< HEAD
                                         <a class="menu-link" href="{{ url('layanan-produk') }}"><div>{{ __("menu.service_products") }}</div></a>
                                     </li>
                                     <li class="menu-item">
                                         <a class="menu-link" href="{{ url('layanan-jasa') }}"><div>{{ __("menu.our_services") }}</div></a>
+=======
+                                        <a class="menu-link" href="{{ url('layanan-produk') }}">
+                                            <div>Produk</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class="menu-link" href="{{ url('layanan-jasa') }}">
+                                            <div>Jasa</div>
+                                        </a>
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                                     </li>
                                 </ul>
                             </li>
@@ -51,7 +106,7 @@ $locale = App::currentLocale();
                     <!-- Top Notif
                     ============================================= -->
                     <!-- <div id="top-notif" class="header-misc-icon">
-                        <a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">0</span></a>								
+                        <a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">0</span></a>
                     </div> -->
                     <!-- #top-notif end -->
                     <!-- Top Cart
@@ -63,6 +118,7 @@ $locale = App::currentLocale();
                         </a>
                     </div> -->
                     <!-- #top-cart end -->
+<<<<<<< HEAD
                     @if(Auth()->check())
                     <a href="{{ url('profil') }}" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
                         <i class="uil-user"></i>
@@ -73,8 +129,20 @@ $locale = App::currentLocale();
                         <i class="uil-signin"></i>
                         {{ __("menu.login") }}
                     </a>
+=======
+                    @if (Auth()->check())
+                        <a href="{{ url('profil') }}" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
+                            <i class="uil-user"></i>
+                            Profil
+                        </a>
+                    @else
+                        <a href="{{ url('login') }}" class="btn btn-danger btn-sm ms-3 d-none d-md-block d-lg-block">
+                            <i class="uil-signin"></i>
+                            Login
+                        </a>
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                     @endif
-                    
+
                 </div>
                 <div class="primary-menu-trigger">
                     <button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
@@ -87,6 +155,7 @@ $locale = App::currentLocale();
                 <nav class="primary-menu d-block d-sm-block d-md-block d-lg-none d-xl-none">
 
                     <ul class="menu-container">
+<<<<<<< HEAD
                     <li class="menu-item"><a class="menu-link" href="{{ url('/') }}"><div>Home</div></a></li>
                         <li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}"><div>{{ __("menu.destionations") }}</div></a></li>
                         <li class="menu-item"><a class="menu-link" href="{{ url('event') }}"><div>{{ __("menu.events") }}</div></a></li>
@@ -99,10 +168,38 @@ $locale = App::currentLocale();
                                 <div>
                                     {{ __("menu.services") }}
                                     <i class="bi-caret-down-fill text-smaller d-none d-lg-inline-block d-lg-inline-block d-xl-inline-block me-0"></i>
+=======
+                        <li class="menu-item"><a class="menu-link" href="{{ url('/') }}">
+                                <div>Home</div>
+                            </a></li>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('wisata') }}">
+                                <div>Wisata</div>
+                            </a></li>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('event') }}">
+                                <div>Event</div>
+                            </a></li>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('kuliner') }}">
+                                <div>Kuliner</div>
+                            </a></li>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('oleh-oleh') }}">
+                                <div>Oleh - oleh</div>
+                            </a></li>
+                        <!-- <li class="menu-item"><a class="menu-link" href="{{ url('berita') }}"><div>Berita</div></a></li> -->
+                        <li class="menu-item"><a class="menu-link" href="{{ url('akomodasi') }}">
+                                <div>Akomodasi</div>
+                            </a></li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="#">
+                                <div>
+                                    Layanan
+                                    <i
+                                        class="bi-caret-down-fill text-smaller d-none d-lg-inline-block d-lg-inline-block d-xl-inline-block me-0"></i>
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                                 </div>
                             </a>
                             <ul class="sub-menu-container mega-menu-dropdown p-lg-0">
                                 <li class="menu-item">
+<<<<<<< HEAD
                                     <a class="menu-link" href="{{ url('layanan-produk') }}"><div>{{ __("menu.service_products") }}</div></a>
                                 </li>
                                 <li class="menu-item">
@@ -128,6 +225,37 @@ $locale = App::currentLocale();
                                 </div>
                             </a>
                         </li>
+=======
+                                    <a class="menu-link" href="{{ url('layanan-produk') }}">
+                                        <div>Produk</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
+                                    <a class="menu-link" href="{{ url('layanan-jasa') }}">
+                                        <div>Jasa</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @if (Auth()->check())
+                            <li class="menu-item d-block d-md-none d-xl-none mb-3">
+                                <a class="menu-link btn btn-danger btn-sm" href="{{ url('profil') }}">
+                                    <div>
+                                        <i class="uil-user"></i>
+                                        Profil
+                                    </div>
+                                </a>
+                            </li>
+                        @else
+                            <li class="menu-item d-block d-md-none d-xl-none mb-3">
+                                <a class="menu-link btn btn-danger btn-sm" href="{{ url('login') }}">
+                                    <div>
+                                        <i class="uil-signin"></i>
+                                        Login
+                                    </div>
+                                </a>
+                            </li>
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                         @endif
                     </ul>
 

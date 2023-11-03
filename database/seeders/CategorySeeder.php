@@ -57,9 +57,9 @@ class CategorySeeder extends Seeder
             ]),
             ([
                 "name"   => "Wisata Buatan",
-                "name_en"   => "Man-made Tourist Attraction",
+                "name_en"   => "Artificial Tourism",
                 "details"   => "Ini adalah detail Wisata Buatan",
-                "details_en"   => "These are the details of the Man-made Tourist Attraction",
+                "details_en"   => "These are the details of the Artificial Tourism",
 
                 "type"   => 2,
             ]),

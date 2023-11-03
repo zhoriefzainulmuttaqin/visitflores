@@ -8,11 +8,15 @@ use App\Models\Ticket;
 use App\Models\Tour;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class TourController extends Controller
 {
     public function tours(Request $request)
     {
+        $locale = Cookie::get('user-language');
+        App::setLocale($locale);
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {
@@ -30,26 +34,36 @@ class TourController extends Controller
         $tours = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
             ->where('categories.type', 2)
             ->where('tours.name', 'like',  '%' . $keyword . '%')
-            ->where(function (Builder $query) use ($cat_list, $request) {
-                if ($request->cat_list) {
-                    if ($request->cat_list[0] != "0") {
-                        $query->where(
-                            function (Builder $q) use ($cat_list) {
-                                foreach ($cat_list as $key => $value) {
-                                    $q->orWhere('tours.category_id', $value);
-                                }
-                            }
-                        );
+            ->Orwhere('tours.name_en', 'like',  '%' . $keyword . '%')
+            // ->where(function (Builder $query) use ($cat_list, $request) {
+            //     if ($request->cat_list) {
+            //         if ($request->cat_list[0] != "0") {
+            //             $query->where(
+            //                 function (Builder $q) use ($cat_list) {
+            //                     foreach ($cat_list as $key => $value) {
+            //                         $q->orWhere('tours.category_id', $value);
+            //                     }
+            //                 }
+            //             );
+            //         }
+            //     }
+            // })
+            ->where(function (Builder $query) use ($cat_list) {
+                $query->where(
+                    function (Builder $q) use ($cat_list) {
+                        foreach ($cat_list as $key => $value) {
+                            $q->orWhere('tours.category_id', $value);
+                        }
                     }
-                }
+                );
             })
-            ->select(['tours.*', 'categories.name as category_name'])
+            ->select(['tours.*', 'categories.name as category_name', 'categories.name_en as category_name_en'])
             ->orderBy('tours.id', 'asc')
             ->paginate(10);
         if ($request->keyword) {
             $tours->appends(array('keyword' => $keyword));
         }
-        if ($request->star_list) {
+        if ($request->cat_list) {
             $tours->appends($cat_list);
         }
 
@@ -60,5 +74,25 @@ class TourController extends Controller
             "cat_list"   => $cat_list_data,
         ];
         return view('user.tours', $data);
+    }
+
+    public function detail_tour(Request $request)
+    {
+        $locale = Cookie::get('user-language');
+        App::setLocale($locale);
+        $tour = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
+            ->where('categories.type', 2)
+            ->select(['tours.*', 'categories.name as category_name', 'categories.name_en as category_name_en'])
+            ->where('tours.slug', $request->slug)->first();
+
+        if ($tour) {
+            $data = [
+                'tour' => $tour,
+            ];
+
+            return view('user.tour_details', $data);
+        } else {
+            return redirect("wisata");
+        }
     }
 }

@@ -1,29 +1,83 @@
-#header-wrap{
+#header-wrap {
     position: fixed !important;
 }
-.logo-default{
+.logo-default {
     height: 40px !important;
 }
-.logo-dark{
+.logo-dark {
     height: 40px !important;
 }
-.menu-item > .menu-link:hover{
+
+.menu-item > .menu-link:hover {
     color: #d6d6d6 !important;
 }
 .menu-item.current > .menu-link {
     color: #d6d6d6 !important;
 }
-#chatWA{
+#chatWA {
     position: fixed;
     bottom: 15px;
     right: 15px;
     z-index: 25;
 }
-.bg-btn-visit{
+.bg-btn-visit {
     background-color: #122f4d !important;
     border-color: #122f4d !important;
 }
-.bg-blue-visit{
+.bg-btn-language {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: black;
+}
+.language {
+    display: flex;
+    justify-content: space-between;
+}
+.but_lang1 {
+    width: 300px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 300px;
+
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+    @media (max-width: 768px) {
+        width: 130px;
+        height: 40px;
+        font-size: 10px;
+        font-weight: 600;
+        margin-left: 40px;
+
+        justify-content: center;
+        align-items: center;
+        opacity: 0.8;
+    }
+}
+.but_lang2 {
+    width: 300px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-right: 300px;
+
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+    @media (max-width: 768px) {
+        width: 130px;
+        height: 40px;
+        font-size: 10px;
+        font-weight: 600;
+        margin-right: 40px;
+
+        justify-content: center;
+        align-items: center;
+        opacity: 0.8;
+    }
+}
+.bg-blue-visit {
     background-color: #122f4d !important;
 }
 .whatsapp-button {
@@ -52,24 +106,38 @@
     background-color: #128c7e;
 }
 
-#logo-on-header{
+#logo-on-header {
     width: 60% !important;
+
+    @media (max-width: 768px) {
+        width: 80% !important;
+    }
 }
 
-#service-floating-card{
+@media (max-width: 768px) {
+    .logo-default,
+    .logo-dark {
+        width: 100px;
+        height: 40px !important;
+        position: relative;
+        left: -10px;
+    }
+}
+
+#service-floating-card {
     position: relative !important;
     top: -100px !important;
 }
 
-@media(width <= 768px){
-    #header-wrap{
+@media (width <= 768px) {
+    #header-wrap {
         /* background-color: transparent !important; */
         /* border-bottom: none; */
     }
-    .logo-default{
+    .logo-default {
         height: 20px !important;
     }
-    .logo-dark{
+    .logo-dark {
         height: 20px !important;
     }
 }
