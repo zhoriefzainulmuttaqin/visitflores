@@ -1,7 +1,7 @@
 @extends('user.template')
 
 @section('title')
-    Berita
+    {{ __('news.title') }}
 @endsection
 
 @section('cover')
@@ -11,10 +11,10 @@
 @section('content')
     <div class="container-lg mt-5">
         <h1 class="mb-1">
-            <b>Berita</b>
+            <b>{{ __('news.heading') }}</b>
         </h1>
         <div class="text-lg fs-3">
-            Berikut ini berita terkini.
+            {{ __('news.desc') }}
         </div>
 
         <div class="row my-5">
@@ -38,12 +38,20 @@
                                         <div class="col-md-9 ps-3 pe-1">
                                             <h4 class="card-title fs-3">
                                                 <small class="rounded fs-5 text-warning me-2">
-                                                    {{ $new->category_name }}
+                                                    @if (App::isLocale('id'))
+                                                        {{ $new->category_name }}
+                                                    @else
+                                                        {{ $new->category_name_en }}
+                                                    @endif
                                                 </small>
                                                 <br>
                                                 <a href='{{ url("/detail-berita/$new->slug") }}'
                                                     class="link-underline-opacity-0 link-info text-dark">
-                                                    {{ $new->name }}
+                                                    @if (App::isLocale('id'))
+                                                        {{ $new->name }}
+                                                    @else
+                                                        {{ $new->name_en }}
+                                                    @endif
                                                 </a>
                                                 <div class="text-lg fw-normal fs-5">
                                                     <?php
@@ -54,11 +62,19 @@
                                                     $tanggal = date_format($date, 'd');
                                                     $bulan = $months[date_format($date, 'F')];
                                                     $tahun = date_format($date, 'Y');
-                                                    echo "$hari, $tanggal $bulan $tahun";
+                                                    if (App::isLocale('id')) {
+                                                        echo "$hari, $tanggal $bulan $tahun";
+                                                    } else {
+                                                        echo date_format($date, 'l, d F Y');
+                                                    }
                                                     ?>
                                                 </div>
                                             </h4>
-                                            {!! mb_substr(nl2br($new->content), 0, 50) !!}
+                                            @if (App::isLocale('id'))
+                                                {!! mb_substr(nl2br($new->content), 0, 50) !!}
+                                            @else
+                                                {!! mb_substr(nl2br($new->content_en), 0, 50) !!}
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -85,15 +101,27 @@
                                 <div class="card-body">
                                     <h5 class="card-title">
                                         <small class="rounded fs-5 text-warning me-2">
-                                            {{ $new->category_name }}
+                                            @if (App::isLocale('id'))
+                                                {{ $new->category_name }}
+                                            @else
+                                                {{ $new->category_name_en }}
+                                            @endif
                                         </small>
                                         <br>
                                         <a href='{{ url("/detail-berita/$new->slug") }}'
                                             class="link-underline-opacity-0 link-info text-dark">
-                                            {{ $new->name }}
+                                            @if (App::isLocale('id'))
+                                                {{ $new->name }}
+                                            @else
+                                                {{ $new->name_en }}
+                                            @endif
                                         </a>
                                     </h5>
-                                    {!! mb_substr(nl2br($new->content), 0, 50) !!}
+                                    @if (App::isLocale('id'))
+                                        {!! mb_substr(nl2br($new->content), 0, 50) !!}
+                                    @else
+                                        {!! mb_substr(nl2br($new->content_en), 0, 50) !!}
+                                    @endif
                                 </div>
                             </div>
                         </div>

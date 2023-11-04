@@ -1,11 +1,11 @@
 @extends('user.template')
 
 @section('title')
-    Akomodasi
+    {{ __('accomodation.title') }}
 @endsection
 
 @section('cover')
-    <?= url('assets/akomodasi/bg.png') ?>
+    <?= url('assets/akomodasi/bg-2.jpg') ?>
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
@@ -21,14 +21,14 @@
                             <div class="input-group">
                                 <input type="search" class="form-control"
                                     value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}" name="keyword"
-                                    id="cari" placeholder="Ketik nama daerah, nama hotel, atau landmark">
+                                    id="cari" placeholder="{{ __('accomodation.placeholder_search') }}">
                                 <button class="btn btn-light" type="submit" id="button-addon2">
                                     <i class="bi-search fs-3"></i>
                                 </button>
                             </div>
                             @if (isset($_GET['keyword']))
-                                <a href="{{ url('akomodasi') }}" class="text-primary"><span>Tampilkan semua
-                                        data..</span></a>
+                                <a href="{{ url('akomodasi') }}"
+                                    class="text-primary"><span>{{ __('accomodation.show_all_data') }}</span></a>
                             @endif
                         </div>
                     </div>
@@ -48,7 +48,11 @@
                                     <h4 class="card-title fs-3">
                                         <a href='{{ url("/detail-akomodasi/$accomodation->slug") }}'
                                             class="link-underline-opacity-0 link-info text-dark">
-                                            {{ $accomodation->name }}
+                                            @if (App::isLocale('id'))
+                                                {{ $accomodation->name }}
+                                            @else
+                                                {{ $accomodation->name_en }}
+                                            @endif
                                         </a>
                                         <br>
                                         <div class="rating-container theme-krajee-svg rating-sm rating-animate">
@@ -123,11 +127,12 @@
                                                 </div>
                                             @endif
                                             <p class="card-text">
-                                                <strong class="fs-4 text-danger"> Mulai Dari Rp.
+                                                <strong class="fs-4 text-danger"> {{ __('accomodation.start_from') }}
                                                     <?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                                                 </strong>
                                                 @if ($accomodation->tax_include == 1)
-                                                    <strong class="border-0 me-4 float-end fw-bold">Termasuk Pajak</strong>
+                                                    <strong
+                                                        class="border-0 me-4 float-end fw-bold">{{ __('accomodation.tax_include') }}</strong>
                                                 @endif
                                             </p>
                                         </div>
@@ -142,45 +147,44 @@
                     <div class="card ps-2 pt-2">
                         <div class="card-title">
                             <strong class="fs-6">
-                                Urutkan Hasil Pencarian
+                                {{ __('accomodation.sort') }}
                             </strong>
                             <br>
-                            Urutkan hasil pencarian anda
-                            Berdasarkan :
+                            {{ __('accomodation.desc_sort') }}
                         </div>
                         <div class="card-body">
                             <div class="form-check">
                                 <input class="form-check-input valid" type="radio" name="order_price"
                                     id="harga-tertinggi" {{ $order_price == 'desc' ? 'checked' : '' }}
                                     onchange="submit()" value="desc" data-gtm-form-interact-field-id="1">
-                                <label class="form-check-label" for="harga-tertinggi">Harga
-                                    Tertinggi</label>
+                                <label class="form-check-label"
+                                    for="harga-tertinggi">{{ __('accomodation.option_1') }}</label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input valid" type="radio" name="order_price"
                                     id="harga-terendah" {{ $order_price == 'asc' ? 'checked' : '' }} value="asc"
                                     onchange="submit()" data-gtm-form-interact-field-id="0">
-                                <label class="form-check-label" for="harga-terendah">Harga
-                                    Terendah</label>
+                                <label class="form-check-label"
+                                    for="harga-terendah">{{ __('accomodation.option_2') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="card p-2">
                         <div class="card-title">
                             <strong class="fs-6">
-                                Urutkan Hasil Pencarian
+                                {{ __('accomodation.sort_2') }}
                             </strong>
                             <a href="{{ url('/akomodasi') }}" class="float-end text-warning fw-bold">
-                                Reset
+                                {{ __('accomodation.reset') }}
                             </a>
                             <br>
-                            Urutkan hasil berdasarkan bintang :
+                            {{ __('accomodation.desc_sort_2') }}
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <strong class="fs-5">
-                                Bintang
+                                {{ __('accomodation.stars') }}
                             </strong>
                             <div class="col-12">
                                 <div class="rating-container theme-krajee-svg rating-md rating-animate">

@@ -1,7 +1,7 @@
 @extends('user.template_no_cover')
 
 @section('title')
-    Detail Berita
+    {{ __('news_detail.title') }}
 @endsection
 
 @section('cover')
@@ -15,17 +15,19 @@
                     <form action="" method="get" class="row  align-items-center">
                         <div class="col-md-12">
                             <div class="mb-1">
-                                <label for="cari" class="form-label fw-bold fs-4">Cari</label>
+                                <label for="cari" class="form-label fw-bold fs-4">{{ __('news_detail.search') }}</label>
                                 <div class="input-group mb-3">
                                     <input type="search" class="form-control" id="cari"
                                         value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}" name="keyword"
-                                        placeholder="cari berita disini..">
-                                    <button class="btn btn-secondary" type="submit" id="button-addon2">Cari</button>
+                                        placeholder="{{ __('news_detail.placeholder_search') }}">
+                                    <button class="btn btn-secondary" type="submit"
+                                        id="button-addon2">{{ __('news_detail.search') }}</button>
                                 </div>
                             </div>
                         </div>
                         @if (isset($_GET['keyword']))
-                            <a href="{{ url('berita') }}" class="text-primary"><span>Tampilkan semua data..</span></a>
+                            <a href="{{ url('berita') }}"
+                                class="text-primary"><span>{{ __('news_detail.show_all_data') }}</span></a>
                         @endif
                     </form>
                 </div>
@@ -35,14 +37,31 @@
                     <div class="single-post mb-0">
                         <div class="entry">
                             <div class="entry-title">
-                                <h2>{{ $new->name }}</h2>
+                                @if (App::isLocale('id'))
+                                    <h2>{{ $new->name }}</h2>
+                                @else
+                                    <h2>{{ $new->name_en }}</h2>
+                                @endif
                             </div>
                             <div class="entry-meta">
                                 <ul>
-                                    <li><i class="uil uil-schedule"></i> {{ tglIndo($new->published_date, 'd/m/Y') }}</li>
+                                    <li>
+                                        <i class="uil uil-schedule"></i>
+                                        @if (App::isLocale('id'))
+                                            {{ tglIndo($new->published_date, 'd/m/Y') }}
+                                        @else
+                                            <?php $date = date_create($new->published_date); ?>
+                                            {{ date_format($date, 'l, d F Y') }}
+                                        @endif
+                                    </li>
                                     <li><i class="uil uil-user"></i>{{ $new->admin_name }}</li>
                                     <li>
-                                        <i class="uil uil-folder-open"></i> {{ $new->category_name }}
+                                        <i class="uil uil-folder-open"></i>
+                                        @if (App::isLocale('id'))
+                                            {{ $new->category_name }}
+                                        @else
+                                            {{ $new->category_name_en }}
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
@@ -52,12 +71,16 @@
                                         alt="Blog Single"></a>
                             </div>
                             <div class="entry-content mt-0">
-                                {!! nl2br($new->content) !!}
+                                @if (App::isLocale('id'))
+                                    {!! nl2br($new->content) !!}
+                                @else
+                                    {!! nl2br($new->content_en) !!}
+                                @endif
                             </div>
                         </div>
                     </div>
                 @endif
-                <h4 class="fs-4 fw-medium">Rekomendasi Untuk Kamu</h4>
+                <h4 class="fs-4 fw-medium">{{ __('news_detail.recomendation') }}</h4>
                 <div class="row my-5">
                     <div class="col col-md-8 mb-3 mb-sm-0">
                         <?php
@@ -80,12 +103,20 @@
                                                     <div class="col-md-9 ps-3 pe-1">
                                                         <h4 class="card-title fs-3">
                                                             <small class="rounded fs-5 text-warning me-2">
-                                                                {{ $new1->category_name }}
+                                                                @if (App::isLocale('id'))
+                                                                    {{ $new1->category_name }}
+                                                                @else
+                                                                    {{ $new1->category_name_en }}
+                                                                @endif
                                                             </small>
                                                             <br>
                                                             <a href='{{ url("/detail-berita/$new1->slug") }}'
                                                                 class="link-underline-opacity-0 link-info text-dark">
-                                                                {{ $new1->name }}
+                                                                @if (App::isLocale('id'))
+                                                                    {{ $new1->name }}
+                                                                @else
+                                                                    {{ $new1->name_en }}
+                                                                @endif
                                                             </a>
                                                             <div class="text-lg fw-normal fs-5">
                                                                 <?php
@@ -96,12 +127,19 @@
                                                                 $tanggal = date_format($date, 'd');
                                                                 $bulan = $months[date_format($date, 'F')];
                                                                 $tahun = date_format($date, 'Y');
-                                                                echo "$hari, $tanggal $bulan $tahun";
+                                                                if (App::isLocale('id')) {
+                                                                    echo "$hari, $tanggal $bulan $tahun";
+                                                                } else {
+                                                                    echo date_format($date, 'l, d F Y');
+                                                                }
                                                                 ?>
                                                             </div>
                                                         </h4>
-                                                        {!! mb_substr(nl2br($new->content), 0, 50) !!}
-
+                                                        @if (App::isLocale('id'))
+                                                            {!! mb_substr(nl2br($new1->content), 0, 50) !!}
+                                                        @else
+                                                            {!! mb_substr(nl2br($new1->content_en), 0, 50) !!}
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -130,15 +168,27 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">
                                                     <small class="rounded fs-5 text-warning me-2">
-                                                        Wisata
+                                                        @if (App::isLocale('id'))
+                                                            {{ $new1->category_name }}
+                                                        @else
+                                                            {{ $new1->category_name_en }}
+                                                        @endif
                                                     </small>
                                                     <br>
                                                     <a href='{{ url("detail-berita/$new1->slug") }}'
                                                         class="link-underline-opacity-0 link-info text-dark">
-                                                        {{ $new1->name }}
+                                                        @if (App::isLocale('id'))
+                                                            {{ $new1->name }}
+                                                        @else
+                                                            {{ $new1->name_en }}
+                                                        @endif
                                                     </a>
                                                 </h5>
-                                                {!! mb_substr(nl2br($new->content), 0, 50) !!}
+                                                @if (App::isLocale('id'))
+                                                    {!! mb_substr(nl2br($new1->content), 0, 50) !!}
+                                                @else
+                                                    {!! mb_substr(nl2br($new1->content_en), 0, 50) !!}
+                                                @endif
 
                                             </div>
                                         </div>
