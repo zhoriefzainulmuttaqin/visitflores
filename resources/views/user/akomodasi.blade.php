@@ -35,6 +35,151 @@
                 </div>
             </div>
             <div class="row mb-5">
+                <div class="col-md-3 mb-5 d-block d-md-none">
+                    <div class="card ps-2 pt-2">
+                        <div class="card-title">
+                            <strong class="fs-6">
+                                {{ __('accomodation.sort') }}
+                            </strong>
+                            <br>
+                            {{ __('accomodation.desc_sort') }}
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input valid" type="radio" name="order_price" id="harga-tertinggi"
+                                    {{ $order_price == 'desc' ? 'checked' : '' }} onchange="submit()" value="desc"
+                                    data-gtm-form-interact-field-id="1">
+                                <label class="form-check-label"
+                                    for="harga-tertinggi">{{ __('accomodation.option_1') }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input valid" type="radio" name="order_price" id="harga-terendah"
+                                    {{ $order_price == 'asc' ? 'checked' : '' }} value="asc" onchange="submit()"
+                                    data-gtm-form-interact-field-id="0">
+                                <label class="form-check-label"
+                                    for="harga-terendah">{{ __('accomodation.option_2') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-2">
+                        <div class="card-title">
+                            <strong class="fs-6">
+                                {{ __('accomodation.sort_2') }}
+                            </strong>
+                            <a href="{{ url('/akomodasi') }}" class="float-end text-warning fw-bold">
+                                {{ __('accomodation.reset') }}
+                            </a>
+                            <br>
+                            {{ __('accomodation.desc_sort_2') }}
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <strong class="fs-5">
+                                {{ __('accomodation.stars') }}
+                            </strong>
+                            <div class="col-12">
+                                <div class="rating-container theme-krajee-svg rating-md rating-animate">
+                                    <div class="clear-rating clear-rating-active ">
+                                        <input class="form-check-input fs-3"
+                                            type="checkbox"{{ !empty($star_list['100']) ? 'checked' : '' }}
+                                            name="star_list[]" onchange="submit()" id="checkboxNoLabel" value="100"
+                                            aria-label="...">
+                                    </div>
+                                    <div class="rating-stars" tabindex="0"><span class="empty-stars"><span class="star"
+                                                title="One Star"><span class="bi-star"></span></span><span class="star"
+                                                title="Two Stars"><span class="bi-star"></span></span><span class="star"
+                                                title="Three Stars"><span class="bi-star"></span></span><span class="star"
+                                                title="Four Stars"><span class="bi-star"></span></span><span class="star"
+                                                title="Five Stars"><span class="bi-star"></span></span></span><span
+                                            class="filled-stars" style="width: 100%;"><span class="star"
+                                                title="One Star"><span class="bi-star-fill"></span></span><span
+                                                class="star" title="Two Stars"><span
+                                                    class="bi-star-fill"></span></span><span class="star"
+                                                title="Three Stars"><span class="bi-star-fill"></span></span><span
+                                                class="star" title="Four Stars"><span
+                                                    class="bi-star-fill"></span></span><span class="star"
+                                                title="Five Stars"><span class="bi-star-fill"></span></span></span></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="rating-container theme-krajee-svg rating-md rating-animate">
+                                    <div class="clear-rating clear-rating-active ">
+                                        <input class="form-check-input fs-3"
+                                            type="checkbox"{{ !empty($star_list['80']) ? 'checked' : '' }}
+                                            name="star_list[]" onchange="submit()" id="checkboxNoLabel" value="80"
+                                            aria-label="...">
+                                    </div>
+                                    <div class="rating-stars" tabindex="0"><span class="empty-stars"><span
+                                                class="star" title="One Star"><span class="bi-star"></span></span><span
+                                                class="star" title="Two Stars"><span
+                                                    class="bi-star"></span></span><span class="star"
+                                                title="Three Stars"><span class="bi-star"></span></span><span
+                                                class="star" title="Four Stars"><span
+                                                    class="bi-star"></span></span></span><span class="filled-stars"
+                                            style="width: 100%;"><span class="star" title="One Star"><span
+                                                    class="bi-star-fill"></span></span><span class="star"
+                                                title="Two Stars"><span class="bi-star-fill"></span></span><span
+                                                class="star" title="Three Stars"><span
+                                                    class="bi-star-fill"></span></span><span class="star"
+                                                title="Four Stars"><span class="bi-star-fill"></span></span></span></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="rating-container theme-krajee-svg rating-md rating-animate">
+                                    <div class="clear-rating clear-rating-active ">
+                                        <input class="form-check-input fs-3"
+                                            type="checkbox"{{ !empty($star_list['60']) ? 'checked' : '' }}
+                                            name="star_list[]" onchange="submit()" id="checkboxNoLabel" value="60"
+                                            aria-label="...">
+                                    </div>
+                                    <div class="rating-stars" tabindex="0"><span class="empty-stars"><span
+                                                class="star" title="One Star"><span class="bi-star"></span></span><span
+                                                class="star" title="Two Stars"><span
+                                                    class="bi-star"></span></span><span class="star"
+                                                title="Three Stars"><span class="bi-star"></span></span></span><span
+                                            class="filled-stars" style="width: 100%;"><span class="star"
+                                                title="One Star"><span class="bi-star-fill"></span></span><span
+                                                class="star" title="Two Stars"><span
+                                                    class="bi-star-fill"></span></span><span class="star"
+                                                title="Three Stars"><span class="bi-star-fill"></span></span></span></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="rating-container theme-krajee-svg rating-md rating-animate">
+                                    <div class="clear-rating clear-rating-active ">
+                                        <input class="form-check-input fs-3"
+                                            type="checkbox"{{ !empty($star_list['40']) ? 'checked' : '' }}
+                                            name="star_list[]" onchange="submit()" id="checkboxNoLabel" value="40"
+                                            aria-label="...">
+                                    </div>
+                                    <div class="rating-stars" tabindex="0"><span class="empty-stars"><span
+                                                class="star" title="One Star"><span class="bi-star"></span></span><span
+                                                class="star" title="Two Stars"><span
+                                                    class="bi-star"></span></span></span><span class="filled-stars"
+                                            style="width: 100%;"><span class="star" title="One Star"><span
+                                                    class="bi-star-fill"></span></span><span class="star"
+                                                title="Two Stars"><span class="bi-star-fill"></span></span></span></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="rating-container theme-krajee-svg rating-md rating-animate">
+                                    <div class="clear-rating clear-rating-active ">
+                                        <input class="form-check-input fs-3"
+                                            type="checkbox"{{ !empty($star_list['20']) ? 'checked' : '' }}
+                                            name="star_list[]" onchange="submit()" id="checkboxNoLabel" value="20"
+                                            aria-label="...">
+                                    </div>
+                                    <div class="rating-stars" tabindex="0"><span class="empty-stars"><span
+                                                class="star" title="One Star"><span
+                                                    class="bi-star"></span></span></span><span class="filled-stars"
+                                            style="width: 100%;"><span class="star" title="One Star"><span
+                                                    class="bi-star-fill"></span></span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-9 mb-3 mb-sm-0">
                     @foreach ($accomodations as $accomodation)
                         <div class="card shadow h-shadow-sm h-shadow all-ts h-translate-y-sm mb-5 overflow-hidden"
@@ -46,8 +191,9 @@
                                 </div>
                                 <div class="col-md-7 ps-3 pe-1">
                                     <h4 class="card-title fs-3">
+                                        <br>
                                         <a href='{{ url("/detail-akomodasi/$accomodation->slug") }}'
-                                            class="link-underline-opacity-0 link-info text-dark">
+                                            class="link-underline-opacity-0 link-info text-dark mt-4">
                                             @if (App::isLocale('id'))
                                                 {{ $accomodation->name }}
                                             @else
@@ -56,7 +202,8 @@
                                         </a>
                                         <br>
                                         <div class="rating-container theme-krajee-svg rating-sm rating-animate">
-                                            <small class="p-2 rounded text-white me-2" style="background-color: #0F304F">
+                                            <small class="p-2 rounded text-white me-2 my-2"
+                                                style="background-color: #0F304F">
                                                 {{ $accomodation->city }}
                                             </small>
                                             <div class="rating-stars" tabindex="0"><span class="empty-stars"><span
@@ -67,18 +214,19 @@
                                                             class="bi-star"></span></span><span class="star"
                                                         title="Four Stars"><span class="bi-star"></span></span><span
                                                         class="star" title="Five Stars"><span
-                                                            class="bi-star"></span></span></span><span class="filled-stars"
-                                                    style="width: {{ $accomodation->star }}%;"><span class="star"
-                                                        title="One Star"><span class="bi-star-fill"></span></span><span
-                                                        class="star" title="Two Stars"><span
+                                                            class="bi-star"></span></span></span><span
+                                                    class="filled-stars" style="width: {{ $accomodation->star }}%;"><span
+                                                        class="star" title="One Star"><span
                                                             class="bi-star-fill"></span></span><span class="star"
-                                                        title="Three Stars"><span class="bi-star-fill"></span></span><span
-                                                        class="star" title="Four Stars"><span
+                                                        title="Two Stars"><span class="bi-star-fill"></span></span><span
+                                                        class="star" title="Three Stars"><span
                                                             class="bi-star-fill"></span></span><span class="star"
-                                                        title="Five Stars"><span class="bi-star-fill"></span></span></span>
+                                                        title="Four Stars"><span class="bi-star-fill"></span></span><span
+                                                        class="star" title="Five Stars"><span
+                                                            class="bi-star-fill"></span></span></span>
                                             </div>
                                         </div>
-                                        <div class="text-lg fw-normal fs-5">
+                                        <div class="text-lg fw-normal fs-5 mt-3">
                                             <i class="uil fs-3 text-warning uil-map-marker"></i>
                                             {{ $accomodation->address }}
                                         </div>
@@ -95,25 +243,25 @@
                                                         @if ($accomodation->link_youtube != null)
                                                             <li><a href="{{ $accomodation->link_youtube }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil uil-youtube"></i>
+                                                                        class="uil uil-youtube fs-2"></i>
                                                                 </a></li>
                                                         @endif
                                                         @if ($accomodation->link_instagram != null)
                                                             <li><a href="{{ $accomodation->link_instagram }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil bi-instagram"></i>
+                                                                        class="uil bi-instagram fs-2"></i>
                                                                 </a></li>
                                                         @endif
                                                         @if ($accomodation->link_facebook != null)
                                                             <li><a href="{{ $accomodation->link_facebook }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil uil-facebook"></i>
+                                                                        class="uil uil-facebook fs-2"></i>
                                                                 </a></li>
                                                         @endif
                                                         @if ($accomodation->link_tiktok != null)
                                                             <li><a href="{{ $accomodation->link_tiktok }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil fa-brands fa-tiktok"></i> </a></li>
+                                                                        class="uil fa-brands fa-tiktok fs-2"></i> </a></li>
                                                         @endif
                                                     </ul>
                                                 </div>
@@ -130,10 +278,6 @@
                                                 <strong class="fs-4 text-danger"> {{ __('accomodation.start_from') }}
                                                     <?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                                                 </strong>
-                                                @if ($accomodation->tax_include == 1)
-                                                    <strong
-                                                        class="border-0 me-4 float-end fw-bold">{{ __('accomodation.tax_include') }}</strong>
-                                                @endif
                                             </p>
                                         </div>
                                     </div>
@@ -143,7 +287,7 @@
                     @endforeach
                     {{ $accomodations->links('vendor.pagination.canvas') }}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 d-none d-md-block">
                     <div class="card ps-2 pt-2">
                         <div class="card-title">
                             <strong class="fs-6">

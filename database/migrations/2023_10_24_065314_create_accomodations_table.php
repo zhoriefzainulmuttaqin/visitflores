@@ -27,7 +27,6 @@ return new class extends Migration
             $table->longText('facilities');
             $table->longText('facilities_en');
             $table->longText('phone');
-            $table->tinyInteger('tax_include');
             $table->tinyInteger('mitra_status');
             $table->string('link_instagram')->nullable();
             $table->string('link_facebook')->nullable();
