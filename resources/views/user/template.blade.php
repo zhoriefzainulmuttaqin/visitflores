@@ -44,7 +44,7 @@
         {{ view('user.header') }}
 
         <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover')) center center no-repeat; background-size: cover">
+            style="background: url(@yield('cover'))   no-repeat; background-size: 100%;">
             <div class="slider-inner">
                 <?php
                 $segments = Request::segments();
@@ -52,25 +52,26 @@
                 <div class="vertical-middle slider-element-fade">
                     <div class="container-fluid py-5">
                         <div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
-                            @if ($segments == null)
-                                <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                           @if ($segments == null)
+                                <img src="{{ url('assets/logo-light.png') }}"  id="logo-on-header">
                                 <p class="text-white d-none d-md-block display-6">
                                     PORTAL INFORMASI PARIWISATA CIREBON RAYA <br>
                                     (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
                                 </p>
-                                <p class="text-white d-block d-md-none" style="font-size:11px">
+                                <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
                                     PORTAL INFORMASI PARIWISATA CIREBON RAYA <br>
                                     (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
                                 </p>
+                                <div class="language">
+                                    <a href="{{ url('atur-bahasa/id') }}" class="btn text-center bg-btn-language but_lang1">
+                                        BAHASA INDONESIA
+                                    </a>
+                                    <a href="{{ url('atur-bahasa/en') }}" class="btn text-center bg-btn-language but_lang2">
+                                        ENGLISH
+                                    </a>
+                                </div>
                             @endif
-                            <div class="language">
-                                <a href="{{ url('atur-bahasa/id') }}" class="btn text-center bg-btn-language but_lang1">
-                                    BAHASA INDONESIA
-                                </a>
-                                <a href="{{ url('atur-bahasa/en') }}" class="btn text-center bg-btn-language but_lang2">
-                                    ENGLISH
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
