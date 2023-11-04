@@ -166,50 +166,52 @@
                     @endforeach
                 </div>
             </div>
-            <div class="d-none d-md-block px-4">
-                <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                    data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                    @foreach ($events as $event)
-                        <div class="oc-item" >
-                            <article class="entry event p-3">
-                                <div
-                                    class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                    <div class="col-12 mb-md-0">
-                                        <a href="{{ url('event') }}" class="entry-image">
-                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2" style="max-height: 20rem;">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 p-0 p-md-4 pt-0">
-                                        <div class="entry-title nott">
-                                            @if(App::isLocale("id"))
-                                            <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
-                                            @else
-                                            <h3><a href="{{ url('event') }}">{{ $event->name_en }}</a></h3>
-                                            @endif
+            <div class="d-none d-md-block">
+                <div class="px-4">
+                    <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                        data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                        @foreach ($events as $event)
+                            <div class="oc-item" >
+                                <article class="entry event p-3">
+                                    <div
+                                        class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                        <div class="col-12 mb-md-0">
+                                            <a href="{{ url('event') }}" class="entry-image">
+                                                <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2" style="max-height: 20rem;">
+                                            </a>
                                         </div>
-                                        <div class="entry-meta no-separator mb-1 mt-0">
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url('event') }}" class="text-uppercase fw-medium">
-                                                        {{ $event->location }}
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="entry-content my-3">
-                                            <p class="mb-0">
+                                        <div class="col-12 p-0 p-md-4 pt-0">
+                                            <div class="entry-title nott">
                                                 @if(App::isLocale("id"))
-                                                <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                                <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
                                                 @else
-                                                <b>{{ date("d-M-Y",strtotime($event->start_date)) }}</b>
+                                                <h3><a href="{{ url('event') }}">{{ $event->name_en }}</a></h3>
                                                 @endif
-                                            </p>
+                                            </div>
+                                            <div class="entry-meta no-separator mb-1 mt-0">
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                            {{ $event->location }}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="entry-content my-3">
+                                                <p class="mb-0">
+                                                    @if(App::isLocale("id"))
+                                                    <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                                    @else
+                                                    <b>{{ date("d-M-Y",strtotime($event->start_date)) }}</b>
+                                                    @endif
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             <div class="clearfix"></div>
