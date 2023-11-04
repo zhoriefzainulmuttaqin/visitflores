@@ -1,7 +1,7 @@
 @extends('user.template_no_cover')
 
 @section('title')
-    Detail Akomodasi - {{ $accomodation->name }}
+    {{ __('accomodation_detail.title') }} - {{ App::isLocale('id') ? $accomodation->name : $accomodation->name_en }}
 @endsection
 
 @section('cover')
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h1 class="fs-2 fw-bold">
-                    {{ $accomodation->name }}
+                    {{ App::isLocale('id') ? $accomodation->name : $accomodation->name_en }}
                     <br>
                     <div class="rating-container theme-krajee-svg rating-sm rating-animate">
                         <small class="p-2 rounded text-white me-2" style="background-color: #0F304F">
@@ -40,24 +40,24 @@
                         <br>
                         <i class="uil fs-3 text-warning uil-map-marker"></i>
                         {{ $accomodation->address }}.<a href="{{ $accomodation->link_maps }}" class="text-warning fw-bold">
-                            Lihat
-                            Peta</a>
+                            {{ __('accomodation_detail.see_maps') }}</a>
                     </div>
                 </h1>
             </div>
             <div class="col-md-4 my-2">
                 <font class="fw-bold fs-5 float-end ">
-                    Harga/kamar/malam mulai dari
+
+                    {{ __('accomodation_detail.start_from') }}
                     <br>
                     <font class="text-danger fs-3 float-end">
                         Rp.<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">
-                        
-                            <a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-warning text-dark">
-                                <i class="uil fs-5 uil-ticket text-dark"></i> Disc. Card
-                            </a>
+
+                        <a href="{{ url('layanan-produk/tourism-card') }}" class="btn btn-warning text-dark">
+                            <i class="uil fs-5 uil-ticket text-dark"></i> Disc. Card
+                        </a>
                     </div>
                 </font>
             </div>
@@ -78,9 +78,13 @@
                 <div class="card w-100 border-1 mb-5 overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
-                            Fasilitas
+                            {{ __('accomodation_detail.facilities') }}
                         </h5>
-                        {{ nl2br($accomodation->facilities) }}
+                        @if (App::isLocale('id'))
+                            {{ nl2br($accomodation->facilities) }}
+                        @else
+                            {{ nl2br($accomodation->facilities_en) }}
+                        @endif
                     </div>
                 </div>
             </div>
@@ -88,15 +92,19 @@
                 <div class="card border-1 mb-5 overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
-                            Tentang Akomodasi
+                            {{ __('accomodation_detail.about_accomodation') }}
                             <div class="text-lg fw-normal mt-2 fs-5">
-                                {{ nl2br($accomodation->details) }}
+                                @if (App::isLocale('id'))
+                                    {{ nl2br($accomodation->details) }}
+                                @else
+                                    {{ nl2br($accomodation->details_en) }}
+                                @endif
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="fs-5 text-left float-start text-lg">
                                         <font class="fs-4">
-                                            Pesan Sekarang :
+                                            {{ __('accomodation_detail.order_now') }}
                                         </font>
                                         <div class="entry-meta no-separator mb-3">
                                             <ul>
@@ -122,7 +130,7 @@
                                 <div class="col-md-6 ">
                                     <div class="fs-3 text-right float-end text-lg">
                                         <font class="fs-4">
-                                            Kunjungi :
+                                            {{ __('accomodation_detail.visit') }}
                                         </font>
                                         @if (
                                             $accomodation->link_youtube != null ||

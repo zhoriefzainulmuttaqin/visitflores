@@ -7,11 +7,15 @@ use App\Models\AccomodationGallery;
 use App\Models\AccomodationLink;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class AkomodasiController extends Controller
 {
     public function akomodasi(Request $request)
     {
+        $locale = Cookie::get('user-language');
+        App::setLocale($locale);
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {
@@ -31,18 +35,22 @@ class AkomodasiController extends Controller
             $star_list_data = array_fill_keys($request->star_list, 'star');
         };
 
-
-        $accomodations = Accomodation::where('accomodations.name', 'like',  '%' . $keyword . '%')
-            ->where(function (Builder $query) use ($star_list) {
-                // $query->whereIn('level', $star_list);
-                $query->where(
-                    function (Builder $q) use ($star_list) {
-                        foreach ($star_list as $key => $value) {
-                            $q->orWhere('star', $value);
-                        }
+        $accomodations = Accomodation::when($locale, function (Builder $query, $locale) use ($keyword) {
+            if ($locale == 'en') {
+                $query->where('accomodations.name_en', 'like',  '%' . $keyword . '%');
+            } else {
+                $query->where('accomodations.name', 'like',  '%' . $keyword . '%');
+            }
+        })->where(function (Builder $query) use ($star_list) {
+            // $query->whereIn('level', $star_list);
+            $query->where(
+                function (Builder $q) use ($star_list) {
+                    foreach ($star_list as $key => $value) {
+                        $q->orWhere('star', $value);
                     }
-                );
-            })
+                }
+            );
+        })
             ->when($order_price, function (Builder $query, $order_price) {
                 $query->orderBy("accomodations.price_start_from", $order_price);
             })
@@ -69,6 +77,8 @@ class AkomodasiController extends Controller
 
     public function detail_akomodasi(Request $request, Accomodation $Accomodation)
     {
+        $locale = Cookie::get('user-language');
+        App::setLocale($locale);
         $accomodation = Accomodation::where('accomodations.slug', $Accomodation->slug)
             ->select(['accomodations.*',])
             ->orderBy('accomodations.name', 'asc')
