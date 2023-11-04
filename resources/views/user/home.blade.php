@@ -22,8 +22,10 @@
                 padding-top: 30px;
                 padding-bottom: 40px;
                 margin-top: -5.1rem;
-
+                display: inline;
             }
+
+
         }
     </style>
     <!-- Demo styles -->
@@ -130,6 +132,8 @@
                 border-radius: 5px;
 
             }
+
+
         }
     </style>
     {{-- end css event --}}
@@ -137,43 +141,60 @@
     <div id="home-event-container">
         <div class="container-fluid">
             <h1 class="mb-2 text-center">
-                <b>Kalender Event</b>
+
+                <b>KALENDER EVENT</b>
+                <!-- <p>                                                                                 {{ __('content.welcome') }}
+                            </p> -->
+
             </h1>
-            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                @foreach ($events as $event)
-                    <div class="oc-item">
-                        <article class="entry event p-3">
-                            <div
-                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                <div class="col-12 mb-md-0">
-                                    <a href="{{ url('event') }}" class="entry-image">
-                                        <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
-                                    </a>
+            <div class="d-block d-md-none">
+                <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
+                    data-items-sm="2" data-items-lg="3" data-items-xl="5">
+                    @foreach ($events as $event)
+                        <div class="oc-item">
+                            <a href="#"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
+                                    alt="Image 1"></a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="d-none d-md-block">
+                <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                    data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                    @foreach ($events as $event)
+                        <div class="oc-item">
+                            <article class="entry event p-3">
+                                <div
+                                    class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                    <div class="col-12 mb-md-0">
+                                        <a href="{{ url('event') }}" class="entry-image">
+                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
+                                        </a>
+                                    </div>
+                                    <div class="col-12 p-0 p-md-4 pt-0">
+                                        <div class="entry-title nott">
+                                            <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                        </div>
+                                        <div class="entry-meta no-separator mb-1 mt-0">
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                        {{ $event->location }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="entry-content my-3">
+                                            <p class="mb-0">
+                                                <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-12 p-4 pt-0 d-none d-md-none d-lg-block">
-                                    <div class="entry-title nott">
-                                        <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
-                                    </div>
-                                    <div class="entry-meta no-separator mb-1 mt-0">
-                                        <ul>
-                                            <li>
-                                                <a href="{{ url('event') }}" class="text-uppercase fw-medium">
-                                                    {{ $event->location }}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-content my-3">
-                                        <p class="mb-0">
-                                            <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                @endforeach
+                            </article>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="clearfix"></div>
             <div class="text-center mt-5 mb-5">
@@ -187,33 +208,34 @@
 
     {{-- css wisata --}}
     <style>
-           .image-caption {
-                font-size: 22px;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                /* Adjust the background color and opacity */
-                padding: 1.5rem;
-                backdrop-filter: blur(5px);
-                /* Adjust the blur amount */
-            }
+        .image-caption {
+            font-size: 22px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            /* Adjust the background color and opacity */
+            padding: 1.5rem;
+            backdrop-filter: blur(5px);
+            /* Adjust the blur amount */
+        }
 
-            .image-caption p {
-                color: white;
-                margin: 0;
-            }
+        .image-caption p {
+            color: white;
+            margin: 0;
+        }
 
-            .mySwiper2 {
-                margin-top: 1rem;
-                height: 20rem;
-                width: 100%;
-            }
-            .mySwiper2 img{
-                height: 20rem;
-                width: cover;
-            }
+        .mySwiper2 {
+            margin-top: 1rem;
+            height: 20rem;
+            width: 100%;
+        }
+
+        .mySwiper2 img {
+            height: 20rem;
+            width: cover;
+        }
 
         @media (max-width: 768px) {
             #top_wisata {
@@ -260,7 +282,8 @@
                 height: 10rem;
                 width: 25rem;
             }
-            .mySwiper2 img{
+
+            .mySwiper2 img {
                 height: 10rem;
                 width: cover;
             }
@@ -403,8 +426,9 @@
                                     <div class="bg-overlay-content dark align-items-end justify-content-start">
                                         <h4 class="mb-0">
                                             <div class="image-caption text-center"
-                                        style="background: #000000 transparent; color: #ddd; border-radius: 0 0 20px 20px;">
-                                        <b style="font-weight: 800;">{{$culiner->name}}</b><br></h4>
+                                                style="background: #000000 transparent; color: #ddd; border-radius: 0 0 20px 20px;">
+                                                <b style="font-weight: 800;">{{ $culiner->name }}</b><br>
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -421,8 +445,8 @@
                     Berikut ini daftar kuliner yang sering dikunjungi wisatawan
                 </div>
             </div>
-            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
+            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="1" data-pagi="true"
+            data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3" >
                 @foreach ($culiners as $culiner)
                     <div class="oc-item">
                         <article class="entry event p-3">
@@ -432,9 +456,9 @@
                                     <a href="{{ url('event') }}" class="">
                                         <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
-                                        style="background: #000000 transparent; color: #ddd; ">
-                                        <b style="font-weight: 800;">{{$culiner->name}}</b><br>
-                                    </div>
+                                            style="background: #000000 transparent; color: #ddd; ">
+                                            <b style="font-weight: 800;">{{ $culiner->name }}</b><br>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
@@ -450,6 +474,7 @@
             </div>
         </div>
     </div>
+
 
     {{-- css akomodasi --}}
     <style>
@@ -511,24 +536,25 @@
                 </div>
             </div>
             <!-- Swiper -->
-            <swiper-container class="mySwiper2" id="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
-            slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0" coverflow-effect-depth="100"
-            coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" loop="true">
-            @foreach ($accomodations as $accomodation)
-                <swiper-slide class="card">
-                    <a href="/akomodasi" style="text-decoration: none; color: white;">
-                        <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
-                        <div class="image-caption">
-                            <b style="font-weight: 800;">{{ $accomodation->name }}</b>
-                        </div>
-                    </a>
-                </swiper-slide>
-            @endforeach
+            <swiper-container class="mySwiper2" id="mySwiper" effect="coverflow" grab-cursor="true"
+                centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
+                coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
+                loop="true">
+                @foreach ($accomodations as $accomodation)
+                    <swiper-slide class="card">
+                        <a href="/akomodasi" style="text-decoration: none; color: white;">
+                            <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
+                            <div class="image-caption">
+                                <b style="font-weight: 800;">{{ $accomodation->name }}</b>
+                            </div>
+                        </a>
+                    </swiper-slide>
+                @endforeach
 
-        </swiper-container>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-            {{-- <div class="swiper mySwiper">
+            </swiper-container>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
+        {{-- <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($accomodations as $accomodation)
                         <div class="swiper-slide">
@@ -544,7 +570,7 @@
                 <div class="swiper-pagination"></div>
             </div> --}}
 
-            {{-- <div class="swiper mySwiper">
+        {{-- <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     @foreach ($accomodations as $accomodation)
                         <div class="swiper-slide"
@@ -556,36 +582,38 @@
                     <div class="swiper-pagination"></div>
                 </div>
             </div> --}}
-            <div class="d-block d-md-none">
-                <div class="container text-center">
-                    <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit" id="but_akomodasi">
-                        Eksplor Semua Akomodasi
-                        <i class="bi-arrow-right"></i>
-                    </a>
-                </div>
+        <div class="d-block d-md-none">
+            <div class="container text-center">
+                <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit" id="but_akomodasi">
+                    Eksplor Semua Akomodasi
+                    <i class="bi-arrow-right"></i>
+                </a>
             </div>
         </div>
+    </div>
     </div>
 
     {{-- css layanan --}}
     <style>
-        .teks-layanan{
+        .teks-layanan {
             font-size: calc(1.275rem + 0.3vw) !important;
         }
+
         #but_layanan {
-                width: 30rem;
-                height: 5rem;
-                font-size: 22px;
-                font-weight: 500;
-                margin-top: 0.5rem;
-                margin-bottom: -8rem;
-                margin-left: auto;
-                margin-right: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 5px;
-            }
+            width: 30rem;
+            height: 5rem;
+            font-size: 22px;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            margin-bottom: -8rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
         @media (max-width: 768px) {
             #but_layanan {
                 width: 15rem;
@@ -602,20 +630,24 @@
                 border-radius: 5px;
             }
 
+            .teks_layanan {
+                font-size: 8px;
+            }
+
         }
     </style>
     {{-- end css layanan --}}
 
     <div class="section">
         <div class="container mt-5 " id="service-floating-card">
-            <div class=" container text-center mb-5" >
+            <div class=" container text-center mb-5">
                 <b class="h1">PRODUK LAYANAN KAMI</b>
                 <br>
-                <div class="teks-layanan" style="font-size:12px; margin-top: 1rem; margin0bottom: -3rem;">
+                <div class="teks_layanan" style="font-size:12px; margin-top: 1rem; margin-bottom: -2rem;">
                     Dapatkan diskon untuk belanja apapun di Cirebon Raya
                 </div>
             </div>
-            <div class="row justify-content-center mt-5 mb-5" >
+            <div class="row justify-content-center mt-5 mb-5">
                 <div class="col-4 text-center">
                     <img src="{{ url('assets/layanan-produk/tourism-card.png') }}" class="img-fluid" width="100px">
                     <br>
@@ -990,6 +1022,8 @@
 
         <!-- Initialize Swiper -->
         <script>
+
+
             var swiper = new Swiper(".mySwiper", {
                 effect: "coverflow",
                 grabCursor: true,
