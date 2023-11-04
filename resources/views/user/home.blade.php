@@ -115,6 +115,12 @@
             align-items: center;
             border-radius: 30px;
         }
+        .entry-title h3 {
+        max-height: 3em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        }
 
         @media (max-width: 768px) {
 
@@ -162,13 +168,13 @@
                 <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
                     data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
                     @foreach ($events as $event)
-                        <div class="oc-item">
+                        <div class="oc-item" >
                             <article class="entry event p-3">
                                 <div
                                     class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                                     <div class="col-12 mb-md-0">
                                         <a href="{{ url('event') }}" class="entry-image">
-                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
+                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2" style="max-height: 20rem;">
                                         </a>
                                     </div>
                                     <div class="col-12 p-0 p-md-4 pt-0">

@@ -99,8 +99,8 @@ class EventSeeder extends Seeder
             ([
                 "admin_id"   => 1,
                 "cover_picture"   => "world-philosophy-day.jpg",
-                "name"   => "World Philosophy Day ; Knowledge and Transformation Celebration Day & Seminar 2023",
-                "name_en"   => "World Philosophy Day ; Knowledge and Transformation Celebration Day & Seminar 2023",
+                "name"   => "World Philosophy Day 2023",
+                "name_en"   => "World Philosophy Day 2023",
                 "slug"   => "pentas-seni",
                 "location"   => "Kantor Bupati, Cirebon",
                 "published_date"   => "2020-10-11",
