@@ -1172,7 +1172,7 @@
             </div>
         </div>
     </div> --}}
-    <div class="section">
+    <div class="section" style="margin-bottom:0px">
         <h3 class="text-center">{{ __("home.supported_by") }}</h3>
         <div class="container text-center">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
@@ -1193,9 +1193,7 @@
                             height="150px"></a></div>
             </div>
         </div>
-        <div class="section" style="margin-bottom:-10px; margin-top: -70px">
-
-        </div>
+    </div>
     @endsection
 
     @section('script')
