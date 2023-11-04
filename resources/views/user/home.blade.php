@@ -151,9 +151,9 @@
                 <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
                     data-items-sm="2" data-items-lg="3" data-items-xl="5">
                     @foreach ($events as $event)
-                        <div class="oc-item">
-                            <a href="#"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
-                                    alt="Image 1"></a>
+                        <div class="oc-item" style="max-height: 140px;">
+                            <a href="{{ url('event') }}"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
+                                    alt="Image 1" style="min-height: fit-content; "></a>
                         </div>
                     @endforeach
                 </div>
