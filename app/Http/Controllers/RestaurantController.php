@@ -11,8 +11,13 @@ class RestaurantController extends Controller
 {
     public function restaurants()
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         $restaurants = Restaurant::paginate(10);
 
         $data = [

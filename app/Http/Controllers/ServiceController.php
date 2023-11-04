@@ -17,8 +17,12 @@ class ServiceController extends Controller
 {
     //    
     public function product_services(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $gifts = Gift::orderBy("name","asc")->get();
         $patterns = Pattern::orderBy("id","asc")->get();
 
@@ -30,35 +34,57 @@ class ServiceController extends Controller
         return view("user.product_services",$data);
     }
     public function our_services(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         return view("user.our_services");
     }
     public function service_consultant(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         return view("user.service_consultant");
     }
     public function service_conceptor(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         return view("user.service_conceptor");
     }
     public function service_marketing(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         return view("user.service_marketing");
     }
     public function tourism_card(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         return view("user.detail_tourism_card");
     }
     public function beli_tourism_card(){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         if(Auth()->check()){
             $payments = Payment::orderBy("name","asc")->get();
             $data = ([
@@ -70,8 +96,12 @@ class ServiceController extends Controller
         }
     }
     public function proses_beli_tourism_card(Request $request){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $sale = DiscountCardSale::create([
             "user_id"   => Auth()->user()->id,
             "payment_id" => $request->payment,
@@ -85,8 +115,12 @@ class ServiceController extends Controller
         return redirect("/konfirmasi-beli/".$sale->id."/tourism-card");
     }
     public function konfirmasi_beli_tourism_card($id) {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $sale = DiscountCardSale::where("id", $id)->first();
 
         $data = ([
@@ -96,8 +130,12 @@ class ServiceController extends Controller
         return view("user.confirm_beli_tourism_card",$data);
     }
     public function beli_layanan_produk($slug){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         if(Auth()->check()){
             $gift = Gift::where("slug",$slug)->first();
             $payments = Payment::orderBy("name","asc")->get();
@@ -111,8 +149,12 @@ class ServiceController extends Controller
         }
     }
     public function proses_beli_layanan_produk(Request $request){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $sale = GiftSale::create([
             "user_id"   => Auth()->user()->id,
             "payment_id" => $request->payment,
@@ -139,8 +181,12 @@ class ServiceController extends Controller
         return redirect("/konfirmasi-beli/".$sale->id."/layanan-produk");
     }
     public function konfirmasi_beli_layanan_produk($id) {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $sale = GiftSale::where("id", $id)->first();
 
         $data = ([
@@ -150,8 +196,12 @@ class ServiceController extends Controller
         return view("user.confirm_beli_layanan_produk",$data);
     }
     public function detail_paket_wisata($slug){
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $pattern = Pattern::where("slug",$slug)->first();
 
         $data = ([

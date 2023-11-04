@@ -1,5 +1,7 @@
 @extends('user.template')
 
+
+
 @section('title')
     Home
 @endsection
@@ -71,8 +73,8 @@
                         <img src="{{ url('assets/phone.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <b>Visit Cirebon Website</b> <br>
-                        Dapatkan semua fitur dalam satu genggaman
+                        <b>{{ __("home.highlight_title_web") }}</b> <br>
+                        {{ __("home.highlight_description_web") }}
                     </div>
                 </div>
             </div>
@@ -82,8 +84,8 @@
                         <img src="{{ url('assets/event.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <b>Majestic Event</b> <br>
-                        The Pioneer Of Attractions. Saksikan keseruan nya di Cirebon Aja.
+                        <b>{{ __("home.highlight_title_events") }}</b> <br>
+                        {{ __("home.highlight_description_events") }}
                     </div>
                 </div>
             </div>
@@ -93,8 +95,8 @@
                         <img src="{{ url('assets/360.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-7 align-self-center">
-                        <b>Majestic Event</b> <br>
-                        Melihat destinasi Wisata dengan view 360°
+                        <b>{!! __("home.highlight_title_destination_360") !!}</b> <br>
+                        {{ __("home.highlight_description_destination_360") }}
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@
         <div class="container-fluid">
             <h1 class="mb-2 text-center">
 
-                <b>KALENDER EVENT</b>
+                <b>{{ strtoupper(__("home.title_calender_events")) }}</b>
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
                             </p> -->
 
@@ -179,7 +181,11 @@
                                     </div>
                                     <div class="col-12 p-0 p-md-4 pt-0">
                                         <div class="entry-title nott">
+                                            @if(App::isLocale("id"))
                                             <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                            @else
+                                            <h3><a href="{{ url('event') }}">{{ $event->name_en }}</a></h3>
+                                            @endif
                                         </div>
                                         <div class="entry-meta no-separator mb-1 mt-0">
                                             <ul>
@@ -192,7 +198,11 @@
                                         </div>
                                         <div class="entry-content my-3">
                                             <p class="mb-0">
+                                                @if(App::isLocale("id"))
                                                 <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                                @else
+                                                <b>{{ date("d-M-Y",strtotime($event->start_date)) }}</b>
+                                                @endif
                                             </p>
                                         </div>
                                     </div>
@@ -205,7 +215,7 @@
             <div class="clearfix"></div>
             <div class="text-center mt-5 mb-5">
                 <a href="{{ url('event') }}" class="btn fs-3 btn-primary text-white bg-btn-visit">
-                    Lihat Semua Event
+                    {{ __("home.see_all") }} {{ __("home.title_events") }}
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
@@ -303,16 +313,16 @@
                 <div class="row mb-5">
                     <div class="col-md-7">
                         <h1 class="mb-1">
-                            <b>TOP Wisata</b>
+                            <b>TOP {{ __("home.title_destinations") }}</b>
                         </h1>
                         <div class="text-lg fs-4">
-                            Berikut ini daftar wisata yang sering dikunjungi wisatawan.
+                            {{ __("home.subtitle_destinations") }}
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="mt-5">
                             <a href="{{ url('wisata') }}" class="btn btn-primary fs-4 float-end text-white bg-btn-visit">
-                                Eksplor Semua
+                                {{ __("home.explore_all") }}
                                 <i class="bi-arrow-right"></i>
                             </a>
                         </div>
@@ -321,10 +331,10 @@
             </div>
             <div class="d-block d-md-none">
                 <div class="container text-center" style="margin-top: -3rem;">
-                    <b class="h1">TOP WISATA</b>
+                    <b class="h1">TOP {{ __("home.title_destinations") }}</b>
                     <br>
                     <div style="font-size:12px; font-weight:500;">
-                        Berikut ini daftar wisata yang sering dikunjungi wisatawan
+                        {{ __("home.subtitle_destinations") }}
                     </div>
                 </div>
             </div>
@@ -337,7 +347,11 @@
                         <a href="/wisata" style="text-decoration: none; color: white;">
                             <img src='{{ url("assets/wisata/$tour->picture") }}' />
                             <div class="image-caption">
+                                @if(App::isLocale("id"))
                                 <b style="font-weight: 800;">{{ $tour->name }}</b>
+                                @else
+                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                                @endif
                             </div>
                         </a>
                     </swiper-slide>
@@ -352,7 +366,11 @@
                         <a href="/wisata" style="text-decoration: none; color: white;">
                             <img src='{{ url("assets/wisata/$tour->picture") }}' />
                             <div class="image-caption">
+                                @if(App::isLocale("id"))
                                 <b style="font-weight: 800;">{{ $tour->name }}</b>
+                                @else
+                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                                @endif
                             </div>
                         </a>
                     </swiper-slide>
@@ -369,7 +387,11 @@
                         <div class="swiper-slide">
                             <img src='{{ url("assets/wisata/$tour->picture") }}' class="img-fluid w-100 h-100">
                             <div class="image-caption">
+                                @if(App::isLocale("id"))
                                 <b style="font-weight: 800;">{{ $tour->name }}</b>
+                                @else
+                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -379,7 +401,7 @@
         <div class="d-block d-md-none">
             <div class="container text-center">
                 <a href="{{ url('wisata') }}" class="btn btn-primary text-white bg-btn-visit" id="but_wisata">
-                    Eksplor Semua Wisata
+                    {{ __("home.explore_all") }} {{ __("home.title_destinations") }}
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
@@ -419,17 +441,17 @@
             <div class="row mb-5">
                 <div class="col-md-7">
                     <h1 class="mb-1">
-                        <b>TOP Kuliner</b>
+                        <b>TOP {{ __("home.title_culinaries") }}</b>
                     </h1>
                     <div class="text-lg fs-4">
-                        Berikut ini daftar kuliner yang sering dinikmati wisatawan.
+                        {{ __("home.subtitle_culinaries") }}
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="mt-5">
                         <a href="{{ url('kuliner') }}"
                             class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
-                            Eksplor Semua
+                            {{ __("home.explore_all") }}
                             <i class="bi-arrow-right"></i>
                         </a>
                     </div>
@@ -448,7 +470,12 @@
                                         <h4 class="mb-0">
                                             <div class="image-caption text-center"
                                                 style="background: #000000 transparent; color: #ddd; border-radius: 0 0 20px 20px;">
-                                                <b style="font-weight: 800;">{{ $culiner->name }}</b><br>
+                                                @if(App::isLocale("id"))
+                                                <b style="font-weight: 800;">{{ $culiner->name }}</b>
+                                                @else
+                                                <b style="font-weight: 800;">{{ $culiner->name_en }}</b>
+                                                @endif
+                                                <br>
                                         </h4>
                                     </div>
                                 </div>
@@ -460,10 +487,10 @@
         </div>
         <div class="d-block d-md-none">
             <div class="container text-center" id="top_kuliner">
-                <b class="h1">TOP KULINER</b>
+                <b class="h1">TOP {{ __("home.title_culinaries") }}</b>
                 <br>
                 <div style="font-size:12px">
-                    Berikut ini daftar kuliner yang sering dikunjungi wisatawan
+                    {{ __("home.subtitle_culinaries") }}
                 </div>
             </div>
             <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="1" data-pagi="true"
@@ -478,7 +505,12 @@
                                         <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
-                                            <b style="font-weight: 800;">{{ $culiner->name }}</b><br>
+                                            @if(App::isLocale("id"))
+                                            <b style="font-weight: 800;">{{ $culiner->name }}</b>
+                                            @else
+                                            <b style="font-weight: 800;">{{ $culiner->name_en }}</b>
+                                            @endif
+                                            <br>
                                         </div>
                                     </a>
                                 </div>
@@ -489,7 +521,7 @@
             </div>
             <div class="container mt-5 text-center">
                 <a href="{{ url('kuliner') }}" class="btn btn-primary text-white bg-btn-visit" id="but_kuliner">
-                    Eksplor Semua Kuliner
+                    {{ __("home.explore_all") }} {{ __("home.title_culinaries") }}
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
@@ -530,17 +562,17 @@
                 <div class="row mb-5">
                     <div class="col-md-7">
                         <h1 class="mb-1">
-                            <b>TOP Akomodasi</b>
+                            <b>TOP {{ __("home.title_accommodations") }}</b>
                         </h1>
                         <div class="text-lg fs-4">
-                            Berikut ini daftar akomdasi yang dikunjungi wisatawan
+                            {{ __("home.subtitle_accommodations") }}
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="mt-5">
                             <a href="{{ url('akomodasi') }}"
                                 class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
-                                Eksplor Semua Kuliner
+                                {{ __("home.explore_all") }}
                                 <i class="bi-arrow-right"></i>
                             </a>
                         </div>
@@ -549,10 +581,10 @@
             </div>
             <div class="d-block d-md-none">
                 <div class="container text-center">
-                    <b class="h1">TOP AKOMODASI</b>
+                    <b class="h1">TOP {{ __("home.title_accommodations") }}</b>
                     <br>
                     <div style="font-size:12px">
-                        Berikut ini daftar akomodasi yang sering dikunjungi wisatawan
+                        {{ __("home.subtitle_accommodations") }}
                     </div>
                 </div>
             </div>
@@ -566,7 +598,11 @@
                         <a href="/akomodasi" style="text-decoration: none; color: white;">
                             <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
                             <div class="image-caption">
+                                @if(App::isLocale("id"))
                                 <b style="font-weight: 800;">{{ $accomodation->name }}</b>
+                                @else
+                                <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
+                                @endif
                             </div>
                         </a>
                     </swiper-slide>
@@ -582,7 +618,11 @@
                     <a href="/akomodasi" style="text-decoration: none; color: white;">
                         <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
                         <div class="image-caption">
+                            @if(App::isLocale("id"))
                             <b style="font-weight: 800;">{{ $accomodation->name }}</b>
+                            @else
+                            <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
+                            @endif
                         </div>
                     </a>
                 </swiper-slide>
@@ -598,8 +638,11 @@
                             <img src='{{ url("assets/akomodasi/$accomodation->picture") }}'
                                 class="img-fluid w-100 h-100">
                             <div class="image-caption-akomodasi">
+                                @if(App::isLocale("id"))
                                 <b style="font-weight: 800;">{{ $accomodation->name }}</b>
-
+                                @else
+                                <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
+                                @endif
                             </div>
                         </div>
                     @endforeach
@@ -622,7 +665,7 @@
         <div class="d-block d-md-none">
             <div class="container text-center">
                 <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit" id="but_akomodasi">
-                    Eksplor Semua Akomodasi
+                    {{ __("home.explore_all") }} {{ __("home.title_accommodations") }}
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
@@ -678,10 +721,10 @@
     <div class="section">
         <div class="container mt-5 " id="service-floating-card">
             <div class=" container text-center mb-5">
-                <b class="h1">PRODUK LAYANAN KAMI</b>
+                <b class="h1">{{ __("home.title_service_products") }}</b>
                 <br>
                 <div class="teks_layanan" style="font-size:12px; margin-top: 1rem; margin-bottom: -2rem;">
-                    Dapatkan diskon untuk belanja apapun di Cirebon Raya
+                    {{ __("home.subtitle_service_products") }}
                 </div>
             </div>
             <div class="row justify-content-center mt-5 mb-5">
@@ -693,17 +736,18 @@
                 <div class="col-4 text-center">
                     <img src="{{ url('assets/layanan-produk/Ticket.png') }}" class="img-fluid" width="100px">
                     <br>
-                    <b>Tour Package</b>
+                    <b>{{ __("services.tour_packages") }}</b>
                 </div>
                 <div class="col-4 text-center">
                     <img src="{{ url('assets/layanan-produk/collectible.png') }}" class="img-fluid" width="100px">
                     <br>
-                    <b>Souvenirs</b>
+                    <b>{{ __("services.souvenirs") }}</b>
                 </div>
             </div>
             <div class="container mt-5 text-center">
                 <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit" id="but_layanan">
-                    Eksplor Semua
+                    {{ __("home.explore_all") }}
+
                     <i class="bi-arrow-right"></i>
                 </a>
             </div>
@@ -734,7 +778,7 @@
         <div class="row mb-lg-6">
             <div class="col-md-12 text-center">
                 <h1 class="mb-5">
-                    <b>BERITA TERKINI</b>
+                    <b>{{ __("home.title_news") }}</b>
                 </h1>
             </div>
         </div>
@@ -753,12 +797,21 @@
                             </div>
                             <div class="col-md-8 ps-md-4">
                                 <div class="entry-title title-sm">
-                                    <h2><a href="{{ url("/detail-berita/{$news[0]->slug}") }}">{{ $news[0]->name }}</a>
+                                    <h2>
+                                        <a href="{{ url("/detail-berita/{$news[0]->slug}") }}">
+                                        @if(App::isLocale("id"))
+                                        {{ $news[0]->name }}
+                                        @else
+                                        {{ $news[0]->name_en }}
+                                        @endif
+                                        </a>
                                     </h2>
                                 </div>
+                                @if(App::isLocale("id"))
                                 <div class="entry-meta">
                                     <ul>
-                                        <li><i class="uil uil-schedule"></i>
+                                        <li>
+                                            <i class="uil uil-schedule"></i>
                                             {{ tglIndo($news[0]->published_date, 'd/m/Y') }}</li>
                                         <li><i class="uil uil-user"></i> {{ $news[0]->admin_name }}</li>
                                         <li><i class="uil uil-folder-open"></i>{{ $news[0]->category_name }}</li>
@@ -770,6 +823,31 @@
                                     <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">Lanjut
                                         Baca</a>
                                 </div>
+                                @else
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li>
+                                            <i class="uil uil-schedule"></i>
+                                            {{ date("d-m-Y",strtotime($news[0]->published_date)) }}
+                                        </li>
+                                        <li>
+                                            <i class="uil uil-user"></i>
+                                            {{ $news[0]->admin_name }}
+                                        </li>
+                                        <li>
+                                            <i class="uil uil-folder-open"></i>
+                                            {{ $news[0]->category_name_en }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    {!! mb_substr(nl2br($news[0]->content_en), 0, 50) !!}
+                                    <br>
+                                    <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">
+                                    {{ __("home.continue_reading") }}
+                                    </a>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -785,23 +863,56 @@
                             </div>
                             <div class="col-md-8 pe-md-4">
                                 <div class="entry-title title-sm">
-                                    <h2><a href="{{ url("/detail-berita/{$news[1]->slug}") }}">{{ $news[1]->name }}</a>
+                                    <h2><a href="{{ url("/detail-berita/{$news[1]->slug}") }}">
+                                        @if(App::isLocale("id"))
+                                        {{ $news[1]->name }}
+                                        @else
+                                        {{ $news[1]->name_en }}
+                                        @endif
+                                </a>
                                     </h2>
                                 </div>
+                                @if(App::isLocale("id"))
                                 <div class="entry-meta">
                                     <ul>
-                                        <li><i class="uil uil-schedule"></i>
+                                        <li>
+                                            <i class="uil uil-schedule"></i>
                                             {{ tglIndo($news[1]->published_date, 'd/m/Y') }}</li>
                                         <li><i class="uil uil-user"></i> {{ $news[1]->admin_name }}</li>
-                                        <li><i class="uil uil-folder-open"></i> {{ $news[1]->category_name }}</li>
+                                        <li><i class="uil uil-folder-open"></i>{{ $news[1]->category_name }}</li>
                                     </ul>
                                 </div>
                                 <div class="entry-content">
                                     {!! mb_substr(nl2br($news[1]->content), 0, 50) !!}
                                     <br>
                                     <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">Lanjut
-                                        baca</a>
+                                        Baca</a>
                                 </div>
+                                @else
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li>
+                                            <i class="uil uil-schedule"></i>
+                                            {{ date("d-m-Y",strtotime($news[1]->published_date)) }}
+                                        </li>
+                                        <li>
+                                            <i class="uil uil-user"></i>
+                                            {{ $news[1]->admin_name }}
+                                        </li>
+                                        <li>
+                                            <i class="uil uil-folder-open"></i>
+                                            {{ $news[1]->category_name_en }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    {!! mb_substr(nl2br($news[1]->content_en), 0, 50) !!}
+                                    <br>
+                                    <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">
+                                    {{ __("home.continue_reading") }}
+                                    </a>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -817,9 +928,16 @@
                             </div>
                             <div class="col-md-8 ps-md-4">
                                 <div class="entry-title title-sm">
-                                    <h2><a href="{{ url("/detail-berita/{$news[2]->slug}") }}">{{ $news[2]->name }}</a>
+                                    <h2><a href="{{ url("/detail-berita/{$news[2]->slug}") }}">
+                                        @if(App::isLocale("id"))
+                                        {{ $news[2]->name }}
+                                        @else
+                                        {{ $news[2]->name_en }}
+                                        @endif
+                                </a>
                                     </h2>
                                 </div>
+                                @if(App::isLocale("id"))
                                 <div class="entry-meta">
                                     <ul>
                                         <li><i class="uil uil-schedule"></i>
@@ -834,6 +952,31 @@
                                     <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">Lanjut
                                         Baca</a>
                                 </div>
+                                @else
+                                <div class="entry-meta">
+                                    <ul>
+                                        <li>
+                                            <i class="uil uil-schedule"></i>
+                                            {{ date("d-m-Y",strtotime($news[2]->published_date)) }}
+                                        </li>
+                                        <li>
+                                            <i class="uil uil-user"></i>
+                                            {{ $news[2]->admin_name }}
+                                        </li>
+                                        <li>
+                                            <i class="uil uil-folder-open"></i>
+                                            {{ $news[2]->category_name_en }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="entry-content">
+                                    {!! mb_substr(nl2br($news[2]->content_en), 0, 50) !!}
+                                    <br>
+                                    <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">
+                                    {{ __("home.continue_reading") }}
+                                    </a>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -842,9 +985,11 @@
         </div>
     </div>
     <div class="mt-5"></div>
+    <div class="mt-5"></div>
+    <br><br>
     <div class="container mt-5 text-center">
         <a href="{{ url('berita') }}" class="btn btn-primary text-white bg-btn-visit" id="but_berita">
-            Eksplor Semua Berita
+            {{ __("home.explore_all") }} {{ __("home.title_news_general") }}
             <i class="bi-arrow-right"></i>
         </a>
     </div>
@@ -1028,7 +1173,7 @@
         </div>
     </div> --}}
     <div class="section">
-        <h3 class="text-center">Supported By</h3>
+        <h3 class="text-center">{{ __("home.supported_by") }}</h3>
         <div class="container text-center">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"

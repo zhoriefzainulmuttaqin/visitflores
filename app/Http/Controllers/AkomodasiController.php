@@ -14,8 +14,13 @@ class AkomodasiController extends Controller
 {
     public function akomodasi(Request $request)
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {
@@ -77,8 +82,13 @@ class AkomodasiController extends Controller
 
     public function detail_akomodasi(Request $request, Accomodation $Accomodation)
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         $accomodation = Accomodation::where('accomodations.slug', $Accomodation->slug)
             ->select(['accomodations.*',])
             ->orderBy('accomodations.name', 'asc')

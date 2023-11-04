@@ -1,6 +1,6 @@
 <?php
  
-// lang/id/content.php
+// lang/en/menu.php
  
 return [
     'destinations' => 'Destinations',

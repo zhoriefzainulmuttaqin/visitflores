@@ -11,8 +11,13 @@ class ShopController extends Controller
 {
     public function shops()
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         $shops = Shop::paginate(10);
 
         $data = [

@@ -13,8 +13,13 @@ class EventController extends Controller
 {
     public function event(Request $request)
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {

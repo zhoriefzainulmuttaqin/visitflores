@@ -12,8 +12,12 @@ class BeritaController extends Controller
 {
     public function berita(Request $request)
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            App::setLocale("id");
+        }
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
             ->where('categories.type', 1)
@@ -33,8 +37,13 @@ class BeritaController extends Controller
     public function detail_berita(Request $request)
     {
 
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {

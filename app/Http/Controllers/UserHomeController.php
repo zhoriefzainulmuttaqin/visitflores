@@ -18,15 +18,20 @@ class UserHomeController extends Controller
     //
     public function home()
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
 
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
         $culiners = Restaurant::limit(3)->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
             ->where('categories.type', 1)
-            ->select(['news.*', 'categories.name as category_name', 'administrators.name as admin_name'])
+            ->select(['news.*', 'categories.name as category_name', 'categories.name_en as category_name_en', 'administrators.name as admin_name'])
             ->limit(3)
             ->orderBy('news.published_date', 'desc')
             ->get();

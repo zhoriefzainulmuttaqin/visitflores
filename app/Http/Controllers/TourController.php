@@ -15,8 +15,13 @@ class TourController extends Controller
 {
     public function tours(Request $request)
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         if ($request->keyword) {
             $keyword = $request->keyword;
         } else {
@@ -78,8 +83,13 @@ class TourController extends Controller
 
     public function detail_tour(Request $request)
     {
-        $locale = Cookie::get('user-language');
-        App::setLocale($locale);
+        if(Cookie::get('user-language') != NULL){
+            $locale = Cookie::get('user-language');
+            App::setLocale($locale);
+        }else{
+            $locale = "id";
+            App::setLocale("id");
+        }
         $tour = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
             ->where('categories.type', 2)
             ->select(['tours.*', 'categories.name as category_name', 'categories.name_en as category_name_en'])
