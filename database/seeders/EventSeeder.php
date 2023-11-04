@@ -16,11 +16,11 @@ class EventSeeder extends Seeder
         $events = ([
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
-                "name"   => "Pentas Seni & Festifal Band 2023",
-                "name_en"   => "Art Showcase & Band Festival 2023",
-                "slug"   => "pentas-seni",
-                "location"   => "Kantor Bupati, Cirebon",
+                "cover_picture"   => "pecinan.jpg",
+                "name"   => "Festival Pecinan 2023",
+                "name_en"   => "Chinatown Festival 2023",
+                "slug"   => "pecinan",
+                "location"   => "Taman Kebumen Lemahwungkuk Cirebon",
                 "published_date"   => "2023-10-20",
                 "published_time"   => "12:00",
                 "start_date"   => "2023-10-31",
@@ -28,24 +28,24 @@ class EventSeeder extends Seeder
                 "end_date"   => "2023-10-31",
                 "end_time"   => "16:00",
                 "details"   => "
-                Pentas Seni & Festival Band adalah sebuah acara yang meriah dan mempesona, di mana seni musik tampil dalam segala kejayaannya. Dalam festival ini, berbagai band dan grup musik memiliki kesempatan untuk memamerkan bakat dan kreativitas mereka di atas panggung.
+                Festival Pecinan Cirebon adalah sebuah acara atau festival yang diadakan di Cirebon, sebuah kota di Provinsi Jawa Barat, Indonesia. Festival ini berkaitan dengan budaya Tionghoa dan perayaan Cap Go Meh, yang merupakan hari ke-15 dalam perayaan Tahun Baru Imlek.
 
-                Peserta dan penonton akan disajikan dengan beragam genre musik, mulai dari rock, pop, jazz, hingga musik tradisional. Setiap band membawakan penampilan mereka dengan penuh semangat, menciptakan pengalaman yang tak terlupakan bagi semua yang hadir.
+                Pecinan adalah sebutan untuk kawasan permukiman orang Tionghoa di Indonesia, dan Cirebon memiliki sejarah panjang dalam hubungannya dengan komunitas Tionghoa. Festival Pecinan Cirebon biasanya melibatkan berbagai kegiatan dan perayaan yang menampilkan budaya Tionghoa, seperti pementasan pertunjukan seni tradisional, tarian, musik, serta kuliner khas Tionghoa.
 
-                Selain musik, festival ini sering menyelenggarakan beragam acara sampingan, seperti bazar makanan, pameran seni, dan aktivitas hiburan lainnya. Ini menciptakan atmosfer yang meriah dan menggembirakan bagi semua peserta.
+                Salah satu puncak acara dari Festival Pecinan Cirebon adalah Cap Go Meh, yang merupakan perayaan Hari Valentine versi Tionghoa. Biasanya, Cap Go Meh diwarnai dengan parade lampion, tarian naga, dan pertunjukan seni lainnya. Acara ini sering dihadiri oleh komunitas Tionghoa dan juga masyarakat umum yang datang untuk menikmati perayaan tersebut.
 
-                Pentas Seni & Festival Band adalah acara yang mempersatukan para pecinta musik dan memberikan pengalaman seni yang mendalam. Ini adalah wadah yang sempurna bagi musisi lokal untuk bersinar dan memberikan hiburan berkualitas bagi masyarakat.",
-                "details_en"   => "Art Performance & Band Festival is a lively and enchanting event where the art of music shines in all its glory. In this festival, various bands and musical groups have the opportunity to showcase their talents and creativity on stage.
+                Festival Pecinan Cirebon adalah salah satu contoh dari berbagai perayaan budaya Tionghoa yang diadakan di berbagai daerah di Indonesia, yang menggabungkan unsur-unsur tradisional Tionghoa dengan budaya lokal, menciptakan keragaman budaya yang kaya dalam masyarakat Indonesia.",
+                "details_en"   => "The Cirebon Chinatown Festival is an event or festival held in Cirebon, a city in West Java, Indonesia. This festival is related to Chinese culture and the celebration of Cap Go Meh, which is the 15th day in the Chinese New Year celebration.
 
-                Participants and spectators are treated to a variety of musical genres, ranging from rock, pop, jazz, to traditional music. Each band delivers their performance with passion, creating an unforgettable experience for all in attendance.
+                Chinatown, often referred to as `Pecinan` is the name for Chinese settlements in Indonesia, and Cirebon has a long history of association with the Chinese community. The Cirebon Chinatown Festival typically involves various activities and celebrations that showcase Chinese culture, such as traditional art performances, dances, music, and Chinese cuisine.
 
-                In addition to music, the festival often features various side events such as food bazaars, art exhibitions, and other entertainment activities. This creates a festive and joyful atmosphere for everyone involved.
+                One of the highlights of the Cirebon Chinatown Festival is Cap Go Meh, which is the Chinese version of Valentine's Day. It is usually marked with lantern parades, dragon dances, and other artistic performances. This event is often attended by the Chinese community and the general public who come to enjoy the festivities.
 
-                The Art Performance & Band Festival is an event that brings music enthusiasts together and provides a profound artistic experience. It serves as the perfect platform for local musicians to shine and deliver quality entertainment to the community.",
+                The Cirebon Chinatown Festival is an example of various Chinese cultural celebrations held in different regions of Indonesia, blending traditional Chinese elements with local culture, creating a rich cultural diversity in Indonesian society.",
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "pekan-raya-cirebon.jpg",
                 "name"   => "Pekan Raya Cirebon 2023",
                 "name_en"   => "Cirebon Fair 2023",
                 "slug"   => "pentas-seni",
@@ -73,7 +73,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "expo-billiard.jpeg",
                 "name"   => "Expo Billiard & Cafe Cirebon 2023",
                 "name_en"   => "Expo Billiard & Cafe Cirebon 2023",
                 "slug"   => "pentas-seni",
@@ -98,7 +98,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "world-philosophy-day.jpg",
                 "name"   => "World Philosophy Day ; Knowledge and Transformation Celebration Day & Seminar 2023",
                 "name_en"   => "World Philosophy Day ; Knowledge and Transformation Celebration Day & Seminar 2023",
                 "slug"   => "pentas-seni",
@@ -122,7 +122,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "aston-1001.jpg",
                 "name"   => "Aston Cirebon New Year’s Eve 2024 : Kisah 1001 Malam",
                 "name_en"   => "Aston Cirebon New Year’s Eve 2024: 1001 Nights Story",
                 "slug"   => "pentas-seni",
@@ -146,7 +146,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "diversity-day.jpg",
                 "name"   => "Diversity Day & University Day Fair 2023",
                 "name_en"   => "Diversity Day & University Day Fair 2023",
                 "slug"   => "pentas-seni",

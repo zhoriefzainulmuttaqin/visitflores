@@ -151,14 +151,14 @@
                 <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
                     data-items-sm="2" data-items-lg="3" data-items-xl="5">
                     @foreach ($events as $event)
-                        <div class="oc-item">
-                            <a href="#"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
-                                    alt="Image 1"></a>
+                        <div class="oc-item" style="max-height: 140px;">
+                            <a href="{{ url('event') }}"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
+                                    alt="Image 1" style="min-height: fit-content; "></a>
                         </div>
                     @endforeach
                 </div>
             </div>
-            <div class="d-none d-md-block">
+            <div class="d-none d-md-block px-4">
                 <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
                     data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
                     @foreach ($events as $event)
@@ -229,7 +229,7 @@
         .mySwiper2 {
             margin-top: 1rem;
             height: 20rem;
-            width: 100%;
+            width: 60rem;;
         }
 
         .mySwiper2 img {
@@ -323,7 +323,22 @@
                 </div>
             </div>
             <!-- Swiper -->
-            <swiper-container class="mySwiper2" id="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
+            <swiper-container class="mySwiper2 d-none d-md-block" id="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
+                slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+                coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" loop="true">
+                @foreach ($tours as $tour)
+                    <swiper-slide class="card">
+                        <a href="/wisata" style="text-decoration: none; color: white;">
+                            <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                            <div class="image-caption">
+                                <b style="font-weight: 800;">{{ $tour->name }}</b>
+                            </div>
+                        </a>
+                    </swiper-slide>
+                @endforeach
+
+            </swiper-container>
+            <swiper-container class="mySwiper2 d-bloc d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true" centered-slides="true"
                 slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0" coverflow-effect-depth="100"
                 coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" loop="true">
                 @foreach ($tours as $tour)
@@ -536,7 +551,7 @@
                 </div>
             </div>
             <!-- Swiper -->
-            <swiper-container class="mySwiper2" id="mySwiper" effect="coverflow" grab-cursor="true"
+            <swiper-container class="mySwiper2 d-none d-md-block" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
                 loop="true">
@@ -552,6 +567,22 @@
                 @endforeach
 
             </swiper-container>
+            <swiper-container class="mySwiper2 d-bloc d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
+            centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
+            coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
+            loop="true">
+            @foreach ($accomodations as $accomodation)
+                <swiper-slide class="card">
+                    <a href="/akomodasi" style="text-decoration: none; color: white;">
+                        <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
+                        <div class="image-caption">
+                            <b style="font-weight: 800;">{{ $accomodation->name }}</b>
+                        </div>
+                    </a>
+                </swiper-slide>
+            @endforeach
+
+        </swiper-container>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
         {{-- <div class="swiper mySwiper">
