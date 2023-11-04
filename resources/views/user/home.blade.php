@@ -142,17 +142,10 @@
                                             </div>
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                 </article>
                             </div>
                         @endforeach
                     </div>
-=======
-                                </div>
-                            </article>
-                        </div>
-                    @endforeach
->>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                 </div>
             </div>
             <div class="clearfix"></div>
