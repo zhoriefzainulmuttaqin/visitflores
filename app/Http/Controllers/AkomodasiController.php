@@ -54,7 +54,7 @@ class AkomodasiController extends Controller
             ->when($order_price, function (Builder $query, $order_price) {
                 $query->orderBy("accomodations.price_start_from", $order_price);
             })
-            ->orderBy('accomodations.name', 'asc')
+            ->orderBy('accomodations.mitra_status', 'desc')
             ->select(['accomodations.*'])
             ->paginate(10);
         if ($request->keyword) {
