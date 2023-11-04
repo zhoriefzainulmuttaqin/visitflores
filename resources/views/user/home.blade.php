@@ -145,9 +145,8 @@
         }
     </style>
     {{-- end css event --}}
-
     <div id="home-event-container">
-        <div class="container-fluid">
+        <div class="container-fluid mt-5 mt-md-0">
             <h1 class="mb-2 text-center">
 
                 <b>{{ strtoupper(__("home.title_calender_events")) }}</b>

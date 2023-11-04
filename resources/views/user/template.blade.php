@@ -44,7 +44,7 @@
         {{ view('user.header') }}
 
         <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover'))   no-repeat; background-size: 100%;">
+            style="background: url(@yield('cover'))   no-repeat; background-size: 100%;margin-bottom:0px;">
             <div class="slider-inner">
                 <?php
                 $segments = Request::segments();
@@ -82,7 +82,7 @@
 
         <!-- Content
   ============================================= -->
-        <section id="content">
+        <section id="content" style="margin-top:-100px">
             @yield('content')
         </section><!-- #content end -->
 
