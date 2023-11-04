@@ -45,7 +45,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "pekan-raya-cirebon.jpg",
                 "name"   => "Pekan Raya Cirebon 2023",
                 "name_en"   => "Cirebon Fair 2023",
                 "slug"   => "pentas-seni",
@@ -73,7 +73,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "expo-billiard.jpeg",
                 "name"   => "Expo Billiard & Cafe Cirebon 2023",
                 "name_en"   => "Expo Billiard & Cafe Cirebon 2023",
                 "slug"   => "pentas-seni",
@@ -98,7 +98,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "world-philosophy-day.jpg",
                 "name"   => "World Philosophy Day ; Knowledge and Transformation Celebration Day & Seminar 2023",
                 "name_en"   => "World Philosophy Day ; Knowledge and Transformation Celebration Day & Seminar 2023",
                 "slug"   => "pentas-seni",
@@ -122,7 +122,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "aston-1001.jpg",
                 "name"   => "Aston Cirebon New Year’s Eve 2024 : Kisah 1001 Malam",
                 "name_en"   => "Aston Cirebon New Year’s Eve 2024: 1001 Nights Story",
                 "slug"   => "pentas-seni",
@@ -146,7 +146,7 @@ class EventSeeder extends Seeder
             ]),
             ([
                 "admin_id"   => 1,
-                "cover_picture"   => "pentas-seni.jpg",
+                "cover_picture"   => "diversity-day.jpg",
                 "name"   => "Diversity Day & University Day Fair 2023",
                 "name_en"   => "Diversity Day & University Day Fair 2023",
                 "slug"   => "pentas-seni",
