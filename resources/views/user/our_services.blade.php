@@ -1,7 +1,7 @@
 @extends("user.template")
 
 @section("title")
-Layanan Jasa
+{{ __("services.our_services") }}
 @endsection
 
 @section("cover")
@@ -11,32 +11,32 @@ Layanan Jasa
 @section("content")
 <div class="container-lg mt-5">
     <h1 class="text-center mb-5">
-        <b>Kami Memiliki Jasa Profesional</b>
+        <b>{{ __("services.we_have_professional_services") }}</b>
         <br>
-        <b class="text-warning">Siap untuk mengubah ide anda menjadi kenyataan</b>
+        <b class="text-warning">{{ __("services.ready_for_change_your_idea") }}</b>
     </h1>
     <div class="container mt-5">
         <div class="card shadow">
             <div class="card-body p-5">
                 <h1 class="text-center mb-5">
-                    <b>Jasa Apa Yang Kami Tawarkan</b>
+                    <b>{{ __("services.service_offers") }}</b>
                 </h1>
                 <div class="row justify-content-center pb-5 mb-5 border-bottom">
                     <div class="col-md-12 col-lg-4 align-items-center">
                         <img src="{{ url('assets/layanan-jasa/konsultan.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-12 col-lg-8 align-self-center">
-                        <p class="h3">KONSULTAN BISNIS PARIWISATA</p>
+                        <p class="h3">{{ strtoupper(__("services.service_consultant")) }}</p>
                         <p class="h4 text-warning">
                             <i class="fa-solid fa-user-friends"></i>
-                            Global Qualification
+                            {{ __("services.service_sub_global_qualification") }}
                         </p>
                         <p>
-                        Tim konsultan kami terdiri dari berbagai macam bidang yang mempunyai kualifikasi dan sertifikasi global. Bidang keahlian kami beragam mulai dari ahli pariwisata berkelanjutan, pemasaran, keuangan, pendampingan komunitas, lingkungan, sampai dengan keahlian khusus seperti ahli interpretasi, pengembangan wisata sepeda, homestay,  digital marketing, dan sebagainya. Hal ini juga dibuktikan dengan sertifikat keahlian yang berskala nasional dan internasional sehingga kemampuannya dapat dipertanggungjawabkan.
+                        {{ __("services.service_detail_one") }}
                         </p>
                         <p>
                             <a href="{{ url('layanan-jasa/konsultan') }}" class="text-warning">
-                                Baca Lebih
+                                {{ __("services.read_more") }}
                             </a>
                         </p>
                     </div>
@@ -46,17 +46,17 @@ Layanan Jasa
                         <img src="{{ url('assets/layanan-jasa/konseptor.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-12 col-lg-8 align-self-center">
-                        <p class="h3">KONSEPTOR PARIWISATA</p>
+                        <p class="h3">{{ strtoupper(__("services.service_conceptor")) }}</p>
                         <p class="h4 text-warning">
                             <i class="fa-solid fa-user-friends"></i>
-                            Global Qualification
+                            {{ __("services.service_sub_global_qualification") }}
                         </p>
                         <p>
-                        Tim konsultan kami terdiri dari berbagai macam bidang yang mempunyai kualifikasi dan sertifikasi global. Bidang keahlian kami beragam mulai dari ahli pariwisata berkelanjutan, pemasaran, keuangan, pendampingan komunitas, lingkungan, sampai dengan keahlian khusus seperti ahli interpretasi, pengembangan wisata sepeda, homestay,  digital marketing, dan sebagainya. Hal ini juga dibuktikan dengan sertifikat keahlian yang berskala nasional dan internasional sehingga kemampuannya dapat dipertanggungjawabkan.
+                        {{ __("services.service_detail_one") }}
                         </p>
                         <p>
                             <a href="{{ url('layanan-jasa/konseptor') }}" class="text-warning">
-                                Baca Lebih
+                                {{ __("services.read_more") }}
                             </a>
                         </p>
                     </div>
@@ -66,20 +66,17 @@ Layanan Jasa
                         <img src="{{ url('assets/layanan-jasa/pemasaran.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-12 col-lg-8 align-self-center">
-                        <p class="h3">PEMASARAN</p>
+                        <p class="h3">{{ strtoupper(__("services.service_marketing")) }}</p>
                         <p class="h4 text-warning">
                             <i class="fa-solid fa-user-friends"></i>
-                            Fasilitator/Trainer/Narasumber Manajemen Pemasaran Destinasi Pariwisata
+                            {{ __("services.service_sub_fasilitator") }}
                         </p>
                         <p>
-                        Tourism Digital/Internet Marketing <br>
-                        Strategi Pemasaran Destinasi Pariwisata <br>
-                        Branding Destinasi Pariwisata <br>
-                        Komunikasi pemasaran (Promosi) Destinasi Pariwisata
+                        {!! __("services.service_detail1_one") !!}
                         </p>
                         <p>
                             <a href="{{ url('layanan-jasa/pemasaran') }}" class="text-warning">
-                                Baca Lebih
+                                {{ __("services.read_more") }}
                             </a>
                         </p>
                     </div>

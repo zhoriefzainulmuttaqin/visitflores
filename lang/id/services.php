@@ -31,4 +31,32 @@ return [
     "buy_souvenirs_confirmation" => "Konfirmasi Beli Paket Oleh - oleh",
     "souvenir_package_purchase_success"   => "Pembelian Paket Oleh - oleh Berhasil",
     "buy_souvenir_package_confirm_message"  => "Pemesanan Paket Oleh - oleh berhasil, silahkan lakukan pembayaran kemudian konfirmasi pembayaran melalui chat admin dengan klik tombol di bawah.",
+
+    "our_services"  => "Layanan Jasa",
+    "read_more" => "Baca Lebih",
+    "back" => "Kembali",
+    "we_have_professional_services" => "Kami Memiliki Jasa Profesional",
+    "ready_for_change_your_idea" => "Siap untuk mengubah ide anda menjadi kenyataan",
+    "service_offers"    => "Jasa Apa Yang Kami Tawarkan",
+    "service_consultant" => "Konsultan Bisnis Pariwisata",
+    "service_conceptor" => "Konseptor Pariwisata",
+    "service_marketing" => "Pemasaran",
+    "service_sub_global_qualification" => "Berstandar Global",
+    "service_sub_practicioner" => "Praktisi",
+    "service_sub_experience"    => "Berpengalaman",
+    "service_sub_sustainability"    => "Berkelanjutan",
+    "service_detail_one"    => "Tim konsultan kami terdiri dari berbagai macam bidang yang mempunyai kualifikasi dan sertifikasi global. Bidang keahlian kami beragam mulai dari ahli pariwisata berkelanjutan, pemasaran, keuangan, pendampingan komunitas, lingkungan, sampai dengan keahlian khusus seperti ahli interpretasi, pengembangan wisata sepeda, homestay, digital marketing, dan sebagainya. Hal ini juga dibuktikan dengan sertifikat keahlian yang berskala nasional dan internasional sehingga kemampuannya dapat dipertanggungjawabkan.",
+    "service_detail_two" => "Tim konsultan kami juga merupakan praktisi industri yang berpengalaman sebagai owner dan pengelola sektor usaha di industri pariwisata, seperti general manager di hotel berbintang dan travel expert di perusahaan travel agent. Implikasinya adalah kami menggunakan teori akademik hanya sebatas sebagai kerangka berpikir, namun rekomendasi yang diberikan akan lebih banyak dari sisi praktis industri.",
+    "service_detail_three"  => "Pengalaman pengerjaan proyek serta klien kami tidak hanya berskala daerah, namun juga nasional. Selain itu tenaga ahli individu kami beragam, mulai dari 10 tahun hingga 40 tahun pengalaman kerja.",
+    "service_detail_four"  => "Kami mempunyai visi bahwa pariwisata berkelanjutan merupakan masa depan pariwisata global. Untuk iitu setiap pekerjaan yang kami lakukan mempertimbangkan segala aspek dan dampak pariwisata yang ditimbulkannya. Mulai dari aspek lingkungan, sosial ekonomi masyarakat, budaya, dan sistem pengelolaan yang berkelanjutan.",
+    "service_sub_fasilitator" => "Fasilitator/Pelatih/Narasumber Manajemen Pemasaran destinasi Pariwisata",
+    "service_sub_marketing" => "Pemasaran (Promosi)",
+    "service_sub_consultant" => "Jasa Konsultan Pemasaran Pariwisata",
+    "service_detail1_one" => "Tourism Digital/Internet Marketing <br>
+    Strategi Pemasaran Destinasi Pariwisata <br>
+    Branding Destinasi Pariwisata <br>
+    Komunikasi pemasaran (Promosi) Destinasi Pariwisata.",
+    "service_detail1_two" => "Periklanan <br> Sosial Media",
+    "service_detail1_three" => "Jasa Konsultan Pemasaran Pariwisata Konsultasi dalam pembuatan dan pengembangan rencana pemasaran Konsultasi pengembangan identitas destinasi pariwisata (branding) Konsultasi komunikasi pemasaran destinasi pariwisata",
+    "wa_message_discuss_services" => "Halo, saya ingin tentang :name",
 ];

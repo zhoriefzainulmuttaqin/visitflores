@@ -46,7 +46,7 @@ class ShopSeeder extends Seeder
                 "picture"   => "krupuk-mlarat.jpeg",
                 "cover_picture"   => "krupuk-mlarat.jpeg",
                 "name"   => "Krupuk Mlarat khas Cirebon 'Sofie Mars'",
-                "name_en"   => "Krupuk Mlarat khas Cirebon 'Sofie Mars'",
+                "name_en"   => "Krupuk Mlarat Typical Cirebon 'Sofie Mars'",
                 "slug"   => "krupuk-mlarat",
                 "details"   => "Krupuk Mlarat khas Cirebon 'Sofie Mars' adalah oleh-oleh yang sangat terkenal di daerah ini. Krupuk ini adalah camilan tradisional yang memiliki rasa gurih dan renyah yang memikat. Dibuat dengan hati-hati menggunakan resep turun-temurun, Krupuk Mlarat menjadi representasi autentik dari cita rasa Cirebon.
 
@@ -74,7 +74,7 @@ class ShopSeeder extends Seeder
                 "picture"   => "gapit.jpeg",
                 "cover_picture"   => "gapit.jpeg",
                 "name"   => "Toko Putri Tunggal Gapit Khas Cirebon",
-                "name_en"   => "Toko Putri Tunggal Gapit Khas Cirebon",
+                "name_en"   => "Tunggal Gapit Typical Cirebon Putri Shop",
                 "slug"   => "toko-c",
                 "details"   => "Toko Putri Tunggal Gapit adalah sebuah toko yang terkenal di Cirebon, khususnya untuk makanan lezat bernama Gapit. Gapit adalah camilan manis tradisional Cirebon yang terbuat dari bahan berkualitas tinggi. Toko ini terkenal karena Gapit-nya yang lezat dan otentik.
 
@@ -97,7 +97,7 @@ class ShopSeeder extends Seeder
                 "picture"   => "topeng-cirebon.jpeg",
                 "cover_picture"   => "topeng-cirebon.jpeg",
                 "name"   => "Topeng Cirebon",
-                "name_en"   => "Topeng Cirebon",
+                "name_en"   => "Cirebon Mask",
                 "slug"   => "toko-d",
                 "details"   => "
                 Topeng Cirebon adalah karya seni tradisional yang sangat istimewa dari Cirebon, Jawa Barat. Topeng ini adalah manifestasi dari kekayaan budaya dan sejarah Cirebon yang kaya, serta menjadi simbol penting dalam berbagai upacara dan pertunjukan tradisional.
@@ -125,7 +125,7 @@ class ShopSeeder extends Seeder
                 "picture"   => "terasi-udang.jpeg",
                 "cover_picture"   => "terasi-udang.jpeg",
                 "name"   => "Terasi Udang",
-                "name_en"   => "Terasi Udang",
+                "name_en"   => "Shrimp Paste",
                 "slug"   => "toko-e",
                 "details"   => "Terasi udang adalah bumbu tradisional yang populer di berbagai masakan Indonesia. Bumbu ini dihasilkan dari udang fermentasi yang telah dijemur hingga mengering, dan kemudian dihaluskan menjadi pasta yang kuat dan penuh rasa.
 
@@ -153,7 +153,7 @@ class ShopSeeder extends Seeder
                 "picture"   => "tape-ketan.jpeg",
                 "cover_picture"   => "tape-ketan.jpeg",
                 "name"   => "Tape Ketan Bakung",
-                "name_en"   => "Tape Ketan Bakung",
+                "name_en"   => "Bakung Sticky Rice Tape",
                 "slug"   => "toko-f",
                 "details"   => "Tape ketan bakung adalah makanan tradisional Indonesia yang lezat dan populer. Makanan ini terbuat dari ketan, atau beras ketan, yang difermentasi dengan bantuan ragi ketan atau ragi tape. Fermentasi ini menghasilkan tekstur yang lengket dan kenyal serta rasa yang manis dan sedikit asam.
 
