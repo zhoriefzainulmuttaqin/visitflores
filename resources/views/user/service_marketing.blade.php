@@ -1,50 +1,46 @@
 @extends("user.template")
 
 @section("title")
-Layanan Jasa Konseptor Pariwisata
+{{ __("services.service_marketing") }}
 @endsection
 
 @section("cover")
-<?= url('assets/layanan-jasa/pemasaran/bg.png') ?>
+<?= url('assets/layanan-jasa/konseptor/bg.png') ?>
 @endsection
 
 @section("content")
 <div class="container-lg mt-5">
-    <img src="{{ url('assets/layanan-jasa/pemasaran/pemasaran.png') }}" class="img-fluid" width="100%">
+    <img src="{{ url('assets/layanan-jasa/konsultan/konsultan.png') }}" class="img-fluid" width="100%">
     <h1 class="text-center mt-5 mb-5">
-        <b>Pemasaran</b>
+        <b>{{ __("services.service_marketing") }}</b>
     </h1>
     <div class="container mt-5">
         <div class="row justify-items-center">
             <div class="col-12 col-md-6 border-end border-bottom p-5">
                 <p class="h4 text-center">
                     <i class="text-warning fa-solid fa-user-friends"></i>
-                    Fasiiltator/Trainer/Narasumber Manajemen Pemasaran destinasi Pariwisata
+                    {{ __("services.service_sub_fasilitator") }}
                 </p>
                 <p>
-                Tourism Digital/Internet Marketing <br>
-                Strategi Pemasaran Destinasi Pariwisata <br>
-                Branding Destinasi Pariwisata <br>
-                Komunikasi pemasaran (Promosi) Destinasi Pariwisata.
+                {!! __("services.service_detail1_one") !!}
                 </p>
             </div>
             <div class="col-12 col-md-6 border-start border-bottom p-5">
                 <p class="h4 text-center">
                     <i class="text-warning bi-headphones"></i>
-                    Pemasaran (Promosi)
+                    {{ __("services.service_sub_marketing") }}
                 </p>
                 <p>
-                Advertising <br>
-                Sosial Media
+                {!! __("services.service_detail1_two") !!}
                 </p>
             </div>
             <div class="col-12 col-md-6 border-end border-top p-5">
                 <p class="h4 text-center">
                     <i class="text-warning uil-file-check-alt"></i>
-                    Jasa Konsultan Pemasaran Pariwisata
+                    {{ __("services.service_sub_consultant") }}
                 </p>
                 <p>
-                Jasa Konsultan Pemasaran Pariwisata Konsultasi dalam pembuatan dan pengembangan rencana pemasaran Konsultasi pengembangan identitas destinasi pariwisata (branding) Konsultasi komunikasi pemasaran destinasi pariwisata
+                {{ __("services.service_detail1_three") }}
                 </p>
             </div>
             <div class="col-12 col-md-6 border-start border-top p-5">
@@ -55,11 +51,13 @@ Layanan Jasa Konseptor Pariwisata
         <div class="mb-5"></div>
         <a href="{{ url('layanan-jasa') }}" class="btn btn-primary bg-btn-visit">
             <i class='fa fa-arrow-left'></i>
-            Kembali
+            {{ __("services.back") }}
         </a>
-        <a href="https://wa.me/6285156878608" target="_blank" class="btn btn-success">
+        <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=<?= __('services.wa_message_discuss_services',([
+                                "name"=>__("services.service_marketing"),
+                                ])) ?>" target="_blank" class="btn btn-success">
             <i class="bi-whatsapp"></i>
-            Mari Diskusi
+            {{ __("services.lets_discuss") }}
         </a>
     </div>
     <div class="mt-5 mb-5"></div>

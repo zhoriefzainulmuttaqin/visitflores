@@ -90,6 +90,13 @@
 
     </div><!-- #wrapper end -->
 
+<<<<<<< HEAD
+	<!-- <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>" target="_blank" id="chatWA">
+		<img src="{{ url('assets/logo-wa.png') }}" width="50px" class="rounded-circle">
+	</a> -->
+	<div class="whatsapp-button">
+        <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text={{ __('content.float_wa_message') }}" target="_blank">
+=======
     <!-- Go To Top
  ============================================= -->
     <!-- <div id="gotoTop" class="uil uil-angle-up"></div> -->
@@ -100,6 +107,7 @@
     <div class="whatsapp-button">
         <a href="https://wa.me/<?= str_replace('+', '', getOption('cs_phone')) ?>?text=Halo, saya ingin diskusi tentang Visit Cirebon."
             target="_blank">
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
             <img src="{{ url('assets/logo-wa.png') }}" alt="WhatsApp">
         </a>
     </div>

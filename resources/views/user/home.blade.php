@@ -139,7 +139,7 @@
             <h1 class="mb-2 text-center">
                 <b>KALENDER EVENT</b>
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                    </p> -->
+                        </p> -->
             </h1>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
@@ -154,41 +154,50 @@
             </div>
 
             <div class="d-none d-md-block">
-                <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                    data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                    @foreach ($events as $event)
-                        <div class="oc-item">
-                            <article class="entry event p-3">
-                                <div
-                                    class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                    <div class="col-12 mb-md-0">
-                                        <a href="{{ url('event') }}" class="entry-image">
-                                            <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
-                                        </a>
+                <div class="px-4">
+                    <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                        data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                        @foreach ($events as $event)
+                            <div class="oc-item">
+                                <article class="entry event p-3">
+                                    <div
+                                        class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                        <div class="col-12 mb-md-0">
+                                            <a href="{{ url('event') }}" class="entry-image">
+                                                <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
+                                            </a>
+                                        </div>
+                                        <div class="col-12 p-0 p-md-4 pt-0">
+                                            <div class="entry-title nott">
+                                                <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                            </div>
+                                            <div class="entry-meta no-separator mb-1 mt-0">
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                            {{ $event->location }}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="entry-content my-3">
+                                                <p class="mb-0">
+                                                    <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-12 p-0 p-md-4 pt-0">
-                                        <div class="entry-title nott">
-                                            <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
-                                        </div>
-                                        <div class="entry-meta no-separator mb-1 mt-0">
-                                            <ul>
-                                                <li>
-                                                    <a href="{{ url('event') }}" class="text-uppercase fw-medium">
-                                                        {{ $event->location }}
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="entry-content my-3">
-                                            <p class="mb-0">
-                                                <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
-                                            </p>
-                                        </div>
-                                    </div>
+<<<<<<< HEAD
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
+=======
                                 </div>
                             </article>
                         </div>
                     @endforeach
+>>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
                 </div>
             </div>
             <div class="clearfix"></div>

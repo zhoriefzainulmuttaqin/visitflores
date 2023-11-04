@@ -80,7 +80,7 @@
                                         </div>
                                     </h4>
                                     <div class="row mt-6 justify-content-between my-3">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             @if (
                                                 $accomodation->link_youtube != null ||
                                                     $accomodation->link_instagram != null ||
@@ -123,9 +123,12 @@
                                                 </div>
                                             @endif
                                             <p class="card-text">
-                                                <strong class="fs-4 text-danger">Rp.
+                                                <strong class="fs-4 text-danger"> Mulai Dari Rp.
                                                     <?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                                                 </strong>
+                                                @if ($accomodation->tax_include == 1)
+                                                    <strong class="border-0 me-4 float-end fw-bold">Termasuk Pajak</strong>
+                                                @endif
                                             </p>
                                         </div>
                                     </div>
@@ -136,9 +139,47 @@
                     {{ $accomodations->links('vendor.pagination.canvas') }}
                 </div>
                 <div class="col-md-3">
+                    <div class="card ps-2 pt-2">
+                        <div class="card-title">
+                            <strong class="fs-6">
+                                Urutkan Hasil Pencarian
+                            </strong>
+                            <br>
+                            Urutkan hasil pencarian anda
+                            Berdasarkan :
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input valid" type="radio" name="order_price"
+                                    id="harga-tertinggi" {{ $order_price == 'desc' ? 'checked' : '' }}
+                                    onchange="submit()" value="desc" data-gtm-form-interact-field-id="1">
+                                <label class="form-check-label" for="harga-tertinggi">Harga
+                                    Tertinggi</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input valid" type="radio" name="order_price"
+                                    id="harga-terendah" {{ $order_price == 'asc' ? 'checked' : '' }} value="asc"
+                                    onchange="submit()" data-gtm-form-interact-field-id="0">
+                                <label class="form-check-label" for="harga-terendah">Harga
+                                    Terendah</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-2">
+                        <div class="card-title">
+                            <strong class="fs-6">
+                                Urutkan Hasil Pencarian
+                            </strong>
+                            <a href="{{ url('/akomodasi') }}" class="float-end text-warning fw-bold">
+                                Reset
+                            </a>
+                            <br>
+                            Urutkan hasil berdasarkan bintang :
+                        </div>
+                    </div>
                     <div class="card">
                         <div class="card-body">
-                            <strong class="fs-3">
+                            <strong class="fs-5">
                                 Bintang
                             </strong>
                             <div class="col-12">
