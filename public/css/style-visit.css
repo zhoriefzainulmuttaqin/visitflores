@@ -147,9 +147,11 @@
         /* border-bottom: none; */
     }
     .logo-default {
-        height: 20px !important;
+        width: 60px !important;
+        width: 15px !important;
     }
     .logo-dark {
-        height: 20px !important;
+        width: 60px !important;
+        height: 15px !important;
     }
 }
