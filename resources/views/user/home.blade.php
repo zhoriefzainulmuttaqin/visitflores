@@ -137,72 +137,47 @@
     <div id="home-event-container">
         <div class="container-fluid">
             <h1 class="mb-2 text-center">
-                <b>KALENDER EVENT</b>
-                <!-- <p>                                                                                 {{ __('content.welcome') }}
-                        </p> -->
+                <b>Kalender Event</b>
             </h1>
-            <div class="d-block d-md-none">
-                <div id="oc-images" class="owl-carousel image-carousel carousel-widget mb-6" data-items-xs="2"
-                    data-items-sm="2" data-items-lg="3" data-items-xl="5">
-                    @foreach ($events as $event)
-                        <div class="oc-item">
-                            <a href="#"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
-                                    alt="Image 1"></a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="d-none d-md-block">
-                <div class="px-4">
-                    <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
-                        data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                        @foreach ($events as $event)
-                            <div class="oc-item">
-                                <article class="entry event p-3">
-                                    <div
-                                        class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                        <div class="col-12 mb-md-0">
-                                            <a href="{{ url('event') }}" class="entry-image">
-                                                <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
-                                            </a>
-                                        </div>
-                                        <div class="col-12 p-0 p-md-4 pt-0">
-                                            <div class="entry-title nott">
-                                                <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
-                                            </div>
-                                            <div class="entry-meta no-separator mb-1 mt-0">
-                                                <ul>
-                                                    <li>
-                                                        <a href="{{ url('event') }}" class="text-uppercase fw-medium">
-                                                            {{ $event->location }}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="entry-content my-3">
-                                                <p class="mb-0">
-                                                    <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-<<<<<<< HEAD
-                                </article>
-                            </div>
-                        @endforeach
-                    </div>
-=======
+            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0" data-pagi="true"
+                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                @foreach ($events as $event)
+                    <div class="oc-item">
+                        <article class="entry event p-3">
+                            <div
+                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                <div class="col-12 mb-md-0">
+                                    <a href="{{ url('event') }}" class="entry-image">
+                                        <img src="{{ url('assets/event/' . $event->cover_picture) }}" class="rounded-2">
+                                    </a>
                                 </div>
-                            </article>
-                        </div>
-                    @endforeach
->>>>>>> 562574ea5200327150cfcb34d132f69e0c570b24
-                </div>
+                                <div class="col-12 p-4 pt-0 d-none d-md-none d-lg-block">
+                                    <div class="entry-title nott">
+                                        <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                    </div>
+                                    <div class="entry-meta no-separator mb-1 mt-0">
+                                        <ul>
+                                            <li>
+                                                <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                    {{ $event->location }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="entry-content my-3">
+                                        <p class="mb-0">
+                                            <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
             </div>
             <div class="clearfix"></div>
-            <div class="text-center">
-                <a href="{{ url('event') }}" id="but_event" class="btn btn-primary text-white bg-btn-visit">
+            <div class="text-center mt-5 mb-5">
+                <a href="{{ url('event') }}" class="btn fs-3 btn-primary text-white bg-btn-visit">
                     Lihat Semua Event
                     <i class="bi-arrow-right"></i>
                 </a>
@@ -597,6 +572,20 @@
         .teks-layanan{
             font-size: calc(1.275rem + 0.3vw) !important;
         }
+        #but_layanan {
+                width: 30rem;
+                height: 5rem;
+                font-size: 22px;
+                font-weight: 500;
+                margin-top: 0.5rem;
+                margin-bottom: -8rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
         @media (max-width: 768px) {
             #but_layanan {
                 width: 15rem;
