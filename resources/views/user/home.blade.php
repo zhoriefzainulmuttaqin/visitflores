@@ -939,8 +939,7 @@
                                     <div class="entry-content">
                                         {!! mb_substr(nl2br($news[0]->content), 0, 50) !!}
                                         <br>
-                                        <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">Lanjut
-                                            Baca</a>
+                                        <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">{{ __('home.continue_reading') }}</a>
                                     </div>
                                 @else
                                     <div class="entry-meta">
@@ -1005,8 +1004,7 @@
                                     <div class="entry-content">
                                         {!! mb_substr(nl2br($news[1]->content), 0, 50) !!}
                                         <br>
-                                        <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">Lanjut
-                                            Baca</a>
+                                        <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">{{ __('home.continue_reading') }}</a>
                                     </div>
                                 @else
                                     <div class="entry-meta">
@@ -1069,8 +1067,7 @@
                                     <div class="entry-content">
                                         {!! mb_substr(nl2br($news[2]->content), 0, 50) !!}
                                         <br>
-                                        <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">Lanjut
-                                            Baca</a>
+                                        <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">{{ __('home.continue_reading') }}</a>
                                     </div>
                                 @else
                                     <div class="entry-meta">
@@ -1104,9 +1101,11 @@
             </main>
         </div>
     </div>
+    <div class="clearfix"></div>
     <div class="mt-5"></div>
     <div class="mt-5"></div>
-    <br><br>
+    <div class="mt-5"></div>
+    <br><br><br><br><br><br>
     <div class="container mt-5 text-center">
         <a href="{{ url('/berita') }}" class="btn btn-primary text-white bg-btn-visit" id="but_berita">
             {{ __('home.explore_all') }} {{ __('home.title_news_general') }}
