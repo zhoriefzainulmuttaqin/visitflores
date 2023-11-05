@@ -6,7 +6,7 @@ return [
     'title' => 'Accomodation',
     'placeholder_search' => 'Type the name of the area, hotel name, or landmark',
     'show_all_data' => 'Show all data..',
-    'start_from' => 'Start From Rp.',
+    'start_from' => 'Start From',
     'tax_include' => 'Including Tax',
     'sort' => 'Sort Search Results',
     'desc_sort' => 'Sort your search results by:',

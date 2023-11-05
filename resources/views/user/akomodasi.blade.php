@@ -243,25 +243,25 @@
                                                         @if ($accomodation->link_youtube != null)
                                                             <li><a href="{{ $accomodation->link_youtube }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil uil-youtube fs-2"></i>
+                                                                        class="uil uil-youtube fs-1"></i>
                                                                 </a></li>
                                                         @endif
                                                         @if ($accomodation->link_instagram != null)
                                                             <li><a href="{{ $accomodation->link_instagram }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil bi-instagram fs-2"></i>
+                                                                        class="uil bi-instagram fs-1"></i>
                                                                 </a></li>
                                                         @endif
                                                         @if ($accomodation->link_facebook != null)
                                                             <li><a href="{{ $accomodation->link_facebook }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil uil-facebook fs-2"></i>
+                                                                        class="uil uil-facebook fs-1"></i>
                                                                 </a></li>
                                                         @endif
                                                         @if ($accomodation->link_tiktok != null)
                                                             <li><a href="{{ $accomodation->link_tiktok }}"
                                                                     class="fw-normal text-dark"><i
-                                                                        class="uil fa-brands fa-tiktok fs-2"></i> </a></li>
+                                                                        class="uil fa-brands fa-tiktok fs-1"></i> </a></li>
                                                         @endif
                                                     </ul>
                                                 </div>
@@ -274,9 +274,13 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                            <p class="card-text">
-                                                <strong class="fs-4 text-danger"> {{ __('accomodation.start_from') }}
-                                                    <?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
+                                            <p class="card-text mb-3">
+                                                <font>
+                                                    {{ __('accomodation.start_from') }}
+                                                </font>
+                                                <strong class="fs-4 text-danger">
+                                                    <br>
+                                                    Rp<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
                                                 </strong>
                                             </p>
                                         </div>

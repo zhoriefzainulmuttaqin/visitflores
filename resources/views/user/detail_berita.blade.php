@@ -82,7 +82,7 @@
                 @endif
                 <h4 class="fs-4 fw-medium">{{ __('news_detail.recomendation') }}</h4>
                 <div class="row my-5">
-                    <div class="col col-md-8 mb-3 mb-sm-0">
+                    <div class="col-md-8 col-lg-8 col-sm-12 mb-3 mb-sm-0">
                         <?php
                         $i = 0;
                         ?>
@@ -100,8 +100,8 @@
                                                         <img src="{{ url("assets/berita/$new1->cover_picture") }}"
                                                             class="img-fluid w-100 h-100">
                                                     </div>
-                                                    <div class="col-md-9 ps-3 pe-1">
-                                                        <h4 class="card-title fs-3">
+                                                    <div class="col-md-9 ps-3 pe-2 mb-3">
+                                                        <h4 class="card-title fs-3 mt-2">
                                                             <small class="rounded fs-5 text-warning me-2">
                                                                 @if (App::isLocale('id'))
                                                                     {{ $new1->category_name }}
@@ -136,9 +136,9 @@
                                                             </div>
                                                         </h4>
                                                         @if (App::isLocale('id'))
-                                                            {!! mb_substr(nl2br($new1->content), 0, 50) !!}
+                                                            {!! mb_substr(nl2br($new1->content), 0, 50) !!}...
                                                         @else
-                                                            {!! mb_substr(nl2br($new1->content_en), 0, 50) !!}
+                                                            {!! mb_substr(nl2br($new1->content_en), 0, 50) !!}...
                                                         @endif
                                                     </div>
                                                 </div>
@@ -150,7 +150,7 @@
                         @endforeach
                     </div>
 
-                    <div class="col col-md-4">
+                    <div class="col-lg-4 col-sm-12 col-md-4">
                         @foreach ($news->skip($i) as $new1)
                             @if ($new1->slug != $new->slug || isset($_GET['keyword']))
                                 <div class="row">
@@ -185,11 +185,10 @@
                                                     </a>
                                                 </h5>
                                                 @if (App::isLocale('id'))
-                                                    {!! mb_substr(nl2br($new1->content), 0, 50) !!}
+                                                    {!! mb_substr(nl2br($new1->content), 0, 50) !!}...
                                                 @else
-                                                    {!! mb_substr(nl2br($new1->content_en), 0, 50) !!}
+                                                    {!! mb_substr(nl2br($new1->content_en), 0, 50) !!}...
                                                 @endif
-
                                             </div>
                                         </div>
                                     </div>
