@@ -44,6 +44,11 @@ class AccomodationLinkSeeder extends Seeder
                 "source_name"   => "Traveloka",
                 "url"   => "https://www.traveloka.com/id-id/hotel/detail?spec=01-11-2023.02-11-2023.1.1.HOTEL.3000010001262.Grage%20Hotel%20Cirebon.2&contexts=%7B%22inventoryRateKey%22%3A%22povEwB3ZzsU2C6pd%2B6MdU%2B0DXZ%2BT%2Bqw8uON7NhQf%2Ft5M0tKsNUio4Rxug1zOzHJilcvZa8YdqqIySdppe7dolTIewZlxfjiOGz6oXLTucMvN0%2BgQ3yZPvZcoHwUFNN%2BZpcr%2F%2FNa8o9ElfN8zOYhzzZeg0X586laFpeUViPi9rxAHAEyRR3bOJzsNKJKo6oUMmhLDdV0WLeT%2FFKfQ0QL8LH02Dvlx%2F8PjYogEE5yzx6g6yOKyKeIDf7jO3GM45O1o1hmSkmz3HiZNSbS8gXb3CDW9nmlhkqLKa4lLkAkZpAGTcOmy5l4j7hGHKXWH0MtOTunPPlSk35eJdswvqhTp4fvnzag3zLIuKsio2qc%2FE%2BLJ0GtLHBjIyioFHRQHjGdXjTE%2FGsBKQXKjBtgZDhjE4C5zlhNP3bbD3EkRDMDBFQ8zMdFMDbeW1h2pAbyBW7EazHaEIke4gLKBu993M9y78xj%2F1r5oS%2BOwbxdgGx0rugjIWGULNNq2kq01LGJS4cUOsmVHb%2FDz2eMMIR3KhBjDXyMn1qdaM1viWqCGwU1siX1ZIegdsZIo1sjlWnbsTcjefS6Pj3RtIU6lROCEB6QAgiS1WJabPNVEO7waQAXksTDyQHUY2wqyAfRzb44KOjG0poBVHSJ1fq5iJGt%2Fs2ROyG2r1yuKaZ4GSAmh5BaCjz8%3D%22%7D&loginPromo=1&prevSearchId=1781274127947027842",
             ]),
+            ([
+                "data_id"   => 7,
+                "source_name"   => "Traveloka",
+                "url"   => "https://www.traveloka.com/id-id/hotel/indonesia/hotel-grand-tryas-3000010004958",
+            ]),
         ]);
 
         DB::table('accomodation_links')->insert($links);
