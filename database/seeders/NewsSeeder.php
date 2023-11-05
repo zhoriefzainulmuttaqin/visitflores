@@ -60,7 +60,7 @@ class NewsSeeder extends Seeder
                 "category_id"   => 7,
                 "admin_id"   => 1,
                 "cover_picture"   => "festival.webp",
-                "name"   => "Festifal Pecinan Cirebon 2023",
+                "name"   => "Festival Pecinan Cirebon 2023",
                 "name_en"   => "Cirebon Chinatown Festival 2023",
                 "slug"   => "berita-3",
                 "published_date"   => date('Y-m-d'),

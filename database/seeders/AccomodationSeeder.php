@@ -16,6 +16,40 @@ class AccomodationSeeder extends Seeder
         $accomodations = ([
             ([
                 "city"   => "Kota Cirebon",
+                "picture"   => "tryas.png",
+                "cover_picture"   => "aston.png",
+                "name"   => "Hotel Grand Tryas",
+                "name_en"   => "Grand Tryas Hotel",
+                "slug"   => "grand-tryas",
+                "details"   => "Desain dan arsitektur menjadi salah satu faktor penentu kenyamanan Anda di hotel. Hotel Grand Tryas menyediakan tempat menginap yang tak hanya nyaman untuk beristirahat, tapi juga desain cantik yang memanjakan mata Anda.
+                Hotel Grand Tryas memiliki segala fasilitas penunjang bisnis untuk Anda dan kolega.
+                Pelayanan memuaskan serta fasilitas hotel yang memadai akan membuat Anda nyaman berada di Hotel Grand Tryas.
+                Pusat kebugaran menjadi salah satu fasilitas yang wajib Anda coba saat menginap di tempat ini.
+                Tersedia kolam renang untuk Anda bersantai sendiri maupun bersama teman dan keluarga.
+                Manjakan diri Anda dengan menikmati fasilitas spa yang memberikan harga dan kualitas pelayanan terbaik.
+                Resepsionis siap 24 jam untuk melayani proses check-in, check-out dan kebutuhan Anda yang lain. Jangan ragu untuk menghubungi resepsionis, kami siap melayani Anda.",
+                "details_en"   => "Design and architecture are key factors in determining your comfort at a hotel. Hotel Grand Tryas offers a place to stay that not only provides a comfortable rest but also beautiful design that pleases your eyes.
+                Hotel Grand Tryas provides all the necessary business facilities for you and your colleagues.
+                Satisfactory service and adequate hotel facilities will make you feel comfortable at Hotel Grand Tryas.
+                The fitness center is one of the facilities you must try during your stay here.
+                There's a swimming pool for you to relax alone or with friends and family.
+                Indulge yourself by enjoying the spa facilities that offer the best price and service quality.
+                The reception desk is ready 24/7 to assist with the check-in, check-out process, and any other needs you may have. Don't hesitate to contact the reception desk; we are here to serve you.",
+                "address"   => "Jalan Tentara Pelajar No 103 - 107 , Kesambi, Cirebon, Jawa Barat, Indonesia",
+                "star"   => 90,
+                "price_start_from"   => 420000,
+                "facilities"   => "AC, Restoran, WiFi, Resepsionis 24 Jam, Kolam Renang, Lift, Parkir",
+                "facilities_en"   => "AC, Restaurant, WiFi, 24-Hour Reception, Swimming Pool, Lift, Parking",
+                "phone"   => "+62 813-9278-6802",
+                "mitra_status"   => 0,
+                "link_youtube"   => null,
+                "link_tiktok"   => null,
+                "link_facebook"   => "https://m.facebook.com/profile.php?id=141226889815796",
+                "link_instagram"   => "https://www.instagram.com/grandtryashotel/",
+                "link_maps"   => "https://maps.app.goo.gl/bAcoayEfdn47pvW87",
+            ]),
+            ([
+                "city"   => "Kota Cirebon",
                 "picture"   => "picture-aston.webp",
                 "cover_picture"   => "aston.png",
                 "name"   => "ASTON Cirebon Hotel & Convention Center",

@@ -44,7 +44,7 @@
         {{ view('user.header') }}
 
         <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover'))   no-repeat; background-size: 100%;margin-bottom:0px;">
+            style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
             <div class="slider-inner">
                 <?php
                 $segments = Request::segments();
@@ -54,7 +54,7 @@
                         <div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
                            @if ($segments == null)
                                 <img src="{{ url('assets/logo-light.png') }}"  id="logo-on-header">
-                                <p class="text-white d-none d-md-block display-6">
+                                <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
                                     {{ strtoupper(__("home.portal_text")) }} <br>
                                     (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
                                 </p>
