@@ -122,6 +122,17 @@ class AccomodationGallerySeeder extends Seeder
                 "name_en"   => "Grage hotel gallery",
                 "picture"   => "galeri-grage-3.webp",
             ]),
+            ([
+                "data_id"   => 6,
+                "name"   => "Galeri hotel grage",
+                "name_en"   => "Grage hotel gallery",
+                "picture"   => "galeri-grage-3.webp",
+            ]),  ([
+                "data_id"   => 7,
+                "name"   => "Galeri hotel grandtryas",
+                "name_en"   => "Grandtryas hotel gallery",
+                "picture"   => "tryas.png",
+            ]),
         ]);
 
         DB::table('accomodation_galleries')->insert($galleries);

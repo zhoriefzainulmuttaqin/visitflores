@@ -82,7 +82,7 @@
 							<!-- Top Notif
 							============================================= -->
 							<div id="top-notif" class="header-misc-icon">
-								<a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">5</span></a>								
+								<a href="#"><i class="bi-bell"></i><span class="top-cart-number bg-danger">5</span></a>
 							</div><!-- #top-notif end -->
 							<!-- Top Cart
 							============================================= -->
@@ -96,7 +96,7 @@
 								<i class="uil-signin"></i>
 								Login
 							</a>
-							
+
 						</div>
 						<div class="primary-menu-trigger">
 							<button class="cnvs-hamburger" type="button" title="Open Mobile Menu">
@@ -141,9 +141,9 @@
 							</ul>
 
 						</nav><!-- #primary-menu end -->
-						
 
-                        
+
+
 
 					</div>
 				</div>
@@ -159,19 +159,19 @@
 						<div class="heading-block text-center border-bottom-0">
 							<!-- <h1>Starter's Guide to create Landing Pages</h1>
 							<span>Building a Landing Page was never so Easy &amp; Interactive</span> -->
-						</div>						
+						</div>
 					</div>
 				</div>
 
 			</div>
 		</section>
 
-		
+
 		<!-- Content
 		============================================= -->
 		<section id="content">
 			<div class="content-wrap">
-				
+
 			</div>
 		</section><!-- #content end -->
 

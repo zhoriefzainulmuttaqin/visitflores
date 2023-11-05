@@ -1,8 +1,12 @@
 {{-- Iklan --}}
-<div class="row">
-    <div class="col-12">
-        <div class="bg-secondary text-white text-center" style="height: 400px;">
-            <p style="padding-top: 200px;" class="mx-auto">Space Available</p>
+<div class="section bg-secondary" style="margin-bottom:0px;margin-top:0px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-white text-center">
+                <p class="mx-auto" style="line-height: 100px;">
+                    Space Available
+                </p>
+            </div>
         </div>
     </div>
 </div>
