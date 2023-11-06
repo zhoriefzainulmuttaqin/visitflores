@@ -40,15 +40,19 @@
     <!-- Document Wrapper
  ============================================= -->
     <div id="wrapper">
-
+        <?php
+        $segments = Request::segments();
+        ?>
         {{ view('user.header') }}
-
+        @if ($segments == null)
         <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover'))  no-repeat; background-color: #212529 ;background-size: 100%;margin-bottom:0px; background-position: center center;">
+            style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
+        @else
+        <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+            style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
+        @endif
             <div class="slider-inner">
-                <?php
-                $segments = Request::segments();
-                ?>
+                
                 <div class="vertical-middle slider-element-fade">
                     <div class="container-fluid py-5">
                         <div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
