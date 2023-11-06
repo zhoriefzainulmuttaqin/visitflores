@@ -317,8 +317,7 @@
             margin: 0;
         }
 
-        .mySwiper2 {
-            margin-left:-170px;
+        .mySwiper2 {            
             margin-top: 1rem;
             height: 20rem;
             width: 60rem;
@@ -333,6 +332,10 @@
             margin-top: -18rem;
 
 
+        }
+
+        .mySwiper2-mobile{
+            margin-left:-160px;
         }
 
         @media (max-width: 760px) {
@@ -448,7 +451,7 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
                 loop="true">
@@ -783,7 +786,7 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
                 loop="true">
@@ -1028,8 +1031,8 @@
             </div>
         </div>
         <div class="row gx-5 col-mb-80">
-            <main class="postcontent col-lg-12">
-                <div id="posts" class="row gutter-40" style="margin-top: -5rem;">
+            <div class="postcontent col-lg-12">
+                <div id="posts" class="row gutter-40 mb-5" style="margin-top: -5rem;">
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
                             <div class="col-md-4">
@@ -1219,7 +1222,7 @@
                                     <div class="entry-content mt-1" style="margin-top: -0rem;">
                                         {!! mb_substr(nl2br($news[2]->content_en), 0, 450) !!}
                                         <br>
-                                        <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">
+                                        <a href="{{ url('/detail-berita/'.$news[2]->slug) }}" class="more-link">
                                             {{ __('home.continue_reading') }}
                                         </a>
                                     </div>
@@ -1228,18 +1231,13 @@
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     </div>
-    <div class="clearfix"></div>
-    <div class="mt-5"></div>
-    <div class="mt-5"></div>
-    <div class="mt-5"></div>
-    <br><br><br><br><br><br>
-    <div class="container mt-5 text-center">
+    <div class="container mt-4 text-center" style="z-index:1000;position:relative;">
         <a href="{{ url('/berita') }}" class="btn btn-primary text-white bg-btn-visit" id="but_berita">
             {{ __('home.explore_all') }} {{ __('home.title_news_general') }}
-            <i class="bi-arrow-right ms-2   "></i>
+            <i class="bi-arrow-right ms-2"></i>
         </a>
     </div>
 
