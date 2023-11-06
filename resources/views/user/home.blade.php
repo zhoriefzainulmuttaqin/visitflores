@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
     <link rel="stylesheet" href="{{ url('swiperjs/swiper-bundle.min.css') }}" />
     <style>
-        body{
+        body {
             /* overflow-x: hidden; */
         }
+
         #home-event-container {
             background-image: url("<?= url('assets/ellipse.png') ?>");
             background-position: center;
@@ -170,35 +171,35 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                    #but_event {
-                                    width: 15rem;
-                                    height: 100px;
-                                    font-size: 24px;
-                                    font-weight: 500;
-                                    margin-top: -3rem;
-                                    margin-left: auto;
-                                    margin-right: auto;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    border-radius: 5px;
+                                        #but_event {
+                                        width: 15rem;
+                                        height: 100px;
+                                        font-size: 24px;
+                                        font-weight: 500;
+                                        margin-top: -3rem;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        border-radius: 5px;
 
-                                }
+                                    }
 
-                                .title_event {
-                                    font-size: 16px;
-                                    font-weight: 999;
-                                    margin-bottom: 1.5rem;
-                                    margin-top: 7rem !important;
-                                }
+                                    .title_event {
+                                        font-size: 16px;
+                                        font-weight: 999;
+                                        margin-bottom: 1.5rem;
+                                        margin-top: 7rem !important;
+                                    }
 
-                                .owl-carousel .owl-dots .owl-dot {
-                                    background-color: #676565;
-                                    width: 2em;
-                                    height: 2em;
-                                }
+                                    .owl-carousel .owl-dots .owl-dot {
+                                        background-color: #676565;
+                                        width: 2em;
+                                        height: 2em;
+                                    }
 
-                                } */
+                                    } */
 
         }
     </style>
@@ -209,7 +210,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                            </p> -->
+                                                                </p> -->
 
             </p>
             <div class="d-block d-md-none">
@@ -317,27 +318,27 @@
             margin: 0;
         }
 
-        .mySwiper2 {            
+        .mySwiper2 {
             margin-top: 1rem;
             height: 20rem;
-            width: 60rem;
+            width: 100%;
+            /* Ubah lebar menjadi 100% agar responsif */
         }
 
         .mySwiper2 img {
             height: 20rem;
-            width: cover;
+            width: 100%;
+            /* Ubah lebar menjadi 100% agar sesuai dengan ukuran container */
         }
 
         #top_wisata {
-            margin-top: -18rem;
-
-
+            margin-top: 0;
+            /* Hapus margin-top negatif */
         }
 
         .mySwiper2-mobile{
-            margin-left:-160px;
+            margin-left:-9.75rem;
         }
-
         @media (max-width: 760px) {
             #top_wisata {
                 margin-top: 5rem;
@@ -451,10 +452,10 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
-                centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
-                coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
-                loop="true">
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
+                grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+                coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+                coverflow-effect-slide-shadows="true" loop="true">
                 @foreach ($tours as $tour)
                     <swiper-slide class="card">
                         <a href="/wisata" style="text-decoration: none; color: white;">
@@ -786,10 +787,10 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
-                centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
-                coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
-                loop="true">
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
+                grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+                coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+                coverflow-effect-slide-shadows="true" loop="true">
                 @foreach ($accomodations as $accomodation)
                     <swiper-slide class="card">
                         <a href="/akomodasi" style="text-decoration: none; color: white;">
@@ -1222,7 +1223,7 @@
                                     <div class="entry-content mt-1" style="margin-top: -0rem;">
                                         {!! mb_substr(nl2br($news[2]->content_en), 0, 450) !!}
                                         <br>
-                                        <a href="{{ url('/detail-berita/'.$news[2]->slug) }}" class="more-link">
+                                        <a href="{{ url('/detail-berita/' . $news[2]->slug) }}" class="more-link">
                                             {{ __('home.continue_reading') }}
                                         </a>
                                     </div>
@@ -1455,30 +1456,48 @@
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disporapar-kuningan.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/phri.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/disporapar-kuningan.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/phri.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/tryas.png') }}"></a></div>
             </div>
         </div>
         <div class="container text-center d-block d-md-none">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disporapar-kuningan.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/phri.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/tryas.png') }}"></a></div>                
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/disporapar-kuningan.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/phri.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img
+                            src="{{ url('assets/sponsor/tryas.png') }}"></a></div>
             </div>
         </div>
     </div>
