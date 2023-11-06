@@ -1005,7 +1005,7 @@
     </style>
     {{-- end css berita --}}
 
-    <div class="container-fluid mt-lg-6 top_berita">
+    <div class="container-fluid mt-lg-6 top_berita px-4">
         <div class="row mb-lg-6  d-none d-md-block px-4">
             <div class="col-md-12 text-center">
                 <h1 class="mb-5">
