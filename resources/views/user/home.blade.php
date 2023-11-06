@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
     <link rel="stylesheet" href="{{ url('swiperjs/swiper-bundle.min.css') }}" />
     <style>
+        body{
+            overflow-x: hidden;
+        }
         #home-event-container {
             background-image: url("<?= url('assets/ellipse.png') ?>");
             background-position: center;
@@ -318,7 +321,6 @@
             margin-top: 1rem;
             height: 20rem;
             width: 60rem;
-            ;
         }
 
         .mySwiper2 img {
