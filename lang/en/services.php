@@ -1,14 +1,14 @@
 <?php
- 
+
 // lang/en/services.php
- 
+
 return [
     'product_services' => "Product Services",
     'tour_packages' => 'Tour Packages',
     'souvenirs' => 'Souvenirs',
     'souvenirs_package' => 'Souvenirs Package',
-    'tourism_card_detail_one' => "<b>Tourism Card</b> is a <span class='text-warning'>VISITCIREBON.ID</span> member card that can be used at various tourist destinations in the Ciayumajakuning area. Including culinary delights and souvenirs.",
-    "tourism_card_detail_two" => "<b>Use of Card:</b> Member card that tourists can use to get discounts and other special promotions from partners who collaborate with <span class='text-warning'>VISITCIREBON.ID.</span>",
+    'tourism_card_detail_one' => "<b>Enjoy hassle-free travel with our discount card, which can be used to get special offers and discounts at various hotels, restaurants, tourist attractions, souvenirs, and partnered outlets through <span class='text-warning'>VISITCIREBON.ID</span>.</b>",
+    "tourism_card_detail_two" => "<b>Tourism Card:</b> An e-card discount card that you can get for only Rp.25,000 (valid for 3 days). <br> <br> You can enjoy the convenience of the Tourism Card at various facilities in the Greater Cirebon area (Cirebon, Kuningan, Majalengka, Indramayu).",
     "buy"   => "Buy",
     "show_details"  => "Show Details",
     "buy_package"   => "Buy Package",
