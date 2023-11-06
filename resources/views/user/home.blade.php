@@ -1461,6 +1461,7 @@
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disporapar-kuningan.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/phri.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
@@ -1475,6 +1476,7 @@
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disporapar-kuningan.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/phri.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
