@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url('swiperjs/swiper-bundle.min.css') }}" />
     <style>
         body{
-            overflow-x: hidden;
+            /* overflow-x: hidden; */
         }
         #home-event-container {
             background-image: url("<?= url('assets/ellipse.png') ?>");
@@ -318,6 +318,7 @@
         }
 
         .mySwiper2 {
+            margin-left:-170px;
             margin-top: 1rem;
             height: 20rem;
             width: 60rem;

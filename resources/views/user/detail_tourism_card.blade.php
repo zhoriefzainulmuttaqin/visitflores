@@ -14,21 +14,15 @@ Tourism Card
             <div class="card-body p-5">
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-5 align-items-center">
-                        <img src="{{ url('assets/layanan-produk/TOURISM_CARD_1.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
+                        <img src="{{ url('assets/layanan-produk/mockup-tourism-card.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
                     </div>
                     <div class="col-md-12 col-lg-7 align-self-center">
                         <p class="h3">
                         {!! __("services.tourism_card_detail_one") !!}
                         </p>
-                    </div>
-                </div>
-                <div class="row mt-4 justify-content-center">
-                    <div class="col-md-12 col-lg-5 align-items-center">
-                        <img src="{{ url('assets/layanan-produk/TOURISM_CARD_2.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                    </div>
-                    <div class="col-md-12 col-lg-7 align-self-center">
                         <p class="h3">
-                        {!! __("services.tourism_card_detail_two") !!}
+                            {!! __("services.tourism_card_detail_two") !!}
+
                         </p>
                     </div>
                 </div>

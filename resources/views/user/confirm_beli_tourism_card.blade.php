@@ -17,49 +17,47 @@
                     {{ __("services.buy_tourism_card_confirm_message") }}
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-6 text-center">
-                        <img src="{{ url('assets/layanan-produk/TOURISM_CARD_1.png') }}" width="80%" class="img-fluid mb-4 mb-lg-0">
+                    <div class="col-md-4 text-center">
+                        <img src="{{ url('assets/layanan-produk/mockup-tourism-card.png') }}" class="img-fluid mb-4 mb-lg-0">
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="{{ url('assets/layanan-produk/TOURISM_CARD_2.png') }}" width="80%" class="img-fluid mb-4 mb-lg-0">                
+                    <div class="col-md-8 pt-5">
+                        <p>
+                            <?php
+                            if($sale->id < 10){
+                                $saleNo = "0000".$sale->id;
+                            }elseif($sale->id < 100){
+                                $saleNo = "000".$sale->id;
+                            }elseif($sale->id < 1000){
+                                $saleNo = "00".$sale->id;
+                            }else{
+                                $saleNo = "0".$sale->id;                        
+                            }
+                            $saleKode = date("ymd",strtotime($sale->date_carted)).$sale->user_id.$saleNo;
+                            ?>
+                            <b class="h2">#{{ $saleKode }}</b>
+                            <br>
+                        </p>
+                        <p>
+                            <b class="h3">Rp. {{ number_format(($sale->quantity * $sale->price),0,",",".") }}</b> <br>
+                            {{ __("services.quantity") }} : {{ $sale->quantity }}
+                        </p>
+                        <p>
+                            <b>{{ __("services.payment_method") }}</b> <br>
+                            <b>{{ $sale->payment->name }}</b> <br>
+                            {{ $sale->payment->account_name }} <br>
+                            {{ $sale->payment->account_number }}
+                        </p>
+                        <div class="d-grid gap-2">
+                            <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=<?= __('services.wa_message_payment_confirmation',([
+                                "name"=>Auth()->user()->name,
+                                "product"=> "Tourism Card",
+                                "no" => $saleKode,
+                                ])) ?>" target="_blank" class="btn btn-info bg-btn-visit text-white">
+                                <i class="bi-whatsapp"></i>
+                                {{ __("services.payment_confirmation") }}
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="clearfix mb-5"></div>
-                <p>
-                    <?php
-                    if($sale->id < 10){
-                        $saleNo = "0000".$sale->id;
-                    }elseif($sale->id < 100){
-                        $saleNo = "000".$sale->id;
-                    }elseif($sale->id < 1000){
-                        $saleNo = "00".$sale->id;
-                    }else{
-                        $saleNo = "0".$sale->id;                        
-                    }
-                    $saleKode = date("ymd",strtotime($sale->date_carted)).$sale->user_id.$saleNo;
-                    ?>
-                    <b class="h2">#{{ $saleKode }}</b>
-                    <br>
-                </p>
-                <p>
-                    <b class="h3">Rp. {{ number_format(($sale->quantity * $sale->price),0,",",".") }}</b> <br>
-                    {{ __("services.quantity") }} : {{ $sale->quantity }}
-                </p>
-                <p>
-                    <b>{{ __("services.payment_method") }}</b> <br>
-                    <b>{{ $sale->payment->name }}</b> <br>
-                    {{ $sale->payment->account_name }} <br>
-                    {{ $sale->payment->account_number }}
-                </p>
-                <div class="d-grid gap-2">
-                    <a href="https://wa.me/<?= str_replace("+","",getOption('cs_phone')) ?>?text=<?= __('services.wa_message_payment_confirmation',([
-                        "name"=>Auth()->user()->name,
-                        "product"=> "Tourism Card",
-                        "no" => $saleKode,
-                        ])) ?>" target="_blank" class="btn btn-info bg-btn-visit text-white">
-                        <i class="bi-whatsapp"></i>
-                        {{ __("services.payment_confirmation") }}
-                    </a>
                 </div>
             </div>
         </div>

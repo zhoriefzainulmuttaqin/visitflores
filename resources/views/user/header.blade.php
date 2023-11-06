@@ -5,7 +5,7 @@ $locale = App::currentLocale();
 <!-- Header
 ============================================= -->
 <link rel="stylesheet" href="style.css">
-<header id="header" class="transparent-header page-section dark" data-sticky-class="not-dark">
+<header id="header" class="transparent-header page-section dark">
     <div id="header-wrap">
         <div class="container-fluid">
             <div class="header-row">
@@ -14,8 +14,8 @@ $locale = App::currentLocale();
 
                 <div id="logo">
                     <a href="{{ url('/') }}" class="ps-2">
-                        <img class="logo-default py-1" srcset="{{ url('assets/logo-dark.png') }}"
-                            src="{{ url('assets/logo-dark.png') }}" alt="Logo Visit Cirebon">
+                        <img class="logo-default py-1" srcset="{{ url('assets/visit-light-nobg.png') }}"
+                            src="{{ url('assets/visit-light-nobg.png') }}" alt="Logo Visit Cirebon">
                         <img class="logo-dark py-1" srcset="{{ url('assets/logo-light.png') }}"
                             src="{{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
                     </a>
