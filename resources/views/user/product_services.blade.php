@@ -28,34 +28,34 @@ use Illuminate\Support\Facades\App;
         <div class="card-body">
             <div class="row justify-content-center">
                 <div class="col-4 text-center p-4 p-md-0">
-                    <img src="{{ url('assets/layanan-produk/tourism-card.png') }}" class="img-fluid" width="100px">
+                    <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid" width="100px">
                     <br>
-                    <div class="d-none d-md-block">
-                        <b>Tourism Card</b>
-                    </div>
-                    <div class="d-block d-md-none">
-                        <b style="font-size:12px">Tourism Card</b>
-                    </div>
+                    <!--<div class="d-none d-md-block">-->
+                    <!--    <b>Tourism Card</b>-->
+                    <!--</div>-->
+                    <!--<div class="d-block d-md-none">-->
+                    <!--    <b style="font-size:12px">Tourism Card</b>-->
+                    <!--</div>-->
                 </div>
                 <div class="col-4 text-center p-4 p-md-0">
-                    <img src="{{ url('assets/layanan-produk/ticket.png') }}" class="img-fluid" width="100px">
+                    <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid" width="100px">
                     <br>
-                    <div class="d-none d-md-block">
-                        <b>{{ __("services.tour_packages") }}</b>
-                    </div>
-                    <div class="d-block d-md-none">
-                        <b style="font-size:12px">{{ __("services.tour_packages") }}</b>
-                    </div>
+                    <!--<div class="d-none d-md-block">-->
+                    <!--    <b>{{ __("services.tour_packages") }}</b>-->
+                    <!--</div>-->
+                    <!--<div class="d-block d-md-none">-->
+                    <!--    <b style="font-size:12px">{{ __("services.tour_packages") }}</b>-->
+                    <!--</div>-->
                 </div>
                 <div class="col-4 text-center p-4 p-md-0">
-                    <img src="{{ url('assets/layanan-produk/collectible.png') }}" class="img-fluid" width="100px">
+                    <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid" width="100px">
                     <br>
-                    <div class="d-none d-md-block">
-                        <b>{{ __("services.souvenirs") }}</b>
-                    </div>
-                    <div class="d-block d-md-none">
-                        <b style="font-size:12px">{{ __("services.souvenirs") }}</b>
-                    </div>
+                    <!--<div class="d-none d-md-block">-->
+                    <!--    <b>{{ __("services.souvenirs") }}</b>-->
+                    <!--</div>-->
+                    <!--<div class="d-block d-md-none">-->
+                    <!--    <b style="font-size:12px">{{ __("services.souvenirs") }}</b>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@ use Illuminate\Support\Facades\App;
                 </div>
             </div>
         </div>
-        @endforeach        
+        @endforeach
     </div>
     <div class="clearfix"></div>
     <h1 class="text-center mt-5 mb-3">
@@ -174,7 +174,7 @@ use Illuminate\Support\Facades\App;
                 </div>
             </div>
         </div>
-        @endforeach             
+        @endforeach
     </div>
 </div>
 <div class="clearfix mb-5"></div>
