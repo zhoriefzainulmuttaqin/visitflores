@@ -168,7 +168,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                    </p> -->
+                                                        </p> -->
 
             </p>
             <div class="d-block d-md-none">
@@ -446,9 +446,10 @@
 
     {{-- css kuliner --}}
     <style>
-        .top_kuliner{
+        .top_kuliner {
             margin-top: 10rem;
         }
+
         @media (max-width: 768px) {
             #but_kuliner {
                 width: 12rem;
@@ -479,7 +480,8 @@
                 /* height: 100%; */
                 margin: auto;
             }
-            .kuliner .owl-carousel .owl-dots .owl-dot{
+
+            .kuliner .owl-carousel .owl-dots .owl-dot {
                 margin-top: -3rem;
             }
         }
@@ -547,13 +549,13 @@
             <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="1" data-pagi="true"
                 data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
                 @foreach ($culiners as $culiner)
-                    <div class="oc-item" >
+                    <div class="oc-item">
                         <article class="entry event p-3">
                             <div
-                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm"  >
+                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                                 <div class="col-12">
-                                    <a href="{{ url('event') }}" class="" >
-                                        <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2" >
+                                    <a href="{{ url('event') }}" class="">
+                                        <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
                                             @if (App::isLocale('id'))
@@ -581,9 +583,10 @@
 
     {{-- css akomodasi --}}
     <style>
-        .top_akomodasi{
+        .top_akomodasi {
             margin-top: 10rem;
         }
+
         @media (max-width: 768px) {
             #but_akomodasi {
                 width: 14rem;
@@ -599,15 +602,17 @@
                 align-items: center;
                 border-radius: 5px;
             }
-            .top_akomodasi{
-            margin-top: 7rem;
-        }
+
+            .top_akomodasi {
+                margin-top: 7rem;
+            }
 
             .image-caption-akomodasi {
                 font-size: 12px;
                 text-align: center;
             }
-            .title_akomodasi{
+
+            .title_akomodasi {
                 font-size: 16px;
                 font-weight: 999;
             }
@@ -735,8 +740,7 @@
 
     {{-- css layanan --}}
     <style>
-
-        .layanan{
+        .layanan {
             margin-top: 15rem;
         }
 
@@ -756,9 +760,10 @@
         }
 
         @media (max-width: 768px) {
-            .layanan{
+            .layanan {
                 margin-top: 13rem;
             }
+
             #but_layanan {
                 width: 8rem;
                 height: 40px;
@@ -777,11 +782,13 @@
             .teks_layanan {
                 font-size: 10px;
             }
-            .title_layanan{
+
+            .title_layanan {
                 font-size: 16px;
                 font-weight: 999;
             }
-            .img_layanan{
+
+            .img_layanan {
                 width: 150px;
             }
 
@@ -808,20 +815,23 @@
             <div class="row justify-content-center mt-5 mb-5">
                 <div class="col-4 text-center">
                     <a href="/layanan-produk/tourism-card">
-                    <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid img_layanan" width="200px">
-                    <br>
-                </a>
-                </div>
-                <div class="col-4 text-center">
-                    <a href="/layanan-produk">
-                    <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid img_layanan" width="200px">
-                    <br>
+                        <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid img_layanan"
+                            width="200px">
+                        <br>
                     </a>
                 </div>
                 <div class="col-4 text-center">
                     <a href="/layanan-produk">
-                    <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid img_layanan" width="200px">
-                    <br>
+                        <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid img_layanan"
+                            width="200px">
+                        <br>
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="/layanan-produk">
+                        <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid img_layanan"
+                            width="200px">
+                        <br>
                     </a>
                 </div>
             </div>
@@ -845,28 +855,32 @@
 
     {{-- css berita --}}
     <style>
-        .top_berita{
-                margin-top: 8rem;
-            }
-            #but_berita{
-                margin-top: -10rem;
+        .top_berita {
+            margin-top: 8rem;
+        }
 
-                width: 30rem;
-                height: 50px;
-                margin-left: auto;
-                margin-right: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+        #but_berita {
+            margin-top: -10rem;
+
+            width: 30rem;
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         @media (max-width: 768px) {
-            .top_berita{
+            .top_berita {
                 margin-top: 8rem;
             }
-            .title_berita{
+
+            .title_berita {
                 font-size: 16px;
                 font-weight: 999;
             }
+
             #but_berita {
                 width: 12rem;
                 height: 40px;
@@ -936,7 +950,7 @@
                                             <li><i class="uil uil-folder-open"></i>{{ $news[0]->category_name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
+                                    <div class="entry-content mt-1">
                                         {!! mb_substr(nl2br($news[0]->content), 0, 50) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">Lanjut
@@ -959,7 +973,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
+                                    <div class="entry-content mt-1">
                                         {!! mb_substr(nl2br($news[0]->content_en), 0, 50) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">
@@ -1002,7 +1016,7 @@
                                             <li><i class="uil uil-folder-open"></i>{{ $news[1]->category_name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
+                                    <div class="entry-content mt-1">
                                         {!! mb_substr(nl2br($news[1]->content), 0, 50) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">Lanjut
@@ -1025,7 +1039,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
+                                    <div class="entry-content mt-1">
                                         {!! mb_substr(nl2br($news[1]->content_en), 0, 50) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">
@@ -1066,7 +1080,7 @@
                                             <li><i class="uil uil-folder-open"></i>{{ $news[2]->category_name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
+                                    <div class="entry-content mt-1">
                                         {!! mb_substr(nl2br($news[2]->content), 0, 50) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">Lanjut
@@ -1089,7 +1103,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
+                                    <div class="entry-content mt-1">
                                         {!! mb_substr(nl2br($news[2]->content_en), 0, 50) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">

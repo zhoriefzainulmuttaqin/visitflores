@@ -231,7 +231,11 @@
                                             {{ $accomodation->address }}
                                         </div>
                                     </h4>
-                                    <div class="row mt-6 justify-content-between my-3">
+                                    <button class="btn my-1 btn-danger">
+                                        <a href="{{ url("/detail-akomodasi/$accomodation->slug") }}"
+                                            class="fw-normal text-white">Lihat Detail</a>
+                                    </button>
+                                    <div class="row mt-2 justify-content-between my-3">
                                         <div class="col-md-12">
                                             @if (
                                                 $accomodation->link_youtube != null ||
