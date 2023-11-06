@@ -1456,38 +1456,28 @@
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi.png') }}"
-                            height="150px"></a></div>
-                <div class="oc-item align-items-center"><a href="#" class="align-items-center"><img
-                            src="{{ url('assets/sponsor/disbudpar.png') }}" height="150px"
-                            style="width:663px !important;"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/indo.png') }}" height="150px"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/jagat.png') }}" height="150px"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/multiverse.png') }}" height="150px"></a></div>
-                <div class="oc-item"><a href="#"><img src="{{ url('assets/sponsor/pesona.png') }}"
-                            height="150px"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/phri.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/tryas.png') }}"></a></div>
             </div>
         </div>
         <div class="container text-center d-block d-md-none">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
-                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi.png') }}"
-                            height="90px"></a></div>
-                <div class="oc-item align-items-center"><a href="#" class="align-items-center"><img
-                            src="{{ url('assets/sponsor/disbudpar.png') }}" height="90px"
-                            style="width:663px !important;"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/indo.png') }}" height="90px"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/jagat.png') }}" height="90px"></a></div>
-                <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/multiverse.png') }}" height="90px"></a></div>
-                <div class="oc-item"><a href="#"><img src="{{ url('assets/sponsor/pesona.png') }}"
-                            height="90px"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/disbudpar-kab-cirebon.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/dispora-indramayu.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/exotic-majalengka.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/phri.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/tryas.png') }}"></a></div>                
             </div>
         </div>
     </div>
