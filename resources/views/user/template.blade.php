@@ -44,7 +44,7 @@
         {{ view('user.header') }}
 
         <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
+            style="background: url(@yield('cover'))  no-repeat; background-color: #212529 ;background-size: 100%;margin-bottom:0px; background-position: center center;">
             <div class="slider-inner">
                 <?php
                 $segments = Request::segments();
