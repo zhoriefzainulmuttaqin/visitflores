@@ -336,6 +336,17 @@
             /* Hapus margin-top negatif */
         }
 
+        .top_wisata{
+            position: relative;
+            margin-top:-300px;
+        }
+        @media (max-width: 760px) {
+            .top_wisata{
+                position: static;
+                margin-top:0px;
+            }
+        }
+
 
       /* .mySwiper2-mobile{
             margin-left:-9.75rem;
