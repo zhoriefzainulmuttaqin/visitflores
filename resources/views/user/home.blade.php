@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url('swiperjs/swiper-bundle.min.css') }}" />
     <style>
         body {
-            /* overflow-x: hidden; */
+            overflow-x: hidden;
         }
 
         #home-event-container {
@@ -337,7 +337,13 @@
         }
 
         .mySwiper2-mobile{
-            margin-left:-9.75rem;
+            /* margin-left:-9.75rem; */
+        }
+        .floating-swiper{
+            width: 125%;
+            position: relative;
+            left: -30%;
+            z-index: 1;
         }
         @media (max-width: 760px) {
             #top_wisata {
@@ -452,26 +458,28 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
-                grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
-                coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                coverflow-effect-slide-shadows="true" loop="true">
-                @foreach ($tours as $tour)
-                    <swiper-slide class="card">
-                        <a href="/wisata" style="text-decoration: none; color: white;">
-                            <img src='{{ url("assets/wisata/$tour->picture") }}' />
-                            <div class="image-caption">
-                                @if (App::isLocale('id'))
-                                    <b style="font-weight: 800;">{{ $tour->name }}</b>
-                                @else
-                                    <b style="font-weight: 800;">{{ $tour->name_en }}</b>
-                                @endif
-                            </div>
-                        </a>
-                    </swiper-slide>
-                @endforeach
-
-            </swiper-container>
+            <div class="floating-swiper">
+                <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
+                    grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+                    coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+                    coverflow-effect-slide-shadows="true" loop="true" style="margin-left:-15px;">
+                    @foreach ($tours as $tour)
+                        <swiper-slide class="card">
+                            <a href="/wisata" style="text-decoration: none; color: white;">
+                                <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                                <div class="image-caption">
+                                    @if (App::isLocale('id'))
+                                        <b style="font-weight: 800;">{{ $tour->name }}</b>
+                                    @else
+                                        <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                                    @endif
+                                </div>
+                            </a>
+                        </swiper-slide>
+                    @endforeach
+    
+                </swiper-container>
+            </div>
         </div>
 
 
@@ -787,26 +795,28 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
-                grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
-                coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                coverflow-effect-slide-shadows="true" loop="true">
-                @foreach ($accomodations as $accomodation)
-                    <swiper-slide class="card">
-                        <a href="/akomodasi" style="text-decoration: none; color: white;">
-                            <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
-                            <div class="image-caption">
-                                @if (App::isLocale('id'))
-                                    <b style="font-weight: 800;">{{ $accomodation->name }}</b>
-                                @else
-                                    <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
-                                @endif
-                            </div>
-                        </a>
-                    </swiper-slide>
-                @endforeach
-
-            </swiper-container>
+            <div class="floating-swiper">
+                <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
+                    grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+                    coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+                    coverflow-effect-slide-shadows="true" loop="true" style="margin-left:25px;">
+                    @foreach ($accomodations as $accomodation)
+                        <swiper-slide class="card">
+                            <a href="/akomodasi" style="text-decoration: none; color: white;">
+                                <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
+                                <div class="image-caption">
+                                    @if (App::isLocale('id'))
+                                        <b style="font-weight: 800;">{{ $accomodation->name }}</b>
+                                    @else
+                                        <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
+                                    @endif
+                                </div>
+                            </a>
+                        </swiper-slide>
+                    @endforeach
+    
+                </swiper-container>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
         {{-- <div class="swiper mySwiper">
