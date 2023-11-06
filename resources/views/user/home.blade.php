@@ -344,6 +344,8 @@
             position: relative;
             left: -30%;
             z-index: 1;
+            text-align:center;
+            justify-content:center;
         }
         @media (max-width: 760px) {
             #top_wisata {
@@ -462,7 +464,7 @@
                 <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
                     grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
                     coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                    coverflow-effect-slide-shadows="true" loop="true" style="margin-left:-15px;">
+                    coverflow-effect-slide-shadows="true" loop="true">
                     @foreach ($tours as $tour)
                         <swiper-slide class="card">
                             <a href="/wisata" style="text-decoration: none; color: white;">
@@ -799,7 +801,7 @@
                 <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
                     grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
                     coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                    coverflow-effect-slide-shadows="true" loop="true" style="margin-left:25px;">
+                    coverflow-effect-slide-shadows="true" loop="true">
                     @foreach ($accomodations as $accomodation)
                         <swiper-slide class="card">
                             <a href="/akomodasi" style="text-decoration: none; color: white;">
