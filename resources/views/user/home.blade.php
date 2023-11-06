@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url('swiperjs/swiper-bundle.min.css') }}" />
     <style>
         body {
-            overflow-x: hidden;
+            /* overflow-x: hidden; */
         }
 
         #home-event-container {
@@ -336,18 +336,14 @@
             /* Hapus margin-top negatif */
         }
 
-        .mySwiper2-mobile{
-            /* margin-left:-9.75rem; */
+
+      /* .mySwiper2-mobile{
+            margin-left:-9.75rem;
+        } */
+        @media only screen and (min-width: 200px) and (max-width: 767px) {
+            .mySwiper2-mobile{
+            /* margin-left:-20%; */
         }
-        .floating-swiper{
-            width: 125%;
-            position: relative;
-            left: -30%;
-            z-index: 1;
-            text-align:center;
-            justify-content:center;
-        }
-        @media (max-width: 760px) {
             #top_wisata {
                 margin-top: 5rem;
                 margin-bottom: -0.5rem;
@@ -395,20 +391,19 @@
 
             .mySwiper2 {
                 margin-top: 1rem;
-                height: 7rem !important;
-                width: 23rem !important;
+                height: 10rem;
+                width: 101%;
             }
 
             .mySwiper2 img {
-                height: 7rem !important;
+                height: 10rem;
                 width: cover;
             }
 
         }
     </style>
     {{-- end css wisata --}}
-    <div class="px-4" id="top_wisata">
-        <div class="container">
+        <div class="container top_wisata">
             <div class="d-none d-md-block">
                 <div class="row mb-5">
                     <div class="col-md-7">
@@ -460,19 +455,19 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 d-block d-md-none" id="mySwiper" effect="coverflow"
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
                 grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
                 coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                coverflow-effect-slide-shadows="true" loop="true" style="margin-left:-40px">
+                coverflow-effect-slide-shadows="true" loop="true">
                 @foreach ($tours as $tour)
                     <swiper-slide class="card">
                         <a href="/wisata" style="text-decoration: none; color: white;">
                             <img src='{{ url("assets/wisata/$tour->picture") }}' />
                             <div class="image-caption">
                                 @if (App::isLocale('id'))
-                                    <b style="font-weight: 800;">{{ mb_substr($tour->name,0,25) }}</b>
+                                    <b style="font-weight: 800;">{{ $tour->name }}</b>
                                 @else
-                                    <b style="font-weight: 800;">{{ mb_substr($tour->name_en,0,25) }}</b>
+                                    <b style="font-weight: 800;">{{ $tour->name_en }}</b>
                                 @endif
                             </div>
                         </a>
@@ -480,7 +475,6 @@
                 @endforeach
 
             </swiper-container>
-        </div>
 
 
 
@@ -509,7 +503,6 @@
                 </a>
             </div>
         </div>
-    </div>
     </div>
 
     {{-- css kuliner --}}
@@ -744,7 +737,7 @@
 
     <div class="top_akomodasi">
         <div class="container mt-4">
-            <div class="d-none d-md-block px-4">
+            <div class="d-none d-md-block ">
                 <div class="row mb-5">
                     <div class="col-md-7">
                         <h1 class="mb-1">
@@ -795,19 +788,19 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none px-4" id="mySwiper" effect="coverflow"
                 grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
                 coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                coverflow-effect-slide-shadows="true" loop="true" style="margin-left:-15px">
+                coverflow-effect-slide-shadows="true" loop="true">
                 @foreach ($accomodations as $accomodation)
                     <swiper-slide class="card">
                         <a href="/akomodasi" style="text-decoration: none; color: white;">
                             <img src='{{ url("assets/akomodasi/$accomodation->picture") }}' />
                             <div class="image-caption">
                                 @if (App::isLocale('id'))
-                                    <b style="font-weight: 800;">{{ mb_substr($accomodation->name,0,25) }}</b>
+                                    <b style="font-weight: 800;">{{ $accomodation->name }}</b>
                                 @else
-                                    <b style="font-weight: 800;">{{ mb_substr($accomodation->name_en,0,25) }}</b>
+                                    <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
                                 @endif
                             </div>
                         </a>
