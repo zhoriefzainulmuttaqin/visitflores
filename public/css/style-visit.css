@@ -44,7 +44,7 @@
     justify-content: center;
     align-items: center;
     opacity: 0.8;
-    @media (max-width: 768px) {
+    @media (max-width: 760px) {
         width: 100px;
         height: 30px;
         font-size: 6.5px;
@@ -68,7 +68,7 @@
     justify-content: center;
     align-items: center;
     opacity: 0.8;
-    @media (max-width: 768px) {
+    @media (max-width: 760px) {
         width: 100px;
         height: 30px;
         font-size: 6.5px;
@@ -115,13 +115,13 @@
 #logo-on-header {
     width: 40% !important;
 
-    @media (max-width: 768px) {
+    @media (max-width: 760px) {
         width: 50% !important;
         margin-top: -4.5rem;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 760px) {
     .logo-default,
     .logo-dark {
         width: 100px;
@@ -135,7 +135,7 @@
     position: relative !important;
     top: -100px !important;
 
-    @media (max-width: 768px) {
+    @media (max-width: 760px) {
         top: -100px !important;
 
     }

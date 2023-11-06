@@ -22,9 +22,9 @@ return [
      "subtitle_destinations" => "The following is a list of tourist attractions frequently visited by tourists.",
      "subtitle_culinaries" => "The following is a list of culinary delights that tourists often enjoy.",
      "subtitle_accommodations" => "The following is a list of accommodation visited by tourists",
-     "subtitle_service_products" => "Get discounts for any shopping in Cirebon Raya",
+     "subtitle_service_products" => "Get special offering for you!",
      "see_all" => "See All",
-     "explore_all" => "Explore All",
+     "explore_all" => "All",
      "continue_reading" => "Continue Reading",
      "supported_by" => "Supported By",
 ];

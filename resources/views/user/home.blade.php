@@ -19,7 +19,7 @@
             padding-bottom: 300px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 760px) {
             #home-event-container {
                 background-size: cover;
                 height: 23em;
@@ -28,8 +28,6 @@
                 margin-top: 0rem;
                 display: inline;
             }
-
-
         }
     </style>
     <!-- Demo styles -->
@@ -52,7 +50,7 @@
             width: 100%;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 760px) {
             .swiper-slide img {
                 /* display: block; */
                 width: 100px !important;
@@ -108,18 +106,23 @@
     {{-- css event --}}
     <style>
         #but_event {
-            width: 800px;
-            height: 100px;
-            font-size: 24px;
-            margin-top: 3rem;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 30px;
+            width: 12rem;
+                height: 40px;
+                font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
         }
 
+        .title_event {
+            font-size: var(--cnvs-font-size-h1);
+            font-weight: 999;
+        }
         .entry-title h3 {
             max-height: 3em;
             overflow: hidden;
@@ -127,12 +130,17 @@
             white-space: nowrap;
         }
 
-        @media (max-width: 768px) {
+        .owl-carousel .owl-dots .owl-dot {
+            background-color: #676565;
+
+        }
+
+        @media (max-width: 760px) {
 
             #but_event {
                 width: 8rem;
-                height: 40px;
-                font-size: 12px;
+                height: 30px;
+                font-size: 10px;
                 font-weight: 500;
                 margin-top: -3rem;
                 margin-left: auto;
@@ -157,7 +165,36 @@
                 height: 0.7em;
             }
 
+            /* @media (min-width: 768px) and (max-width: 1920px) {
+                            #but_event {
+                            width: 15rem;
+                            height: 100px;
+                            font-size: 24px;
+                            font-weight: 500;
+                            margin-top: -3rem;
+                            margin-left: auto;
+                            margin-right: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 5px;
 
+                        }
+
+                        .title_event {
+                            font-size: 16px;
+                            font-weight: 999;
+                            margin-bottom: 1.5rem;
+                            margin-top: 7rem !important;
+                        }
+
+                        .owl-carousel .owl-dots .owl-dot {
+                            background-color: #676565;
+                            width: 2em;
+                            height: 2em;
+                        }
+
+                        } */
 
         }
     </style>
@@ -168,7 +205,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                    </p> -->
+                                                    </p> -->
 
             </p>
             <div class="d-block d-md-none">
@@ -244,6 +281,20 @@
 
     {{-- css wisata --}}
     <style>
+         #but_wisata {
+            width: 12rem;
+                height: 40px;
+                font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+        }
+
         .image-caption {
             font-size: 22px;
             position: absolute;
@@ -275,12 +326,12 @@
         }
 
         #top_wisata {
-            margin-top: 5rem;
+            margin-top: -18rem;
 
 
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 760px) {
             #top_wisata {
                 margin-top: 5rem;
                 margin-bottom: -0.5rem;
@@ -289,9 +340,9 @@
             }
 
             #but_wisata {
-                width: 12rem;
-                height: 40px;
-                font-size: 12px;
+                width: 8rem;
+                height: 30px;
+                font-size: 10px;
                 font-weight: 500;
                 margin-top: 2rem;
                 margin-left: auto;
@@ -340,7 +391,7 @@
         }
     </style>
     {{-- end css wisata --}}
-    <div class="" id="top_wisata">
+    <div class="px-4" id="top_wisata">
         <div class="container">
             <div class="d-none d-md-block">
                 <div class="row mb-5">
@@ -354,9 +405,9 @@
                     </div>
                     <div class="col-md-5">
                         <div class="mt-5">
-                            <a href="{{ url('wisata') }}" class="btn btn-primary fs-4 float-end text-white bg-btn-visit">
-                                {{ __('home.explore_all') }}
-                                <i class="bi-arrow-right"></i>
+                            <a href="{{ url('wisata') }}" class="btn btn-primary float-end text-white bg-btn-visit" id="but_wisata">
+                                {{ __('home.explore_all') }}  {{ __('home.title_destinations') }}
+                                <i class="bi-arrow-right ms-2"></i>
                             </a>
                         </div>
                     </div>
@@ -375,7 +426,7 @@
             <swiper-container class="mySwiper2 d-none d-md-block" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
-                loop="true">
+                loop="true"  style="margin-top: -2rem;">
                 @foreach ($tours as $tour)
                     <swiper-slide class="card">
                         <a href="/wisata" style="text-decoration: none; color: white;">
@@ -392,7 +443,7 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 d-bloc d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
+            <swiper-container class="mySwiper2 d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
                 loop="true">
@@ -446,14 +497,48 @@
 
     {{-- css kuliner --}}
     <style>
-        .top_kuliner{
-            margin-top: 10rem;
+        .top_kuliner {
+            margin-top: 6rem;
         }
-        @media (max-width: 768px) {
-            #but_kuliner {
-                width: 12rem;
+        #but_kuliner {
+            width: 12rem;
                 height: 40px;
                 font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+        }
+
+        .kuliner_caption .image-caption {
+
+            font-size: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Adjust the background color and opacity */
+            padding: 0.5rem;
+            backdrop-filter: blur(5px);
+            /* Adjust the blur amount */
+        }
+
+        .image-caption p {
+            color: white;
+            margin: 0;
+
+        }
+
+        @media (max-width: 760px) {
+            #but_kuliner {
+                width: 8rem;
+                height: 30px;
+                font-size: 10px;
                 font-weight: 500;
                 margin-top: -1.5rem;
                 margin-bottom: -4rem;
@@ -471,7 +556,7 @@
             }
 
             #top_kuliner {
-                margin-top: 3rem;
+                margin-top: -3rem;
             }
 
             .event {
@@ -479,63 +564,69 @@
                 /* height: 100%; */
                 margin: auto;
             }
-            .kuliner .owl-carousel .owl-dots .owl-dot{
+
+            .kuliner .owl-carousel .owl-dots .owl-dot {
                 margin-top: -3rem;
             }
         }
     </style>
     {{-- end css kuliner --}}
 
+
+
     <div class="container">
-        <div class="d-none d-md-block">
+        <div class="d-none d-md-block px-4">
             <div class="row mb-5 top_kuliner">
                 <div class="col-md-7">
                     <h1 class="mb-1 ">
                         <b>TOP {{ __('home.title_culinaries') }}</b>
                     </h1>
-                    <div class="text-lg fs-4">
+                    <div class="text-lg fs-4 mb-4">
                         {{ __('home.subtitle_culinaries') }}
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="mt-5">
                         <a href="{{ url('kuliner') }}"
-                            class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
-                            {{ __('home.explore_all') }}
-                            <i class="bi-arrow-right"></i>
+                            class="btn btn-primary btn-lg  float-end text-white bg-btn-visit" id="but_kuliner">
+                            {{ __('home.explore_all') }}  {{ __('home.title_culinaries') }}
+                            <i class="bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                @foreach ($culiners as $culiner)
-                    <div class="col-md-4 col-lg-4 col-md-9 mb-2">
-                        <a href="{{ url('kuliner') }}">
-                            <div class="card rounded rounded-3 border-0" style="background-color: transparent">
-                                <img id="GProfile" class="card-img-top w-100"
-                                    style="border-radius: 20px; width: 360px; height: 560px; object-fit: cover"
-                                    src='{{ url("assets/resto/$culiner->picture") }}' alt="{{ $culiner->name }}">
-                                <div class="bg-overlay">
-                                    <div class="bg-overlay-content dark align-items-end justify-content-start">
-                                        <h4 class="mb-0">
-                                            <div class="image-caption text-center"
-                                                style="background: #000000 transparent; color: #ddd; border-radius: 0 0 20px 20px;">
-                                                @if (App::isLocale('id'))
-                                                    <b style="font-weight: 800;">{{ $culiner->name }}</b>
-                                                @else
-                                                    <b style="font-weight: 800;">{{ $culiner->name_en }}</b>
-                                                @endif
-                                                <br>
-                                            </div>
-                                        </h4>
+
+                <div class="px-4">
+                    <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0"
+                        data-pagi="true" data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                        @foreach ($culiners as $culiner)
+                            <div class="oc-item" >
+                                <article class="entry event p-3">
+                                    <div
+                                        class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm kuliner_caption" style="height: 12rem;">
+                                        <div class="col-12 mb-md-0">
+                                            <a href="{{ url('kuliner') }}" class="entry-image">
+                                                <img src='{{ url("assets/resto/$culiner->picture") }}'
+                                                    alt="{{ $culiner->name }}" class="rounded-2"
+                                                    style="max-height: 20rem;">
+                                            </a>
+                                        </div>
+                                        <div class="image-caption text-center"
+                                            style="background: #000000 transparent; color: #ddd; ">
+                                            @if (App::isLocale('id'))
+                                                <b style="font-weight: 800;">{{ $culiner->name }}</b>
+                                            @else
+                                                <b style="font-weight: 800;">{{ $culiner->name_en }}</b>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
-                        </a>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
+
         <div class="d-block d-md-none kuliner">
             <div class="container text-center" id="top_kuliner">
                 <b class="h1 title_kuliner">TOP {{ strtoupper(__('home.title_culinaries')) }}</b>
@@ -547,13 +638,13 @@
             <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="1" data-pagi="true"
                 data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
                 @foreach ($culiners as $culiner)
-                    <div class="oc-item" >
+                    <div class="oc-item">
                         <article class="entry event p-3">
                             <div
-                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm"  >
-                                <div class="col-12">
-                                    <a href="{{ url('event') }}" class="" >
-                                        <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2" >
+                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                <div class=" col-12">
+                                    <a href="{{ url('event') }}" class="">
+                                        <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
                                             @if (App::isLocale('id'))
@@ -576,19 +667,33 @@
                 </a>
             </div>
         </div>
-    </div>
 
+    </div>
 
     {{-- css akomodasi --}}
     <style>
-        .top_akomodasi{
-            margin-top: 10rem;
+        .top_akomodasi {
+            margin-top: -1rem;
         }
-        @media (max-width: 768px) {
-            #but_akomodasi {
-                width: 14rem;
+        #but_akomodasi {
+            width: 12rem;
                 height: 40px;
                 font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 5rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+        }
+
+        @media (max-width: 760px) {
+            #but_akomodasi {
+                width: 9rem;
+                height: 30px;
+                font-size: 10px;
                 font-weight: 500;
                 margin-top: 2rem;
                 margin-bottom: -4rem;
@@ -599,15 +704,17 @@
                 align-items: center;
                 border-radius: 5px;
             }
-            .top_akomodasi{
-            margin-top: 7rem;
-        }
+
+            .top_akomodasi {
+                margin-top: 6rem;
+            }
 
             .image-caption-akomodasi {
                 font-size: 12px;
                 text-align: center;
             }
-            .title_akomodasi{
+
+            .title_akomodasi {
                 font-size: 16px;
                 font-weight: 999;
             }
@@ -618,7 +725,7 @@
 
     <div class="top_akomodasi">
         <div class="container mt-4">
-            <div class="d-none d-md-block">
+            <div class="d-none d-md-block px-4">
                 <div class="row mb-5">
                     <div class="col-md-7">
                         <h1 class="mb-1">
@@ -631,9 +738,9 @@
                     <div class="col-md-5">
                         <div class="mt-5">
                             <a href="{{ url('akomodasi') }}"
-                                class="btn btn-primary btn-lg fs-4 float-end text-white bg-btn-visit">
-                                {{ __('home.explore_all') }}
-                                <i class="bi-arrow-right"></i>
+                                class="btn btn-primary btn-lg  float-end text-white bg-btn-visit" id="but_akomodasi">
+                                {{ __('home.explore_all') }}  {{ __('home.title_accommodations') }}
+                                <i class="bi-arrow-right ms-2"></i>
                             </a>
                         </div>
                     </div>
@@ -652,7 +759,7 @@
             <swiper-container class="mySwiper2 d-none d-md-block" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
-                loop="true">
+                loop="true" style="margin-top: -2rem;">
                 @foreach ($accomodations as $accomodation)
                     <swiper-slide class="card">
                         <a href="/akomodasi" style="text-decoration: none; color: white;">
@@ -669,7 +776,7 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 d-bloc d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
+            <swiper-container class="mySwiper2 d-block d-md-none" id="mySwiper" effect="coverflow" grab-cursor="true"
                 centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
                 coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
                 loop="true">
@@ -735,9 +842,8 @@
 
     {{-- css layanan --}}
     <style>
-
-        .layanan{
-            margin-top: 15rem;
+        .layanan {
+            margin-top: 12rem;
         }
 
         #but_layanan {
@@ -755,10 +861,11 @@
             border-radius: 5px;
         }
 
-        @media (max-width: 768px) {
-            .layanan{
-                margin-top: 13rem;
+        @media (max-width: 760px) {
+            .layanan {
+                margin-top: 12.5rem;
             }
+
             #but_layanan {
                 width: 8rem;
                 height: 40px;
@@ -777,11 +884,13 @@
             .teks_layanan {
                 font-size: 10px;
             }
-            .title_layanan{
+
+            .title_layanan {
                 font-size: 16px;
                 font-weight: 999;
             }
-            .img_layanan{
+
+            .img_layanan {
                 width: 150px;
             }
 
@@ -791,7 +900,7 @@
 
     <div class="layanan">
         <div class="container mt-5 " id="service-floating-card">
-            <div class=" container text-center mb-5 d-none d-md-block">
+            <div class=" container text-center mb-5 d-none d-md-block px-4">
                 <b class="h1">{{ __('home.title_service_products') }}</b>
                 <br>
                 <div class="teks_layanan fs-4 mb-2" style="font-size:12px; margin-top: 1rem; margin-bottom: -2rem;">
@@ -808,32 +917,35 @@
             <div class="row justify-content-center mt-5 mb-5">
                 <div class="col-4 text-center">
                     <a href="/layanan-produk/tourism-card">
-                    <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid img_layanan" width="200px">
-                    <br>
-                </a>
-                </div>
-                <div class="col-4 text-center">
-                    <a href="/layanan-produk">
-                    <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid img_layanan" width="200px">
-                    <br>
+                        <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid img_layanan"
+                            width="200px">
+                        <br>
                     </a>
                 </div>
                 <div class="col-4 text-center">
                     <a href="/layanan-produk">
-                    <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid img_layanan" width="200px">
-                    <br>
+                        <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid img_layanan"
+                            width="200px">
+                        <br>
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="/layanan-produk">
+                        <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid img_layanan"
+                            width="200px">
+                        <br>
                     </a>
                 </div>
             </div>
 
-            <div class="container mt-5 text-center  d-none d-md-block">
+            <div class="container mt-5 text-center  d-none d-md-none">
                 <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit" id="but_layanan">
                     {{ __('home.explore_all') }}
 
                     <i class="bi-arrow-right "></i>
                 </a>
             </div>
-            <div class="container mt-5 text-center  d-block d-md-none">
+            <div class="container mt-5 text-center  d-none d-md-none">
                 <a href="{{ url('layanan-produk') }}" class="btn btn-primary text-white bg-btn-visit" id="but_layanan">
                     {{ __('home.explore_all') }}
 
@@ -845,34 +957,42 @@
 
     {{-- css berita --}}
     <style>
-        .top_berita{
-                margin-top: 8rem;
-            }
-            #but_berita{
-                margin-top: -10rem;
+        .top_berita {
+            margin-top:-3rem !important;
+        }
 
-                width: 30rem;
-                height: 50px;
+        #but_berita {
+            width: 12rem;
+                height: 40px;
+                font-size: 12px;
+                font-weight: 500;
+                margin-top: -10rem;
+                margin-bottom: 5rem;
                 margin-left: auto;
                 margin-right: auto;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                border-radius: 5px;
+        }
+
+        @media (max-width: 760px) {
+            .top_berita {
+                margin-top: -6rem !important;
             }
-        @media (max-width: 768px) {
-            .top_berita{
-                margin-top: 8rem;
-            }
-            .title_berita{
+
+            .title_berita {
                 font-size: 16px;
                 font-weight: 999;
             }
+
             #but_berita {
-                width: 12rem;
-                height: 40px;
-                font-size: 12px;
+                width: 8rem;
+                height: 30px;
+                font-size: 10px;
                 font-weight: 500;
                 margin-bottom: 5rem;
+                margin-top: -11rem;
                 margin-left: auto;
                 margin-right: auto;
                 display: flex;
@@ -886,14 +1006,14 @@
     {{-- end css berita --}}
 
     <div class="container-fluid mt-lg-6 top_berita">
-        <div class="row mb-lg-6  d-none d-md-block">
+        <div class="row mb-lg-6  d-none d-md-block px-4">
             <div class="col-md-12 text-center">
                 <h1 class="mb-5">
                     <b>{{ __('home.title_news') }}</b>
                 </h1>
             </div>
         </div>
-        <div class="row mb-lg-6  d-block d-md-none">
+        <div class="row mb-lg-6  d-block d-md-none mb-5">
             <div class="col-md-12 text-center">
                 <h1 class="mb-5 title_berita">
                     <b>{{ strtoupper(__('home.title_news')) }}</b>
@@ -902,7 +1022,7 @@
         </div>
         <div class="row gx-5 col-mb-80">
             <main class="postcontent col-lg-12">
-                <div id="posts" class="row gutter-40">
+                <div id="posts" class="row gutter-40" style="margin-top: -5rem;">
                     <div class="entry col-12">
                         <div class="grid-inner row g-0">
                             <div class="col-md-4">
@@ -937,7 +1057,7 @@
                                         </ul>
                                     </div>
                                     <div class="entry-content">
-                                        {!! mb_substr(nl2br($news[0]->content), 0, 50) !!}
+                                        {!! mb_substr(nl2br($news[0]->content), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">Lanjut
                                             Baca</a>
@@ -959,8 +1079,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
-                                        {!! mb_substr(nl2br($news[0]->content_en), 0, 50) !!}
+                                    <div class="entry-content" style="margin-top: -0rem; margin-bottom: 1rem">
+                                        {!! mb_substr(nl2br($news[0]->content_en), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">
                                             {{ __('home.continue_reading') }}
@@ -971,7 +1091,7 @@
                         </div>
                     </div>
                     <div class="entry col-12">
-                        <div class="grid-inner row g-0">
+                        <div class="grid-inner row g-0" style="margin-top: -5rem;">
                             <div class="col-md-4 order-md-last">
                                 <div class="entry-image">
                                     <a href="{{ url("assets/berita/{$news[1]->cover_picture}") }}"
@@ -1002,8 +1122,8 @@
                                             <li><i class="uil uil-folder-open"></i>{{ $news[1]->category_name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
-                                        {!! mb_substr(nl2br($news[1]->content), 0, 50) !!}
+                                    <div class="entry-content" style="margin-top: -0rem; margin-bottom: 1rem">
+                                        {!! mb_substr(nl2br($news[1]->content), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">Lanjut
                                             Baca</a>
@@ -1025,8 +1145,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
-                                        {!! mb_substr(nl2br($news[1]->content_en), 0, 50) !!}
+                                    <div class="entry-content" style="margin-top: -0rem; margin-bottom: 1rem">
+                                        {!! mb_substr(nl2br($news[1]->content_en), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[1]->slug}") }}" class="more-link">
                                             {{ __('home.continue_reading') }}
@@ -1037,7 +1157,7 @@
                         </div>
                     </div>
                     <div class="entry col-12">
-                        <div class="grid-inner row g-0">
+                        <div class="grid-inner row g-0" style="margin-top: -5rem;">
                             <div class="col-md-4">
                                 <div class="entry-image">
                                     <a href='{{ url("assets/berita/{$news[2]->cover_picture}") }}'
@@ -1066,8 +1186,8 @@
                                             <li><i class="uil uil-folder-open"></i>{{ $news[2]->category_name }}</li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
-                                        {!! mb_substr(nl2br($news[2]->content), 0, 50) !!}
+                                    <div class="entry-content" style="margin-top: -0rem;">
+                                        {!! mb_substr(nl2br($news[2]->content), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">Lanjut
                                             Baca</a>
@@ -1089,8 +1209,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content">
-                                        {!! mb_substr(nl2br($news[2]->content_en), 0, 50) !!}
+                                    <div class="entry-content" style="margin-top: -0rem;">
+                                        {!! mb_substr(nl2br($news[2]->content_en), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[2]->slug}") }}" class="more-link">
                                             {{ __('home.continue_reading') }}
@@ -1292,8 +1412,36 @@
             </div>
         </div>
     </div> --}}
-    <div class="section" style="margin-bottom:0px">
-        <h3 class="text-center">{{ __('home.supported_by') }}</h3>
+    <style>
+        .support {
+            margin-top: 6rem;
+            margin-bottom: 5rem;
+
+        }
+        .title_support{
+            font-size: var(--cnvs-font-size-h1);
+            font-weight: 999;
+            margin-bottom: 5rem;
+
+        }
+
+        @media (max-width: 760px) {
+            .support {
+                margin-bottom: 2rem;
+                margin-top: -3rem;
+                font-size: 16px;
+                font-weight: 999;
+            }
+            .title_support{
+            font-size: 18px;
+            font-weight: 999;
+            margin-bottom: 1rem !important;
+
+        }
+        }
+    </style>
+    <div class="support" style=" ">
+        <h3 class="text-center title_support">{{ __('home.supported_by') }}</h3>
         <div class="container text-center d-none d-md-block">
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget justify-content-center"
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
@@ -1318,18 +1466,18 @@
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
                 <div class="oc-item align-items-center"><a href="#"><img src="{{ url('assets/sponsor/bi.png') }}"
-                            height="80px"></a></div>
+                            height="90px"></a></div>
                 <div class="oc-item align-items-center"><a href="#" class="align-items-center"><img
-                            src="{{ url('assets/sponsor/disbudpar.png') }}" height="80px"
+                            src="{{ url('assets/sponsor/disbudpar.png') }}" height="90px"
                             style="width:663px !important;"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/indo.png') }}" height="80px"></a></div>
+                            src="{{ url('assets/sponsor/indo.png') }}" height="90px"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/jagat.png') }}" height="80px"></a></div>
+                            src="{{ url('assets/sponsor/jagat.png') }}" height="90px"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/multiverse.png') }}" height="80px"></a></div>
+                            src="{{ url('assets/sponsor/multiverse.png') }}" height="90px"></a></div>
                 <div class="oc-item"><a href="#"><img src="{{ url('assets/sponsor/pesona.png') }}"
-                            height="80px"></a></div>
+                            height="90px"></a></div>
             </div>
         </div>
     </div>

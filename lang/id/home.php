@@ -22,9 +22,9 @@ return [
     "subtitle_destinations" => "Berikut ini daftar wisata yang sering dikunjungi wisatawan.",
     "subtitle_culinaries" => "Berikut ini daftar kuliner yang sering dinikmati wisatawan.",
     "subtitle_accommodations" => "Berikut ini daftar akomodasi yang dikunjungi wisatawan",
-    "subtitle_service_products" => "Dapatkan diskon untuk belanja apapun di Cirebon Raya",
-    "see_all" => "Lihat Semua",
-    "explore_all" => "Eksplore Semua",
+    "subtitle_service_products" => "Dapatkan penawaran spesial untuk perjalanan anda!",
+    "see_all" => "Semua",
+    "explore_all" => "Semua",
     "continue_reading" => "Lanjut Baca",
     "supported_by" => "Didukung Oleh",
 ];
