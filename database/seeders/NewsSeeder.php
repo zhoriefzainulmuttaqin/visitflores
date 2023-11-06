@@ -18,7 +18,7 @@ class NewsSeeder extends Seeder
                 "category_id"   => 7,
                 "admin_id"   => 1,
                 "cover_picture"   => "curug-bangkong.png",
-                "name"   => "Wisata yang lagi histtt bangett ! Wajib Kamu kunjungi",
+                "name"   => "Wisata yang lagi hits bangett ! Wajib Kamu kunjungi",
                 "name_en"   => "Hot and trending tourist destination! A must-visit for you",
                 "slug"   => "berita-1",
                 "published_date"   => date('Y-m-d'),

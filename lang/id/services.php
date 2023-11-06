@@ -1,14 +1,14 @@
 <?php
- 
+
 // lang/id/services.php
- 
+
 return [
     'product_services' => "Layanan Produk",
     'tour_packages' => 'Paket Wisata',
     'souvenirs' => 'Oleh - oleh',
     'souvenirs_package' => 'Paket Oleh - oleh',
-    'tourism_card_detail_one' => "<b>Tourism Card</b> adalah kartu member <span class='text-warning'>VISITCIREBON.ID</span> yang bisa digunakan di berbagai destinasi wisata di wilayah Ciayumajakuning. Termasuk dengan kuliner dan oleh-olehnya.",
-    "tourism_card_detail_two" => "<b>Kegunaan Kartu :</b> Kartu member yang bisa digunakan wisatawan untuk mendapatkan potongan harga dan promo spesial lainnya dari mitra yang bekerja sama dengan <span class='text-warning'>VISITCIREBON.ID.</span>",
+    'tourism_card_detail_one' => "<b>Dapatkan kemudahan berwisata melalui produk kartu diskon kami yang dapat digunakan untuk memperoleh penawaran spesial/diskon spesial diberbagai hotel, restoran, tempat wisata, oleh-oleh, outlet yang telah menjadi mitra <span class='text-warning'>VISITCIREBON.ID</span>.</b> ",
+    "tourism_card_detail_two" => "<b>Tourism Card :</b> Kartu diskon berbentuk e-card yang bisa anda dapatkan hanya dengan harga Rp.25.000 (berlaku 3 hari). <br> <br> Kemudahan Tourism Card dapat anda nikmati diberbagai fasilitas yang berada di Cirebon Raya (Cirebon, Kuningan, Majalengka, Indramayu). ",
     "buy"   => "Beli",
     "show_details"  => "Lihat Lebih Lanjut",
     "buy_package"   => "Beli Paket",
