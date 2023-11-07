@@ -97,9 +97,9 @@
                             {{ __('accomodation_detail.about_accomodation') }}
                             <div class="text-lg fw-normal mt-2 fs-5">
                                 @if (App::isLocale('id'))
-                                    {{ nl2br($accomodation->details) }}
+                                    {!! nl2br($accomodation->details) !!}
                                 @else
-                                    {{ nl2br($accomodation->details_en) }}
+                                    {!! nl2br($accomodation->details_en) !!}
                                 @endif
                             </div>
                             <div class="row mt-3">
