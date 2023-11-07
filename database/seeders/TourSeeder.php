@@ -28,7 +28,7 @@ class TourSeeder extends Seeder
                 "description"   => "Waduk Darma adalah sebuah waduk buatan yang terletak di Desa Kertayasa, Cirebon. Tempat ini menawarkan pemandangan alam yang menakjubkan, dengan perbukitan hijau yang mengelilingi dan hamparan air yang indah. Pengunjung dapat menikmati aktivitas air seperti perahu dayung, memancing, dan berenang. Selain itu, waduk ini juga menjadi tempat populer untuk berfoto dengan latar belakang alam yang menawan.
 
                 Selain keindahan alamnya, Waduk Darma juga dilengkapi dengan fasilitas rekreasi seperti taman bermain, area piknik, dan lapangan olahraga, menjadikannya tempat ideal untuk keluarga yang ingin bersantai sambil menikmati alam. Jadi, tempat ini tidak hanya memungkinkan Anda untuk melepaskan penat, tetapi juga menikmati waktu berkualitas dengan orang-orang terkasih.
-                
+
                 KUNINGAN – Waduk Darma yang terletak di sebelah barat daya Kabupaten Kuningan, tepatnya berada di Desa Jagara, Kecamatan Darma, dengan sumber air dari beberapa sungai, diantaranya Sungai Cisanggarung, Cinangka, Cikalapa dan Cireungit hari ini Selasa (20/10/2020) dikunjungi Kepala BBWS Cimanuk Cisanggarung Dr. Ismail Widadi, S.T., M.Sc.
 
                 “Sejarah panjang Waduk Darma dimulai pada tahun 1923 saat Belanda melakukan perencanaan dan penilitan, groundbreaking  tahun 1938 kemudian terhenti karena PD II, Pembangunan dilanjutkan tahun 1951 sd tahun 1962 oleh Pemerintah RI sampai dengan selesai, dari Waduk Darma pula salah satu tonggak pembangunan infrastruktur di era kemerdekaan dimulai “ demikian kata Kepala BBWS.
@@ -37,19 +37,19 @@ class TourSeeder extends Seeder
                 "description_en"   => "Darma Reservoir is an artificial reservoir located in the village of Kertayasa, Cirebon. It offers breathtaking natural scenery, with green hills surrounding it and a beautiful expanse of water. Visitors can enjoy water activities such as rowing boats, fishing, and swimming. Additionally, the reservoir is a popular spot for photography, thanks to its stunning natural backdrop.
 
                 In addition to its natural beauty, Darma Reservoir is equipped with recreational facilities like playgrounds, picnic areas, and sports fields, making it an ideal place for families to relax while enjoying the outdoors. So, this place not only allows you to unwind but also to spend quality time with your loved ones.
-                
+
                 KUNINGAN - The Darma Reservoir is located in the southwest of Kuningan Regency, precisely in Jagara Village, Darma District, with water sources from several rivers, including the Cisanggarung, Cinangka, Cikalapa and Cireungit Rivers. This Tuesday (20/10/2020) was visited by the Head. BBWS Cimanuk Cisanggarung Dr. Ismail Widadi, S.T., M.Sc.
 
                  'The long history of the Darma Reservoir began in 1923 when the Dutch carried out planning and research, groundbreaking in 1938 then stopped because of WWII, construction was continued from 1951 to 1962 by the Indonesian Government until it was completed, the Darma Reservoir was also one of the milestones of infrastructure development in this era. independence begins,' said the Head of BBWS.
 
                  In the spirit of the history of the Darma Reservoir, the Head of BBWS also wants a new color in the performance of his staff, including firstly pride in the infrastructure that has been built and the infrastructure that is being maintained with the inscription, Safe, Neat, Beautiful and Healthy or PARIS, secondly for disaster preparedness with 'SIAGA 500' and The third is moving with the Disaster Anticipation Rapid Action Information System or SIGAB to anticipate the arrival of the rainy season in the Cimanuk Cisanggarung River Area. (PPID-Cimancis)
                 ",
-                "phone"   => "081224689599",
+                "phone"   => "081392786802",
                 "price"   => 24000,
-                "link_youtube"   => "https://www.youtube.com/",
-                "link_tiktok"   => "https://www.tiktok.com/",
-                "link_facebook"   => "https://www.facebook.com/",
-                "link_instagram"   => "https://www.instagram.com/",
+                "link_youtube"   => "https://www.youtube.com/watch?v=YXg_Fq-R4JM&pp=ygULd2FkdWsgZGFybWE%3D",
+                "link_tiktok"   => "https://www.tiktok.com/@veraaravee/video/7282683459103935749?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/pages/Waduk-Darma-Kuningan/1741345446087274",
+                "link_instagram"   => "https://www.instagram.com/wadukdarma_official/",
                 "link_maps"   => "https://maps.app.goo.gl/beZMGQTZ2pU2DQMk6",
             ]),
             ([
@@ -68,8 +68,8 @@ class TourSeeder extends Seeder
                 Cibulan dikenal dengan kekayaan budayanya yang meliputi arsitektur tradisional Jawa, seni, dan kerajinan tangan lokal. Pengunjung dapat menjelajahi warisan budaya ini sambil menikmati keindahan alam yang tenang, termasuk pemandangan sawah yang hijau.
 
                 Selain itu, Cibulan juga menawarkan hidangan khas Jawa yang otentik dan camilan tradisional yang menggugah selera. Wisatawan juga dapat membeli beragam kerajinan tangan lokal sebagai kenang-kenangan.
-                Menurut cerita yang berkembang di kalangan Masyarakat Desa Maniskidul dan masyarakat Kuningan pada umumnya, ikan dewa yang ada di kolam Cibulan ini konon dahulunya adalah prajurit-prajurit yang membangkang atau tidak setia pada masa pemerintahan Prabu Siliwangi. 
-                
+                Menurut cerita yang berkembang di kalangan Masyarakat Desa Maniskidul dan masyarakat Kuningan pada umumnya, ikan dewa yang ada di kolam Cibulan ini konon dahulunya adalah prajurit-prajurit yang membangkang atau tidak setia pada masa pemerintahan Prabu Siliwangi.
+
                 Singkat cerita, prajurit-prajurit pembangkang tersebut kemudian dikutuk oleh Prabu Siliwangi sehingga menjadi ikan.
                 Konon ikan-ikan dewa ini dari dulu hingga sekarang jumlahnya tidak berkurang maupun bertambah.  Terlepas dari benar atau tidaknya legenda itu sampai saat ini tidak ada yang berani mengambil ikan ini karena ada kepercayaan bahwa barang siapa yang berani mengganggu ikan-ikan tersebut akan mendapatkan kemalangan.
 
@@ -79,17 +79,17 @@ class TourSeeder extends Seeder
                 Furthermore, Cibulan also offers authentic Javanese cuisine and traditional snacks that tantalize the taste buds. Tourists can also purchase a variety of local handmade crafts as souvenirs.
                 Apart from that, Cibulan also offers authentic Javanese dishes and mouth-watering traditional snacks. Tourists can also buy various local handicrafts as souvenirs.
                  According to the story that has developed among the Maniskidul Village Community and the Kuningan community in general, it is said that the god fish in the Cibulan pond were once soldiers who were disobedient or disloyal during the reign of King Siliwangi.
-                
+
                  Long story short, the dissident soldiers were then cursed by Prabu Siliwangi so that they became fish.
                  It is said that these divine fish have not decreased or increased in number from the past until now. Regardless of whether the legend is true or not, to this day no one dares to take this fish because there is a belief that anyone who dares to disturb these fish will suffer misfortune.
 
                  Apart from the pool with its tame divine fish, in the west corner of this bath there are also seven sacred springs called Seven Wells. These seven springs are in the form of small pools, each of which has its own name, namely: Well of Glory, Well of Glory, Well of Granting, Well of Cirancana, Well of Cisadane, Well of Ease, and Well of Safety. Among the seven wells, it is said that there is one well that contains Golden Crabs, namely the Cirancana Well.
                 ",
-                "phone"   => "082124167416",
+                "phone"   => "081392786802",
                 "price"   => 25000,
-                "link_youtube"   => "https://www.youtube.com/",
-                "link_tiktok"   => "https://www.tiktok.com/",
-                "link_facebook"   => "https://www.facebook.com/",
+                "link_youtube"   => "https://www.youtube.com/watch?v=q7kmGBdRFng&pp=ygUQY2lidWxhbiBrdW5pbmdhbg%3D%3D",
+                "link_tiktok"   => "https://www.tiktok.com/@kudapirang/video/6953151787444587777?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/pages/Cibulan-KUNINGAN/369534083156418",
                 "link_instagram"   => "https://www.instagram.com/",
                 "link_maps"   => "https://maps.app.goo.gl/R2hQu7HhmiKSr5QC8",
             ]),
@@ -110,7 +110,7 @@ class TourSeeder extends Seeder
                 Air terjun ini dikelilingi oleh hutan hijau yang memberikan kesan alami dan tenang. Suara gemericik air yang jatuh dari ketinggian menambah suasana yang menenangkan. Curug Bangkong adalah tempat yang cocok untuk bersantai, berpiknik, atau sekadar menjauh dari hiruk-pikuk kota untuk meresapi keindahan alam.
 
                 Keunikan Curug Bangkong terletak pada formasi bebatuan yang mengelilingi air terjun. Batu-batu besar tersebut menciptakan lanskap yang menawan dan menawarkan peluang untuk menjelajahi dan berfoto di sekitarnya. Bagi para petualang, air terjun ini juga menjadi tempat yang menarik untuk hiking dan menikmati alam.
-                
+
                 Cerita rakyat atau mitos seringkali berhubungan dengan nama tempat di pelosok nusantara. Salah satunya adalah Air Terjun Bangkong atau Curug Bangkong di Kuningan, tepatnya di Desa Kertawiratma, Kecamatan Nusaherang, Jawa Barat.
 
                 Nama bangkong sendiri bukan tidak punya arti. Di kalangan penduduk setempat beredar cerita seputar arti nama air terjun ini. Konon, air terjun yang memiliki ketinggian 23 meter dan lebar sekitar 3 meter ini didiami oleh katak berukuran besar yang merupakan jelmaan Abah Wiria, seorang petapa yang berasal dari daerah Ciamis.
@@ -135,7 +135,7 @@ class TourSeeder extends Seeder
                 The waterfall is surrounded by lush greenery, creating a natural and serene ambiance. The sound of cascading water from a height adds to the calming atmosphere. Bangkong Waterfall is an ideal place for relaxation, picnicking, or simply getting away from the city's hustle and bustle to immerse oneself in the beauty of nature.
 
                 What sets Bangkong Waterfall apart is the rock formations that surround the waterfall. The large boulders create a captivating landscape and offer opportunities for exploration and photography. For adventurers, the waterfall is also an attractive location for hiking and enjoying the nature.
-                
+
                 The name bangkong itself is not meaningless. Among local residents, stories circulate about the meaning of the name of this waterfall. It is said that this waterfall, which has a height of 23 meters and a width of around 3 meters, is inhabited by a large frog which is the incarnation of Abah Wiria, a hermit from the Ciamis area.
 
                  The story begins when Wiria comes to the Kuningan area to do taliat to increase her spiritual knowledge. During this search, Wiria felt called to perform asceticism at a waterfall he encountered. Not only did he do Tarikat, he also socialized with the community and taught them how to make brown sugar. Because of his services, people later called him Abah Wiria as a sign of respect.
@@ -152,12 +152,12 @@ class TourSeeder extends Seeder
 
                  Even if you visit this waterfall when rainfall is high and the water level rises, you will see this waterfall split into two.
                 ",
-                "phone"   => "089662840159",
+                "phone"   => "081392786802",
                 "price"   => 26000,
-                "link_youtube"   => "https://www.youtube.com/",
-                "link_tiktok"   => "https://www.tiktok.com/",
-                "link_facebook"   => "https://www.facebook.com/",
-                "link_instagram"   => "https://www.instagram.com/",
+                "link_youtube"   => "https://www.youtube.com/watch?v=2xwl6DWAn08&pp=ygUOY3VydWcgYmFuZ2tvbmc%3D",
+                "link_tiktok"   => "https://www.tiktok.com/@enjoykuningan/video/7285140440590863621?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/CurugBangkong",
+                "link_instagram"   => "https://www.instagram.com/curugbangkongofficial/",
                 "link_maps"   => "https://maps.app.goo.gl/cxB8h3fj9ycZqNTM8",
             ]),
             ([
@@ -176,7 +176,7 @@ class TourSeeder extends Seeder
                 Dengan arsitektur yang megah dan detail artistik yang indah, Keraton Kasepuhan memperlihatkan kemegahan zaman dulu. Bangunannya didominasi oleh warna merah dan coklat yang khas, menciptakan suasana yang memikat.
 
                 Di dalam istana, pengunjung dapat menjelajahi ruang-ruang bersejarah, seperti balairung (aula), tempat pertemuan penting berlangsung, dan pendapa (bangunan terbuka), yang sering digunakan untuk upacara resmi. Ada juga museum yang menampilkan koleksi benda-benda bersejarah, seperti pakaian raja dan peralatan kerajaan.
-                
+
                 Keraton Kasepuhan memiliki dua buah pintu gerbang, pintu gerbang utama keraton Kasepuhan terletak di sebelah utara dan pintu gerbang kedua berada di selatan kompleks. Gerbang utara disebut Kreteg Pangrawit (bahasa Indonesia: jembatan baik) berupa jembatan, sedangkan di sebelah selatan disebut Lawang sanga (bahasa Indonesia: pintu sembilan). Setelah melewati Kreteg Pangrawit akan sampai di bagian depan keraton, di bagian ini terdapat dua bangunan yaitu Pancaratna dan Pancaniti.
 
                 Bangunan Pancaratna berada di kiri depan kompleks arah barat berdenah persegi panjang dengan ukuran 8 × 8 m. Lantai tegel, konstruksi atap ditunjang empat sokoguru di atas lantai yang lebih tinggi dan 12 tiang pendukung di permukaan lantai yang lebih rendah. Atap dari bahan genteng, pada puncaknya terdapat mamolo. Bangunan ini berfungsi sebagai tempat seba atau tempat yang menghadap para pembesar desa yang diterima oleh Demang atau Wedana. Secara keseluruhan memiliki pagar terali besi.
@@ -188,18 +188,18 @@ class TourSeeder extends Seeder
                 With its grand architecture and beautiful artistic details, Kasepuhan Palace showcases the splendor of bygone eras. The buildings are dominated by the distinctive red and brown colors, creating a captivating atmosphere.
 
                 Inside the palace, visitors can explore historic rooms such as the balairung (hall), where important meetings were held, and the pendapa (open building), often used for official ceremonies. There is also a museum displaying a collection of historical artifacts, including royal attire and royal paraphernalia.
-                
+
                 The Kasepuhan Palace has two gates, the main gate of the Kasepuhan Palace is located to the north and the second gate is to the south of the complex. The north gate is called Kreteg Pangrawit (Indonesian: good bridge) in the form of a bridge, while the south gate is called Lawang sanga (Indonesian: nine doors). After passing Kreteg Pangrawit you will arrive at the front of the palace, in this section there are two buildings, namely Pancaratna and Pancaniti.
 
                 The Pancaratna building is on the left front of the complex to the west and has a rectangular floor plan measuring 8 × 8 m. The floor is tile, the roof construction is supported by four pillars on the higher floor and 12 supporting pillars on the surface of the lower floor. The roof is made of tiles, at the top there is a mamolo. This building functions as a seba place or a place facing village officials who are received by the Demang or Wedana. Overall it has an iron grille fence.
 
                 Pancaniti means superior road, it is the eastern pavilion which is where palace officers train soldiers when soldiering exercises are held in the square and as a place for court. This building measures 8 × 8 m, chained with tiles. This building is open without walls. Sixteen pillars support the shingled roof. This building has an iron grille fence",
-                "phone"   => "081931132884",
+                "phone"   => "081392786802",
                 "price"   => 10000,
-                "link_youtube"   => "https://www.youtube.com/",
-                "link_tiktok"   => "https://www.tiktok.com/",
-                "link_facebook"   => "https://www.facebook.com/",
-                "link_instagram"   => "https://www.instagram.com/",
+                "link_youtube"   => "https://www.youtube.com/watch?v=0FnJXClnXXQ&pp=ygUZa2VyYXRvbiBrYXNlcHVoYW4gY2lyZWJvbg%3D%3D",
+                "link_tiktok"   => "https://www.tiktok.com/@helloyasinta/video/7133810608142699802?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/pages/Keraton-Kasepuhan/139765476082834",
+                "link_instagram"   => "https://www.instagram.com/keratonkasepuhan/",
                 "link_maps"   => "https://maps.app.goo.gl/cs4KZkQW5ZhXzHNm6",
             ]),
             ([
@@ -218,7 +218,7 @@ class TourSeeder extends Seeder
                 Gua Sunyaragi, dengan arsitektur dan pemandangan yang mengagumkan, adalah tempat yang sarat dengan nilai sejarah dan seni. Dalam gua, Anda akan menemukan berbagai koridor dan ruangan yang dihiasi dengan relief, ornamen, dan berbagai karya seni yang menawan. Gua ini juga memiliki sistem saluran air yang mengalir dengan air jernih yang menambah keunikan tempat ini.
 
                 Selain sebagai situs sejarah, Gua Sunyaragi juga merupakan lokasi yang ideal untuk berjalan-jalan santai di taman yang hijau dan rindang. Pengunjung dapat menikmati pemandangan alam yang indah dan merasakan ketenangan di tengah kota.
-                
+
                  Jumlah wisatawan yang mengunjungi objek wisata Goa Sunyaragi di Cirebon, Jawa Barat, mengalami peningkatan selama beberapa hari pada momen libur Lebaran. Diperkirakan kunjungan wisatawan masih akan terjadi hingga akhir pekan mendatang.
 
                 Menurut Kepala Bagian Humas Badan Pengelola Taman Air Goa Sunyaragi (BPTAGS), Eko Ardi Nugraha, pada hari pertama Lebaran atau Sabtu (22/4/2023), jumlah pengunjung mencapai 184 orang. Keesokan harinya melonjak menjadi 764 orang.
@@ -231,7 +231,7 @@ class TourSeeder extends Seeder
                 Sunyaragi Cave, with its remarkable architecture and views, is rich in historical and artistic value. Inside the cave, you'll find various corridors and rooms adorned with reliefs, ornaments, and various captivating artworks. The cave also features a system of flowing clear water channels, adding to its uniqueness.
 
                 Apart from being a historical site, Sunyaragi Cave is also an ideal location for a leisurely stroll in the lush and verdant park. Visitors can enjoy the beautiful natural scenery and experience tranquility in the heart of the city.
-                
+
                 The number of tourists visiting the Sunyaragi Cave tourist attraction in Cirebon, West Java, has increased for several days during the Eid holiday. It is estimated that tourist visits will continue until next weekend.
 
                 According to the Head of Public Relations of the Sunyaragi Cave Water Park Management Agency (BPTAGS), Eko Ardi Nugraha, on the first day of Eid or Saturday (22/4/2023), the number of visitors reached 184 people. The next day it jumped to 764 people.
@@ -240,13 +240,61 @@ class TourSeeder extends Seeder
 
                 Meanwhile, during the same period during the 2022 Eid holiday, the number of visitors was 1,360 people. 'So, there was an increase in the number of visitors by 418 people or 30 percent compared to last years Eid,' said Eko, Tuesday (25/4/2023).
                 ",
-                "phone"   => "081931132884",
+                "phone"   => "081392786802",
                 "price"   => 12000,
-                "link_youtube"   => "https://www.youtube.com/",
-                "link_tiktok"   => "https://www.tiktok.com/",
-                "link_facebook"   => "https://www.facebook.com/",
-                "link_instagram"   => "https://www.instagram.com/",
+                "link_youtube"   => "https://www.youtube.com/watch?v=08PGLO0DMAw&pp=ygUNZ29hIHN1bnlhcmFnaQ%3D%3D",
+                "link_tiktok"   => "https://www.tiktok.com/@dulll.28/video/7281522234244517126?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/goasunyaragi",
+                "link_instagram"   => "https://www.instagram.com/goasunyaragi_official/",
                 "link_maps"   => "https://maps.app.goo.gl/5AWEcnNrz2rrJAEf7",
+            ]),
+            ([
+                "category_id"   => 6,
+                "city"   => "Kota Cirebon",
+                "slug"   => "mangrove",
+                "name"   => "Mangrove Indramayu",
+                "name_en"   => "Mangrove Indramayu",
+                "picture"   => "mangrove.png",
+                "cover_picture"   => "mangrove.png",
+                "address"   => "Desa Karangsong, Kecamatan Indramayu, Kabupaten Indramayu, Jawa Barat.",
+                "facilities"   => "Parkir, Toilet, Kantin",
+                "facilities_en"   => "Parking, Toilet, Cafeteria",
+                "description"   => "Tempat wisata mangrove di Indramayu adalah destinasi wisata yang menawarkan pengalaman unik di sekitar hutan mangrove, yang merupakan ekosistem penting di pesisir.
+                Tempat wisata mangrove di Indramayu adalah tempat yang ideal bagi pecinta alam, pendidik, dan siapa saja yang ingin menjelajahi keindahan ekosistem pesisir dan berkontribusi pada pelestariannya. Ini adalah pengalaman yang mendidik dan mengasyikkan untuk seluruh keluarga.",
+                "description_en"   => "The mangrove tourist destination in Indramayu is a place that offers a unique experience around the mangrove forest, which is an important ecosystem on the coast. The mangrove tourist spot in Indramayu is an ideal place for nature enthusiasts, educators, and anyone who wants to explore the beauty of the coastal ecosystem and contribute to its preservation. It is an educational and enjoyable experience for the whole family.",
+                "phone"   => "081392786802",
+                "price"   => 15000,
+                "link_youtube"   => "https://www.youtube.com/watch?v=lgd6uZ6ZcAo&pp=ygUTIG1hbmdyb3ZlIGluZHJhbWF5dQ%3D%3D",
+                "link_tiktok"   => "https://www.tiktok.com/@mantan.siapa/video/7178443172886875419?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/pages/Mangrove-Pantai-Karang-Song-Indramayu/981011295309093",
+                "link_instagram"   => "https://www.instagram.com/",
+                "link_maps"   => "https://maps.app.goo.gl/R5fGc4L4i3RWnVPA9",
+            ]),
+            ([
+                "category_id"   => 1,
+                "city"   => "Kab. Majalengka",
+                "slug"   => "curug-cipeuteuy",
+                "name"   => "Curug Cipeuteuy",
+                "name_en"   => "Curug Cipeuteuy",
+                "picture"   => "cipeuteuy.png",
+                "cover_picture"   => "cipeuteuy.png",
+                "address"   => "Jl. Dukuh Pasir, Bantaragung, Kec. Sindangwangi, Kabupaten Majalengka, Jawa Barat 45474",
+                "facilities"   => "Parkir, Toilet, Kantin",
+                "facilities_en"   => "Parking, Toilet, Cafeteria",
+                "description"   => "Curug Cipeuteuy adalah pesona tersembunyi di Majalengka, Jawa Barat. Terletak di tengah hutan yang rimbun, air terjun ini menghadirkan keindahan alam yang memukau. Curug Cipeuteuy memiliki tiga tingkatan air terjun yang mengalir deras ke kolam di bawahnya. Suara gemericik air yang menenangkan dan suasana hutan yang sejuk membuat tempat ini cocok untuk melepaskan penat.
+
+                Perjalanan menuju Curug Cipeuteuy akan membawa Anda melalui jalan setapak yang indah di tengah hutan, di mana Anda akan merasa seperti berada di alam belantara. Selama perjalanan, Anda dapat menikmati flora dan fauna alam yang masih alami.",
+                "description_en"   => "Curug Cipeuteuy is a hidden gem in Majalengka, West Java. Nestled in the midst of a lush forest, this waterfall presents captivating natural beauty. Curug Cipeuteuy features three tiers of cascading waterfalls that flow vigorously into a pool below. The soothing sound of flowing water and the cool forest ambiance make this place perfect for relaxation.
+
+                The journey to Curug Cipeuteuy takes you through a beautiful forest trail, where you'll feel like you're in the wilderness. During the journey, you can admire the untouched flora and fauna of nature.
+                ",
+                "phone"   => "081392786802",
+                "price"   => 15000,
+                "link_youtube"   => "https://youtu.be/Gu4ocqJzixE?si=yPLASqlESHIMdHIG",
+                "link_tiktok"   => "https://www.tiktok.com/@anunya.becky/video/7271090636227431686?is_from_webapp=1&sender_device=pc&web_id=7298381976439735809",
+                "link_facebook"   => "https://www.facebook.com/curugcipeuteuydesabantaragung",
+                "link_instagram"   => "https://www.instagram.com/curug_cipeuteuy/",
+                "link_maps"   => "https://maps.app.goo.gl/uoPoVaZouKc3GKQb9",
             ]),
         ]);
 

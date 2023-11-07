@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\App;
 ?>
 
 @section('title')
-	{{ __("tours.detail_title") }} - 
+	{{ __("tours.detail_title") }} -
 	@if(App::isLocale("id"))
 		{{ $tour->name }}
 	@else
@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\App;
 	@endif
 @endsection
 
-@section('cover')
-@endsection
+ <style>
+
+.content-wrap{
+    margin-bottom: -5%;
+                /* margin-top: -30em; */
+            }
+        @media only screen and (min-width: 200px) and (max-width: 767px) {
+            .content-wrap{
+                margin-bottom: -20%;
+            }
+        }
+ </style>
 
 @section('content')
     <div class="content-wrap">
@@ -75,9 +85,9 @@ use Illuminate\Support\Facades\App;
 											@else
 											{{ ($tour->description_en) }}
 										@endif
-										
+
 										<!-- Post Single - Content End -->
-										
+
                                         <h4 class="mb-2 mt-2">{{ __("tours.facilities") }}</h4>
 
                                         <div class="row col-mb-30">
@@ -119,7 +129,7 @@ use Illuminate\Support\Facades\App;
                                                                     <i class="uil uil-facebook"></i>
                                                                 </a>
                                                             @endif
-                                            
+
                                                             @if($tour->link_youtube != null)
                                                                 <a target="_blank" href="{{ $tour->link_youtube }}" class="social-icon si-small text-white border-transparent rounded-circle bg-youtube" title="youtube">
                                                                      <i class="uil uil-youtube"></i>
@@ -140,7 +150,7 @@ use Illuminate\Support\Facades\App;
                                                                     <i class="uil fa-brands fa-tiktok"></i>
                                                                 </a>
                                                             @endif
-                                                           
+
 
                                                         </div>
                                                     </div>
@@ -159,5 +169,5 @@ use Illuminate\Support\Facades\App;
 
 				</div>
 			</div>
-    <div class="clearfix mb-5"></div>
+    {{-- <div class="clearfix mb-5"></div> --}}
 @endsection

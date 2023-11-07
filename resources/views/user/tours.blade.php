@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\App;
         <p class="text-dark" style="font-size: 26px; font-weight: 600;">
             {{ __("tours.title") }}</p>
         <p style="font-size: 20px; font-weight: 400; margin-top:-1rem;"> {{ __("tours.desc_title") }}</p>
-        
+
         <div class="row">
             <div class="col-lg-4 col-sm-12 mt-4">
 				<h5 class="mb-0">{{ __("tours.search_destination") }}</h5>
@@ -57,7 +57,7 @@ use Illuminate\Support\Facades\App;
 									onchange="submit()" type="checkbox" name="cat_list[]"
 									value="0" >
 									<label for="cat-list-0" class="form-check-label btn btn-sm text-white text-sm"  style="background-color: #0F304F;">Reset Kategori </label> --}}
-							<?php 
+							<?php
 							if(isset($_GET['keyword'])){
 								$cari = $_GET['keyword'];
 							} else {
@@ -178,8 +178,8 @@ use Illuminate\Support\Facades\App;
 												<li class="fw-normal text-warning"><i class="uil bi-telephone-fill"></i> {{ $tour->phone }}</li>
 											</ul>
 										</div>
-										
-										
+
+
 										@if($tour->link_youtube != null || $tour->link_instagram != null || $tour->link_facebook != null || $tour->link_tiktok != null)
 											<div class="entry-meta no-separator mb-3">
 												<ul>
@@ -204,15 +204,14 @@ use Illuminate\Support\Facades\App;
 												</ul>
 											</div>
 										@endif
-										<div class="entry-meta no-separator">
-											<ul>
+										<div class="entry-meta no-separator d-flex ">
+											<ul class="me-auto">
 												<li><a href="{{ url('layanan-produk/tourism-card') }}" class="fw-normal text-dark"><i class="uil uil-ticket text-warning"></i> Disc. Card</a></li>
 											</ul>
-										</div>
-										<div class="entry-meta no-separator float-end">
-											<ul>
-												<li><a  href="{{ url('detail-wisata/' . $tour->slug) }}" class="fw-normal text-dark"> 
-													{{ __("tours.show_more") }}   
+
+											<ul class="ms-auto">
+												<li><a  href="{{ url('detail-wisata/' . $tour->slug) }}" class="fw-normal text-dark">
+													{{ __("tours.show_more") }}
 													<i class="uil bi-arrow-right-circle"></i></a>
 												</li>
 											</ul>
@@ -220,8 +219,8 @@ use Illuminate\Support\Facades\App;
 									</div>
 								</div>
 							</article>
-						@endforeach              
-						{{ $tours->links('vendor.pagination.canvas') }}          
+						@endforeach
+						{{ $tours->links('vendor.pagination.canvas') }}
 					</div>
 				</div>
 			</div>

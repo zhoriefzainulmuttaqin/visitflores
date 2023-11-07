@@ -9,10 +9,12 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
+
 @endsection
+
 @section('content')
-    <div class="container-lg mt-5">
-        <div class="row">
+    <div class="container-lg mt-5 akomodasi">
+        <div class="row ">
             <div class="col-md-8">
                 <h1 class="fs-2 fw-bold">
                     {{ App::isLocale('id') ? $accomodation->name : $accomodation->name_en }}
@@ -44,7 +46,7 @@
                     </div>
                 </h1>
             </div>
-            <div class="col-md-4 my-2">
+            <div class="col-md-4 my-2 mb-4">
                 <font class="fw-bold fs-5 float-end ">
 
                     {{ __('accomodation_detail.start_from') }}
@@ -74,8 +76,8 @@
             @endforeach
         </div>
         <div class="row my-5">
-            <div class="col-md-4 mb-1 mb-sm-0">
-                <div class="card w-100 border-1 mb-5 overflow-hidden">
+            <div class="col-md-4 mb-3 mb-sm-0">
+                <div class="card w-100 border-1 overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
                             {{ __('accomodation_detail.facilities') }}
@@ -88,8 +90,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 mb-3 mb-sm-0">
-                <div class="card border-1 mb-5 overflow-hidden">
+            <div class="col-md-8 mb-sm-0">
+                <div class="card border-1  overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
                             {{ __('accomodation_detail.about_accomodation') }}

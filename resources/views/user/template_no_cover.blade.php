@@ -40,22 +40,11 @@
 
 		{{ view("user.header") }}
 
-		<section id="slider" class="slider-element slider-parallax min-vh-20 min-vh-md-40 dark include-header" style="background: url(<?= url('assets/header_cover.jpg') ?>) center center no-repeat; background-size: cover">
-			<div class="slider-inner">
+		<section id="slider" class="slider-element slider-parallax  dark include-header" style=" center center no-repeat; background-size: cover">
 
-				<div class="vertical-middle slider-element-fade">
-					<div class="container-fluid py-5">
-						<div class="heading-block text-center border-bottom-0">
-							<!-- <h1>Starter's Guide to create Landing Pages</h1>
-							<span>Building a Landing Page was never so Easy &amp; Interactive</span> -->
-						</div>						
-					</div>
-				</div>
-
-			</div>
 		</section>
 
-		
+
 		<!-- Content
 		============================================= -->
 		<section id="content">

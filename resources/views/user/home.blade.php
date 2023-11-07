@@ -171,35 +171,35 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                        #but_event {
-                                        width: 15rem;
-                                        height: 100px;
-                                        font-size: 24px;
-                                        font-weight: 500;
-                                        margin-top: -3rem;
-                                        margin-left: auto;
-                                        margin-right: auto;
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: center;
-                                        border-radius: 5px;
+                                            #but_event {
+                                            width: 15rem;
+                                            height: 100px;
+                                            font-size: 24px;
+                                            font-weight: 500;
+                                            margin-top: -3rem;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            border-radius: 5px;
 
-                                    }
+                                        }
 
-                                    .title_event {
-                                        font-size: 16px;
-                                        font-weight: 999;
-                                        margin-bottom: 1.5rem;
-                                        margin-top: 7rem !important;
-                                    }
+                                        .title_event {
+                                            font-size: 16px;
+                                            font-weight: 999;
+                                            margin-bottom: 1.5rem;
+                                            margin-top: 7rem !important;
+                                        }
 
-                                    .owl-carousel .owl-dots .owl-dot {
-                                        background-color: #676565;
-                                        width: 2em;
-                                        height: 2em;
-                                    }
+                                        .owl-carousel .owl-dots .owl-dot {
+                                            background-color: #676565;
+                                            width: 2em;
+                                            height: 2em;
+                                        }
 
-                                    } */
+                                        } */
 
         }
     </style>
@@ -210,7 +210,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                </p> -->
+                                                                    </p> -->
 
             </p>
             <div class="d-block d-md-none">
@@ -336,25 +336,27 @@
             /* Hapus margin-top negatif */
         }
 
-        .top_wisata{
+        .top_wisata {
             position: relative;
-            margin-top:-300px;
+            margin-top: -300px;
         }
+
         @media (max-width: 760px) {
-            .top_wisata{
+            .top_wisata {
                 position: static;
-                margin-top:0px;
+                margin-top: 0px;
             }
         }
 
 
-      /* .mySwiper2-mobile{
-            margin-left:-9.75rem;
-        } */
+        /* .mySwiper2-mobile{
+                margin-left:-9.75rem;
+            } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
-            .mySwiper2-mobile{
-            /* margin-left:-20%; */
-        }
+            .mySwiper2-mobile {
+                /* margin-left:-20%; */
+            }
+
             #top_wisata {
                 margin-top: 5rem;
                 margin-bottom: -0.5rem;
@@ -414,98 +416,101 @@
         }
     </style>
     {{-- end css wisata --}}
-        <div class="container top_wisata">
-            <div class="d-none d-md-block">
-                <div class="row mb-5">
-                    <div class="col-md-7">
-                        <h1 class="mb-1">
-                            <b>TOP {{ __('home.title_destinations') }}</b>
-                        </h1>
-                        <div class="text-lg fs-4">
-                            {{ __('home.subtitle_destinations') }}
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="mt-5">
-                            <a href="{{ url('wisata') }}" class="btn btn-primary float-end text-white bg-btn-visit"
-                                id="but_wisata">
-                                {{ __('home.explore_all') }} {{ __('home.title_destinations') }}
-                                <i class="bi-arrow-right ms-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="d-block d-md-none">
-                <div class="container text-center" style="margin-top: -3rem;">
-                    <b class="h1 title_wisata">TOP {{ strtoupper(__('home.title_destinations')) }}</b>
-                    <br>
-                    <div style="font-size:10px; font-weight:500;">
+    <div class="container top_wisata">
+        <div class="d-none d-md-block">
+            <div class="row mb-5">
+                <div class="col-md-7">
+                    <h1 class="mb-1">
+                        <b>TOP {{ __('home.title_destinations') }}</b>
+                    </h1>
+                    <div class="text-lg fs-4">
                         {{ __('home.subtitle_destinations') }}
                     </div>
                 </div>
-            </div>
-            <!-- Swiper -->
-            <swiper-container class="mySwiper2 d-none d-md-block" id="mySwiper" effect="coverflow" grab-cursor="true"
-                centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
-                coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
-                loop="true" style="margin-top: -2rem;">
-                @foreach ($tours as $tour)
-                    <swiper-slide class="card">
-                        <a href="/wisata" style="text-decoration: none; color: white;">
-                            <img src='{{ url("assets/wisata/$tour->picture") }}' />
-                            <div class="image-caption">
-                                @if (App::isLocale('id'))
-                                    <b style="font-weight: 800;">{{ $tour->name }}</b>
-                                @else
-                                    <b style="font-weight: 800;">{{ $tour->name_en }}</b>
-                                @endif
-                            </div>
+                <div class="col-md-5">
+                    <div class="mt-5">
+                        <a href="{{ url('wisata') }}" class="btn btn-primary float-end text-white bg-btn-visit"
+                            id="but_wisata">
+                            {{ __('home.explore_all') }} {{ __('home.title_destinations') }}
+                            <i class="bi-arrow-right ms-2"></i>
                         </a>
-                    </swiper-slide>
-                @endforeach
-
-            </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none" id="mySwiper" effect="coverflow"
-                grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
-                coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-                coverflow-effect-slide-shadows="true" loop="true">
-                @foreach ($tours as $tour)
-                    <swiper-slide class="card">
-                        <a href="/wisata" style="text-decoration: none; color: white;">
-                            <img src='{{ url("assets/wisata/$tour->picture") }}' />
-                            <div class="image-caption">
-                                @if (App::isLocale('id'))
-                                    <b style="font-weight: 800;">{{ $tour->name }}</b>
-                                @else
-                                    <b style="font-weight: 800;">{{ $tour->name_en }}</b>
-                                @endif
-                            </div>
-                        </a>
-                    </swiper-slide>
-                @endforeach
-
-            </swiper-container>
-
-
-
-        {{-- <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    @foreach ($tours as $tour)
-                        <div class="swiper-slide">
-                            <img src='{{ url("assets/wisata/$tour->picture") }}' class="img-fluid w-100 h-100">
-                            <div class="image-caption">
-                                @if (App::isLocale('id'))
-                                <b style="font-weight: 800;">{{ $tour->name }}</b>
-                                @else
-                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
+                    </div>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div> --}}
+            </div>
+        </div>
+        <div class="d-block d-md-none">
+            <div class="container text-center" style="margin-top: -3rem;">
+                <b class="h1 title_wisata">TOP {{ strtoupper(__('home.title_destinations')) }}</b>
+                <br>
+                <div style="font-size:10px; font-weight:500;">
+                    {{ __('home.subtitle_destinations') }}
+                </div>
+            </div>
+        </div>
+        <!-- Swiper -->
+        <swiper-container class="mySwiper2 d-none d-md-block" id="mySwiper" effect="coverflow" grab-cursor="true"
+            centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
+            coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true"
+            loop="true" style="margin-top: -2rem;">
+            @foreach ($tours as $tour)
+                <swiper-slide class="card">
+                    <a href="/wisata" style="text-decoration: none; color: white;">
+                        <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                        <div class="image-caption">
+                            @if (App::isLocale('id'))
+                                <b style="font-weight: 800;">{{ $tour->name }}</b>
+                            @else
+                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                            @endif
+                        </div>
+                    </a>
+                </swiper-slide>
+            @endforeach
+
+        </swiper-container>
+
+        <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none " id="mySwiper" effect="coverflow"
+        grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+        coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+        coverflow-effect-slide-shadows="true" loop="true">
+        @foreach ($tours as $tour)
+            <swiper-slide class="card">
+                <a href="/wisata" style="text-decoration: none; color: white;">
+                    <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                    <div class="image-caption">
+                        @if (App::isLocale('id'))
+                            <b style="font-weight: 800;">{{ $tour->name }}</b>
+                        @else
+                            <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                        @endif
+                    </div>
+                </a>
+            </swiper-slide>
+        @endforeach
+
+    </swiper-container>
+
+        {{-- <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none " id="mySwiper" effect="coverflow"
+            grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+            coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+            coverflow-effect-slide-shadows="true" loop="true">
+            @foreach ($tours as $tour)
+                <swiper-slide class="card">
+                    <a href="/wisata" style="text-decoration: none; color: white;">
+                        <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                        <div class="image-caption">
+                            @if (App::isLocale('id'))
+                                <b style="font-weight: 800;">{{ $tour->name }}</b>
+                            @else
+                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                            @endif
+                        </div>
+                    </a>
+                </swiper-slide>
+            @endforeach
+
+        </swiper-container> --}}
+
         <div class="d-block d-md-none">
             <div class="container text-center">
                 <a href="{{ url('wisata') }}" class="btn btn-primary text-white bg-btn-visit" id="but_wisata">
@@ -799,7 +804,7 @@
                 @endforeach
 
             </swiper-container>
-            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none px-4" id="mySwiper" effect="coverflow"
+            <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none " id="mySwiper" effect="coverflow"
                 grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
                 coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
                 coverflow-effect-slide-shadows="true" loop="true">
@@ -820,38 +825,7 @@
 
             </swiper-container>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
-        {{-- <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    @foreach ($accomodations as $accomodation)
-                        <div class="swiper-slide">
-                            <img src='{{ url("assets/akomodasi/$accomodation->picture") }}'
-                                class="img-fluid w-100 h-100">
-                            <div class="image-caption-akomodasi">
-                                @if (App::isLocale('id'))
-                                <b style="font-weight: 800;">{{ $accomodation->name }}</b>
-                                @else
-                                <b style="font-weight: 800;">{{ $accomodation->name_en }}</b>
-                                @endif
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-                <div class="swiper-pagination"></div>
-            </div> --}}
 
-        {{-- <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    @foreach ($accomodations as $accomodation)
-                        <div class="swiper-slide"
-                            style="background-image: url(<?= url('assets/akomodasi/' . $accomodation->picture) ?>) !important;background-size:cover !important;">
-                            <!-- <img src='{{ url("assets/wisata/$tour->picture") }}' /> -->
-
-                        </div>
-                    @endforeach
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div> --}}
         <div class="d-block d-md-none">
             <div class="container text-center">
                 <a href="{{ url('akomodasi') }}" class="btn btn-primary text-white bg-btn-visit" id="but_akomodasi">
@@ -860,7 +834,6 @@
                 </a>
             </div>
         </div>
-    </div>
     </div>
 
     {{-- css layanan --}}
@@ -1517,25 +1490,12 @@
 
 @section('script')
     <!-- Swiper JS -->
-    <script src="{{ url('swiperjs/swiper-bundle.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 3,
-            loop: true,
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
 
-            },
 
-        });
+
     </script>
 @endsection

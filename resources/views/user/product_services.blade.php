@@ -105,10 +105,10 @@ use Illuminate\Support\Facades\App;
         <div class="col-sm-12 col-md-6 p-5">
             <div class="card rounded shadow fixed-height">
                 <img src="{{ url('assets/patterns/'.$pattern->cover_picture) }}" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body" style="padding-left: 10%; padding-right: 10%;">
                     @if(App::isLocale("id"))
                     <b class="h3">{{ $pattern->name }}</b>
-                    <p>
+                    <p >
                         {!! $pattern->details !!}
                     </p>
                     @else
@@ -138,7 +138,7 @@ use Illuminate\Support\Facades\App;
         @foreach($gifts as $gift)
         <div class="col-sm-12 col-md-6 p-5">
             <div class="card rounded shadow">
-                <div class="card-body">
+                <div class="card-body" style="padding-left: 10%; padding-right: 10%;">
                     <img src="{{ url('assets/layanan-produk/'.$gift->picture) }}" class="img-fluid rounded" width="100%">
                     <h4 class="text-center mt-5">
                         <b>
