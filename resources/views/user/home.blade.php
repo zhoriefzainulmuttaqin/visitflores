@@ -670,7 +670,7 @@
                             <div
                                 class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                                 <div class=" col-12">
-                                    <a href="{{ url('event') }}" class="">
+                                    <a href="{{ url('kuliner') }}" class="">
                                         <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
@@ -690,6 +690,182 @@
             <div class="container mt-5 text-center">
                 <a href="{{ url('kuliner') }}" class="btn btn-primary text-white bg-btn-visit" id="but_kuliner">
                     {{ __('home.explore_all') }} {{ __('home.title_culinaries') }}
+                    <i class="bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    {{-- css oleh-oleh --}}
+    <style>
+        .top_souvenir {
+            margin-top: 3rem;
+        }
+
+        #but_souvenir {
+            width: 12rem;
+            height: 40px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .souvenir_caption .image-caption {
+
+            font-size: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Adjust the background color and opacity */
+            padding: 0.5rem;
+            backdrop-filter: blur(5px);
+            /* Adjust the blur amount */
+        }
+
+        .image-caption p {
+            color: white;
+            margin: 0;
+
+        }
+
+        @media (max-width: 760px) {
+            #but_souvenir {
+                width: 8rem;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 500;
+                margin-top: -1.5rem;
+                margin-bottom: -4rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+
+            .title_souvenir {
+                font-size: 16px;
+                font-weight: 999;
+            }
+
+            #top_souvenir {
+                margin-top: 6rem;
+            }
+
+            .event {
+                width: 16.5rem;
+                /* height: 100%; */
+                margin: auto;
+            }
+
+            .souvenir .owl-carousel .owl-dots .owl-dot {
+                margin-top: -3rem;
+            }
+        }
+    </style>
+    {{-- end css oleh-oleh --}}
+
+
+
+    <div class="container mb-3 mb-md-0">
+        <div class="d-none d-md-block px-4">
+            <div class="row mb-5 top_souvenir">
+                <div class="col-md-7">
+                    <h1 class="mb-1 ">
+                        <b>TOP {{ __('home.title_souvenirs') }}</b>
+                    </h1>
+                    <div class="text-lg fs-4 mb-4">
+                        {{ __('home.subtitle_souvenirs') }}
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="mt-5">
+                        <a href="{{ url('oleh-oleh') }}" class="btn btn-primary btn-lg  float-end text-white bg-btn-visit"
+                            id="but_souvenir">
+                            {{ __('home.explore_all') }} {{ __('home.title_souvenirs') }}
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="px-4">
+                    <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0"
+                        data-pagi="true" data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                        @foreach ($souvenirs as $souvenir)
+                            <div class="oc-item">
+                                <article class="entry event p-3">
+                                    <div class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm souvenir_caption"
+                                        style="height: 12rem;">
+                                        <div class="col-12 mb-md-0">
+                                            <a href="{{ url('oleh-oleh') }}" class="entry-image">
+                                                <img src='{{ url("assets/oleh-oleh/$souvenir->picture") }}'
+                                                    alt="{{ $souvenir->name }}" class="rounded-2"
+                                                    style="max-height: 20rem;">
+                                            </a>
+                                        </div>
+                                        <div class="image-caption text-center"
+                                            style="background: #000000 transparent; color: #ddd; ">
+                                            @if (App::isLocale('id'))
+                                                <b style="font-weight: 800;">{{ $souvenir->name }}</b>
+                                            @else
+                                                <b style="font-weight: 800;">{{ $souvenir->name_en }}</b>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-block d-md-none souvenir">
+            <div class="container text-center" id="top_souvenir">
+                <b class="h1 title_souvenir">TOP {{ strtoupper(__('home.title_souvenirs')) }}</b>
+                <br>
+                <div style="font-size:10px">
+                    {{ __('home.subtitle_souvenirs') }}
+                </div>
+            </div>
+            <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="1" data-pagi="true"
+                data-items="1" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                @foreach ($souvenirs as $souvenir)
+                    <div class="oc-item">
+                        <article class="entry event p-3">
+                            <div
+                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                <div class=" col-12">
+                                    <a href="{{ url('oleh-oleh') }}" class="">
+                                        <img src="{{ url('assets/oleh-oleh/' . $souvenir->picture) }}" class="rounded-2">
+                                        <div class="image-caption text-center"
+                                            style="background: #000000 transparent; color: #ddd; ">
+                                            @if (App::isLocale('id'))
+                                                <b style="font-weight: 800;">{{ $souvenir->name }}</b>
+                                            @else
+                                                <b style="font-weight: 800;">{{ $souvenir->name_en }}</b>
+                                            @endif
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+            <div class="container mt-5 text-center">
+                <a href="{{ url('oleh-oleh') }}" class="btn btn-primary text-white bg-btn-visit" id="but_kuliner">
+                    {{ __('home.explore_all') }} {{ __('home.title_souvenirs') }}
                     <i class="bi-arrow-right ms-2"></i>
                 </a>
             </div>
