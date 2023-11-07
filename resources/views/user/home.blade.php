@@ -1442,7 +1442,7 @@
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
                 <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
+                            src="{{ url('assets/sponsor/bi-3.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
                             src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
@@ -1466,7 +1466,7 @@
                 data-margin="30" data-nav="true" data-pagi="true" data-autoplay="5000" data-items-xs="3"
                 data-items-sm="3" data-items-md="6" data-items-lg="6" data-items-xl="6" data-loop="true">
                 <div class="oc-item align-items-center"><a href="#"><img
-                            src="{{ url('assets/sponsor/bi-2.png') }}"></a></div>
+                            src="{{ url('assets/sponsor/bi-3.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
                             src="{{ url('assets/sponsor/disbudpar-cirebon.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
