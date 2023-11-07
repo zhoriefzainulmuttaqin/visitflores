@@ -771,6 +771,9 @@
             .souvenir .owl-carousel .owl-dots .owl-dot {
                 margin-top: -3rem;
             }
+            .grid-img-card-souvenir{
+                height: 8rem !important;
+            }
         }
     </style>
     {{-- end css oleh-oleh --}}
@@ -790,7 +793,7 @@
                 </div>
                 <div class="col-md-5">
                     <div class="mt-5">
-                        <a href="{{ url('oleh-oleh') }}" class="btn btn-primary btn-lg  float-end text-white bg-btn-visit"
+                        <a href="{{ url('oleh-oleh') }}" class="btn btn-primary btn-lg float-end text-white bg-btn-visit"
                             id="but_souvenir">
                             {{ __('home.explore_all') }} {{ __('home.title_souvenirs') }}
                             <i class="bi-arrow-right ms-2"></i>
@@ -844,10 +847,10 @@
                     <div class="oc-item">
                         <article class="entry event p-3">
                             <div
-                                class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                <div class=" col-12">
-                                    <a href="{{ url('oleh-oleh') }}" class="">
-                                        <img src="{{ url('assets/oleh-oleh/' . $souvenir->picture) }}" class="rounded-2">
+                                class="grid-inner grid-inner-souvenir bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                <div class="col-12">
+                                    <a href="{{ url('oleh-oleh') }}" class="grid-card-souvenir">
+                                        <img src="{{ url('assets/oleh-oleh/' . $souvenir->picture) }}" class="rounded-2 grid-img-card-souvenir">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
                                             @if (App::isLocale('id'))

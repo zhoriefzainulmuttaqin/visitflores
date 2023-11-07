@@ -29,7 +29,7 @@ class UserHomeController extends Controller
 
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
         $culiners = Restaurant::limit(3)->get();
-        $souvenirs = Shop::limit(3)->get();
+        $souvenirs = Shop::where("id","!=",1)->where("id","!=",4)->limit(3)->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
             ->where('categories.type', 1)
