@@ -50,7 +50,7 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Kota Cirebon",
-                "picture"   => "picture-aston.webp",
+                "picture"   => "aston.jpg",
                 "cover_picture"   => "aston.png",
                 "name"   => "ASTON Cirebon Hotel & Convention Center",
                 "name_en"   => "ASTON Cirebon Hotel & Convention Center",
