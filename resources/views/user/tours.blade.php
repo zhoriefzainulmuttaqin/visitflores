@@ -126,7 +126,7 @@ use Illuminate\Support\Facades\App;
 					@endif
 					<div class="row g-4 mb-5">
 						@foreach ($tours as $tour)
-							<article class="entry event col-md-6 col-lg-4 mb-0">
+							<article class="entry event col-md-6 col-lg-4 mb-0 d-flex align-items-stretch">
 								<div class="grid-inner bg-white row g-0 p-2 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
 									<div class="col-12 mb-md-0">
 										<a href="{{ url('detail-wisata/' . $tour->slug) }}" class="entry-image mb-2">

@@ -59,7 +59,7 @@
         </div>
         <div class="row mb-5">
             @foreach ($events as $event)
-                <article class="entry event col-lg-6 col-md-6 col-sm-12 mb-4">
+                <article class="entry event col-lg-6 col-md-6 col-sm-12 mb-4 d-flex align-items-stretch">
                     <div class="grid-inner bg-white row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                         <div class="col-md-4 mb-md-0 w-100">
                             <a class="entry-image mb-0 h-100">
