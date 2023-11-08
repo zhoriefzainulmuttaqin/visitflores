@@ -23,10 +23,10 @@ class EventSeeder extends Seeder
                 "location"   => "Taman Kebumen Lemahwungkuk Cirebon",
                 "published_date"   => "2023-10-20",
                 "published_time"   => "12:00",
-                "start_date"   => "2023-10-31",
-                "start_time"   => "12:00",
-                "end_date"   => "2023-10-31",
-                "end_time"   => "16:00",
+                "start_date"   => "2023-02-03",
+                "start_time"   => "10:00",
+                "end_date"   => "2023-02-05",
+                "end_time"   => "22:00",
                 "details"   => "
                 Festival Pecinan Cirebon adalah sebuah acara atau festival yang diadakan di Cirebon, sebuah kota di Provinsi Jawa Barat, Indonesia. Festival ini berkaitan dengan budaya Tionghoa dan perayaan Cap Go Meh, yang merupakan hari ke-15 dalam perayaan Tahun Baru Imlek.
 
@@ -52,10 +52,10 @@ class EventSeeder extends Seeder
                 "location"   => "Lapangan Jogging Stadion Watubelah Kab. Cirebon",
                 "published_date"   => "2022-10-07",
                 "published_time"   => "12:00",
-                "start_date"   => "2022-10-10",
-                "start_time"   => "12:00",
-                "end_date"   => "2022-10-10",
-                "end_time"   => "16:00",
+                "start_date"   => "2023-10-22",
+                "start_time"   => "09:00",
+                "end_date"   => "2023-11-16",
+                "end_time"   => "22:00",
                 "details"   => "Pekan Raya Cirebon adalah sebuah acara besar yang menjadi sorotan tahunan di kota ini. Acara ini merayakan kekayaan budaya dan ekonomi Cirebon dengan cara yang meriah dan bervariasi. Pekan Raya ini menampilkan berbagai pameran, pertunjukan seni, kompetisi, serta berbagai kegiatan seru lainnya.
 
                 Salah satu daya tarik utama Pekan Raya Cirebon adalah pameran produk lokal dan industri, di mana pengusaha dan produsen lokal dapat memamerkan produk mereka. Pameran ini menampilkan berbagai jenis barang, mulai dari kerajinan tangan, kuliner khas, hingga produk-produk industri. Ini adalah kesempatan sempurna untuk membeli oleh-oleh khas Cirebon dan mencicipi hidangan lezat.
@@ -80,10 +80,10 @@ class EventSeeder extends Seeder
                 "location"   => "Jl. Ahmad Yani No.39, Kota Cirebon",
                 "published_date"   => "2021-10-11",
                 "published_time"   => "12:00",
-                "start_date"   => "2021-10-12",
+                "start_date"   => "2023-11-04",
                 "start_time"   => "12:00",
-                "end_date"   => "2021-10-12",
-                "end_time"   => "16:00",
+                "end_date"   => "2023-11-04",
+                "end_time"   => "24:00",
                 "details"   => "Expo Billiard & Cafe Cirebon 2023 adalah sebuah acara istimewa yang memadukan olahraga biliar dengan hiburan kafe. Acara ini merupakan panggung bagi para pecinta biliar untuk bersaing dalam turnamen, menunjukkan keahlian mereka, dan memperebutkan hadiah menarik.
 
                 Selain turnamen biliar yang sengit, expo ini juga menyajikan berbagai fasilitas kafe yang nyaman dan menyenangkan. Ini menciptakan lingkungan yang santai bagi pengunjung untuk bersantai sambil menikmati kopi, makanan ringan, dan teman-teman mereka.
@@ -105,9 +105,9 @@ class EventSeeder extends Seeder
                 "location"   => "Balai Kota Cirebon",
                 "published_date"   => "2020-10-11",
                 "published_time"   => "12:00",
-                "start_date"   => "2020-10-12",
+                "start_date"   => "2023-11-08",
                 "start_time"   => "12:00",
-                "end_date"   => "2020-10-12",
+                "end_date"   => "2023-11-24",
                 "end_time"   => "16:00",
                 "details"   => "World Philosophy Day & Knowledge and Transformation Celebration Day adalah sebuah perayaan yang dirancang untuk mempromosikan filsafat dan pengetahuan yang mendalam. Acara ini merayakan peran penting filsafat dalam memperkaya pemahaman manusia tentang dunia dan menginspirasi transformasi positif dalam masyarakat.
 
@@ -129,9 +129,9 @@ class EventSeeder extends Seeder
                 "location"   => "Aston Cirebon",
                 "published_date"   => "2019-10-11",
                 "published_time"   => "12:00",
-                "start_date"   => "2019-10-12",
+                "start_date"   => "2023-12-31",
                 "start_time"   => "12:00",
-                "end_date"   => "2019-10-12",
+                "end_date"   => "2024-01-01",
                 "end_time"   => "16:00",
                 "details"   => "Aston Cirebon New Year's Eve 2024: Kisah 1001 Malam adalah perayaan Tahun Baru yang istimewa dan memukau. Acara ini diilhami oleh cerita epik 1001 yang kaya akan keajaiban dan petualangan. Para tamu diajak untuk merasakan pesona dan magisnya kisah ini dalam suasana yang mewah dan penuh kegembiraan.
 
@@ -153,9 +153,9 @@ class EventSeeder extends Seeder
                 "location"   => "Kinderfield-Highfield School Cirebon",
                 "published_date"   => "2018-10-11",
                 "published_time"   => "12:00",
-                "start_date"   => "2018-10-12",
+                "start_date"   => "2023-11-24",
                 "start_time"   => "12:00",
-                "end_date"   => "2018-10-12",
+                "end_date"   => "2023-11-25",
                 "end_time"   => "16:00",
                 "details"   => "Diversity Day & University Day Fair 2023 adalah perayaan yang menggambarkan keanekaragaman budaya, ilmu pengetahuan, dan kesempatan pendidikan. Acara ini mempromosikan kesadaran akan keberagaman yang ada di masyarakat dan pentingnya mendukung pendidikan.
 
