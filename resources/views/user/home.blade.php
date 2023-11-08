@@ -134,6 +134,12 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+        .entry-meta a {
+            max-height: 3em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
         .owl-carousel .owl-dots .owl-dot {
             background-color: #676565;
@@ -237,7 +243,7 @@
                                         <div class="col-12 mb-md-0">
                                             <a href="{{ url('event') }}" class="entry-image">
                                                 <img src="{{ url('assets/event/' . $event->cover_picture) }}"
-                                                    class="rounded-2" style="max-height: 20rem;">
+                                                    class="rounded-2" style="height: 20rem;">
                                             </a>
                                         </div>
                                         <div class="col-12 p-0 p-md-4 pt-0">
@@ -248,7 +254,7 @@
                                                     <h3><a href="{{ url('event') }}">{{ $event->name_en }}</a></h3>
                                                 @endif
                                             </div>
-                                            <div class="entry-meta no-separator mb-1 mt-0">
+                                            <div class="entry-meta no-separator mb-1 mt-0 ">
                                                 <ul>
                                                     <li>
                                                         <a href="{{ url('event') }}" class="text-uppercase fw-medium">
