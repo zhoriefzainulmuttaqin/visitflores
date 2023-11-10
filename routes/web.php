@@ -15,6 +15,8 @@ use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocaleController;
 
+use App\Http\Controllers\DashboardAdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,18 +35,12 @@ Route::get('/', [UserHomeController::class, "home"]);
 
 Route::get("atur-bahasa/{locale}", [LocaleController::class, "atur_bahasa"]);
 Route::get("set-bahasa/{locale}", [LocaleController::class, "set_bahasa"]);
-Route::get("get-cookie", [LocaleController::class, "getCookie"]);
+// Route::get("get-cookie", [LocaleController::class, "getCookie"]);
 
 Route::get('/wisata', [TourController::class, 'tours']);
 Route::get('/detail-wisata/{slug}', [TourController::class, 'detail_tour']);
 Route::get('/kuliner', [RestaurantController::class, 'restaurants']);
 Route::get('/oleh-oleh', [ShopController::class, 'shops']);
-Route::get('/profil', [ProfileController::class, 'profile']);
-Route::post('/proses-ubah-foto-profil', [ProfileController::class, 'process_change_profile_photo']);
-Route::get('/ubah-biodata-profil', [ProfileController::class, 'change_profile_biodata']);
-Route::post('/proses-ubah-biodata-profil', [ProfileController::class, 'process_change_profile_biodata']);
-Route::get('/ubah-password-profil', [ProfileController::class, 'change_profile_password']);
-Route::post('/proses-ubah-password-profil', [ProfileController::class, 'process_change_profile_password']);
 
 Route::get("event", [EventController::class, "event"]);
 Route::get("akomodasi", [AkomodasiController::class, "akomodasi"]);
@@ -52,7 +48,7 @@ Route::get("berita", [BeritaController::class, "berita"]);
 Route::get("detail-berita/{slug}", [BeritaController::class, "detail_berita"]);
 Route::get("detail-akomodasi/{Accomodation:slug}", [AkomodasiController::class, "detail_akomodasi"]);
 
-Route::get("login", [AuthUserController::class, "masuk"]);
+Route::get("login", [AuthUserController::class, "masuk"])->name("login");
 Route::post("proses-login", [AuthUserController::class, "proses_masuk"]);
 Route::get("registrasi", [AuthUserController::class, "registrasi"]);
 Route::post("proses-registrasi", [AuthUserController::class, "proses_registrasi"]);
@@ -67,13 +63,29 @@ Route::get("layanan-jasa/pemasaran", [ServiceController::class, "service_marketi
 
 Route::get("paket-wisata/{slug}", [ServiceController::class, "detail_paket_wisata"]);
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profil', [ProfileController::class, 'profile']);
+    Route::post('/proses-ubah-foto-profil', [ProfileController::class, 'process_change_profile_photo']);
+    Route::get('/ubah-biodata-profil', [ProfileController::class, 'change_profile_biodata']);
+    Route::post('/proses-ubah-biodata-profil', [ProfileController::class, 'process_change_profile_biodata']);
+    Route::get('/ubah-password-profil', [ProfileController::class, 'change_profile_password']);
+    Route::post('/proses-ubah-password-profil', [ProfileController::class, 'process_change_profile_password']);
 
-Route::get("beli/tourism-card", [ServiceController::class, "beli_tourism_card"]);
-Route::post("proses-beli/tourism-card", [ServiceController::class, "proses_beli_tourism_card"]);
-Route::get("konfirmasi-beli/{id}/tourism-card", [ServiceController::class, "konfirmasi_beli_tourism_card"]);
-Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layanan_produk"]);
-Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
-Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
+    Route::get("beli/tourism-card", [ServiceController::class, "beli_tourism_card"]);
+    Route::post("proses-beli/tourism-card", [ServiceController::class, "proses_beli_tourism_card"]);
+    Route::get("konfirmasi-beli/{id}/tourism-card", [ServiceController::class, "konfirmasi_beli_tourism_card"]);
+    Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layanan_produk"]);
+    Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
+    Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
+});
 
-Route::get("app-admin", [AuthAdminController::class, "masuk"]);
-Route::get("app-admin/proses-login", [AuthAdminController::class, "proses_masuk"]);
+
+Route::prefix("app-admin")->group(function(){
+    Route::get("/", [AuthAdminController::class, "masuk"]);
+    Route::post("proses-login", [AuthAdminController::class, "proses_masuk"]);
+    
+    Route::middleware("auth:admin")->group(function(){
+        Route::get("dashboard", [DashboardAdminController::class, "dashboard"]);
+        Route::get("logout", [AuthAdminController::class, "keluar"]);
+    });
+});

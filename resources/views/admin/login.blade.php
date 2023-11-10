@@ -55,7 +55,10 @@
 								<div class="card-body" style="padding: 40px;">
 									<form id="login-form" name="login-form" class="mb-0" action="{{ url('app-admin/proses-login') }}" method="post">
 										<h3>Login Admin</h3>
-
+										@if (session()->has('msg_status'))
+											{!! session("msg") !!}
+										@endif
+										@csrf
 										<div class="row">
 											<div class="col-12 form-group">
 												<label for="login-form-username">Username:</label>
