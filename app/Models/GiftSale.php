@@ -19,6 +19,9 @@ class GiftSale extends Model
     public function payment(){
         return $this->belongsTo(Payment::class,'payment_id','id');
     }
+    public function user(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
     public function items(){
         return $this->hasMany(GiftSaleItem::class,'sale_id','id');
     }

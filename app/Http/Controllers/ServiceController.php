@@ -174,6 +174,7 @@ class ServiceController extends Controller
             "quantity" => $request->quantity,
             "price" => $request->price,
             "snapshot_name" => $gift->name,
+            "snapshot_name_en" => $gift->name_en,
             "snapshot_unit" => $gift->unit,
             "snapshot_price" => $gift->price,
         ]);

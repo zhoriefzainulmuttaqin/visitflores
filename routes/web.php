@@ -16,6 +16,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocaleController;
 
 use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\TransactionAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,5 +88,8 @@ Route::prefix("app-admin")->group(function(){
     Route::middleware("auth:admin")->group(function(){
         Route::get("dashboard", [DashboardAdminController::class, "dashboard"]);
         Route::get("logout", [AuthAdminController::class, "keluar"]);
+
+        Route::get("transaksi/paketoleholeh",[TransactionAdminController::class, "paket_oleholeh"]);
+        Route::get("transaksi/tourismcard",[TransactionAdminController::class, "tourismcard"]);
     });
 });

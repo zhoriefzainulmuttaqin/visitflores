@@ -31,3 +31,16 @@ function tglIndo($tanggal, $format = 'd/m/Y')
         return date($format, strtotime($tanggal));
     }
 }
+
+function convertWANumber($number){
+    $number = str_replace(" ","",$number);
+    $number = str_replace("+","",$number);
+
+    $length = strlen($number);
+
+    if($number[0] === "0"){
+        $number = "62".substr($number,1,$length);
+    }
+
+    return $number;
+}

@@ -1,0 +1,79 @@
+@extends("admin.template")
+
+@section("title")
+Transaksi Paket Oleh - oleh
+@endsection
+
+@section("content")
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered table-striped" id="datatable">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center">Nama Pembeli</th>
+                            <th class="text-center">Kontak Pembeli</th>
+                            <th class="text-center">Alamat Pembeli</th>
+                            <th class="text-center">Paket</th>
+                            <th class="text-center">Jumlah</th>
+                            <th class="text-center">Harga</th>
+                            <th class="text-center">Total</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($transactions as $transaction)
+                        <?php
+                        if($transaction->id < 10){
+                            $saleNo = "0000".$transaction->id;
+                        }elseif($sale->id < 100){
+                            $saleNo = "000".$transaction->id;
+                        }elseif($sale->id < 1000){
+                            $saleNo = "00".$transaction->id;
+                        }else{
+                            $saleNo = "0".$transaction->id;                        
+                        }
+                        $saleKode = date("ymd",strtotime($transaction->date_carted)).$transaction->user_id.$saleNo;
+                        ?>
+                        <tr>
+                            <td class="text-center">#{{ $saleKode }}</td>
+                            <td>{{ $transaction->buyer_name }}</td>
+                            <td class="text-center">
+                                <a href="https://wa.me/{{ convertWANumber($transaction->buyer_phone) }}" target="_blank" class="btn btn-success btn-sm">
+                                    <i class="fab fa-whatsapp"></i>
+                                    {{ $transaction->buyer_phone }}
+                                </a>
+                            </td>
+                            <td>{{ $transaction->buyer_address }}</td>
+                            @foreach($transaction->items as $item)
+                            <td>{{ $item->snapshot_name }}</td>
+                            <td class="text-center">
+                                {{ $item->quantity }}
+                                {{ $item->snapshot_unit }}
+                            </td>
+                            <td class="text-right">
+                                Rp. {{ number_format($item->snapshot_price,0,",",".") }}
+                            </td>
+                            <td class="text-right">
+                                <?php
+                                $total = $item->snapshot_price * $item->quantity;
+                                ?>
+                                Rp. {{ number_format($total,0,",",".") }}
+                            </td>
+                            @endforeach
+                            <td class="text-center">
+
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
