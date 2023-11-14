@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('start_time');
             $table->date('end_date');
             $table->string('end_time');
-            $table->longText('details');
-            $table->longText('details_en');
+            $table->longText('details')->nullable();
+            $table->longText('details_en')->nullable();
         });
     }
 

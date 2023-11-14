@@ -101,7 +101,7 @@
                             <div class="entry-meta no-separator">
                                 <ul>
                                     <li><a href="#" class="fw-normal"><i
-                                                class="uil uil-map-marker"></i>{{ $event->location }}</a>
+                                                class="uil uil-map-marker"></i>{{ nl2br($event->location) }}</a>
                                     </li>
                                 </ul>
                             </div>
