@@ -60,7 +60,10 @@ Transaksi Tourism Card
                                 Rp. {{ number_format($total,0,",",".") }}
                             </td>
                             <td class="text-center">
-
+                                <a href="{{ url('app-admin/transaksi/tourism-card/'.$transaction->id.'/discount-card') }}" class="btn btn-info btn-sm">
+                                    <i class="fa fa-tag"></i>
+                                    Discount Card
+                                </a>
                             </td>
                         </tr>
                         @endforeach

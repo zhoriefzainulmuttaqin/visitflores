@@ -1,5 +1,6 @@
 #header-wrap {
     position: fixed !important;
+    top: 0;
 }
 .logo-default {
     height: 40px !important;

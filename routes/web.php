@@ -107,7 +107,10 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/wisata/kategori/proses-ubah", [TourController::class, "proses_ubah_kategori_wisata"]);
         Route::get("data/wisata/kategori/proses-hapus/{id}", [TourController::class, "proses_hapus_kategori_wisata"]);
 
-        Route::get("transaksi/paketoleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
-        Route::get("transaksi/tourismcard", [TransactionAdminController::class, "tourismcard"]);
+        Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
+        Route::get("transaksi/tourism-card", [TransactionAdminController::class, "tourism_card"]);
+        Route::get("transaksi/tourism-card/{id}/discount-card", [TransactionAdminController::class, "discount_card"]);
+        Route::post("transaksi/tourism-card/discount-card/generate", [TransactionAdminController::class, "generate_discount_card"]);
+        Route::get("discount-card/{code}/download", [TransactionAdminController::class, "discount_card_generate_image"]);
     });
 });
