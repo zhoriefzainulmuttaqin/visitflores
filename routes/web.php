@@ -81,15 +81,19 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::prefix("app-admin")->group(function(){
+Route::prefix("app-admin")->group(function () {
     Route::get("/", [AuthAdminController::class, "masuk"]);
     Route::post("proses-login", [AuthAdminController::class, "proses_masuk"]);
-    
-    Route::middleware("auth:admin")->group(function(){
+
+    Route::middleware("auth:admin")->group(function () {
         Route::get("dashboard", [DashboardAdminController::class, "dashboard"]);
         Route::get("logout", [AuthAdminController::class, "keluar"]);
+        Route::get("data/event", [EventController::class, "admin_event"]);
+        Route::get("data/tambah/event", [EventController::class, "tambah_event"]);
+        Route::post("data/event/proses-tambah", [EventController::class, "proses_tambah_event"]);
+        Route::get('buatSlug', [EventController::class, "buat_slug"]);
 
-        Route::get("transaksi/paketoleholeh",[TransactionAdminController::class, "paket_oleholeh"]);
-        Route::get("transaksi/tourismcard",[TransactionAdminController::class, "tourismcard"]);
+        Route::get("transaksi/paketoleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
+        Route::get("transaksi/tourismcard", [TransactionAdminController::class, "tourismcard"]);
     });
 });

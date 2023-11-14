@@ -11,4 +11,5 @@ class Event extends Model
     protected $table = 'events';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+    public $timestamps = false;
 }
