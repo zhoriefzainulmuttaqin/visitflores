@@ -23,7 +23,7 @@ return new class extends Migration
             $table->longText('facilities');
             $table->longText('facilities_en');
             $table->longText('phone');
-            $table->longText('price');
+            $table->double('price');
             $table->string('link_instagram')->nullable();
             $table->string('link_facebook')->nullable();
             $table->string('link_tiktok')->nullable();

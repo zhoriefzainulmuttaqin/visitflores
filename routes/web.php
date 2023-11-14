@@ -93,6 +93,20 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/event/proses-tambah", [EventController::class, "proses_tambah_event"]);
         Route::get('buatSlug', [EventController::class, "buat_slug"]);
 
+        // wisata
+        Route::get("data/wisata", [TourController::class, "admin_wisata"]);
+        Route::get("data/tambah/wisata", [TourController::class, "tambah_wisata"]);
+        Route::post("data/wisata/proses-tambah", [TourController::class, "proses_tambah_wisata"]);
+        Route::get("data/ubah/wisata/{slug}", [TourController::class, "ubah_wisata"]);
+        Route::post("data/wisata/proses-ubah", [TourController::class, "proses_ubah_wisata"]);
+        Route::get("data/wisata/proses-hapus/{slug}", [TourController::class, "proses_hapus_wisata"]);
+
+        // kategori wisata
+        Route::get("data/wisata/kategori", [TourController::class, "admin_wisata_kategori"]);
+        Route::post("data/wisata/kategori/proses-tambah", [TourController::class, "proses_tambah_kategori_wisata"]);
+        Route::post("data/wisata/kategori/proses-ubah", [TourController::class, "proses_ubah_kategori_wisata"]);
+        Route::get("data/wisata/kategori/proses-hapus/{id}", [TourController::class, "proses_hapus_kategori_wisata"]);
+
         Route::get("transaksi/paketoleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
         Route::get("transaksi/tourismcard", [TransactionAdminController::class, "tourismcard"]);
     });
