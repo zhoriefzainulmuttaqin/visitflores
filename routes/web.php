@@ -107,6 +107,14 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/wisata/kategori/proses-ubah", [TourController::class, "proses_ubah_kategori_wisata"]);
         Route::get("data/wisata/kategori/proses-hapus/{id}", [TourController::class, "proses_hapus_kategori_wisata"]);
 
+        // kuliner
+        Route::get("data/kuliner", [RestaurantController::class, "admin_kuliner"]);
+        Route::get("data/tambah/kuliner", [RestaurantController::class, "tambah_kuliner"]);
+        Route::post("data/kuliner/proses-tambah", [RestaurantController::class, "proses_tambah_kuliner"]);
+        Route::get("data/ubah/kuliner/{slug}", [RestaurantController::class, "ubah_kuliner"]);
+        Route::post("data/kuliner/proses-ubah", [RestaurantController::class, "proses_ubah_kuliner"]);
+        Route::get("data/kuliner/proses-hapus/{slug}", [RestaurantController::class, "proses_hapus_kuliner"]);
+
         Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
         Route::get("transaksi/tourism-card", [TransactionAdminController::class, "tourism_card"]);
         Route::get("transaksi/tourism-card/{id}/discount-card", [TransactionAdminController::class, "discount_card"]);

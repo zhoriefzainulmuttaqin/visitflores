@@ -1,7 +1,7 @@
 @extends('admin.template')
 
 @section('title')
-Tambah Wisata
+Tambah Kuliner
 @endsection
 
 @section('content')
@@ -9,9 +9,10 @@ Tambah Wisata
     <div class="col-md-12">
         <div class="card" style="padding-bottom: 15px;">
             <div class="card-header">
-                <h3 class="card-title">Tambah Wisata</h3>
+                <h3 class="card-title">Tambah Kuliner</h3>
             </div>
-            <form method="POST" action="{{ url('app-admin/data/wisata/proses-tambah') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ url('app-admin/data/kuliner/proses-tambah') }}"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
@@ -58,15 +59,6 @@ Tambah Wisata
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="category_id">Kategori</label>
-                        <select class="form-control" id="category_id" required name="category_id">
-                            <option value="">--- Pilih Kategori ---</option>
-                            @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="price"> Harga </label>
                         <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
                             id="price" placeholder="Masukan Harga . . . " value="{{ old('price') }}" required
@@ -100,67 +92,11 @@ Tambah Wisata
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="facilities"> Fasilitas </label>
-                        <textarea class="form-control @error('facilities') is-invalid @enderror" name="facilities"
-                            id="facilities" placeholder="Masukan Fasilitas . . . " required autocomplete="off"
-                            required>{{ old('facilities') }}</textarea>
-                        @error('facilities')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="facilities_en"> Fasilitas (Dalam Bahasa Inggris) </label>
-                        <textarea class="form-control @error('facilities_en') is-invalid @enderror" name="facilities_en"
-                            id="facilities_en" placeholder="Masukan Fasilitas (Dalam Bahasa Inggris) . . . " required
-                            autocomplete="off" required>{{ old('facilities_en') }}</textarea>
-                        @error('facilities_en')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="description"> Deskripsi </label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                            id="description" placeholder="Masukan Deskripsi . . . " required autocomplete="off"
-                            required>{{ old('description') }}</textarea>
-                        @error('description')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="description_en"> Deskripsi (Dalam Bahasa Inggris) </label>
-                        <textarea class="form-control @error('description_en') is-invalid @enderror"
-                            name="description_en" id="description_en"
-                            placeholder="Masukan Deskripsi (Dalam Bahasa Inggris) . . . " required autocomplete="off"
-                            required>{{ old('description_en') }}</textarea>
-                        @error('description_en')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
                         <label for="image" class="form-label">Gambar</label>
                         <img id="addImage" class="mb-3 img-thumbnail" style="max-height: 300px; width: auto;">
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                             id="image" onchange="previewImage()" required>
                         @error('image')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="link_maps">Link Google Maps</label>
-                        <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
-                            id="link_maps" value="{{ old('link_maps') }}" type="text" required
-                            placeholder="Masukan Link Instagram . . . ">
-                        @error('link_maps')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -212,7 +148,7 @@ Tambah Wisata
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="<?= url('app-admin/data/wisata') ?>">
+                    <a href="<?= url('app-admin/data/kuliner') ?>">
                         <button type="button" class="btn btn-danger float-left">Kembali</button>
                     </a>
                     <button type="submit" class="btn btn-primary float-right">Tambah</button>
