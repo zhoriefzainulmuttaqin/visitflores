@@ -100,7 +100,7 @@ Discount Card
                                 @endif
                             </td>
                             <td class="text-center">
-                                <a href="{{ url('app-admin/discount-card/'.$card->code.'/download') }}" class="btn btn-success btn-sm">
+                                <a href="{{ url('app-admin/discount-card/'.$card->id.'/download') }}" class="btn btn-success btn-sm">
                                     <i class='fa fa-download'></i>
                                     Download Kartu Digital
                                 </a>

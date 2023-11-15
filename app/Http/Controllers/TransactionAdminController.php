@@ -15,7 +15,9 @@ use App\Models\GiftSaleItem;
 
 use Image;
 use Milon\Barcode\DNS1D;
+use Milon\Barcode\DNS2D;
 use Picqer\Barcode\BarcodeGeneratorPNG;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class TransactionAdminController extends Controller
 {
@@ -103,15 +105,32 @@ class TransactionAdminController extends Controller
         
         return redirect("app-admin/transaksi/tourism-card/".$sale_id.'/discount-card');
     }
-    public function discount_card_generate_image($code){
+    public function discount_card_generate_image($id){
+        $card = DiscountCard::where("id",$id)->first();
+
+        $barcodeGenerator = new \Picqer\Barcode\BarcodeGeneratorPNG();
+        $barcodeImage = $barcodeGenerator->getBarcode($card->code, $barcodeGenerator::TYPE_CODE_128, 4, 50);
+
+        // Storage::put('barcodes/barcode.png', $image);
+
         // Buat latar belakang
-        $background = Image::make('./assets/layanan-produk/TOURISM_CARD_1.png');
+        $background = Image::make('./assets/bg-discount-card-1.png');
 
         // Dapatkan dimensi gambar latar belakang
         $width = $background->width();
         $height = $background->height();
 
-        $cardCode = str_split($code,4);
+        // Tambahkan nama pemilik kartu
+        $background->text($card->owner_name, $width / 2, ($height / 2) + 55, function ($font) {
+            $font->file('./assets/Poppins-ExtraBold.ttf');
+            $font->size(45);
+            $font->color('#000000');
+            $font->align('center');
+            $font->valign('middle');
+        });
+
+        // Tambahkan kode kartu
+        $cardCode = str_split($card->code,4);
         $textCode = "";
         for($codeno = 0; $codeno <= (count($cardCode) - 1); $codeno++){
             if($codeno == 0){
@@ -119,25 +138,20 @@ class TransactionAdminController extends Controller
             }else{
                 $textCode .= " ".$cardCode[$codeno];
             }
-        }
-
-        // Tambahkan kode kartu
-        $background->text($textCode, $width / 2, ($height / 2) - 10, function ($font) {
+        }       
+        $background->text($textCode, $width / 2, ($height / 2) + 95, function ($font) {
             $font->file('./assets/Poppins-Medium.ttf');
-            $font->size(15);
+            $font->size(20);
             $font->color('#000000');
             $font->align('center');
             $font->valign('middle');
-        });
+        });        
 
-        // Storage::disk('public')->put('test.png',base64_decode(DNS1D::getBarcodeHTML('4445645656', 'UPCA')));
+        $background->insert($barcodeImage,'bottom-center',0, 125);
 
         // Simpan gambar
-        $background->save('./assets/discount-card/discount_card_'.$code.'.jpg');
+        $background->save('./assets/discount-card/discount_card_'.$card->code.'.jpg');
 
-        // $generatorPNG = new Picqer\Barcode\BarcodeGeneratorPNG();
-        // base64_encode($generatorPNG->getBarcode('000005263635', $generatorPNG::TYPE_CODE_128));
-
-        return response()->download('./assets/discount-card/discount_card_'.$code.'.jpg');
+        return response()->download('./assets/discount-card/discount_card_'.$card->code.'.jpg');
     }
 }
