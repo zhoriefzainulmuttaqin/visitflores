@@ -50,33 +50,69 @@ class AccomodationSeeder extends Seeder
             ]),
             ([
                 "city"   => "Kota Cirebon",
-                "picture"   => "aston.jpg",
-                "cover_picture"   => "aston.png",
-                "name"   => "ASTON Cirebon Hotel & Convention Center",
-                "name_en"   => "ASTON Cirebon Hotel & Convention Center",
-                "slug"   => "aston-cirebon-hotel-&-convention-center",
-                "details"   => "Aston Cirebon merupakan hotel berbintang 4 terbesar di jalan utama Kota Cirebon. Di atas lahan seluas 3,2 hektar, hotel berlantai 12 ini menyediakan 200 kamar tamu, 8 ruang rapat dan konferensi, serta aula serbaguna luas yang mampu menampung hingga 2.600 orang. Berbagai fasilitas menarik untuk liburan keluarga maupun kepentingan bisnis siap memanjakan tamu serta wisatawan yang hendak menghabiskan waktu di Kota Cirebon.
+                "picture"   => "tryashotel.png",
+                "cover_picture"   => "tryashotel.png",
+                "name"   => "Hotel Tryas Cirebon",
+                "name_en"   => "Hotel Tryas Cirebon",
+                "slug"   => "tryas-hotel",
+                "details"   => "Hotel Tryas adalah hotel di lokasi yang baik, tepatnya berada di Lemahwungkuk.
 
-                Dikenal pula dengan nama Aston Hotel and Convention Center, hotel ini menawarkan empat tipe kamar yang telah dilengkapi fasilitas terbaik, yaitu Superior Room, Junior Executive Room, Executive Room, dan Suite Room.
+                Lokasi hotel sangat strategis karena hanya berjarak 5,25 km dengan Bandar Udara Penggung (CBN).
 
-                Fasilitas yang disediakan meliputi televisi layar datar yang memuat saluran internasional, AC, kursi dan meja kerja, brankas penyimpanan, lemari, mini bar, serta penyeduh teh dan kopi. Letak kamar hotel pun ditata sedemikian rupa agar pengunjung dapat menikmati pemandangan kolam renang yang mengagumkan dari dalam kamar.",
-                "details_en"   => "Aston Cirebon is the largest 4-star hotel on the main road of Cirebon City. Spanning over 3.2 hectares of land, this 12-story hotel offers 200 guest rooms, 8 meeting and conference rooms, as well as a spacious multipurpose hall capable of accommodating up to 2,600 people. Various attractive facilities are ready to pamper both family vacationers and business travelers who wish to spend their time in Cirebon.
+                Dari Stasiun Cirebon, hotel ini hanya berjarak sekitar 1,47 km.
 
-                Also known as Aston Hotel and Convention Center, this hotel offers four types of rooms equipped with the best amenities: Superior Room, Junior Executive Room, Executive Room, and Suite Room.
+                Desain dan arsitektur menjadi salah satu faktor penentu kenyamanan Anda di hotel. Hotel Tryas menyediakan tempat menginap yang tak hanya nyaman untuk beristirahat, tapi juga desain cantik yang memanjakan mata Anda.
 
-                The provided facilities include a flat-screen TV with international channels, air conditioning, a work desk and chair, a storage safe, a wardrobe, a minibar, and tea and coffee making facilities. The hotel room layout is designed in such a way that guests can enjoy the breathtaking view of the swimming pool from their rooms.",
-                "address"   => "Jalan Brigjen Dharsono No. 12C (Bypass) , Kedawung, Cirebon, Jawa Barat, Indonesia, 45135",
+                Hotel Tryas memiliki segala fasilitas penunjang bisnis untuk Anda dan kolega.
+
+                Hotel Tryas adalah pilihan cerdas bagi Anda yang ingin menginap di hotel dengan harga terjangkau, namun tetap memberikan pelayanan yang baik.
+
+                Pusat kebugaran menjadi salah satu fasilitas yang wajib Anda coba saat menginap di tempat ini.
+
+                Resepsionis siap 24 jam untuk melayani proses check-in, check-out dan kebutuhan Anda yang lain. Jangan ragu untuk menghubungi resepsionis, kami siap melayani Anda.
+
+                Terdapat restoran yang menyajikan menu lezat ala Hotel Tryas khusus untuk Anda.
+
+                WiFi tersedia di seluruh area publik properti untuk membantu Anda tetap terhubung dengan keluarga dan teman.
+
+                Hotel Tryas adalah akomodasi dengan fasilitas baik dan kualitas pelayanan memuaskan menurut sebagian besar tamu.
+
+                Hotel Tryas adalah pilihan cerdas bagi para wisatawan yang berkunjung ke Lemahwungkuk.",
+                "details_en"   => "Hotel Tryas is a conveniently located hotel, precisely situated in Lemahwungkuk.
+
+                The hotel's location is highly strategic, being only 5.25 km away from Penggung Airport (CBN).
+
+                From Cirebon Station, the hotel is just around 1.47 km away.
+
+                The design and architecture are key factors in ensuring your comfort at the hotel. Hotel Tryas provides accommodations that are not only comfortable for rest but also feature beautiful designs that please the eye.
+
+                Hotel Tryas offers all the necessary business facilities for you and your colleagues.
+
+                It is a smart choice for those seeking affordable accommodation without compromising on good service.
+
+                The fitness center is one of the must-try facilities during your stay here.
+
+                The reception is available 24/7 to assist with check-in, check-out, and any other needs you may have. Feel free to contact the reception; we are here to serve you.
+
+                There is a restaurant serving delicious menus in the style of Hotel Tryas, specially crafted for you.
+
+                WiFi is available throughout the public areas of the property to help you stay connected with family and friends.
+
+                Hotel Tryas is an accommodation with good facilities and satisfying service quality according to most guests.
+
+                Hotel Tryas is a smart choice for travelers visiting Lemahwungkuk.",
+                "address"   => "Jalan RA Kartini No 86 , Lemahwungkuk, Cirebon, Jawa Barat, Indonesia, 45122",
                 "star"   => 80,
-                "price_start_from"   => 857150,
+                "price_start_from"   => 420000,
                 "facilities"   => "Wifi, Restoran, Kolam Renang, Resepsionis 24 Jam, Parkir",
                 "facilities_en"   => "WiFi, Restaurant, Swimming Pool, 24-Hour Reception, Parking",
-                "phone"   => "+62 231 8298000",
+                "phone"   => "+62 813-9278-6802",
                 "mitra_status"   => 0,
                 "link_youtube"   => null,
-                "link_tiktok"   => null,
-                "link_facebook"   => "https://www.facebook.com/astonhotelcirebon/",
-                "link_instagram"   => "https://www.instagram.com/astoncirebon/",
-                "link_maps"   => "https://maps.app.goo.gl/pP4vPtdQwusWARJM7",
+                "link_tiktok"   => "https://www.tiktok.com/@tryashotelcirebon",
+                "link_facebook"   => "https://www.facebook.com/tryas.hotel.cirebon",
+                "link_instagram"   => "https://www.instagram.com/tryashotelcirebon/",
+                "link_maps"   => "https://maps.app.goo.gl/4Hosi9LGiZLgq2Wd9",
             ]),
             ([
                 "city"   => "Kota Cirebon",

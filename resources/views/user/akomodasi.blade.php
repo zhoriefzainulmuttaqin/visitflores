@@ -278,15 +278,15 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                            <p class="card-text mb-3">
-                                                <font>
-                                                    {{ __('accomodation.start_from') }}
-                                                </font>
-                                                <strong class="fs-4 text-danger">
-                                                    <br>
-                                                    Rp<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
-                                                </strong>
-                                            </p>
+                                            <!--<p class="card-text mb-3">-->
+                                            <!--    <font>-->
+                                            <!--        {{ __('accomodation.start_from') }}-->
+                                            <!--    </font>-->
+                                            <!--    <strong class="fs-4 text-danger">-->
+                                            <!--        <br>-->
+                                            <!--        Rp<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>-->
+                                            <!--    </strong>-->
+                                            <!--</p>-->
                                         </div>
                                     </div>
                                 </div>

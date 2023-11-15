@@ -96,7 +96,32 @@ Route::prefix("app-admin")->group(function () {
         Route::get('buatSlug', [EventController::class, "buat_slug"]);
         Route::get("data/hapus/event/{Event:id}", [EventController::class, "hapus_event"]);
 
-        Route::get("transaksi/paketoleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
-        Route::get("transaksi/tourismcard", [TransactionAdminController::class, "tourismcard"]);
+        // wisata
+        Route::get("data/wisata", [TourController::class, "admin_wisata"]);
+        Route::get("data/tambah/wisata", [TourController::class, "tambah_wisata"]);
+        Route::post("data/wisata/proses-tambah", [TourController::class, "proses_tambah_wisata"]);
+        Route::get("data/ubah/wisata/{slug}", [TourController::class, "ubah_wisata"]);
+        Route::post("data/wisata/proses-ubah", [TourController::class, "proses_ubah_wisata"]);
+        Route::get("data/wisata/proses-hapus/{slug}", [TourController::class, "proses_hapus_wisata"]);
+
+        // kategori wisata
+        Route::get("data/wisata/kategori", [TourController::class, "admin_wisata_kategori"]);
+        Route::post("data/wisata/kategori/proses-tambah", [TourController::class, "proses_tambah_kategori_wisata"]);
+        Route::post("data/wisata/kategori/proses-ubah", [TourController::class, "proses_ubah_kategori_wisata"]);
+        Route::get("data/wisata/kategori/proses-hapus/{id}", [TourController::class, "proses_hapus_kategori_wisata"]);
+
+        // kuliner
+        Route::get("data/kuliner", [RestaurantController::class, "admin_kuliner"]);
+        Route::get("data/tambah/kuliner", [RestaurantController::class, "tambah_kuliner"]);
+        Route::post("data/kuliner/proses-tambah", [RestaurantController::class, "proses_tambah_kuliner"]);
+        Route::get("data/ubah/kuliner/{slug}", [RestaurantController::class, "ubah_kuliner"]);
+        Route::post("data/kuliner/proses-ubah", [RestaurantController::class, "proses_ubah_kuliner"]);
+        Route::get("data/kuliner/proses-hapus/{slug}", [RestaurantController::class, "proses_hapus_kuliner"]);
+
+        Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
+        Route::get("transaksi/tourism-card", [TransactionAdminController::class, "tourism_card"]);
+        Route::get("transaksi/tourism-card/{id}/discount-card", [TransactionAdminController::class, "discount_card"]);
+        Route::post("transaksi/tourism-card/discount-card/generate", [TransactionAdminController::class, "generate_discount_card"]);
+        Route::get("discount-card/{code}/download", [TransactionAdminController::class, "discount_card_generate_image"]);
     });
 });

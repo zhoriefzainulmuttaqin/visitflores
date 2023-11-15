@@ -26,7 +26,7 @@ return new class extends Migration
             $table->longText('description');
             $table->longText('description_en');
             $table->longText('phone');
-            $table->longText('price');
+            $table->double('price');
             $table->string('link_instagram')->nullable();
             $table->string('link_facebook')->nullable();
             $table->string('link_tiktok')->nullable();

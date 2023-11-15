@@ -77,7 +77,7 @@ use Illuminate\Support\Facades\App;
 										<!-- Entry Image
 										============================================= -->
 										<div class="entry-image alignleft">
-										<img src="{{ url('assets/wisata/' . $tour->picture) }}" alt="Blog Single">
+										<img src="{{ url('assets/wisata/' . $tour->cover_picture) }}" alt="Blog Single">
 										</div><!-- .entry-image end -->
 
 										@if(App::isLocale("id"))

@@ -122,13 +122,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/transaksi/tourismcard') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/transaksi/tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tourism Card</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/transaksi/paketoleholeh') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/transaksi/paket-oleholeh') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Paket Oleh - oleh</p>
                                     </a>
