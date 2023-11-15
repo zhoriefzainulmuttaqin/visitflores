@@ -638,7 +638,7 @@
                                         style="height: 12rem;">
                                         <div class="col-12 mb-md-0">
                                             <a href="{{ url('kuliner') }}" class="entry-image">
-                                                <img src='{{ url("assets/resto/$culiner->picture") }}'
+                                                <img src='{{ url("assets/kuliner/$culiner->picture") }}'
                                                     alt="{{ $culiner->name }}" class="rounded-2"
                                                     style="max-height: 20rem;">
                                             </a>
@@ -677,7 +677,7 @@
                                 class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                                 <div class=" col-12">
                                     <a href="{{ url('kuliner') }}" class="">
-                                        <img src="{{ url('assets/resto/' . $culiner->picture) }}" class="rounded-2">
+                                        <img src="{{ url('assets/kuliner/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
                                             @if (App::isLocale('id'))
