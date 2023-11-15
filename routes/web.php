@@ -90,8 +90,11 @@ Route::prefix("app-admin")->group(function () {
         Route::get("logout", [AuthAdminController::class, "keluar"]);
         Route::get("data/event", [EventController::class, "admin_event"]);
         Route::get("data/tambah/event", [EventController::class, "tambah_event"]);
+        Route::get("data/edit/event/{Event:id}", [EventController::class, "edit_event"]);
         Route::post("data/event/proses-tambah", [EventController::class, "proses_tambah_event"]);
+        Route::post("data/event/proses-edit", [EventController::class, "proses_edit_event"]);
         Route::get('buatSlug', [EventController::class, "buat_slug"]);
+        Route::get("data/hapus/event/{Event:id}", [EventController::class, "hapus_event"]);
 
         Route::get("transaksi/paketoleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
         Route::get("transaksi/tourismcard", [TransactionAdminController::class, "tourismcard"]);

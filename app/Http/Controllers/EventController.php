@@ -95,7 +95,7 @@ class EventController extends Controller
                 'location' => 'required',
                 'start_date' => 'required',
                 'start_time' => 'required',
-                'image' => 'required|image',
+                'cover_picture' => 'required|image',
                 'end_date' => 'required',
                 'end_time' => 'required',
             ],
@@ -103,7 +103,7 @@ class EventController extends Controller
                 'name.max' => 'Nama maksimal 255 karakter',
                 'name_en.max' => 'Nama maksimal 255 karakter',
                 'slug.unique' => 'Slug sudah ada',
-                'image.image' => 'File harus berupa gambar',
+                'cover_picture.image' => 'File harus berupa gambar',
             ]
         );
 
@@ -117,10 +117,87 @@ class EventController extends Controller
         $image = $request->file('image');
         $nameImage = Str::random(40) . '.' . $image->getClientOriginalExtension();
         $image->move(public_path() . '/assets/event/', $nameImage);
-        $validatedData['image'] = $nameImage;
+        $validatedData['cover_picture'] = $nameImage;
         Event::create($validatedData);
         session()->flash('msg_status', 'success');
-        session()->flash('msg', "<h5 class='mb--5'>Berhasil</h5><p class='b3'>Kursus Berhasil Ditambahkan</p>");
+        session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Ditambahkan</p>");
         return redirect()->to('/app-admin/data/event');
+    }
+    public function edit_event(Event $Event)
+    {
+        $data = [
+            'event' => $Event,
+        ];
+        return view('admin.edit_event', $data);
+    }
+
+    public function proses_edit_event(Request $request)
+    {
+        $checkCourse = Event::where('slug', $request->input('slug'))->where('id', '!=', $request->input('event_id'))->first();
+
+        if ($checkCourse) {
+            $rules = [
+                'name' => 'required|max:255',
+                'name_en' => 'required|max:255',
+                'slug' => 'required|unique:events',
+                'location' => 'required',
+                'start_date' => 'required',
+                'start_time' => 'required',
+                'cover_picture' => 'image',
+                'end_date' => 'required',
+                'end_time' => 'required',
+            ];
+        } else {
+            $rules = [
+                'name' => 'required|max:255',
+                'name_en' => 'required|max:255',
+                'slug' => 'required',
+                'location' => 'required',
+                'start_date' => 'required',
+                'start_time' => 'required',
+                'cover_picture' => 'image',
+                'end_date' => 'required',
+                'end_time' => 'required',
+            ];
+        }
+
+        $validatedData = $request->validate(
+            $rules,
+            [
+                'name.max' => 'Nama maksimal 255 karakter',
+                'name_en.max' => 'Nama maksimal 255 karakter',
+                'slug.unique' => 'Slug sudah ada',
+                'cover_picture.image' => 'File harus berupa gambar',
+            ]
+        );
+
+
+        $validatedData['admin_id'] = Auth::guard('admin')->user()->id;
+        $validatedData['slug'] = Str::of($request->slug)->slug('-');
+
+        if ($request->file('image')) {
+            $event = Event::where('id', $request->input('event_id'))->first();
+            if ($event->cover_picture != NULL) {
+                unlink(public_path('assets/event/') . $event->cover_picture);
+            }
+            $image = $request->file('image');
+            $nameImage = Str::random(40) . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path() . '/assets/event/', $nameImage);
+            $validatedData['cover_picture'] = $nameImage;
+        }
+        Event::where('id', $request->input('event_id'))->update($validatedData);
+        $event = Event::where('id', $request->input('event_id'))->first();
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Diubah</p>");
+        return redirect()->to("/app-admin/data/edit/event/$event->id");
+    }
+    public function hapus_event(Event $Event)
+    {
+        unlink(public_path('assets/event/') . $Event->cover_picture);
+        Event::where('id', $Event->id)->delete();
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Dihapus</p>");
+        return redirect()->to("/app-admin/data/event");
     }
 }

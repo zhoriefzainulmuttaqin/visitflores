@@ -35,12 +35,13 @@
                                     </td>
                                     <td>{{ $event->start_time }} - {{ $event->end_time }}</td>
                                     <td class="text-center">
-                                        <a href="">
+                                        <a href='{{ url("/app-admin/data/edit/event/$event->id") }}'>
                                             <button type="button" class="btn btn-sm btn-success" title="Ubah"><i
                                                     class="fas fa-edit"></i></button>
                                         </a>
-                                        <a href="">
-                                            <button type="button" class="btn btn-sm btn-danger" title="Ubah"><i
+                                        <a href="{{ url("/app-admin/data/hapus/event/$event->id") }}"
+                                            onclick="return confirm('Apakah anda yakin hapus?.')">
+                                            <button type="button" class="btn btn-sm btn-danger" title="hapus"><i
                                                     class="fas fa-trash"></i></button>
                                         </a>
                                     </td>
