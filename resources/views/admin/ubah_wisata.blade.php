@@ -19,7 +19,7 @@ Ubah Wisata
                     <div class="form-group">
                         <label for="city"> Kota / Kab </label>
                         <input type="text" class="form-control @error('city') is-invalid @enderror" name="city"
-                            id="city" placeholder="Masukan Nama . . . "
+                            id="city" placeholder="Masukan Kota / Kab . . . "
                             value="{{ old('city') ? old('city') : $tour->city }}" required autocomplete="off">
                         @error('city')
                         <div class="invalid-feedback">
