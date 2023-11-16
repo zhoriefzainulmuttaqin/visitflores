@@ -136,6 +136,7 @@ Route::prefix("app-admin")->group(function () {
         Route::get("akun/mitra", [AccountController::class, "akun_mitra"]);
         Route::get("tambah/akun/mitra", [AccountController::class, "tambah_akun_mitra"]);
         Route::post("akun/mitra/proses-tambah", [AccountController::class, "proses_tambah_akun_mitra"]);
+        Route::get("akun/mitra/pilih-tipe", [AccountController::class, "pilih_tipe_akun_mitra"]);
         Route::get("kelola/akun/mitra/{id}", [AccountController::class, "kelola_akun_mitra"]);
         Route::post("akun/mitra/proses-ubah", [AccountController::class, "proses_ubah_akun_mitra"]);
         Route::post("akun/mitra/proses-reset-password", [AccountController::class, "proses_reset_password_akun_mitra"]);
