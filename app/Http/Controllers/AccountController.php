@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -152,6 +153,149 @@ class AccountController extends Controller
 
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Password baru berhasil disimpan !</p>");
-        return redirect()->to('app-admin/kelola/akun/admin/' . $request->id . '/?active=password');
+        return redirect()->to('app-admin/kelola/akun/admin/' . $request->id);
+    }
+
+    public function profil()
+    {
+        return view('admin.profil');
+    }
+
+    public function proses_ubah_profil(Request $request)
+    {
+        // wajib
+        $id = $request->id;
+        $name = $request->name;
+        $phone = $request->phone;
+        $email = $request->email;
+        $username = $request->username;
+
+
+        $data_admin = Admin::where('id', $id)->first();
+
+        $rules = [];
+
+        if ($request->email != $data_admin->email) {
+            $rules['email'] = 'required|unique:administrators';
+        } else {
+            $rules['email'] = 'required';
+        }
+
+        if ($request->phone != $data_admin->phone) {
+            $rules['phone'] = 'required|unique:administrators';
+        } else {
+            $rules['phone'] = 'required';
+        }
+
+        if ($request->username != $data_admin->username) {
+            $rules['username'] = 'required|unique:administrators';
+        } else {
+            $rules['username'] = 'required';
+        }
+
+        $validateData = $request->validate($rules, [
+            'phone.unique' => 'No. Handphone : ' . $phone . ' sudah terdaftar !',
+            'email.unique' => 'Email : ' . $email . ' sudah terdaftar !',
+            'username.unique' => 'Username : ' . $username . ' sudah terdaftar !',
+        ]);
+
+        Admin::where('id', $id)
+            ->update([
+                'name' =>  $name,
+                'phone' =>  $phone,
+                'email' =>  $email,
+                'username' =>  $username,
+            ]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Profil Berhasil Diubah</p>");
+        return redirect()->to('app-admin/profil');
+    }
+
+    public function proses_reset_password_profil(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|min:5',
+                'password_confirmation' => 'required|same:password'
+            ],
+            [
+                'password.min' => 'Panjang password minimal 5 karakter !',
+                'password_confirmation.same' => 'Konfirmasi password yang anda masukan salah !',
+            ]
+        );
+
+        $validateData['password'] = Hash::make($validatedData['password']);
+
+        Admin::where('id', $request->id)
+            ->update(['password' => $validateData['password']]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Password baru berhasil disimpan !</p>");
+        return redirect()->to('app-admin/profil');
+    }
+
+    public function akun_pengguna()
+    {
+        $users = User::orderBy('name', 'asc')->get();
+
+        $data = [
+            'users' => $users,
+        ];
+        return view('admin.akun_pengguna', $data);
+    }
+
+    public function kelola_akun_pengguna(Request $request)
+    {
+        $dataAccount = User::where('id', $request->id)->first();
+
+        if ($dataAccount) {
+            $data = [
+                'dataAccount' => $dataAccount,
+            ];
+            return view('admin.kelola_akun_pengguna', $data);
+        } else {
+            session()->flash('msg_status', 'warning');
+            session()->flash('msg', "<h5>Gagal</h5><p>Data akun pengguna tidak ditemukan !</p>");
+            return redirect()->to('/app-admin/akun/pengguna');
+        }
+    }
+
+    public function proses_ubah_akun_pengguna(Request $request)
+    {
+        $id = $request->id;
+        $status = $request->status;
+
+        User::where('id', $id)
+            ->update([
+                'active' =>  $status,
+            ]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Akun Pengguna Berhasil Diubah</p>");
+        return redirect()->to('app-admin/kelola/akun/pengguna/' . $id);
+    }
+
+    public function proses_reset_password_akun_pengguna(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|min:5',
+                'password_confirmation' => 'required|same:password'
+            ],
+            [
+                'password.min' => 'Panjang password minimal 5 karakter !',
+                'password_confirmation.same' => 'Konfirmasi password yang anda masukan salah !',
+            ]
+        );
+
+        $validateData['password'] = Hash::make($validatedData['password']);
+
+        User::where('id', $request->id)
+            ->update(['password' => $validateData['password']]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Password baru berhasil disimpan !</p>");
+        return redirect()->to('app-admin/kelola/akun/pengguna/' . $request->id);
     }
 }

@@ -132,6 +132,24 @@ Route::prefix("app-admin")->group(function () {
         Route::post("akun/admin/proses-ubah", [AccountController::class, "proses_ubah_akun_admin"]);
         Route::post("akun/admin/proses-reset-password", [AccountController::class, "proses_reset_password_akun_admin"]);
 
+        // akun mitra
+        Route::get("akun/mitra", [AccountController::class, "akun_mitra"]);
+        Route::get("tambah/akun/mitra", [AccountController::class, "tambah_akun_mitra"]);
+        Route::post("akun/mitra/proses-tambah", [AccountController::class, "proses_tambah_akun_mitra"]);
+        Route::get("kelola/akun/mitra/{id}", [AccountController::class, "kelola_akun_mitra"]);
+        Route::post("akun/mitra/proses-ubah", [AccountController::class, "proses_ubah_akun_mitra"]);
+        Route::post("akun/mitra/proses-reset-password", [AccountController::class, "proses_reset_password_akun_mitra"]);
+
+        // profile
+        Route::get("profil", [AccountController::class, "profil"]);
+        Route::post("profil/proses-ubah", [AccountController::class, "proses_ubah_profil"]);
+        Route::post("profil/proses-reset-password", [AccountController::class, "proses_reset_password_profil"]);
+
+        // akun pengguna
+        Route::get("akun/pengguna", [AccountController::class, "akun_pengguna"]);
+        Route::get("kelola/akun/pengguna/{id}", [AccountController::class, "kelola_akun_pengguna"]);
+        Route::post("akun/pengguna/proses-ubah", [AccountController::class, "proses_ubah_akun_pengguna"]);
+        Route::post("akun/pengguna/proses-reset-password", [AccountController::class, "proses_reset_password_akun_pengguna"]);
 
         Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
         Route::get("transaksi/tourism-card", [TransactionAdminController::class, "tourism_card"]);
