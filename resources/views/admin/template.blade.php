@@ -174,19 +174,19 @@
                             </a>
                             <ul class="nav nav-treeview" style='font-size:14px'>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/transaksi/tourismcard') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/transaksi/tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Transaksi Tourism Card</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/transaksi/paketoleholeh') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/transaksi/paket-oleholeh') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Transaksi Paket Oleh - oleh</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/penggunaan/tourismcard') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/penggunaan/tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Penggunaan Tourism Card</p>
                                     </a>

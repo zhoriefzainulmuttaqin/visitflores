@@ -18,6 +18,7 @@ use App\Http\Controllers\AccountController;
 
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TransactionAdminController;
+use App\Http\Controllers\ReportAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -151,10 +152,16 @@ Route::prefix("app-admin")->group(function () {
         Route::post("akun/pengguna/proses-ubah", [AccountController::class, "proses_ubah_akun_pengguna"]);
         Route::post("akun/pengguna/proses-reset-password", [AccountController::class, "proses_reset_password_akun_pengguna"]);
 
+        // Pengelolaan Transaksi
         Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
+        Route::post("transaksi/paket-oleholeh/tandai", [TransactionAdminController::class, "tandai_paket_oleholeh"]);
         Route::get("transaksi/tourism-card", [TransactionAdminController::class, "tourism_card"]);
         Route::get("transaksi/tourism-card/{id}/discount-card", [TransactionAdminController::class, "discount_card"]);
         Route::post("transaksi/tourism-card/discount-card/generate", [TransactionAdminController::class, "generate_discount_card"]);
         Route::get("discount-card/{code}/download", [TransactionAdminController::class, "discount_card_generate_image"]);
+
+        // Laporan
+        Route::get("laporan/transaksi/tourism-card",[ReportAdminController::class, "transaksi_tourism_card"]);
+        Route::get("laporan/transaksi/paket-oleholeh",[ReportAdminController::class, "transaksi_paket_oleholeh"]);
     });
 });

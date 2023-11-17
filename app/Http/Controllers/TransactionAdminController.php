@@ -31,6 +31,16 @@ class TransactionAdminController extends Controller
             
         return view("admin/transaksi_paketoleholeh",$data);
     }
+    public function tandai_paket_oleholeh(Request $request){
+        $sale_id = $request->sale_id;
+
+        GiftSale::where("id",$sale_id)->update(["status"=>2]);
+
+        session()->flash('msg', "<b>Berhasil</b> <br> Transaksi Berhasil Ditandai");
+        session()->flash('msg_status', 'success');
+
+        return redirect("app-admin/transaksi/paket-oleholeh");
+    }
     public function tourism_card(){
         $transactions = DiscountCardSale::orderBy("date_carted","desc")->orderBy("id","desc")->get();
         $data = ([
@@ -67,6 +77,9 @@ class TransactionAdminController extends Controller
             return redirect("app-admin/transaksi/tourism-card");
         }
 
+        $dateNow = date("Y-m-d");
+        $timeNow = date("H:i");
+
         for($c = 1; $c <= $sale->quantity; $c++){
             $newCard = DiscountCard::create([
                 "user_id"   => $sale->user_id,
@@ -75,8 +88,8 @@ class TransactionAdminController extends Controller
                 "owner_name" => $sale->user->name,
                 "owner_phone" => $sale->user->phone,
                 "owner_email" => $sale->user->email,
-                "date_created"  => date("Y-m-d"),
-                "time_created" => date("H:i"),
+                "date_created"  => $dateNow,
+                "time_created" => $timeNow,
             ]);
 
             $firstNumberCode = rand(1000,9999);
@@ -99,6 +112,10 @@ class TransactionAdminController extends Controller
                 "code"  => $newCardCode,
             ]);
         }
+
+        DiscountCardSale::where("id",$sale_id)->update([
+            "status"    => 2,
+        ]);
 
         session()->flash('msg', "<b>Berhasil</b> <br> Discount Card Berhasil Dibuat");
         session()->flash('msg_status', 'success');

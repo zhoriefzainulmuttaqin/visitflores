@@ -23,16 +23,7 @@
                     <div class="col-md-8 pt-5">
                         <p>
                             <?php
-                            if($sale->id < 10){
-                                $saleNo = "0000".$sale->id;
-                            }elseif($sale->id < 100){
-                                $saleNo = "000".$sale->id;
-                            }elseif($sale->id < 1000){
-                                $saleNo = "00".$sale->id;
-                            }else{
-                                $saleNo = "0".$sale->id;                        
-                            }
-                            $saleKode = date("ymd",strtotime($sale->date_carted)).$sale->user_id.$saleNo;
+                            $saleKode = saleKode("TC",$sale);
                             ?>
                             <b class="h2">#{{ $saleKode }}</b>
                             <br>
