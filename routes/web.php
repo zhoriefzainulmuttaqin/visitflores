@@ -14,6 +14,7 @@ use App\Http\Controllers\AuthUserController;
 use App\Http\Controllers\AuthAdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\AccountController;
 
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TransactionAdminController;
@@ -106,6 +107,50 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/wisata/kategori/proses-tambah", [TourController::class, "proses_tambah_kategori_wisata"]);
         Route::post("data/wisata/kategori/proses-ubah", [TourController::class, "proses_ubah_kategori_wisata"]);
         Route::get("data/wisata/kategori/proses-hapus/{id}", [TourController::class, "proses_hapus_kategori_wisata"]);
+
+        // kuliner
+        Route::get("data/kuliner", [RestaurantController::class, "admin_kuliner"]);
+        Route::get("data/tambah/kuliner", [RestaurantController::class, "tambah_kuliner"]);
+        Route::post("data/kuliner/proses-tambah", [RestaurantController::class, "proses_tambah_kuliner"]);
+        Route::get("data/ubah/kuliner/{slug}", [RestaurantController::class, "ubah_kuliner"]);
+        Route::post("data/kuliner/proses-ubah", [RestaurantController::class, "proses_ubah_kuliner"]);
+        Route::get("data/kuliner/proses-hapus/{slug}", [RestaurantController::class, "proses_hapus_kuliner"]);
+
+        // oleholeh
+        Route::get("data/oleholeh", [ShopController::class, "admin_oleholeh"]);
+        Route::get("data/tambah/oleholeh", [ShopController::class, "tambah_oleholeh"]);
+        Route::post("data/oleholeh/proses-tambah", [ShopController::class, "proses_tambah_oleholeh"]);
+        Route::get("data/ubah/oleholeh/{slug}", [ShopController::class, "ubah_oleholeh"]);
+        Route::post("data/oleholeh/proses-ubah", [ShopController::class, "proses_ubah_oleholeh"]);
+        Route::get("data/oleholeh/proses-hapus/{slug}", [ShopController::class, "proses_hapus_oleholeh"]);
+
+        // akun admin
+        Route::get("akun/admin", [AccountController::class, "akun_admin"]);
+        Route::get("tambah/akun/admin", [AccountController::class, "tambah_akun_admin"]);
+        Route::post("akun/admin/proses-tambah", [AccountController::class, "proses_tambah_akun_admin"]);
+        Route::get("kelola/akun/admin/{id}", [AccountController::class, "kelola_akun_admin"]);
+        Route::post("akun/admin/proses-ubah", [AccountController::class, "proses_ubah_akun_admin"]);
+        Route::post("akun/admin/proses-reset-password", [AccountController::class, "proses_reset_password_akun_admin"]);
+
+        // akun mitra
+        Route::get("akun/mitra", [AccountController::class, "akun_mitra"]);
+        Route::get("tambah/akun/mitra", [AccountController::class, "tambah_akun_mitra"]);
+        Route::post("akun/mitra/proses-tambah", [AccountController::class, "proses_tambah_akun_mitra"]);
+        Route::get("akun/mitra/pilih-tipe", [AccountController::class, "pilih_tipe_akun_mitra"]);
+        Route::get("kelola/akun/mitra/{id}", [AccountController::class, "kelola_akun_mitra"]);
+        Route::post("akun/mitra/proses-ubah", [AccountController::class, "proses_ubah_akun_mitra"]);
+        Route::post("akun/mitra/proses-reset-password", [AccountController::class, "proses_reset_password_akun_mitra"]);
+
+        // profile
+        Route::get("profil", [AccountController::class, "profil"]);
+        Route::post("profil/proses-ubah", [AccountController::class, "proses_ubah_profil"]);
+        Route::post("profil/proses-reset-password", [AccountController::class, "proses_reset_password_profil"]);
+
+        // akun pengguna
+        Route::get("akun/pengguna", [AccountController::class, "akun_pengguna"]);
+        Route::get("kelola/akun/pengguna/{id}", [AccountController::class, "kelola_akun_pengguna"]);
+        Route::post("akun/pengguna/proses-ubah", [AccountController::class, "proses_ubah_akun_pengguna"]);
+        Route::post("akun/pengguna/proses-reset-password", [AccountController::class, "proses_reset_password_akun_pengguna"]);
 
         Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
         Route::get("transaksi/tourism-card", [TransactionAdminController::class, "tourism_card"]);

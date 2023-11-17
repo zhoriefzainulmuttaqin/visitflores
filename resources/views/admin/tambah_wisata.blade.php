@@ -7,7 +7,7 @@ Tambah Wisata
 @section('content')
 <div class="row mt--2">
     <div class="col-md-12">
-        <div class="card" style="padding-bottom: 15px;">
+        <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Tambah Wisata</h3>
             </div>
@@ -17,7 +17,7 @@ Tambah Wisata
                     <div class="form-group">
                         <label for="city"> Kota / Kab </label>
                         <input type="text" class="form-control @error('city') is-invalid @enderror" name="city"
-                            id="city" placeholder="Masukan Nama . . . " value="{{ old('city') }}" required
+                            id="city" placeholder="Masukan Kota / Kab . . . " value="{{ old('city') }}" required
                             autocomplete="off">
                         @error('city')
                         <div class="invalid-feedback">

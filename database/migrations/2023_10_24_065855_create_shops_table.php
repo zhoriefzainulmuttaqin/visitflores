@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('name_en');
             $table->string('slug');
-            $table->longText('details');
-            $table->longText('details_en');
+            $table->longText('details')->nullable();
+            $table->longText('details_en')->nullable();
             $table->longText('address');
-            $table->longText('facilities');
-            $table->longText('facilities_en');
+            $table->longText('facilities')->nullable();
+            $table->longText('facilities_en')->nullable();
             $table->longText('phone');
             $table->double('price');
             $table->string('link_instagram')->nullable();

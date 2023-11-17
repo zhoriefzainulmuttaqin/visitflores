@@ -51,7 +51,7 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="{{ url('app-admin/profil') }}" class="d-block">Admin</a>
+                        <a href="{{ url('app-admin/profil') }}" class="d-block">{{  Auth::guard('admin')->user()->name }}</a>
                     </div>
                 </div>
                 
