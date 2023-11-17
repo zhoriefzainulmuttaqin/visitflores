@@ -149,10 +149,10 @@
     }
     .logo-default {
         width: 75px !important;
-        width: 18px !important;
+        width: 30px !important;
     }
     .logo-dark {
         width: 75px !important;
-        height: 18px !important;
+        height: 30px !important;
     }
 }

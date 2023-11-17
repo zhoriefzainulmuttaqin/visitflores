@@ -11,9 +11,17 @@ use Illuminate\Support\Facades\App;
 @section("style")
 <style>
 #service-floating-card{
+    margin-top: 10%;
 }
 .fixed-height{
     height: 700px !important;
+
+}
+
+@media (max-width: 760px) {
+    #service-floating-card{
+    margin-top: 30%;
+}
 }
 </style>
 @endsection
@@ -23,9 +31,9 @@ use Illuminate\Support\Facades\App;
 @endsection
 
 @section("content")
-<div class="container mt-4 text-center" id="service-floating-card">
+<div class="container text-center" id="service-floating-card">
     <div class="card shadow">
-        <div class="card-body">
+        <div class="card-body" >
             <div class="row justify-content-center">
                 <div class="col-4 text-center p-4 p-md-0">
                     <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid" width="100px">
@@ -80,7 +88,7 @@ use Illuminate\Support\Facades\App;
                             </p>
                             <p class="h3">
                                 {!! __("services.tourism_card_detail_two") !!}
-        
+
                             </p>
                         </div>
                     </div>

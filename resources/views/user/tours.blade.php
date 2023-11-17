@@ -178,8 +178,8 @@ use Illuminate\Support\Facades\App;
 								<div class="fw-bold">{{ nl2br($tour->facilities) }}</div>
 							</div> --}}
 							<div class="mb-3">
-								<div class="fw-bold">Rp.
-									<?= number_format($tour->price, 0, ",", ".") ?>
+								<div class="fw-bold">Rp. -
+									{{-- <?= number_format($tour->price, 0, ",", ".") ?> --}}
 								</div>
 							</div>
 							<div class="entry-meta no-separator mb-3">

@@ -3457,6 +3457,17 @@
             "time": "2023-11-08T05:53:05+00:00"
         },
         {
+<<<<<<< HEAD
+            "name": "symfony/console",
+            "version": "v6.3.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "0d14a9f6d04d4ac38a8cea1171f4554e325dae92"
+            },
+            "dist": {
+                "type": "zip",
+=======
             "name": "simplesoftwareio/simple-qrcode",
             "version": "4.2.0",
             "source": {
@@ -3534,6 +3545,7 @@
             },
             "dist": {
                 "type": "zip",
+>>>>>>> 0ff4f60f5c67b0bb596be57814efa443652e873a
                 "url": "https://api.github.com/repos/symfony/console/zipball/0d14a9f6d04d4ac38a8cea1171f4554e325dae92",
                 "reference": "0d14a9f6d04d4ac38a8cea1171f4554e325dae92",
                 "shasum": ""
@@ -8494,5 +8506,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
