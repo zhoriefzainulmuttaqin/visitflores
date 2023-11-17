@@ -17,7 +17,7 @@ class AccomodationSeeder extends Seeder
             ([
                 "city"   => "Kota Cirebon",
                 "picture"   => "tryas.png",
-                "cover_picture"   => "aston.png",
+                "cover_picture"   => "tryas.png",
                 "name"   => "Hotel Grand Tryas",
                 "name_en"   => "Grand Tryas Hotel",
                 "slug"   => "grand-tryas",

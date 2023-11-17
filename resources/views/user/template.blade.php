@@ -45,48 +45,127 @@
         ?>
         {{ view('user.header') }}
         @if ($segments == null)
-        <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
-        @else
-        <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-            style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
+            <section id="slider" class="slider-element slider-parallax min-vh-35 min-vh-md-100 dark include-header"
+                style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
+            @else
+                <section id="slider"
+                    class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+                    style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
         @endif
-            <div class="slider-inner">
-                
-                <div class="vertical-middle slider-element-fade">
-                    <div class="container-fluid py-5">
-                        <div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
-                           @if ($segments == null)
-                                <img src="{{ url('assets/logo-light.png') }}"  id="logo-on-header">
-                                <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
-                                    {{ strtoupper(__("home.portal_text")) }} <br>
-                                    (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
-                                </p>
-                                <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
-                                    {{ strtoupper(__("home.portal_text")) }} <br>
-                                    (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
-                                </p>
-                                <div class="language">
-                                    <a href="{{ url('atur-bahasa/id') }}" class="btn text-center bg-btn-language but_lang1">
-                                        BAHASA INDONESIA
-                                    </a>
-                                    <a href="{{ url('atur-bahasa/en') }}" class="btn text-center bg-btn-language but_lang2">
-                                        ENGLISH
-                                    </a>
-                                </div>
-                            @endif
+        <div class="slider-inner">
 
-                        </div>
+            <div class="vertical-middle slider-element-fade">
+                <div class="container-fluid py-5">
+                    <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
+                        @if ($segments == null)
+                            <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                            <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                {{ strtoupper(__('home.portal_text')) }} <br>
+                                (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                            </p>
+                            <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                {{ strtoupper(__('home.portal_text')) }} <br>
+                                (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                            </p>
+                            <div class="language">
+                                <a href="{{ url('atur-bahasa/id') }}"
+                                    class="btn text-center bg-btn-language but_lang1">
+                                    BAHASA INDONESIA
+                                </a>
+                                <a href="{{ url('atur-bahasa/en') }}"
+                                    class="btn text-center bg-btn-language but_lang2">
+                                    ENGLISH
+                                </a>
+                            </div>
+                        @endif
+
                     </div>
                 </div>
-
             </div>
+
+        </div>
         </section>
+
 
 
         <!-- Content
   ============================================= -->
         <section id="content" style="margin-top:-100px">
+            <div class="container-fluid d-none d-lg-block">
+                {{-- <div class="row justify-content-center py-5">
+                    <div class="col-md-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 align-items-center">
+                                <img src="{{ url('assets/phone.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
+                            </div>
+                            <div class="col-md-7 align-self-center">
+                                <b>{{ __('home.highlight_title_web') }}</b> <br>
+                                {{ __('home.highlight_description_web') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 align-items-center">
+                                <img src="{{ url('assets/event.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
+                            </div>
+                            <div class="col-md-7 align-self-center">
+                                <b>{{ __('home.highlight_title_events') }}</b> <br>
+                                {{ __('home.highlight_description_events') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 align-items-center">
+                                <img src="{{ url('assets/360.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
+                            </div>
+                            <div class="col-md-7 align-self-center">
+                                <b>{!! __('home.highlight_title_destination_360') !!}</b> <br>
+                                {{ __('home.highlight_description_destination_360') }}
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                <style>
+                    .sliderIklan .owl-dots {
+                        display: none !important;
+                    }
+                </style>
+                <div class="sliderIklan" style="margin-top: 7rem;">
+                    <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
+                        data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
+                        <div class="oc-item">
+                            <img src="/assets/slider1.png" alt="" style=" height: 10rem; width: cover;">
+                        </div>
+                        <div class="oc-item">
+                            <img src="/assets/slider2.png" alt="" style=" height: 10rem; width: cover;">
+                        </div>
+                        <div class="oc-item">
+                            <img src="/assets/slider3.png" alt="" style=" height: 10rem; width: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid d-block d-lg-none">
+                <div class="sliderIklan" style="margin-top: 30%; margin-bottom: 0rem;">
+                    <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
+                        data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
+                        <div class="oc-item">
+                            <img src="/assets/slider1.png" alt="" style=" height: 5rem; width: cover;">
+                        </div>
+                        <div class="oc-item">
+                            <img src="/assets/slider2.png" alt="" style=" height: 5rem; width: cover;">
+                        </div>
+                        <div class="oc-item">
+                            <img src="/assets/slider3.png" alt="" style=" height: 5rem; width: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- End Iklan Atas --}}
+
             @yield('content')
         </section><!-- #content end -->
 

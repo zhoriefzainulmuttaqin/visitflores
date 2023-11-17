@@ -65,7 +65,7 @@ use Illuminate\Support\Facades\App;
 												@endif
 											</li>
                                             <li><a target="_blank" href="{{ $tour->link_maps }}" class="fw-normal"><i class="uil uil-map-marker"></i> {{ $tour->address }} </a></li>
-											<li><i class="uil-pricetag-alt"></i>Rp. <?= number_format($tour->price, 0, ",", ".") ?></li>
+											{{-- <li><i class="uil-pricetag-alt"></i>Rp. <?= number_format($tour->price, 0, ",", ".") ?></li> --}}
 											<li><i class="uil bi-telephone-fill"></i>{{ $tour->phone }}</li>
 										</ul>
 									</div><!-- .entry-meta end -->

@@ -29,7 +29,7 @@
                 height: 23em;
                 /* padding-top: 100px !important; */
                 /* padding-bottom: 10px; */
-                margin-top: 0rem;
+                /* margin-top: 0rem; */
                 display: inline;
             }
         }
@@ -69,43 +69,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid d-none d-lg-block">
-        <div class="row justify-content-center py-5">
-            <div class="col-md-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-2 align-items-center">
-                        <img src="{{ url('assets/phone.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <b>{{ __('home.highlight_title_web') }}</b> <br>
-                        {{ __('home.highlight_description_web') }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-2 align-items-center">
-                        <img src="{{ url('assets/event.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <b>{{ __('home.highlight_title_events') }}</b> <br>
-                        {{ __('home.highlight_description_events') }}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="row justify-content-center">
-                    <div class="col-md-2 align-items-center">
-                        <img src="{{ url('assets/360.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                    </div>
-                    <div class="col-md-7 align-self-center">
-                        <b>{!! __('home.highlight_title_destination_360') !!}</b> <br>
-                        {{ __('home.highlight_description_destination_360') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     {{-- css event --}}
     <style>
@@ -134,6 +98,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+
         .entry-meta a {
             max-height: 3em;
             overflow: hidden;
@@ -167,7 +132,7 @@
                 font-size: 16px;
                 font-weight: 999;
                 margin-bottom: 1.5rem;
-                margin-top: 7rem !important;
+                margin-top: -5% !important;
             }
 
             .owl-carousel .owl-dots .owl-dot {
@@ -177,35 +142,35 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                            #but_event {
-                                            width: 15rem;
-                                            height: 100px;
-                                            font-size: 24px;
-                                            font-weight: 500;
-                                            margin-top: -3rem;
-                                            margin-left: auto;
-                                            margin-right: auto;
-                                            display: flex;
-                                            justify-content: center;
-                                            align-items: center;
-                                            border-radius: 5px;
+                                                #but_event {
+                                                width: 15rem;
+                                                height: 100px;
+                                                font-size: 24px;
+                                                font-weight: 500;
+                                                margin-top: -3rem;
+                                                margin-left: auto;
+                                                margin-right: auto;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                border-radius: 5px;
 
-                                        }
+                                            }
 
-                                        .title_event {
-                                            font-size: 16px;
-                                            font-weight: 999;
-                                            margin-bottom: 1.5rem;
-                                            margin-top: 7rem !important;
-                                        }
+                                            .title_event {
+                                                font-size: 16px;
+                                                font-weight: 999;
+                                                margin-bottom: 1.5rem;
+                                                margin-top: 7rem !important;
+                                            }
 
-                                        .owl-carousel .owl-dots .owl-dot {
-                                            background-color: #676565;
-                                            width: 2em;
-                                            height: 2em;
-                                        }
+                                            .owl-carousel .owl-dots .owl-dot {
+                                                background-color: #676565;
+                                                width: 2em;
+                                                height: 2em;
+                                            }
 
-                                        } */
+                                            } */
 
         }
     </style>
@@ -216,7 +181,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                    </p> -->
+                                                                        </p> -->
 
             </p>
             <div class="d-block d-md-none">
@@ -356,8 +321,8 @@
 
 
         /* .mySwiper2-mobile{
-                margin-left:-9.75rem;
-            } */
+                    margin-left:-9.75rem;
+                } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             .mySwiper2-mobile {
                 /* margin-left:-20%; */
@@ -476,25 +441,25 @@
         </swiper-container>
 
         <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none " id="mySwiper" effect="coverflow"
-        grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
-        coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
-        coverflow-effect-slide-shadows="true" loop="true">
-        @foreach ($tours as $tour)
-            <swiper-slide class="card">
-                <a href="/wisata" style="text-decoration: none; color: white;">
-                    <img src='{{ url("assets/wisata/$tour->picture") }}' />
-                    <div class="image-caption">
-                        @if (App::isLocale('id'))
-                            <b style="font-weight: 800;">{{ $tour->name }}</b>
-                        @else
-                            <b style="font-weight: 800;">{{ $tour->name_en }}</b>
-                        @endif
-                    </div>
-                </a>
-            </swiper-slide>
-        @endforeach
+            grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
+            coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
+            coverflow-effect-slide-shadows="true" loop="true">
+            @foreach ($tours as $tour)
+                <swiper-slide class="card">
+                    <a href="/wisata" style="text-decoration: none; color: white;">
+                        <img src='{{ url("assets/wisata/$tour->picture") }}' />
+                        <div class="image-caption">
+                            @if (App::isLocale('id'))
+                                <b style="font-weight: 800;">{{ $tour->name }}</b>
+                            @else
+                                <b style="font-weight: 800;">{{ $tour->name_en }}</b>
+                            @endif
+                        </div>
+                    </a>
+                </swiper-slide>
+            @endforeach
 
-    </swiper-container>
+        </swiper-container>
 
         {{-- <swiper-container class="mySwiper2 mySwiper2-mobile d-block d-md-none " id="mySwiper" effect="coverflow"
             grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
@@ -777,7 +742,8 @@
             .souvenir .owl-carousel .owl-dots .owl-dot {
                 margin-top: -3rem;
             }
-            .grid-img-card-souvenir{
+
+            .grid-img-card-souvenir {
                 height: 8rem !important;
             }
         }
@@ -856,7 +822,8 @@
                                 class="grid-inner grid-inner-souvenir bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
                                 <div class="col-12">
                                     <a href="{{ url('oleh-oleh') }}" class="grid-card-souvenir">
-                                        <img src="{{ url('assets/oleh-oleh/' . $souvenir->picture) }}" class="rounded-2 grid-img-card-souvenir">
+                                        <img src="{{ url('assets/oleh-oleh/' . $souvenir->picture) }}"
+                                            class="rounded-2 grid-img-card-souvenir">
                                         <div class="image-caption text-center"
                                             style="background: #000000 transparent; color: #ddd; ">
                                             @if (App::isLocale('id'))
@@ -1678,9 +1645,5 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
-    <script>
-
-
-
-    </script>
+    <script></script>
 @endsection
