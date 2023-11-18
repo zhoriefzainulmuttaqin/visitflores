@@ -32,7 +32,7 @@ use Illuminate\Support\Facades\App;
 						class="grid-inner bg-white row g-0 p-2 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
 						<div class="col-12 mb-md-0">
 							<div class="entry-image mb-2">
-								<img src="{{ url('assets/resto/' . $restaurant->picture) }}"
+								<img src="{{ url('assets/kuliner/' . $restaurant->picture) }}"
 									alt="Inventore voluptates velit totam ipsa tenetur" class="rounded-5">
 								<div class="bg-overlay">
 									<div class="bg-overlay-content justify-content-start align-items-start">
@@ -62,8 +62,8 @@ use Illuminate\Support\Facades\App;
 								<div class="fw-bold">{{ nl2br($restaurant->facilities) }}</div>
 							</div> --}}
 							<div class="mb-3">
-								<div class="fw-bold">Rp.
-									<?= number_format($restaurant->price, 0, ",", ".") ?>
+								<div class="fw-bold">Rp. -
+									{{-- <?= number_format($restaurant->price, 0, ",", ".") ?> --}}
 								</div>
 							</div>
 							<div class="entry-meta no-separator mb-3">

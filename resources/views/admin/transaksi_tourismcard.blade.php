@@ -25,17 +25,8 @@ Transaksi Tourism Card
                     </thead>
                     <tbody>
                         @foreach($transactions as $transaction)
-                        <?php
-                        if($transaction->id < 10){
-                            $saleNo = "0000".$transaction->id;
-                        }elseif($sale->id < 100){
-                            $saleNo = "000".$transaction->id;
-                        }elseif($sale->id < 1000){
-                            $saleNo = "00".$transaction->id;
-                        }else{
-                            $saleNo = "0".$transaction->id;                        
-                        }
-                        $saleKode = date("ymd",strtotime($transaction->date_carted)).$transaction->user_id.$saleNo;
+                        <?php                        
+                        $saleKode = saleKode("TC",$transaction);
                         ?>
                         <tr>
                             <td class="text-center">#{{ $saleKode }}</td>
@@ -63,6 +54,7 @@ Transaksi Tourism Card
                                 <a href="{{ url('app-admin/transaksi/tourism-card/'.$transaction->id.'/discount-card') }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-tag"></i>
                                     Discount Card
+                                    ({{ count($transaction->cards) }})
                                 </a>
                             </td>
                         </tr>

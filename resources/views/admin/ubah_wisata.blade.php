@@ -7,7 +7,7 @@ Ubah Wisata
 @section('content')
 <div class="row mt--2">
     <div class="col-md-12">
-        <div class="card" style="padding-bottom: 15px;">
+        <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Ubah Wisata</h3>
             </div>

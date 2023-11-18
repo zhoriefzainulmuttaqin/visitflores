@@ -52,7 +52,8 @@
                     {{ __('accomodation_detail.start_from') }}
                     <br>
                     <font class="text-danger fs-3 float-end">
-                        Rp.<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>
+                        Rp.-
+                        {{-- <?= number_format($accomodation->price_start_from, 0, ',', '.') ?> --}}
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">

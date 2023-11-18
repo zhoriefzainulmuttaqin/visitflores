@@ -44,3 +44,18 @@ function convertWANumber($number){
 
     return $number;
 }
+
+function saleKode($type,$transaction){
+    if($transaction->id < 10){
+        $saleNo = "0000".$transaction->id;
+    }elseif($sale->id < 100){
+        $saleNo = "000".$transaction->id;
+    }elseif($sale->id < 1000){
+        $saleNo = "00".$transaction->id;
+    }else{
+        $saleNo = "0".$transaction->id;                        
+    }
+    $saleKode = $type.date("ymd",strtotime($transaction->date_carted)).$transaction->user_id.$saleNo;
+
+    return $saleKode;
+}

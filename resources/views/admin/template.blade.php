@@ -51,7 +51,7 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="{{ url('app-admin/profil') }}" class="d-block">Admin</a>
+                        <a href="{{ url('app-admin/profil') }}" class="d-block">{{  Auth::guard('admin')->user()->name }}</a>
                     </div>
                 </div>
                 
@@ -174,19 +174,19 @@
                             </a>
                             <ul class="nav nav-treeview" style='font-size:14px'>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/transaksi/tourismcard') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/transaksi/tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Transaksi Tourism Card</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/transaksi/paketoleholeh') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/transaksi/paket-oleholeh') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Transaksi Paket Oleh - oleh</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/penggunaan/tourismcard') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/penggunaan/tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Penggunaan Tourism Card</p>
                                     </a>

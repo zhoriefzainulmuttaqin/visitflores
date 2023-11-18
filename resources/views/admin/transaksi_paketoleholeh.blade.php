@@ -21,22 +21,13 @@ Transaksi Paket Oleh - oleh
                             <th class="text-center">Jumlah</th>
                             <th class="text-center">Harga</th>
                             <th class="text-center">Total</th>
-                            <th class="text-center"></th>
+                            <th class="text-center">Sudah Diproses</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($transactions as $transaction)
                         <?php
-                        if($transaction->id < 10){
-                            $saleNo = "0000".$transaction->id;
-                        }elseif($sale->id < 100){
-                            $saleNo = "000".$transaction->id;
-                        }elseif($sale->id < 1000){
-                            $saleNo = "00".$transaction->id;
-                        }else{
-                            $saleNo = "0".$transaction->id;                        
-                        }
-                        $saleKode = date("ymd",strtotime($transaction->date_carted)).$transaction->user_id.$saleNo;
+                        $saleKode = saleKode("P",$transaction);
                         ?>
                         <tr>
                             <td class="text-center">#{{ $saleKode }}</td>
@@ -65,7 +56,18 @@ Transaksi Paket Oleh - oleh
                             </td>
                             @endforeach
                             <td class="text-center">
-
+                                @if($transaction->status == 1)
+                                <form method="post" action="{{ url('app-admin/transaksi/paket-oleholeh/tandai') }}">
+                                    @csrf
+                                    <input type="hidden" name="sale_id" value="{{ $transaction->id }}">
+                                    <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('Yakin sudah diproses.?')">
+                                        <i class="fa fa-check"></i>
+                                        Tandai Sudah Diproses
+                                    </button>
+                                </form>
+                                @else
+                                <i class="fa fa-check"></i>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
