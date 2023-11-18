@@ -107,12 +107,18 @@ Route::prefix("app-admin")->group(function () {
         Route::get("data/hapus/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "hapus_akomodasi"]);
 
         // galeri akomodasi
-        Route::get("data/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "galeri_akomodasi"]);
+        Route::get("data/galeri/akomodasi/{Accomodation:slug}/", [AkomodasiController::class, "galeri_akomodasi"]);
         Route::get("data/tambah/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "tambah_galeri_akomodasi"]);
         Route::post("data/galeri/akomodasi/proses-tambah", [AkomodasiController::class, "proses_tambah_galeri_akomodasi"]);
-        Route::get("data/ubah/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "ubah_galeri_akomodasi"]);
-        Route::post("data/galeri/akomodasi/proses-ubah", [AkomodasiController::class, "proses_ubah_akomodasi"]);
-        Route::get("data/hapus/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "hapus_akomodasi"]);
+        Route::get("data/ubah/galeri/akomodasi/{Accomodation:slug}/{AccomodationGallery}", [AkomodasiController::class, "ubah_galeri_akomodasi"]);
+        Route::post("data/galeri/akomodasi/proses-ubah", [AkomodasiController::class, "proses_ubah_galeri_akomodasi"]);
+        Route::get("data/hapus/galeri/akomodasi/{Accomodation:slug}/{AccomodationGallery}", [AkomodasiController::class, "hapus_galeri_akomodasi"]);
+
+        // link akomodasi
+        Route::get("data/link/akomodasi/{Accomodation:slug}/", [AkomodasiController::class, "link_akomodasi"]);
+        Route::post("data/link/akomodasi/proses-tambah", [AkomodasiController::class, "proses_tambah_link_akomodasi"]);
+        Route::post("data/link/akomodasi/proses-ubah", [AkomodasiController::class, "proses_ubah_link_akomodasi"]);
+        Route::get("data/hapus/link/akomodasi/{Accomodation:slug}/{AccomodationLink}", [AkomodasiController::class, "hapus_link_akomodasi"]);
 
         // berita
         Route::get("data/berita", [BeritaController::class, "admin_berita"]);
@@ -195,7 +201,7 @@ Route::prefix("app-admin")->group(function () {
         Route::get("discount-card/{code}/download", [TransactionAdminController::class, "discount_card_generate_image"]);
 
         // Laporan
-        Route::get("laporan/transaksi/tourism-card",[ReportAdminController::class, "transaksi_tourism_card"]);
-        Route::get("laporan/transaksi/paket-oleholeh",[ReportAdminController::class, "transaksi_paket_oleholeh"]);
+        Route::get("laporan/transaksi/tourism-card", [ReportAdminController::class, "transaksi_tourism_card"]);
+        Route::get("laporan/transaksi/paket-oleholeh", [ReportAdminController::class, "transaksi_paket_oleholeh"]);
     });
 });
