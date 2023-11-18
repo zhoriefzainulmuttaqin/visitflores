@@ -90,11 +90,41 @@ Route::prefix("app-admin")->group(function () {
         Route::get("logout", [AuthAdminController::class, "keluar"]);
         Route::get("data/event", [EventController::class, "admin_event"]);
         Route::get("data/tambah/event", [EventController::class, "tambah_event"]);
-        Route::get("data/edit/event/{Event:id}", [EventController::class, "edit_event"]);
+        Route::get("data/ubah/event/{Event:id}", [EventController::class, "ubah_event"]);
         Route::post("data/event/proses-tambah", [EventController::class, "proses_tambah_event"]);
-        Route::post("data/event/proses-edit", [EventController::class, "proses_edit_event"]);
+        Route::post("data/event/proses-ubah", [EventController::class, "proses_ubah_event"]);
         Route::get('buatSlug', [EventController::class, "buat_slug"]);
         Route::get("data/hapus/event/{Event:id}", [EventController::class, "hapus_event"]);
+
+        // akomodasi
+        Route::get("data/akomodasi", [AkomodasiController::class, "admin_akomodasi"]);
+        Route::get("data/tambah/akomodasi", [AkomodasiController::class, "tambah_akomodasi"]);
+        Route::get("data/ubah/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "ubah_akomodasi"]);
+        Route::post("data/akomodasi/proses-tambah", [AkomodasiController::class, "proses_tambah_akomodasi"]);
+        Route::post("data/akomodasi/proses-ubah", [AkomodasiController::class, "proses_ubah_akomodasi"]);
+        Route::get("data/hapus/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "hapus_akomodasi"]);
+
+        // galeri akomodasi
+        Route::get("data/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "galeri_akomodasi"]);
+        Route::get("data/tambah/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "tambah_galeri_akomodasi"]);
+        Route::post("data/galeri/akomodasi/proses-tambah", [AkomodasiController::class, "proses_tambah_galeri_akomodasi"]);
+        Route::get("data/ubah/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "ubah_galeri_akomodasi"]);
+        Route::post("data/galeri/akomodasi/proses-ubah", [AkomodasiController::class, "proses_ubah_akomodasi"]);
+        Route::get("data/hapus/galeri/akomodasi/{Accomodation:slug}", [AkomodasiController::class, "hapus_akomodasi"]);
+
+        // berita
+        Route::get("data/berita", [BeritaController::class, "admin_berita"]);
+        Route::get("data/tambah/berita", [BeritaController::class, "tambah_berita"]);
+        Route::get("data/ubah/berita/{News:slug}", [BeritaController::class, "ubah_berita"]);
+        Route::post("data/berita/proses-tambah", [BeritaController::class, "proses_tambah_berita"]);
+        Route::post("data/berita/proses-ubah", [BeritaController::class, "proses_ubah_berita"]);
+        Route::get("data/hapus/berita/{News:slug}", [BeritaController::class, "hapus_berita"]);
+
+        // kategori Berita
+        Route::get("data/berita/kategori", [BeritaController::class, "admin_berita_kategori"]);
+        Route::post("data/berita/kategori/proses-tambah", [BeritaController::class, "proses_tambah_kategori_berita"]);
+        Route::post("data/berita/kategori/proses-ubah", [BeritaController::class, "proses_ubah_kategori_berita"]);
+        Route::get("data/berita/kategori/proses-hapus/{id}", [BeritaController::class, "proses_hapus_kategori_berita"]);
 
         // wisata
         Route::get("data/wisata", [TourController::class, "admin_wisata"]);

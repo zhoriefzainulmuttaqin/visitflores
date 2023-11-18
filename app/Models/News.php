@@ -11,4 +11,5 @@ class News extends Model
     protected $table = 'news';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+    public $timestamps = false;
 }

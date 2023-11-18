@@ -37,12 +37,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="slug">Slug Event</label>
-                            <input name="slug" class="form-control @error('location') is-invalid @enderror"
-                                id="slug" value="{{ old('slug') }}"type="text" required placeholder="event-baru">
-                            <small class="d-block link-muted"><i class="feather-info"></i> Permalink: <a
-                                    href="#">https://yourdomain.com/event-baru</a></small>
-                            @error('location')
+                            <label for="slug">Slug</label>
+                            <input name="slug" class="form-control @error('slug') is-invalid @enderror" id="slug"
+                                value="{{ old('slug') }}"type="text" required placeholder="Masukkan Slug . . .">
+                            @error('slug')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -63,26 +61,30 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Tanggal</span>
                             </div>
-                            <input type="date" name="start_date" aria-label="First name" required class="form-control">
+                            <input type="date" name="start_date" value="{{ old('start_date') }}" aria-label="First name"
+                                required class="form-control">
                             <div class="input-group-append">
                                 <span class="input-group-text">Waktu</span>
                             </div>
-                            <input type="time" name="start_time" aria-label="Last name" required class="form-control">
+                            <input type="time" name="start_time" value="{{ old('start_time') }}" aria-label="Last name"
+                                required class="form-control">
                         </div>
                         <label class="form-label"> Tanggal dan Waktu Acara Selesai</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Tanggal</span>
                             </div>
-                            <input type="date" name="end_date" aria-label="First name" required class="form-control">
+                            <input type="date" name="end_date" value="{{ old('end_date') }}" aria-label="First name"
+                                required class="form-control">
                             <div class="input-group-append">
                                 <span class="input-group-text">Waktu</span>
                             </div>
-                            <input type="time" name="end_time" aria-label="Last name"required class="form-control">
+                            <input type="time" name="end_time" value="{{ old('end_time') }}" aria-label="Last name"
+                                required class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="image" class="form-label">Gambar</label>
-                            <img id="addImage" class="img-preview mb-3 img-fluid">
+                            <img id="addImage" class="img-preview mb-3 img-fluid" style="max-height: 300px; width: auto;">
                             <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                                 id="image" onchange="previewImage()" required>
                             @error('image')

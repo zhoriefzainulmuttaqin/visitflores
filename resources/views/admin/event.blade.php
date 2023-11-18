@@ -35,7 +35,7 @@
                                     </td>
                                     <td>{{ $event->start_time }} - {{ $event->end_time }}</td>
                                     <td class="text-center">
-                                        <a href='{{ url("/app-admin/data/edit/event/$event->id") }}'>
+                                        <a href='{{ url("/app-admin/data/ubah/event/$event->id") }}'>
                                             <button type="button" class="btn btn-sm btn-success" title="Ubah"><i
                                                     class="fas fa-edit"></i></button>
                                         </a>

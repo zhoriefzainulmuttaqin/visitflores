@@ -89,15 +89,15 @@ class EventController extends Controller
     {
         $validatedData = $request->validate(
             [
-                'name' => 'required|max:255',
-                'name_en' => 'required|max:255',
-                'slug' => 'required|unique:events',
-                'location' => 'required',
-                'start_date' => 'required',
-                'start_time' => 'required',
-                'cover_picture' => 'required|image',
-                'end_date' => 'required',
-                'end_time' => 'required',
+                'name' => 'max:255',
+                'name_en' => 'max:255',
+                'slug' => 'unique:events',
+                'location' => '',
+                'start_date' => '',
+                'start_time' => '',
+                'cover_picture' => 'image',
+                'end_date' => '',
+                'end_time' => '',
             ],
             [
                 'name.max' => 'Nama maksimal 255 karakter',
@@ -108,7 +108,6 @@ class EventController extends Controller
         );
 
 
-        $validatedData['user_id'] = auth()->user()->id;
         $validatedData['admin_id'] = Auth::guard('admin')->user()->id;
         $validatedData['published_date'] = date('Y-m-d');
         $validatedData['published_time'] = date('G:i');
@@ -116,14 +115,14 @@ class EventController extends Controller
 
         $image = $request->file('image');
         $nameImage = Str::random(40) . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path() . '/assets/event/', $nameImage);
+        $image->move('./assets/event/', $nameImage);
         $validatedData['cover_picture'] = $nameImage;
         Event::create($validatedData);
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Ditambahkan</p>");
         return redirect()->to('/app-admin/data/event');
     }
-    public function edit_event(Event $Event)
+    public function ubah_event(Event $Event)
     {
         $data = [
             'event' => $Event,
@@ -131,11 +130,11 @@ class EventController extends Controller
         return view('admin.edit_event', $data);
     }
 
-    public function proses_edit_event(Request $request)
+    public function proses_ubah_event(Request $request)
     {
-        $checkCourse = Event::where('slug', $request->input('slug'))->where('id', '!=', $request->input('event_id'))->first();
+        $checkEvent = Event::where('slug', $request->input('slug'))->where('id', '!=', $request->input('event_id'))->first();
 
-        if ($checkCourse) {
+        if ($checkEvent) {
             $rules = [
                 'name' => 'required|max:255',
                 'name_en' => 'required|max:255',
@@ -178,11 +177,11 @@ class EventController extends Controller
         if ($request->file('image')) {
             $event = Event::where('id', $request->input('event_id'))->first();
             if ($event->cover_picture != NULL) {
-                unlink(public_path('assets/event/') . $event->cover_picture);
+                unlink(('./assets/event/') . $event->cover_picture);
             }
             $image = $request->file('image');
             $nameImage = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path() . '/assets/event/', $nameImage);
+            $image->move('./assets/event/', $nameImage);
             $validatedData['cover_picture'] = $nameImage;
         }
         Event::where('id', $request->input('event_id'))->update($validatedData);
@@ -190,11 +189,11 @@ class EventController extends Controller
 
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Diubah</p>");
-        return redirect()->to("/app-admin/data/edit/event/$event->id");
+        return redirect()->to("/app-admin/data/ubah/event/$event->id");
     }
     public function hapus_event(Event $Event)
     {
-        unlink(public_path('assets/event/') . $Event->cover_picture);
+        unlink(('./assets/event/') . $Event->cover_picture);
         Event::where('id', $Event->id)->delete();
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Dihapus</p>");
