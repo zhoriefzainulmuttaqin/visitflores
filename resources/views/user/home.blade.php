@@ -69,6 +69,19 @@
 @endsection
 
 @section('content')
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-26YC4R3P36"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-26YC4R3P36');
+    </script>
+
     {{-- css event --}}
     <style>
         #but_event {
@@ -140,35 +153,35 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                                    #but_event {
-                                                    width: 15rem;
-                                                    height: 100px;
-                                                    font-size: 24px;
-                                                    font-weight: 500;
-                                                    margin-top: -3rem;
-                                                    margin-left: auto;
-                                                    margin-right: auto;
-                                                    display: flex;
-                                                    justify-content: center;
-                                                    align-items: center;
-                                                    border-radius: 5px;
+                                                        #but_event {
+                                                        width: 15rem;
+                                                        height: 100px;
+                                                        font-size: 24px;
+                                                        font-weight: 500;
+                                                        margin-top: -3rem;
+                                                        margin-left: auto;
+                                                        margin-right: auto;
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        align-items: center;
+                                                        border-radius: 5px;
 
-                                                }
+                                                    }
 
-                                                .title_event {
-                                                    font-size: 16px;
-                                                    font-weight: 999;
-                                                    margin-bottom: 1.5rem;
-                                                    margin-top: 7rem !important;
-                                                }
+                                                    .title_event {
+                                                        font-size: 16px;
+                                                        font-weight: 999;
+                                                        margin-bottom: 1.5rem;
+                                                        margin-top: 7rem !important;
+                                                    }
 
-                                                .owl-carousel .owl-dots .owl-dot {
-                                                    background-color: #676565;
-                                                    width: 2em;
-                                                    height: 2em;
-                                                }
+                                                    .owl-carousel .owl-dots .owl-dot {
+                                                        background-color: #676565;
+                                                        width: 2em;
+                                                        height: 2em;
+                                                    }
 
-                                                } */
+                                                    } */
 
         }
     </style>
@@ -179,7 +192,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                            </p> -->
+                                                                                </p> -->
 
             </p>
             <div class="d-block d-md-none">
@@ -319,8 +332,8 @@
 
 
         /* .mySwiper2-mobile{
-                        margin-left:-9.75rem;
-                    } */
+                            margin-left:-9.75rem;
+                        } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             .mySwiper2-mobile {
                 /* margin-left:-20%; */

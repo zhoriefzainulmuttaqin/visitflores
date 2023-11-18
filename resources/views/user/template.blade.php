@@ -90,48 +90,14 @@
 
         <!-- Content
   ============================================= -->
+        <style>
+            .sliderIklan .owl-dots {
+                display: none !important;
+            }
+        </style>
+
         <section id="content" style="margin-top:-100px">
             <div class="container-fluid d-none d-lg-block">
-                {{-- <div class="row justify-content-center py-5">
-                    <div class="col-md-4">
-                        <div class="row justify-content-center">
-                            <div class="col-md-2 align-items-center">
-                                <img src="{{ url('assets/phone.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                            </div>
-                            <div class="col-md-7 align-self-center">
-                                <b>{{ __('home.highlight_title_web') }}</b> <br>
-                                {{ __('home.highlight_description_web') }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row justify-content-center">
-                            <div class="col-md-2 align-items-center">
-                                <img src="{{ url('assets/event.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                            </div>
-                            <div class="col-md-7 align-self-center">
-                                <b>{{ __('home.highlight_title_events') }}</b> <br>
-                                {{ __('home.highlight_description_events') }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row justify-content-center">
-                            <div class="col-md-2 align-items-center">
-                                <img src="{{ url('assets/360.png') }}" width="95%" class="img-fluid mb-4 mb-lg-0">
-                            </div>
-                            <div class="col-md-7 align-self-center">
-                                <b>{!! __('home.highlight_title_destination_360') !!}</b> <br>
-                                {{ __('home.highlight_description_destination_360') }}
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                <style>
-                    .sliderIklan .owl-dots {
-                        display: none !important;
-                    }
-                </style>
                 <div class="sliderIklan" style="margin-top: 7rem;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
@@ -149,23 +115,24 @@
             </div>
 
             <div class="container-fluid d-block d-lg-none">
-                <div class="sliderIklan" style="margin-top: 30%; margin-bottom: 0rem;">
+                <div class="sliderIklan" style="margin-top: 6.5em !important;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
                         <div class="oc-item">
-                            <img src="/assets/slider1.png" alt="" style=" height: 5rem; width: cover;">
+                            <img src="/assets/slider1.png" alt="" style=" height: 4rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/slider2.png" alt="" style=" height: 5rem; width: cover;">
+                            <img src="/assets/slider2.png" alt="" style=" height: 4rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/slider3.png" alt="" style=" height: 5rem; width: cover;">
+                            <img src="/assets/slider3.png" alt="" style=" height: 4rem; width: cover;">
                         </div>
                     </div>
                 </div>
             </div>
-            {{-- End Iklan Atas --}}
-
+        </section>
+        {{-- End Iklan Atas --}}
+        <section>
             @yield('content')
         </section><!-- #content end -->
 

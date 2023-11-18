@@ -9,10 +9,22 @@
 
 @section('style')
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
-
 @endsection
 
 @section('content')
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-26YC4R3P36"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-26YC4R3P36');
+    </script>
+
     <div class="container-lg mt-5 akomodasi">
         <div class="row ">
             <div class="col-md-8">
