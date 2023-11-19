@@ -84,10 +84,11 @@ Route::middleware('auth')->group(function () {
 
 
 Route::prefix("app-admin")->group(function () {
-    Route::get("/", [AuthAdminController::class, "masuk"]);
-    Route::post("proses-login", [AuthAdminController::class, "proses_masuk"]);
+    Route::get('/', [AuthAdminController::class, 'login'])->middleware('GuestAdmin');
+    Route::post('proses-login', [AuthAdminController::class, 'proses_masuk']);
+    Route::get('keluar', [AuthAdminController::class, 'keluar'])->middleware('admin');
 
-    Route::middleware("auth:admin")->group(function () {
+    Route::group(["middleware" => "admin"], function () {
         Route::get("dashboard", [DashboardAdminController::class, "dashboard"]);
         Route::get("logout", [AuthAdminController::class, "keluar"]);
         Route::get("data/event", [EventController::class, "admin_event"]);
@@ -202,6 +203,8 @@ Route::prefix("app-admin")->group(function () {
 
         // Laporan
         Route::get("laporan/transaksi/tourism-card", [ReportAdminController::class, "transaksi_tourism_card"]);
+        Route::get("laporan/transaksi/tourism-card/cetak", [ReportAdminController::class, "cetak_transaksi_tourism_card"]);
         Route::get("laporan/transaksi/paket-oleholeh", [ReportAdminController::class, "transaksi_paket_oleholeh"]);
+        Route::get("laporan/transaksi/paket-oleholeh/cetak", [ReportAdminController::class, "cetak_transaksi_paket_oleholeh"]);
     });
 });

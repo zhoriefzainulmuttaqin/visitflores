@@ -59,3 +59,15 @@ function saleKode($type,$transaction){
 
     return $saleKode;
 }
+
+function getBulanIndo(){
+    $bulanIndonesia = ([
+        'Januari', 'Februari', 'Maret', 'April',
+        'Mei', 'Juni', 'Juli', 'Agustus',
+        'September', 'Oktober', 'November', 'Desember'
+    ]);
+
+    $bulanIndonesia = json_decode(json_encode($bulanIndonesia), FALSE);
+
+    return $bulanIndonesia;
+}
