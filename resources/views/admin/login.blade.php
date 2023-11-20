@@ -48,7 +48,7 @@
 						<div class="container py-5">
 
 							<div class="text-center">
-								<a href="index.html"><img src="{{ url('assets/logo-light.png') }}" style="height: 100px;"></a>
+								<a href="{{ url('/') }}"><img src="{{ url('assets/logo-light.png') }}" style="height: 100px;"></a>
 							</div>
 
 							<div class="card mx-auto rounded-0 border-0" style="max-width: 400px;">

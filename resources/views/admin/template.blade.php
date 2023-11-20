@@ -110,6 +110,12 @@
                                         <p>Berita</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('app-admin/data/paket-oleh-oleh') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Paket Oleh - oleh</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
