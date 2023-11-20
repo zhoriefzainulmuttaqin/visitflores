@@ -20,6 +20,11 @@ use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\TransactionAdminController;
 use App\Http\Controllers\ReportAdminController;
 
+use App\Http\Controllers\AuthPartnerController;
+use App\Http\Controllers\DashboardPartnerController;
+use App\Http\Controllers\CardUsedPartnerController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -206,5 +211,19 @@ Route::prefix("app-admin")->group(function () {
         Route::get("laporan/transaksi/tourism-card/cetak", [ReportAdminController::class, "cetak_transaksi_tourism_card"]);
         Route::get("laporan/transaksi/paket-oleholeh", [ReportAdminController::class, "transaksi_paket_oleholeh"]);
         Route::get("laporan/transaksi/paket-oleholeh/cetak", [ReportAdminController::class, "cetak_transaksi_paket_oleholeh"]);
+    });
+});
+
+
+Route::prefix("app-mitra")->group(function () {
+    Route::get('/', [AuthPartnerController::class, 'masuk'])->middleware('GuestPartner');
+    Route::post('proses-masuk', [AuthPartnerController::class, 'proses_masuk']);
+    Route::get('keluar', [AuthPartnerController::class, 'keluar'])->middleware('partner');
+    
+    
+    Route::group(["middleware" => "partner"], function () {
+        Route::get("dashboard",[DashboardPartnerController::class,"dashboard"]);
+
+        Route::get("penggunaan-kartu",[CardUsedPartnerController::class,"penggunaan_kartu"]);
     });
 });

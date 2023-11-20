@@ -9,7 +9,7 @@ class AuthPartnerController extends Controller
 {
     public function masuk()
     {
-        return view('partner.login', []);
+        return view('partner.login');
     }
 
     public function proses_masuk(Request $request)

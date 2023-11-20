@@ -10,6 +10,10 @@
 
 <link rel="stylesheet" href="{{ url('adminlte') }}/dist/css/adminlte.min.css?v=3.2.0">
 
+<script>
+    window.print();
+</script>
+
 </head>
 <body class="p-3">
     <h1 class="text-center">
@@ -75,7 +79,4 @@
             </tr>
         </tfoot>
     </table>
-<script>
-    // window.print();
-</script>
 </body>
