@@ -158,7 +158,7 @@ Tambah Wisata
                     <div class="form-group">
                         <label for="link_maps">Link Google Maps</label>
                         <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
-                            id="link_maps" value="{{ old('link_maps') }}" type="text" required
+                            id="link_maps" value="{{ old('link_maps') }}" type="url" required
                             placeholder="Masukan Link Instagram . . . ">
                         @error('link_maps')
                         <div class="invalid-feedback">
@@ -169,7 +169,7 @@ Tambah Wisata
                     <div class="form-group">
                         <label for="link_instagram">Link Instagram (*opsional)</label>
                         <input name="link_instagram" class="form-control @error('link_instagram') is-invalid @enderror"
-                            id="link_instagram" value="{{ old('link_instagram') }}" type="text"
+                            id="link_instagram" value="{{ old('link_instagram') }}" type="url"
                             placeholder="Masukan Link Instagram . . . ">
                         @error('link_instagram')
                         <div class="invalid-feedback">
@@ -180,7 +180,7 @@ Tambah Wisata
                     <div class="form-group">
                         <label for="link_facebook">Link Facebook (*opsional)</label>
                         <input name="link_facebook" class="form-control @error('link_facebook') is-invalid @enderror"
-                            id="link_facebook" value="{{ old('link_facebook') }}" type="text"
+                            id="link_facebook" value="{{ old('link_facebook') }}" type="url"
                             placeholder="Masukan Link Facebook . . . ">
                         @error('link_facebook')
                         <div class="invalid-feedback">
@@ -191,7 +191,7 @@ Tambah Wisata
                     <div class="form-group">
                         <label for="link_tiktok">Link Tiktok (*opsional)</label>
                         <input name="link_tiktok" class="form-control @error('link_tiktok') is-invalid @enderror"
-                            id="link_tiktok" value="{{ old('link_tiktok') }}" type="text"
+                            id="link_tiktok" value="{{ old('link_tiktok') }}" type="url"
                             placeholder="Masukan Link Tiktok . . . ">
                         @error('link_tiktok')
                         <div class="invalid-feedback">
@@ -202,7 +202,7 @@ Tambah Wisata
                     <div class="form-group">
                         <label for="link_youtube">Link Youtube (*opsional)</label>
                         <input name="link_youtube" class="form-control @error('link_youtube') is-invalid @enderror"
-                            id="link_youtube" value="{{ old('link_youtube') }}" type="text"
+                            id="link_youtube" value="{{ old('link_youtube') }}" type="url"
                             placeholder="Masukan Link Youtube . . . ">
                         @error('link_youtube')
                         <div class="invalid-feedback">
@@ -223,6 +223,7 @@ Tambah Wisata
 </div>
 @endsection
 @section('script')
+<script src="{{ url('ckeditor/ckeditor.js') }}"></script>
 <script>
     const slug = document.querySelector('#slug');
         const name = document.querySelector('#name');
@@ -245,5 +246,18 @@ Tambah Wisata
                 imgPreview.src = oFREvent.target.result;
             }
         }
+
+        CKEDITOR.replace('description', {
+            removePlugins: 'image'
+        });
+        CKEDITOR.replace('description_en', {
+            removePlugins: 'image'
+        });
+        // CKEDITOR.replace('facilities', {
+        //     removePlugins: 'image'
+        // });
+        // CKEDITOR.replace('facilities_en', {
+        //     removePlugins: 'image'
+        // });
 </script>
 @endsection

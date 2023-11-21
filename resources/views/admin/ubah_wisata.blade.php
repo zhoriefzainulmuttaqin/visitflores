@@ -238,6 +238,7 @@ Ubah Wisata
 </div>
 @endsection
 @section('script')
+<script src="{{ url('ckeditor/ckeditor.js') }}"></script>
 <script>
     const slug = document.querySelector('#slug');
         const name = document.querySelector('#name');
@@ -260,5 +261,18 @@ Ubah Wisata
                 imgPreview.src = oFREvent.target.result;
             }
         }
+
+         CKEDITOR.replace('description', {
+            removePlugins: 'image'
+        });
+        CKEDITOR.replace('description_en', {
+            removePlugins: 'image'
+        });
+        // CKEDITOR.replace('facilities', {
+        //     removePlugins: 'image'
+        // });
+        // CKEDITOR.replace('facilities_en', {
+        //     removePlugins: 'image'
+        // });
 </script>
 @endsection

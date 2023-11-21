@@ -95,9 +95,9 @@ use Illuminate\Support\Facades\App;
                                 </div><!-- .entry-image end -->
 
                                 @if (App::isLocale('id'))
-                                    {{ $tour->description }}
+                                    {!! nl2br($tour->description) !!}
                                 @else
-                                    {{ $tour->description_en }}
+                                    {!! nl2br($tour->description_en) !!}
                                 @endif
 
                                 <!-- Post Single - Content End -->
@@ -114,9 +114,9 @@ use Illuminate\Support\Facades\App;
 													<li><i class="fa-solid fa-check"></i> Adventure Activities</li>
 												</ul> --}}
                                         @if (App::isLocale('id'))
-                                            {{ $tour->facilities }}
+                                            {!! nl2br($tour->facilities) !!}
                                         @else
-                                            {{ $tour->facilities_en }}
+                                            {!! nl2br($tour->facilities_en) !!}
                                         @endif
                                     </div>
                                 </div>
