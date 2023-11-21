@@ -24,6 +24,7 @@ use App\Http\Controllers\AuthPartnerController;
 use App\Http\Controllers\DashboardPartnerController;
 use App\Http\Controllers\CardUsedPartnerController;
 use App\Http\Controllers\GiftController;
+use App\Http\Controllers\ReportPartnerController;
 
 
 /*
@@ -235,5 +236,8 @@ Route::prefix("app-mitra")->group(function () {
 
         Route::get("penggunaan-kartu", [CardUsedPartnerController::class, "penggunaan_kartu"]);
         Route::post("gunakan-kartu", [CardUsedPartnerController::class, "gunakan_kartu"]);
+
+        Route::get("laporan/penggunaan-kartu", [ReportPartnerController::class, "penggunaan_kartu"]);
+        Route::get("laporan/penggunaan-kartu/cetak", [ReportPartnerController::class, "penggunaan_kartu"]);
     });
 });
