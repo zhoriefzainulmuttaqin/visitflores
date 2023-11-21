@@ -23,6 +23,7 @@ use App\Http\Controllers\ReportAdminController;
 use App\Http\Controllers\AuthPartnerController;
 use App\Http\Controllers\DashboardPartnerController;
 use App\Http\Controllers\CardUsedPartnerController;
+use App\Http\Controllers\GiftController;
 
 
 /*
@@ -148,6 +149,14 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/wisata/proses-ubah", [TourController::class, "proses_ubah_wisata"]);
         Route::get("data/wisata/proses-hapus/{slug}", [TourController::class, "proses_hapus_wisata"]);
 
+        // paket-oleh-oleh
+        Route::get("data/paket-oleh-oleh", [GiftController::class, "admin_paket_oleh_oleh"]);
+        Route::get("data/tambah/paket-oleh-oleh", [GiftController::class, "tambah_paket_oleh_oleh"]);
+        Route::post("data/paket-oleh-oleh/proses-tambah", [GiftController::class, "proses_tambah_paket_oleh_oleh"]);
+        Route::get("data/ubah/paket-oleh-oleh/{slug}", [GiftController::class, "ubah_paket_oleh_oleh"]);
+        Route::post("data/paket-oleh-oleh/proses-ubah", [GiftController::class, "proses_ubah_paket_oleh_oleh"]);
+        Route::get("data/paket-oleh-oleh/proses-hapus/{slug}", [GiftController::class, "proses_hapus_paket_oleh_oleh"]);
+
         // kategori wisata
         Route::get("data/wisata/kategori", [TourController::class, "admin_wisata_kategori"]);
         Route::post("data/wisata/kategori/proses-tambah", [TourController::class, "proses_tambah_kategori_wisata"]);
@@ -219,11 +228,11 @@ Route::prefix("app-mitra")->group(function () {
     Route::get('/', [AuthPartnerController::class, 'masuk'])->middleware('GuestPartner');
     Route::post('proses-masuk', [AuthPartnerController::class, 'proses_masuk']);
     Route::get('keluar', [AuthPartnerController::class, 'keluar'])->middleware('partner');
-    
-    
-    Route::group(["middleware" => "partner"], function () {
-        Route::get("dashboard",[DashboardPartnerController::class,"dashboard"]);
 
-        Route::get("penggunaan-kartu",[CardUsedPartnerController::class,"penggunaan_kartu"]);
+
+    Route::group(["middleware" => "partner"], function () {
+        Route::get("dashboard", [DashboardPartnerController::class, "dashboard"]);
+
+        Route::get("penggunaan-kartu", [CardUsedPartnerController::class, "penggunaan_kartu"]);
     });
 });
