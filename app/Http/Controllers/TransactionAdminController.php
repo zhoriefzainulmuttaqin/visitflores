@@ -138,7 +138,7 @@ class TransactionAdminController extends Controller
         $height = $background->height();
 
         // Tambahkan nama pemilik kartu
-        $background->text($card->owner_name, $width / 2, ($height / 2) + 55, function ($font) {
+        $background->text($card->user->name, $width / 2, ($height / 2) + 55, function ($font) {
             $font->file('./assets/Poppins-ExtraBold.ttf');
             $font->size(45);
             $font->color('#000000');

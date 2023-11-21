@@ -94,9 +94,9 @@
                             </a>
                             <ul class="nav nav-treeview">                                
                                 <li class="nav-item">
-                                    <a href="{{ url('app-mitra/laporan/akses/discount-card') }}" class="nav-link">
+                                    <a href="{{ url('app-mitra/laporan/penggunaan-kartu') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Akses Discount Card</p>
+                                        <p>Penggunaan Kartu</p>
                                     </a>
                                 </li>
                             </ul>

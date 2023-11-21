@@ -81,6 +81,8 @@ Discount Card
                                 {{ tglIndo($card->date_activated) }}
                                 <br>
                                 ({{ $card->time_activated }})
+                                @else
+                                -
                                 @endif
                             </td>
                             <td class="text-center">
@@ -88,6 +90,8 @@ Discount Card
                                 {{ tglIndo($card->date_expired) }}
                                 <br>
                                 ({{ $card->time_expired }})
+                                @else
+                                -
                                 @endif
                             </td>
                             <td class="text-center">

@@ -234,5 +234,6 @@ Route::prefix("app-mitra")->group(function () {
         Route::get("dashboard", [DashboardPartnerController::class, "dashboard"]);
 
         Route::get("penggunaan-kartu", [CardUsedPartnerController::class, "penggunaan_kartu"]);
+        Route::post("gunakan-kartu", [CardUsedPartnerController::class, "gunakan_kartu"]);
     });
 });
