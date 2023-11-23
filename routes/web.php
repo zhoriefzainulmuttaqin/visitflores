@@ -25,6 +25,8 @@ use App\Http\Controllers\DashboardPartnerController;
 use App\Http\Controllers\CardUsedPartnerController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\ReportPartnerController;
+use App\Http\Controllers\AccountPartnerController;
+use App\Http\Controllers\ProfilePartnerController;
 
 
 /*
@@ -221,6 +223,8 @@ Route::prefix("app-admin")->group(function () {
         Route::get("laporan/transaksi/tourism-card/cetak", [ReportAdminController::class, "cetak_transaksi_tourism_card"]);
         Route::get("laporan/transaksi/paket-oleholeh", [ReportAdminController::class, "transaksi_paket_oleholeh"]);
         Route::get("laporan/transaksi/paket-oleholeh/cetak", [ReportAdminController::class, "cetak_transaksi_paket_oleholeh"]);
+        Route::get("laporan/penggunaan-kartu", [ReportAdminController::class, "penggunaan_kartu"]);
+        Route::get("laporan/penggunaan-kartu/cetak", [ReportAdminController::class, "penggunaan_kartu_cetak"]);
     });
 });
 
@@ -238,6 +242,13 @@ Route::prefix("app-mitra")->group(function () {
         Route::post("gunakan-kartu", [CardUsedPartnerController::class, "gunakan_kartu"]);
 
         Route::get("laporan/penggunaan-kartu", [ReportPartnerController::class, "penggunaan_kartu"]);
-        Route::get("laporan/penggunaan-kartu/cetak", [ReportPartnerController::class, "penggunaan_kartu"]);
+        Route::get("laporan/penggunaan-kartu/cetak", [ReportPartnerController::class, "penggunaan_kartu_cetak"]);
+
+        Route::get("data-profil",[ProfilePartnerController::class, "profil"]);
+
+        // profile
+        Route::get("profil", [AccountPartnerController::class, "profil"]);
+        Route::post("profil/proses-ubah", [AccountPartnerController::class, "proses_ubah_profil"]);
+        Route::post("profil/proses-reset-password", [AccountPartnerController::class, "proses_reset_password_profil"]);
     });
 });

@@ -95,7 +95,7 @@ class CardUsedPartnerController extends Controller
             }elseif(Auth::guard('partner')->user()->type == 2){
                 $partner_type = "shop";
             }elseif(Auth::guard('partner')->user()->type == 3){
-                $partner_type = "resto";
+                $partner_type = "restaurant";
             }elseif(Auth::guard('partner')->user()->type == 4){
                 $partner_type = "accomodation";
             }

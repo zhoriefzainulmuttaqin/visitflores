@@ -29,8 +29,8 @@ class DashboardAdminController extends Controller
 
         $events = Event::where("start_date",">=",date("Y-m-d"))->orderBy("start_date","asc")->get();
 
-        $cardSales = DiscountCardSale::where("status",1)->orderBy("id","desc")->get();
-        $giftSales = GiftSale::where("status",1)->orderBy("id","desc")->get();
+        $cardSales = DiscountCardSale::where("status",1)->orderBy("id","desc")->limit(10)->get();
+        $giftSales = GiftSale::where("status",1)->orderBy("id","desc")->limit(10)->get();
         
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
         ->join('administrators', 'news.admin_id', '=', 'administrators.id')

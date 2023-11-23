@@ -192,9 +192,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/penggunaan/tourism-card') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/penggunaan-kartu') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Penggunaan Tourism Card</p>
+                                        <p>Penggunaan Kartu</p>
                                     </a>
                                 </li>
                             </ul>

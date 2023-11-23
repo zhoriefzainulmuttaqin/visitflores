@@ -1,48 +1,38 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\DiscountCardUsed;
+use Illuminate\Http\Request;
+
 use App\Models\Restaurant;
 use App\Models\Shop;
 use App\Models\Tour;
 use App\Models\Accomodation;
 
-class DashboardPartnerController extends Controller
+class ProfilePartnerController extends Controller
 {
     //
-    public function dashboard(){
-        $uses = DiscountCardUsed::where("partner_id",Auth::guard('partner')->user()->id)
-        ->orderBy("date_used","desc")->orderBy("id","desc")->limit(10)->get();
-
+    public function profil(){
         if(Auth::guard('partner')->user()->type == 1){
-            $type = "Mitra Wisata";
+            $type = "tour";
             $profil = Tour::where("id",Auth::guard('partner')->user()->child_id)->first();
-            $picture = "wisata/".$profil->picture;
         }elseif(Auth::guard('partner')->user()->type == 2){
-            $type = "Mitra Oleh - oleh";
+            $type = "shop";
             $profil = Shop::where("id",Auth::guard('partner')->user()->child_id)->first();
-            $picture = "oleh-oleh/".$profil->picture;
         }elseif(Auth::guard('partner')->user()->type == 3){
-            $type = "Mitra Kuliner";
+            $type = "resto";
             $profil = Restaurant::where("id",Auth::guard('partner')->user()->child_id)->first();
-            $picture = "kuliner/".$profil->picture;
         }elseif(Auth::guard('partner')->user()->type == 4){
-            $type = "Mitra Akomodasi";
+            $type = "accomodation";
             $profil = Accomodation::where("id",Auth::guard('partner')->user()->child_id)->first();
-            $picture = "akomodasi/".$profil->picture;
         }
 
         $data = ([
-            "uses" => $uses,
             "type" => $type,
-            "profil"    => $profil,
-            "picture" => $picture,
+            "profil" => $profil
         ]);
 
-        return view("partner/dashboard",$data);
+        return view("partner/data_profil",$data);
     }
 }
