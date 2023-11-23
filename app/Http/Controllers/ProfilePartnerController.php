@@ -21,7 +21,7 @@ class ProfilePartnerController extends Controller
             $type = "shop";
             $profil = Shop::where("id",Auth::guard('partner')->user()->child_id)->first();
         }elseif(Auth::guard('partner')->user()->type == 3){
-            $type = "resto";
+            $type = "restaurant";
             $profil = Restaurant::where("id",Auth::guard('partner')->user()->child_id)->first();
         }elseif(Auth::guard('partner')->user()->type == 4){
             $type = "accomodation";
@@ -33,6 +33,14 @@ class ProfilePartnerController extends Controller
             "profil" => $profil
         ]);
 
-        return view("partner/data_profil",$data);
+        if($type == "tour"){
+            return view("partner/data_profil_tour",$data);
+        }elseif($type == "shop"){
+            return view("partner/data_profil_shop",$data);
+        }elseif($type == "restaurant"){
+            return view("partner/data_profil_restaurant",$data);
+        }elseif($type == "accomodation"){
+            return view("partner/data_profil_accomodation",$data);
+        }
     }
 }

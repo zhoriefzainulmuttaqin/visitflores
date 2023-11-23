@@ -16,12 +16,12 @@ Dashboard
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
         <div class="card p-1">
             <img src="{{ url('assets/'.$picture) }}" class="img-fluid card-img-top">
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Form Input Kartu</h4>
@@ -56,7 +56,6 @@ Dashboard
                             <th class="text-center">No. Kartu</th>
                             <th class="text-center">Nama Pengguna</th>
                             <th class="text-center">Tanggal Penggunaan</th>
-                            <th class="text-center">Waktu Penggunaan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,8 +68,10 @@ Dashboard
                                 <td class="text-center">{{ $uno }}</td>
                                 <td class="text-center">{{ $use->card->code }}</td>
                                 <td class="text-center">{{ $use->user->name }}</td>
-                                <td class="text-center">{{ tglIndo($use->date_used) }}</td>
-                                <td class="text-center">{{ date("H:i",strtotime($use->time_used)) }}</td>
+                                <td class="text-center">
+                                    {{ date("d-m-Y",strtotime($use->date_used)) }}
+                                    ({{ date("H:i",strtotime($use->time_used)) }})
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

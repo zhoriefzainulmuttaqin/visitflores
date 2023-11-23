@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 class Accomodation extends Model
 {
     use HasFactory;
@@ -12,4 +14,8 @@ class Accomodation extends Model
     protected $table = 'accomodations';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
+    public function galleries(){
+        return $this->hasMany(AccomodationGallery::class,'data_id','id');
+    }
 }
