@@ -57,6 +57,7 @@ class AuthUserController extends Controller
         $email = $request->email;
         $username = $request->username;
         $phone = $request->phone;
+        $address = $request->address;
         $password = $request->password;
 
         $validatedData = $request->validate(
@@ -82,7 +83,7 @@ class AuthUserController extends Controller
             'username' => $username,
             'email' => $email,
             'picture' => null,
-            'address' => null,
+            'address' => $address,
             'password' => Hash::make($password),
             'active' => 1,
         ]);
