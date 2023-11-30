@@ -11,6 +11,8 @@ class AuthUserController extends Controller
 {
     public function masuk()
     {
+        session(['previous_url' => url()->previous()]);
+
         if (Auth()->check()) {
             return redirect('/');
         } else {
@@ -29,7 +31,9 @@ class AuthUserController extends Controller
                     'user_id' => auth()->user()->id,
                 ]);
                 $request->session()->regenerate();
-                return redirect()->to("/");
+                $previousUrl = session('previous_url', '/');
+                $request->session()->forget('previous_url');
+                return redirect()->to($previousUrl);
             } else {
                 session()->flash('msg', "<strong>Maaf, login gagal.</strong> <br> Akun anda tidak aktif !");
                 session()->flash('msg_status', 'danger');
