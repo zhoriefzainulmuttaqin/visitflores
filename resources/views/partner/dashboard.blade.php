@@ -30,8 +30,8 @@ Dashboard
                 <form method="get" action="{{ url('app-mitra/penggunaan-kartu') }}">
                     @csrf
                     <div class="form-group">
-                        <label>Masukkan Nomor Kartu</label>
-                        <input type="number" class="form-control" placeholder="Masukkan Nomor Kartu" name="card_number">
+                        <label>Masukkan Nomor Hp Pengguna</label>
+                        <input type="text" class="form-control" placeholder="Masukkan Nomor Hp Pengguna" name="phone_number">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">
@@ -53,8 +53,9 @@ Dashboard
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">No. Kartu</th>
+                            <!-- <th class="text-center">No. Kartu</th> -->
                             <th class="text-center">Nama Pengguna</th>
+                            <th class="text-center">No. Hp Pengguna</th>
                             <th class="text-center">Tanggal Penggunaan</th>
                         </tr>
                     </thead>
@@ -66,8 +67,13 @@ Dashboard
                             <?php $uno++; ?>
                             <tr>
                                 <td class="text-center">{{ $uno }}</td>
-                                <td class="text-center">{{ $use->card->code }}</td>
-                                <td class="text-center">{{ $use->user->name }}</td>
+                                <!-- <td class="text-center">{{ $use->card->code }}</td> -->
+                                <td class="text-center">
+                                    {{ $use->user->name }}
+                                    <br>
+                                    <small class="text-muted" style='font-size:12px'>ID Kartu: {{ $use->card_id }}</small>
+                                </td>
+                                <td class="text-center">{{ $use->user->phone }}</td>
                                 <td class="text-center">
                                     {{ date("d-m-Y",strtotime($use->date_used)) }}
                                     ({{ date("H:i",strtotime($use->time_used)) }})
