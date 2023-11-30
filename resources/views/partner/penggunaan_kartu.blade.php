@@ -16,8 +16,8 @@ Penggunaan Kartu (Discount Card)
                 <form method="get" action="{{ url('app-mitra/penggunaan-kartu') }}">
                     @csrf
                     <div class="form-group">
-                        <label>Masukkan Nomor Kartu</label>
-                        <input type="number" class="form-control" value="{{ $card_number }}" placeholder="Masukkan Nomor Kartu" name="card_number">
+                        <label>Masukkan Nomor Hp Pengguna</label>
+                        <input type="text" class="form-control" value="{{ $phone_number }}" placeholder="Masukkan Nomor Hp Pengguna" name="phone_number">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">
@@ -32,23 +32,25 @@ Penggunaan Kartu (Discount Card)
     <div class="col-md-7">
         <div class="card">
             <div class="card-body">
-                @if($card_number == NULL)
+                @if($phone_number == NULL)
                 <p class="text-center">
-                    << Input Nomor Kartu Terlebih Dahulu >>
+                    << Input Nomor Hp Pengguna Kartu Terlebih Dahulu >>
                 </p>
                 @else
                     @if($card == NULL)
                         <div class="alert alert-warning">
-                            Maaf, Data Kartu (Discount Card) Tidak Ditemukan
+                            Maaf, Data Tidak Ditemukan
                         </div>
                     @else
                         <div class="alert alert-info">
-                            Data Kartu (Discount Card) Berhasil Ditemukan
+                            Data Berhasil Ditemukan
                         </div>
                         <p class="text-center">
-                            <b class="h4 font-weight-bold">{{ $card->code }}</b>
+                            <b class="h4 font-weight-bold">{{ $card->user->name }}</b>
                             <br>
-                            {{ $card->user->name }}
+                            {{ $card->user->phone }}
+                            <br>
+                            <small class="text-muted" style='font-size:12px'>ID Kartu: {{ $card->id }}</small>
                         </p>
                         <div class="row">
                             <div class="col-md-4 text-center">
@@ -144,8 +146,9 @@ Penggunaan Kartu (Discount Card)
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">No. Kartu</th>
+                            <!-- <th class="text-center">No. Kartu</th> -->
                             <th class="text-center">Nama Pengguna</th>
+                            <th class="text-center">No. Hp Pengguna</th>
                             <th class="text-center">Tanggal Penggunaan</th>
                             <th class="text-center">Waktu Penggunaan</th>
                         </tr>
@@ -158,8 +161,13 @@ Penggunaan Kartu (Discount Card)
                             <?php $uno++; ?>
                             <tr>
                                 <td class="text-center">{{ $uno }}</td>
-                                <td class="text-center">{{ $use->card->code }}</td>
-                                <td class="text-center">{{ $use->user->name }}</td>
+                                <!-- <td class="text-center">{{ $use->card->code }}</td> -->
+                                <td class="text-center">
+                                    {{ $use->user->name }}
+                                    <br>
+                                    <small class="text-muted" style='font-size:12px'>ID Kartu: {{ $use->card_id }}</small>
+                                </td>
+                                <td class="text-center">{{ $use->user->phone }}</td>
                                 <td class="text-center">{{ tglIndo($use->date_used) }}</td>
                                 <td class="text-center">{{ date("H:i",strtotime($use->time_used)) }}</td>
                             </tr>

@@ -126,7 +126,7 @@ class TransactionAdminController extends Controller
         $card = DiscountCard::where("id",$id)->first();
 
         $barcodeGenerator = new \Picqer\Barcode\BarcodeGeneratorPNG();
-        $barcodeImage = $barcodeGenerator->getBarcode($card->code, $barcodeGenerator::TYPE_CODE_128, 4, 50);
+        $barcodeImage = $barcodeGenerator->getBarcode($card->id, $barcodeGenerator::TYPE_CODE_128, 4, 50);
 
         // Storage::put('barcodes/barcode.png', $image);
 
@@ -155,16 +155,36 @@ class TransactionAdminController extends Controller
             }else{
                 $textCode .= " ".$cardCode[$codeno];
             }
-        }       
-        $background->text($textCode, $width / 2, ($height / 2) + 95, function ($font) {
+        }
+
+        // Tambahkan hp pengguna
+        $phoneNo = str_split($card->user->phone,4);
+        $textPhone = "";
+        for($pno = 0; $pno <= (count($phoneNo) - 1); $pno++){
+            if($pno == 0){
+                $textPhone .= $phoneNo[$pno];
+            }else{
+                $textPhone .= " ".$phoneNo[$pno];
+            }
+        }
+        
+        $background->text($card->user->phone, $width / 2, ($height / 2) + 95, function ($font) {
             $font->file('./assets/Poppins-Medium.ttf');
             $font->size(20);
             $font->color('#000000');
             $font->align('center');
             $font->valign('middle');
-        });        
+        });
 
         $background->insert($barcodeImage,'bottom-center',0, 125);
+
+        $background->text($card->id, $width / 2, ($height / 2) + 180, function ($font) {
+            $font->file('./assets/Poppins-Medium.ttf');
+            $font->size(10);
+            $font->color('#000000');
+            $font->align('center');
+            $font->valign('middle');
+        });
 
         // Simpan gambar
         $background->save('./assets/discount-card/discount_card_'.$card->code.'.jpg');

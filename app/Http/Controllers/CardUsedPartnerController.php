@@ -8,31 +8,78 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\DiscountCard;
 use App\Models\DiscountCardSale;
 use App\Models\DiscountCardUsed;
+use App\Models\User;
 
 class CardUsedPartnerController extends Controller
 {
     //
     public function penggunaan_kartu(Request $request){
-        if($request->card_number){
-            $card_number = $request->card_number;
+        $date_now = date("Y-m-d");
+        $time_now = date("H:i");
+        if($request->phone_number){
+            $phone_number = $request->phone_number;
 
-            $card = DiscountCard::where("code",$card_number)->first();
+            $user = User::where("phone",$phone_number)->first();
 
-            if($card){
-                $card = $card;
-            }else{
+            if(!$user){
                 $card = NULL;
+            }else{
+                $card = DiscountCard::where("user_id",$user->id)
+                                        ->where("date_expired","!=",NULL)
+                                        ->where("date_expired",">=",$date_now)
+                                        ->first();
+                
+                if($card){
+                    if(date("Y-m-d",strtotime($card->date_expired)) > $date_now){
+                        $use_action = "can_use";
+                    }elseif(date("Y-m-d",strtotime($card->date_expired)) == $date_now){
+                        if(date("H:i",strtotime($card->time_expired)) >= $time_now){
+                            $use_action = "can_use";
+                        }else{
+                            $use_action = "has_expired";
+                        }
+                    }else{
+                        $use_action = "has_expired";
+                    }
+
+                    if($use_action == "can_use"){
+                        $card = $card;
+                    }else{
+                        $card = DiscountCard::where("user_id",$user->id)
+                                        ->where("date_expired",NULL)
+                                        ->first();
+                        
+                        if($card){
+                            $card = $card;
+                        }else{
+                            $card = NULL;
+                        }
+                    }
+                }else{
+                    $card = DiscountCard::where("user_id",$user->id)
+                                        ->where("date_expired",NULL)
+                                        ->first();
+                        
+                    if($card){
+                        $card = $card;
+                    }else{
+                        $card = NULL;
+                    }
+                }
             }
+
         }else{
-            $card_number = NULL;
+            $phone_number = NULL;
             $card = NULL;
         }
+
+        // dd($card);
 
         $uses = DiscountCardUsed::where("partner_id",Auth::guard('partner')->user()->id)
                 ->orderBy("date_used","desc")->orderBy("id","desc")->get();
 
         $data = ([
-            "card_number" => $card_number,
+            "phone_number" => $phone_number,
             "card" => $card,
             "uses" => $uses,
         ]);

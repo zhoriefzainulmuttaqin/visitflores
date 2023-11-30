@@ -20,7 +20,8 @@ Discount Card
                     </div>
                     <div class="col-md-4">
                         <b>Nama Pembeli</b> <br>
-                        {{ $transaction->user->name }}
+                        {{ $transaction->user->name }} <br>
+                        ({{ $transaction->user->phone }})
                     </div>
                     <div class="col-md-4">
                         <b>Jumlah</b> <br>
@@ -48,7 +49,7 @@ Discount Card
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Kode</th>
+                            <!-- <th class="text-center">Kode</th> -->
                             <th class="text-center">Waktu Dibuat</th>
                             <th class="text-center">Waktu Aktifasi</th>
                             <th class="text-center">Waktu Kadaluarsa</th>
@@ -63,14 +64,14 @@ Discount Card
                         <?php $cno++; ?>
                         <tr>
                             <td class="text-center">{{ $cno }}</td>
-                            <td class="text-center">
+                            <!-- <td class="text-center">
                                 <?php
                                 $cardCode = str_split($card->code,4);
                                 ?>
                                 @for($codeno = 0; $codeno <= (count($cardCode) - 1); $codeno++)
                                 {{ $cardCode[$codeno] }}
                                 @endfor
-                            </td>
+                            </td> -->
                             <td class="text-center">
                                 {{ tglIndo($card->date_created) }}
                                 <br>
