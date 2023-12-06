@@ -30,8 +30,9 @@
         <thead>
             <tr>
                 <th class="text-center">No</th>
-                <th class="text-center">No. Kartu</th>
-                <th>Nama Pengguna</th>
+                <!-- <th class="text-center">No. Kartu</th> -->
+                <th class="text-center">Nama Pengguna</th>
+                <th class="text-center">No. Hp Pengguna</th>
                 <th class="text-center">Tanggal Penggunaan</th>
                 <th class="text-center">Waktu Penggunaan</th>
             </tr>
@@ -44,8 +45,9 @@
                 <?php $uno++; ?>
                 <tr>
                     <td class="text-center">{{ $uno }}</td>
-                    <td class="text-center">{{ $use->card->code }}</td>
+                    <!-- <td class="text-center">{{ $use->card->code }}</td> -->
                     <td class="text-center">{{ $use->user->name }}</td>
+                    <td class="text-center">{{ $use->user->phone }}</td>
                     <td class="text-center">{{ tglIndo($use->date_used) }}</td>
                     <td class="text-center">{{ date("H:i",strtotime($use->time_used)) }}</td>
                 </tr>
