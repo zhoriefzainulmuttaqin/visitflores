@@ -124,20 +124,34 @@
                                         <div class="entry-meta no-separator mb-3">
                                             <ul>
                                                 @if (count($accomodation->accomodation_links) > 0)
-                                                    @foreach ($accomodation->accomodation_links as $item)
-                                                        <li>
-                                                            <a href="{{ $item->url }}"
-                                                                class="fw-normal link-primary text-primary">
+                                                @foreach ($accomodation->accomodation_links as $item)
+                                                    <li>
+                                                        @auth
+                                                            <a href="{{ $item->url }}" class="fw-normal link-primary text-primary">
                                                                 <i class='fa fa-link'></i>
                                                                 {{ $item->source_name }}
                                                             </a>
-                                                        </li>
-                                                    @endforeach
-                                                @else
-                                                    <li class="fw-normal text-white"><i
-                                                            class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                        @else
+                                                            <a href="{{ route('login') }}" class="fw-normal link-primary text-primary">
+                                                                <i class='fa fa-link'></i>
+                                                                Login untuk akses
+                                                            </a>
+                                                        @endauth
                                                     </li>
-                                                @endif
+                                                @endforeach
+                                            @else
+                                                <li class="fw-normal text-white">
+                                                    @auth
+                                                        <i class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    @else
+                                                        <a href="{{ route('login') }}" class="fw-normal link-info text-dark">
+                                                            <i class="uil fs-2 fa-brands bi-dot"></i>
+                                                            Login untuk akses
+                                                        </a>
+                                                    @endauth
+                                                </li>
+                                            @endif
+
                                             </ul>
                                         </div>
                                     </div>
