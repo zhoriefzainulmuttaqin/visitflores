@@ -201,7 +201,7 @@ use Illuminate\Support\Facades\App;
                                     <div class="entry-meta no-separator mb-3">
                                         <ul>
                                             <li class="fw-normal text-warning"><i class="uil bi-telephone-fill"></i>
-                                                {{ $tour->phone }}</li>
+                                                {{-- {{ $tour->phone }}</li> --}} -
                                         </ul>
                                     </div>
 

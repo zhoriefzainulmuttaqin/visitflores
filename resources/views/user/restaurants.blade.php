@@ -83,7 +83,7 @@ use Illuminate\Support\Facades\App;
                                     <div class="entry-meta no-separator mb-3">
                                         <ul>
                                             <li class="fw-normal text-warning"><i class="uil bi-telephone-fill"></i>
-                                                {{ $restaurant->phone }}</li>
+                                                {{-- {{ $restaurant->phone }}</li> --}} -
                                         </ul>
                                     </div>
                                     {{-- gk ada detail --}}

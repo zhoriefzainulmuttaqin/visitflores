@@ -190,7 +190,7 @@
 
 
 
-
+        {{-- iklan atas --}}
         <style>
             .sliderIklan .owl-dots {
                 display: none !important;
@@ -199,7 +199,7 @@
 
         <section id="content" style="margin-top:-100px">
             <div class="container-fluid d-none d-lg-block">
-                <div class="sliderIklan" style="margin-top: 7rem;">
+                <div class="sliderIklan" style="margin-top: 6.3rem;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
                         <div class="oc-item">
@@ -216,7 +216,7 @@
             </div>
 
             <div class="container-fluid d-block d-lg-none">
-                <div class="sliderIklan" style="margin-top: 6.5em !important;">
+                <div class="sliderIklan" style="margin-top: 4.3rem; margin-bottom: -15px;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
@@ -236,7 +236,8 @@
         {{-- End Iklan Atas --}}
         <section>
             @yield('content')
-        </section><!-- #content end -->
+        </section>
+        <!-- #content end -->
 
         {{ view('user.footer') }}
 

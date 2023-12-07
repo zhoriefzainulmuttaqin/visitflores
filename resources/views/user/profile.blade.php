@@ -118,6 +118,21 @@
                                             <td>:</td>
                                             <td><?= Auth()->user()->address ? nl2br(Auth()->user()->address) : '-' ?></td>
                                         </tr>
+                                        <tr>
+                                            <td>Tourism Card</td>
+                                            <td>:</td>
+                                            <td>
+                                                @if (Auth()->user()->disc_card->isNotEmpty())
+                                                    <a href="{{ url('discount-card/' .Auth()->user()->disc_card->first()->id .'/download') }}"
+                                                        class="btn btn-success btn-sm">
+                                                        <i class='fa fa-download'></i>
+                                                        Download Kartu
+                                                    </a>
+                                                @else
+                                                   <span class="text-danger">-</span>
+                                                @endif
+                                            </td>
+                                        </tr>
                                     </table>
                                     <hr>
                                     <div>

@@ -24,7 +24,7 @@ Data Profil Mitra : Kuliner
                         <b>Nama Tempat Wisata (Dalam Bahasa Inggris)</b> <br>
                         {{ $profil->name_en }}
                     </div>
-                </div>                
+                </div>
                 <div class="row mb-2">
                     <div class="col-md-12">
                         <b>Kota / Kabupaten</b> <br>
@@ -46,7 +46,7 @@ Data Profil Mitra : Kuliner
                         <b>Fasilitas (Dalam Bahasa Inggris)</b> <br>
                         {{ $profil->facilities_en }}
                     </div>
-                </div>               
+                </div>
                 <div class="row mb-2">
                     <div class="col-md-6">
                         <b>Telp / Hp</b> <br>

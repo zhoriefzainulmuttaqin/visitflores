@@ -89,6 +89,8 @@ Route::middleware('auth')->group(function () {
     Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layanan_produk"]);
     Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
     Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
+    Route::get("discount-card/{code}/download", [TransactionAdminController::class, "discount_card_generate_image"]);
+
 });
 
 

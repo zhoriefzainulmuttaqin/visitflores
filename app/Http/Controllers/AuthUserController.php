@@ -48,6 +48,8 @@ class AuthUserController extends Controller
 
     public function registrasi()
     {
+        session(['previous_url' => url()->previous()]);
+
         if (Auth()->check()) {
             return redirect('/');
         } else {
@@ -97,7 +99,9 @@ class AuthUserController extends Controller
                 'user_id' => auth()->user()->id,
             ]);
             $request->session()->regenerate();
-            return redirect()->to("/");
+            $previousUrl = session('previous_url', '/');
+            $request->session()->forget('previous_url');
+            return redirect()->to($previousUrl);
         }
     }
 
