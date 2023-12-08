@@ -248,9 +248,11 @@ Tambah Wisata
         }
 
         CKEDITOR.replace('description', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
         CKEDITOR.replace('description_en', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
         // CKEDITOR.replace('facilities', {

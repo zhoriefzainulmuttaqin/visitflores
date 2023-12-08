@@ -161,9 +161,11 @@ Tambah Paket Oleh - Oleh
         }
 
         CKEDITOR.replace('contents', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
         CKEDITOR.replace('contents_en', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
 </script>

@@ -45,17 +45,17 @@ use Illuminate\Support\Facades\App;
 
             <div class="row gx-5 col-mb-80">
                 <!-- Post Content
-          ============================================= -->
+              ============================================= -->
                 <main class="postcontent col-lg-12">
 
                     <div class="single-post mb-0">
 
                         <!-- Single Post
-            ============================================= -->
+                ============================================= -->
                         <div class="entry">
 
                             <!-- Entry Title
-             ============================================= -->
+                 ============================================= -->
                             <div class="entry-title">
                                 <h2>
                                     @if (App::isLocale('id'))
@@ -67,20 +67,31 @@ use Illuminate\Support\Facades\App;
                             </div><!-- .entry-title end -->
 
                             <!-- Entry Meta
-             ============================================= -->
+                 ============================================= -->
+                            <style>
+                                @media (max-width: 992px) {
+                                    .rapih {
+                                        margin-left: 20px !important;
+                                    }
+                                    .ikon{
+                                        margin-left: -20px !important;
+
+                                    }
+                                }
+                            </style>
                             <div class="entry-meta">
                                 <ul>
-                                    <li>
+                                    <li class="">
                                         @if (App::isLocale('id'))
                                             {{ $tour->category_name }}
                                         @else
                                             {{ $tour->category_name_en }}
                                         @endif
                                     </li>
-                                    <li><a target="_blank" href="{{ $tour->link_maps }}" class="fw-normal"><i
+                                    <li class="rapih"><a target="_blank" href="{{ $tour->link_maps }}" class="fw-normal ikon"><i
                                                 class="uil uil-map-marker"></i> {{ $tour->address }} </a></li>
                                     {{-- <li><i class="uil-pricetag-alt"></i>Rp. <?= number_format($tour->price, 0, ',', '.') ?></li> --}}
-                                    <li><i class="uil bi-telephone-fill">
+                                    <li class=""><i class="uil bi-telephone-fill">
                                         </i>
                                         {{-- {{ $tour->phone }} --}} -
                                     </li>
@@ -88,11 +99,11 @@ use Illuminate\Support\Facades\App;
                             </div><!-- .entry-meta end -->
 
                             <!-- Entry Content
-             ============================================= -->
+                 ============================================= -->
                             <div class="entry-content mt-0">
 
                                 <!-- Entry Image
-              ============================================= -->
+                  ============================================= -->
                                 <div class="entry-image alignleft">
                                     <img src="{{ url('assets/wisata/' . $tour->cover_picture) }}" alt="Blog Single">
                                 </div><!-- .entry-image end -->
@@ -134,7 +145,7 @@ use Illuminate\Support\Facades\App;
                                     </div>
                                 </div>
                                 <!-- Post Single - Share
-              ============================================= -->
+                  ============================================= -->
                                 @if (
                                     $tour->link_youtube != null ||
                                         $tour->link_instagram != null ||

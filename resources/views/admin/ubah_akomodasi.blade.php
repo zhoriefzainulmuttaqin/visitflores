@@ -184,7 +184,7 @@
                             <label for="link_maps">Link Google Maps</label>
                             <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
                                 id="link_maps" value="{{ old('link_maps') ?? $accomodation->link_maps }}" type="text"
-                                required placeholder="Masukan Link Instagram . . . ">
+                                required placeholder="Masukan Link Maps . . . ">
                             @error('link_maps')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -285,9 +285,11 @@
             }
         }
         CKEDITOR.replace('details', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
         CKEDITOR.replace('details_en', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
     </script>

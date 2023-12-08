@@ -113,9 +113,11 @@
             }
         }
         CKEDITOR.replace('content', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
         CKEDITOR.replace('content_en', {
+            enterMode: CKEDITOR.ENTER_BR,
             removePlugins: 'image'
         });
     </script>
