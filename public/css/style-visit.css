@@ -115,10 +115,14 @@
 
 #logo-on-header {
     width: 40% !important;
+    margin: 0 auto !important;
+    margin-top: 175px !important;
 
     @media (max-width: 760px) {
-        width: 50% !important;
-        margin-top: -4.5rem;
+        width: 25% !important;
+        height: auto !important;
+        margin-top: 30px !important;
+        margin-bottom: 25px !important;
     }
 }
 

@@ -18,7 +18,7 @@
 
     <!-- Core Style -->
     <link rel="stylesheet" href="{{ url('canvas') }}/style.css">
-
+    
     <!-- Font Icons -->
     <link rel="stylesheet" href="{{ url('canvas') }}/css/font-icons.css">
 
@@ -45,46 +45,205 @@
         ?>
         {{ view('user.header') }}
         @if ($segments == null)
-            <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-                style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
-            @else
-                <section id="slider"
-                    class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-                    style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
-        @endif
-        <div class="slider-inner">
+            <style>
+                .swiper-slide{
+                    height: 800px !important;
 
-            <div class="vertical-middle slider-element-fade">
-                <div class="container-fluid py-5">
-                    <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
-                        @if ($segments == null)
-                            <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
-                            <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
-                                {{ strtoupper(__('home.portal_text')) }} <br>
-                                (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
-                            </p>
-                            <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
-                                {{ strtoupper(__('home.portal_text')) }} <br>
-                                (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
-                            </p>
-                            <div class="language">
-                                <a href="{{ url('atur-bahasa/id') }}"
-                                    class="btn text-center bg-btn-language but_lang1">
-                                    BAHASA INDONESIA
-                                </a>
-                                <a href="{{ url('atur-bahasa/en') }}"
-                                    class="btn text-center bg-btn-language but_lang2">
-                                    ENGLISH
-                                </a>
+                    @media (max-width: 760px) {
+                        height: 250px !important;
+                    }
+                }
+                .swiper_wrapper .swiper-slide{
+                    margin-top: -50px !important;
+                    
+                    @media (max-width: 760px) {
+                        margin-top: -50px !important;
+                    }
+                }
+                .slider-container{                    
+                    @media (max-width: 760px) {
+                        padding-top: 0px !important;
+                    }
+                }
+            </style>
+            <section id="slider" class="slider-element swiper_wrapper min-vh-40 min-vh-md-100 dark include-header" style="margin-top:-50px !important;" data-loop="true">
+                <div class="slider-inner">
+                    <div class="swiper swiper-parent">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide dark">
+                                <div class="container-fluid py-5 text-center">
+                                    <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                                    <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <div class="language">
+                                        <a href="{{ url('atur-bahasa/id') }}"
+                                            class="btn text-center bg-btn-language but_lang1">
+                                            BAHASA INDONESIA
+                                        </a>
+                                        <a href="{{ url('atur-bahasa/en') }}"
+                                            class="btn text-center bg-btn-language but_lang2">
+                                            ENGLISH
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
                             </div>
-                        @endif
+                            <div class="swiper-slide dark">
+                                <div class="container-fluid py-5 text-center">
+                                    <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                                    <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <div class="language">
+                                        <a href="{{ url('atur-bahasa/id') }}"
+                                            class="btn text-center bg-btn-language but_lang1">
+                                            BAHASA INDONESIA
+                                        </a>
+                                        <a href="{{ url('atur-bahasa/en') }}"
+                                            class="btn text-center bg-btn-language but_lang2">
+                                            ENGLISH
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                            </div>
+                            <div class="swiper-slide dark">
+                                <div class="container-fluid py-5 text-center">
+                                    <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                                    <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <div class="language">
+                                        <a href="{{ url('atur-bahasa/id') }}"
+                                            class="btn text-center bg-btn-language but_lang1">
+                                            BAHASA INDONESIA
+                                        </a>
+                                        <a href="{{ url('atur-bahasa/en') }}"
+                                            class="btn text-center bg-btn-language but_lang2">
+                                            ENGLISH
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                            </div>
+                            <div class="swiper-slide dark">
+                                <div class="container-fluid py-5 text-center">
+                                    <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                                    <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <div class="language">
+                                        <a href="{{ url('atur-bahasa/id') }}"
+                                            class="btn text-center bg-btn-language but_lang1">
+                                            BAHASA INDONESIA
+                                        </a>
+                                        <a href="{{ url('atur-bahasa/en') }}"
+                                            class="btn text-center bg-btn-language but_lang2">
+                                            ENGLISH
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                            </div>
+                            <div class="swiper-slide dark">
+                                <div class="container-fluid py-5 text-center">
+                                    <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                                    <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                        {{ strtoupper(__('home.portal_text')) }} <br>
+                                        (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                    </p>
+                                    <div class="language">
+                                        <a href="{{ url('atur-bahasa/id') }}"
+                                            class="btn text-center bg-btn-language but_lang1">
+                                            BAHASA INDONESIA
+                                        </a>
+                                        <a href="{{ url('atur-bahasa/en') }}"
+                                            class="btn text-center bg-btn-language but_lang2">
+                                            ENGLISH
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                            </div>
+                        </div>
+                        <!-- Slider Arrows
+                        ============================================= -->
+                        <div class="slider-arrow-left" class="bg-transparent"><i class="bi-arrow-left"></i></div>
+                        <div class="slider-arrow-right" class="bg-transparent"><i class="bi-arrow-right"></i></div>
+                    </div>                    
+                </div>
 
+            </section>
+            <!-- <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+                style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
+                <div class="slider-inner">
+                    <div class="vertical-middle slider-element-fade">
+                        <div class="container-fluid py-5">
+                            <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
+                                <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
+                                <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
+                                    {{ strtoupper(__('home.portal_text')) }} <br>
+                                    (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                </p>
+                                <p class="text-white d-block d-md-none" style="font-size:7px; margin-top: -1rem;">
+                                    {{ strtoupper(__('home.portal_text')) }} <br>
+                                    (CIREBON KUNINGAN INDRAMAYU MAJALENGKA)
+                                </p>
+                                <div class="language">
+                                    <a href="{{ url('atur-bahasa/id') }}"
+                                        class="btn text-center bg-btn-language but_lang1">
+                                        BAHASA INDONESIA
+                                    </a>
+                                    <a href="{{ url('atur-bahasa/en') }}"
+                                        class="btn text-center bg-btn-language but_lang2">
+                                        ENGLISH
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+            </section> -->
+        @else
+            <section id="slider"
+                class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+                style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
+                <div class="slider-inner">
+                    <div class="vertical-middle slider-element-fade">
+                        <div class="container-fluid py-5">
+                            <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
-        </section>
+            </section>
+        @endif
 
         <style>
             .click-me a {
