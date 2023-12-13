@@ -35,9 +35,9 @@ class EventController extends Controller
         $events = Event::join('administrators', 'events.admin_id', '=', 'administrators.id')
             ->when($order, function (Builder $query, $order) {
                 if ($order) {
-                    $query->orderBy("events.$order[0]", "$order[1]");
+                    $query->orderBy('events.start_date', 'desc');
                 } else {
-                    $query->orderBy('events.name', 'asc');
+                    $query->orderBy('events.start_date', 'desc');
                 }
             })
             ->when($locale, function (Builder $query, $locale) use ($keyword) {

@@ -20,7 +20,7 @@ class ShopController extends Controller
             $locale = "id";
             App::setLocale("id");
         }
-        $shops = Shop::paginate(10);
+        $shops = Shop::paginate(12);
 
         $data = [
             'shops' => $shops,

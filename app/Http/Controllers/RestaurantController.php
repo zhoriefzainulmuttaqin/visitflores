@@ -20,7 +20,7 @@ class RestaurantController extends Controller
             $locale = "id";
             App::setLocale("id");
         }
-        $restaurants = Restaurant::paginate(10);
+        $restaurants = Restaurant::paginate(12);
 
         $data = [
             'restaurants' => $restaurants,

@@ -65,7 +65,7 @@ Ubah Kuliner
                         <label for="price"> Harga </label>
                         <input type="number" min="0" class="form-control @error('price') is-invalid @enderror"
                             name="price" id="price" placeholder="Masukan Harga . . . "
-                            value="{{ old('price') ? old('price') : $restaurant->price }}" required autocomplete="off">
+                            value="{{ old('price') ? old('price') : $restaurant->price }}"  autocomplete="off">
                         @error('price')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -76,7 +76,7 @@ Ubah Kuliner
                         <label for="phone"> No. Handphone </label>
                         <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
                             id="phone" placeholder="Masukan No. Handphone . . . "
-                            value="{{ old('phone') ? old('phone') : $restaurant->phone }}" required autocomplete="off">
+                            value="{{ old('phone') ? old('phone') : $restaurant->phone }}"  autocomplete="off">
                         @error('phone')
                         <div class="invalid-feedback">
                             {{ $message }}

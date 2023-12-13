@@ -79,7 +79,7 @@ Ubah Wisata
                         <label for="price"> Harga </label>
                         <input type="number" min="0" class="form-control @error('price') is-invalid @enderror"
                             name="price" id="price" placeholder="Masukan Harga . . . "
-                            value="{{ old('price') ? old('price') : $tour->price }}" required autocomplete="off">
+                            value="{{ old('price') ? old('price') : $tour->price }}"  autocomplete="off">
                         @error('price')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -90,7 +90,7 @@ Ubah Wisata
                         <label for="phone"> No. Handphone </label>
                         <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
                             id="phone" placeholder="Masukan No. Handphone . . . "
-                            value="{{ old('phone') ? old('phone') : $tour->phone }}" required autocomplete="off">
+                            value="{{ old('phone') ? old('phone') : $tour->phone }}"  autocomplete="off">
                         @error('phone')
                         <div class="invalid-feedback">
                             {{ $message }}

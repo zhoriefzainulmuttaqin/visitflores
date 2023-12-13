@@ -45,7 +45,7 @@
         ?>
         {{ view('user.header') }}
         @if ($segments == null)
-            <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+            <section id="slider" class="slider-element slider-parallax min-vh-35 min-vh-md-100 dark include-header"
                 style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
             @else
                 <section id="slider"
@@ -216,7 +216,7 @@
             </div>
 
             <div class="container-fluid d-block d-lg-none">
-                <div class="sliderIklan" style="margin-top: 4.3rem; margin-bottom: -15px;">
+                <div class="sliderIklan" style="margin-top: 85px; margin-bottom: -15px;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
@@ -235,6 +235,7 @@
         </section>
         {{-- End Iklan Atas --}}
         <section>
+
             @yield('content')
         </section>
         <!-- #content end -->
@@ -263,47 +264,51 @@
     <script src="{{ url('canvas') }}/js/plugins.min.js"></script>
     <script src="{{ url('canvas') }}/js/functions.bundle.js"></script>
     <script>
-        window.onload = function() {
-            $(".click-me a").trigger("click");
-            startCountdown();
-        };
+      window.onload = function() {
+    // Set a timeout of 15 seconds before triggering the ad
+    setTimeout(function() {
+        $(".click-me a").trigger("click");
+        startCountdown();
+    }, 15000);
+};
 
-        $(".click-me a").click(function() {
-            $("#ad_position_box").addClass("active");
-            setTimeout(function() {
-                $("#ad_position_box").slideUp();
-            }, 15000);
-            startCountdown();
-        });
+$(".click-me a").click(function() {
+    $("#ad_position_box").addClass("active");
+    setTimeout(function() {
+        $("#ad_position_box").slideUp();
+    }, 15000);
+    startCountdown();
+});
 
-        $(".skip").click(function() {
-            $("#ad_position_box").removeClass("active");
-        });
+$(".skip").click(function() {
+    $("#ad_position_box").removeClass("active");
+});
 
-        function startCountdown() {
-            // Waktu dalam detik untuk 48 jam
-            var countdownTime = 48 * 60 * 60;
+function startCountdown() {
+    // Waktu dalam detik untuk 48 jam
+    var countdownTime = 48 * 60 * 60;
 
-            var countdownElement = document.getElementById("countdown");
+    var countdownElement = document.getElementById("countdown");
 
-            function updateCountdown() {
-                var hours = Math.floor(countdownTime / 3600);
-                var minutes = Math.floor((countdownTime % 3600) / 60);
-                var seconds = countdownTime % 60;
+    function updateCountdown() {
+        var hours = Math.floor(countdownTime / 3600);
+        var minutes = Math.floor((countdownTime % 3600) / 60);
+        var seconds = countdownTime % 60;
 
-                // Format waktu ke format "HH:MM:SS"
-                // var formattedTime = hours + " jam " + minutes + " menit " + seconds + " detik";
+        // Format waktu ke format "HH:MM:SS"
+        // var formattedTime = hours + " jam " + minutes + " menit " + seconds + " detik";
 
-                countdownElement.textContent = "Available " + formattedTime + " Soon";
+        countdownElement.textContent = "Available " + formattedTime + " Soon";
 
-                if (countdownTime > 0) {
-                    countdownTime--;
-                    setTimeout(updateCountdown, 1000); // Perbarui setiap 1 detik
-                }
-            }
-
-            updateCountdown();
+        if (countdownTime > 0) {
+            countdownTime--;
+            setTimeout(updateCountdown, 1000); // Perbarui setiap 1 detik
         }
+    }
+
+    updateCountdown();
+}
+
     </script>
     @yield('script')
 

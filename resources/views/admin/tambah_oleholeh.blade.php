@@ -61,7 +61,7 @@ Tambah Oleh - Oleh
                     <div class="form-group">
                         <label for="price"> Harga </label>
                         <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
-                            id="price" placeholder="Masukan Harga . . . " value="{{ old('price') }}" required
+                            id="price" placeholder="Masukan Harga . . . " value="{{ old('price') }}" 
                             autocomplete="off">
                         @error('price')
                         <div class="invalid-feedback">
@@ -72,7 +72,7 @@ Tambah Oleh - Oleh
                     <div class="form-group">
                         <label for="phone"> No. Handphone </label>
                         <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                            id="phone" placeholder="Masukan No. Handphone . . . " value="{{ old('phone') }}" required
+                            id="phone" placeholder="Masukan No. Handphone . . . " value="{{ old('phone') }}" 
                             autocomplete="off">
                         @error('phone')
                         <div class="invalid-feedback">

@@ -153,38 +153,42 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                                        #but_event {
-                                                        width: 15rem;
-                                                        height: 100px;
-                                                        font-size: 24px;
-                                                        font-weight: 500;
-                                                        margin-top: -3rem;
-                                                        margin-left: auto;
-                                                        margin-right: auto;
-                                                        display: flex;
-                                                        justify-content: center;
-                                                        align-items: center;
-                                                        border-radius: 5px;
+                                                            #but_event {
+                                                            width: 15rem;
+                                                            height: 100px;
+                                                            font-size: 24px;
+                                                            font-weight: 500;
+                                                            margin-top: -3rem;
+                                                            margin-left: auto;
+                                                            margin-right: auto;
+                                                            display: flex;
+                                                            justify-content: center;
+                                                            align-items: center;
+                                                            border-radius: 5px;
 
-                                                    }
+                                                        }
 
-                                                    .title_event {
-                                                        font-size: 16px;
-                                                        font-weight: 999;
-                                                        margin-bottom: 1.5rem;
-                                                        margin-top: 7rem !important;
-                                                    }
+                                                        .title_event {
+                                                            font-size: 16px;
+                                                            font-weight: 999;
+                                                            margin-bottom: 1.5rem;
+                                                            margin-top: 7rem !important;
+                                                        }
 
-                                                    .owl-carousel .owl-dots .owl-dot {
-                                                        background-color: #676565;
-                                                        width: 2em;
-                                                        height: 2em;
-                                                    }
+                                                        .owl-carousel .owl-dots .owl-dot {
+                                                            background-color: #676565;
+                                                            width: 2em;
+                                                            height: 2em;
+                                                        }
 
-                                                    } */
+                                                        } */
 
         }
     </style>
+        @php
+        $sortedEvents = $events->sortByDesc('start_date');
+    @endphp
+
     {{-- end css event --}}
     <div id="home-event-container">
         <div class=" container-fluid mt-5 mt-md-0">
@@ -192,13 +196,12 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                                </p> -->
-
+                                                                                    </p> -->
             </p>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-6" data-items-xs="2"
                     data-items-sm="2" data-items-lg="3" data-items-xl="5">
-                    @foreach ($events as $event)
+                    @foreach ($sortedEvents as $event)
                         <div class="oc-item">
                             <a href="{{ url('event') }}"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
                                     alt="Image 1"
@@ -211,7 +214,7 @@
                 <div class="px-4">
                     <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0"
                         data-pagi="true" data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
-                        @foreach ($events as $event)
+                        @foreach ($sortedEvents as $event)
                             <div class="oc-item">
                                 <article class="entry event p-3">
                                     <div
@@ -332,8 +335,8 @@
 
 
         /* .mySwiper2-mobile{
-                            margin-left:-9.75rem;
-                        } */
+                                margin-left:-9.75rem;
+                            } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             .mySwiper2-mobile {
                 /* margin-left:-20%; */

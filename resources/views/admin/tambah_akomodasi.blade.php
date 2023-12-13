@@ -87,7 +87,7 @@
                         <div class="form-group">
                             <label for="phone"> No. HP </label>
                             <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                id="phone" placeholder="Masukan Nomor HP . . . " value="{{ old('phone') }}" required
+                                id="phone" placeholder="Masukan Nomor HP . . . " value="{{ old('phone') }}" 
                                 autocomplete="off"></input>
                             @error('phone')
                                 <div class="invalid-feedback">

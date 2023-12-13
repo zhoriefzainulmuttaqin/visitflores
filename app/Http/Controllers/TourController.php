@@ -73,7 +73,7 @@ class TourController extends Controller
             })
             ->select(['tours.*', 'categories.name as category_name', 'categories.name_en as category_name_en'])
             ->orderBy('tours.id', 'asc')
-            ->paginate(10);
+            ->paginate(12);
         if ($request->keyword) {
             $tours->appends(array('keyword' => $keyword));
         }

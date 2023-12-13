@@ -67,7 +67,7 @@
                                 <span class="input-group-text">Waktu</span>
                             </div>
                             <input type="time" name="start_time" value="{{ old('start_time') }}" aria-label="Last name"
-                                required class="form-control">
+                                 class="form-control">
                         </div>
                         <label class="form-label"> Tanggal dan Waktu Acara Selesai</label>
                         <div class="input-group mb-3">
@@ -80,7 +80,7 @@
                                 <span class="input-group-text">Waktu</span>
                             </div>
                             <input type="time" name="end_time" value="{{ old('end_time') }}" aria-label="Last name"
-                                required class="form-control">
+                                 class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="image" class="form-label">Gambar</label>
