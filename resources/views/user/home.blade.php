@@ -153,39 +153,39 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                                            #but_event {
-                                                            width: 15rem;
-                                                            height: 100px;
-                                                            font-size: 24px;
-                                                            font-weight: 500;
-                                                            margin-top: -3rem;
-                                                            margin-left: auto;
-                                                            margin-right: auto;
-                                                            display: flex;
-                                                            justify-content: center;
-                                                            align-items: center;
-                                                            border-radius: 5px;
+                                                                #but_event {
+                                                                width: 15rem;
+                                                                height: 100px;
+                                                                font-size: 24px;
+                                                                font-weight: 500;
+                                                                margin-top: -3rem;
+                                                                margin-left: auto;
+                                                                margin-right: auto;
+                                                                display: flex;
+                                                                justify-content: center;
+                                                                align-items: center;
+                                                                border-radius: 5px;
 
-                                                        }
+                                                            }
 
-                                                        .title_event {
-                                                            font-size: 16px;
-                                                            font-weight: 999;
-                                                            margin-bottom: 1.5rem;
-                                                            margin-top: 7rem !important;
-                                                        }
+                                                            .title_event {
+                                                                font-size: 16px;
+                                                                font-weight: 999;
+                                                                margin-bottom: 1.5rem;
+                                                                margin-top: 7rem !important;
+                                                            }
 
-                                                        .owl-carousel .owl-dots .owl-dot {
-                                                            background-color: #676565;
-                                                            width: 2em;
-                                                            height: 2em;
-                                                        }
+                                                            .owl-carousel .owl-dots .owl-dot {
+                                                                background-color: #676565;
+                                                                width: 2em;
+                                                                height: 2em;
+                                                            }
 
-                                                        } */
+                                                            } */
 
         }
     </style>
-        @php
+    @php
         $sortedEvents = $events->sortByDesc('start_date');
     @endphp
 
@@ -196,7 +196,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                                    </p> -->
+                                                                                        </p> -->
             </p>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-6" data-items-xs="2"
@@ -335,8 +335,8 @@
 
 
         /* .mySwiper2-mobile{
-                                margin-left:-9.75rem;
-                            } */
+                                    margin-left:-9.75rem;
+                                } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             .mySwiper2-mobile {
                 /* margin-left:-20%; */
@@ -437,7 +437,7 @@
             centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
             coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" loop="true"
             style="margin-top: -2rem;">
-            @foreach ($tours as $tour)
+            @foreach ($tours->take(20) as $tour)
                 <swiper-slide class="card">
                     <a href="/wisata" style="text-decoration: none; color: white;">
                         <img src='{{ url("assets/wisata/$tour->picture") }}' />
@@ -458,7 +458,7 @@
             grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
             coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
             coverflow-effect-slide-shadows="true" loop="true">
-            @foreach ($tours as $tour)
+            @foreach ($tours->take(20) as $tour)
                 <swiper-slide class="card">
                     <a href="/wisata" style="text-decoration: none; color: white;">
                         <img src='{{ url("assets/wisata/$tour->picture") }}' />

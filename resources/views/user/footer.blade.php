@@ -1,18 +1,8 @@
 {{-- Iklan --}}
-<div class="section bg-secondary" style="margin-bottom:0px;margin-top:0px;">
-    <div class="row">
-        <div class="col-12">
-            <div class="text-white text-center">
-                <p class="mx-auto" style="line-height: 100px;">
-                    Space Available
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+    <img src="assets/iklan/iklanbawah1.png" alt="" style="width: 1000%">
 <!-- Footer
 ============================================= -->
-<footer id="footer" class="dark bg-blue-visit">			
+<footer id="footer" class="dark bg-blue-visit">
 
     <!-- Copyrights
     ============================================= -->

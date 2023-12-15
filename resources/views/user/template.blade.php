@@ -46,27 +46,35 @@
         {{ view('user.header') }}
         @if ($segments == null)
             <style>
-                .swiper-slide{
+                .swiper-slide {
                     height: 800px !important;
 
                     @media (max-width: 760px) {
                         height: 250px !important;
                     }
                 }
-                .swiper_wrapper .swiper-slide{
+
+                .swiper-button-prev,
+                .swiper-button-next {
+                    display: none !important;
+                }
+
+                .swiper_wrapper .swiper-slide {
                     margin-top: -50px !important;
 
                     @media (max-width: 760px) {
                         margin-top: -50px !important;
                     }
                 }
-                .slider-container{
+
+                .slider-container {
                     @media (max-width: 760px) {
                         padding-top: 0px !important;
                     }
                 }
             </style>
-            <section id="slider" class="slider-element swiper_wrapper min-vh-40 min-vh-md-100 dark include-header" style="margin-top:-50px !important;" data-loop="true">
+            {{-- <section id="slider" class="slider-element swiper_wrapper min-vh-40 min-vh-md-100 dark include-header"
+                data-loop="true" data-autoplay="3000">
                 <div class="slider-inner">
                     <div class="swiper swiper-parent">
                         <div class="swiper-wrapper">
@@ -92,7 +100,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                                <div class="swiper-slide-bg" style="background-image: url('assets/bgkabcrb.png');">
+                                </div>
                             </div>
                             <div class="swiper-slide dark">
                                 <div class="container-fluid py-5 text-center">
@@ -116,7 +125,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                                <div class="swiper-slide-bg" style="background-image: url('assets/bgindramayu.webp');">
+                                </div>
                             </div>
                             <div class="swiper-slide dark">
                                 <div class="container-fluid py-5 text-center">
@@ -140,7 +150,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                                <div class="swiper-slide-bg" style="background-image: url('assets/bgmajalengka.webp');">
+                                </div>
                             </div>
                             <div class="swiper-slide dark">
                                 <div class="container-fluid py-5 text-center">
@@ -164,7 +175,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
+                                <div class="swiper-slide-bg" style="background-image: url('assets/bgkuningan.png');">
+                                </div>
                             </div>
                             <div class="swiper-slide dark">
                                 <div class="container-fluid py-5 text-center">
@@ -198,8 +210,8 @@
                     </div>
                 </div>
 
-            </section>
-            <!-- <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+            </section> --}}
+            <section id="slider" class="slider-element slider-parallax min-vh-35 min-vh-md-100 dark include-header"
                 style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
                 <div class="slider-inner">
                     <div class="vertical-middle slider-element-fade">
@@ -228,10 +240,9 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
         @else
-            <section id="slider"
-                class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+            <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
                 style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
                 <div class="slider-inner">
                     <div class="vertical-middle slider-element-fade">
@@ -360,12 +371,15 @@
             <div class="container-fluid d-none d-lg-block">
                 <div class="sliderIklan" style="margin-top: 6.3rem;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
-                        data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
+                        data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
+                        data-loop="true">
                         <div class="oc-item">
-                            <img src="/assets/slider1.png" alt="" style=" height: 10rem; width: cover;">
+                            <img src="/assets/iklan/iklan11.jpeg" alt=""
+                                style=" height: 10rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/slider2.png" alt="" style=" height: 10rem; width: cover;">
+                            <img src="/assets/iklan/iklan12.png" alt=""
+                                style=" height: 10rem; width: cover;">
                         </div>
                         <div class="oc-item">
                             <img src="/assets/slider3.png" alt="" style=" height: 10rem; width: cover;">
@@ -375,15 +389,16 @@
             </div>
 
             <div class="container-fluid d-block d-lg-none">
-                <div class="sliderIklan" style="margin-top: 85px; margin-bottom: -15px;">
+                <div class="sliderIklan" style="margin-top: 80px; margin-bottom: -10px;">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
                         <div class="oc-item">
-                            <img src="/assets/slider1.png" alt="" style=" height: 4rem; width: cover;">
+                            <img src="/assets/iklan/iklan11.jpeg" alt=""
+                                style=" height: 4rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/slider2.png" alt="" style=" height: 4rem; width: cover;">
+                            <img src="/assets/iklan/iklan12.png" alt="" style=" height: 4rem; width: cover;">
                         </div>
                         <div class="oc-item">
                             <img src="/assets/slider3.png" alt="" style=" height: 4rem; width: cover;">
@@ -423,51 +438,50 @@
     <script src="{{ url('canvas') }}/js/plugins.min.js"></script>
     <script src="{{ url('canvas') }}/js/functions.bundle.js"></script>
     <script>
-      window.onload = function() {
-    // Set a timeout of 15 seconds before triggering the ad
-    setTimeout(function() {
-        $(".click-me a").trigger("click");
-        startCountdown();
-    }, 15000);
-};
+        window.onload = function() {
+            // Set a timeout of 15 seconds before triggering the ad
+            setTimeout(function() {
+                $(".click-me a").trigger("click");
+                startCountdown();
+            }, 15000);
+        };
 
-$(".click-me a").click(function() {
-    $("#ad_position_box").addClass("active");
-    setTimeout(function() {
-        $("#ad_position_box").slideUp();
-    }, 15000);
-    startCountdown();
-});
+        $(".click-me a").click(function() {
+            $("#ad_position_box").addClass("active");
+            setTimeout(function() {
+                $("#ad_position_box").slideUp();
+            }, 15000);
+            startCountdown();
+        });
 
-$(".skip").click(function() {
-    $("#ad_position_box").removeClass("active");
-});
+        $(".skip").click(function() {
+            $("#ad_position_box").removeClass("active");
+        });
 
-function startCountdown() {
-    // Waktu dalam detik untuk 48 jam
-    var countdownTime = 48 * 60 * 60;
+        function startCountdown() {
+            // Waktu dalam detik untuk 48 jam
+            var countdownTime = 48 * 60 * 60;
 
-    var countdownElement = document.getElementById("countdown");
+            var countdownElement = document.getElementById("countdown");
 
-    function updateCountdown() {
-        var hours = Math.floor(countdownTime / 3600);
-        var minutes = Math.floor((countdownTime % 3600) / 60);
-        var seconds = countdownTime % 60;
+            function updateCountdown() {
+                var hours = Math.floor(countdownTime / 3600);
+                var minutes = Math.floor((countdownTime % 3600) / 60);
+                var seconds = countdownTime % 60;
 
-        // Format waktu ke format "HH:MM:SS"
-        // var formattedTime = hours + " jam " + minutes + " menit " + seconds + " detik";
+                // Format waktu ke format "HH:MM:SS"
+                // var formattedTime = hours + " jam " + minutes + " menit " + seconds + " detik";
 
-        countdownElement.textContent = "Available " + formattedTime + " Soon";
+                countdownElement.textContent = "Available " + formattedTime + " Soon";
 
-        if (countdownTime > 0) {
-            countdownTime--;
-            setTimeout(updateCountdown, 1000); // Perbarui setiap 1 detik
+                if (countdownTime > 0) {
+                    countdownTime--;
+                    setTimeout(updateCountdown, 1000); // Perbarui setiap 1 detik
+                }
+            }
+
+            updateCountdown();
         }
-    }
-
-    updateCountdown();
-}
-
     </script>
     @yield('script')
 
