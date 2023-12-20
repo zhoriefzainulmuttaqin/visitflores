@@ -189,7 +189,7 @@
 			@yield("content")
 		</section><!-- #content end -->
 
-		{{ view("user.footer") }}
+		{{ view("user.footer_noads") }}
 
 	</div><!-- #wrapper end -->
 

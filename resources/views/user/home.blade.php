@@ -437,7 +437,7 @@
             centered-slides="true" slides-per-view="2" coverflow-effect-rotate="30" coverflow-effect-stretch="0"
             coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true" loop="true"
             style="margin-top: -2rem;">
-            @foreach ($tours->take(20) as $tour)
+            @foreach ($tours as $tour)
                 <swiper-slide class="card">
                     <a href="/wisata" style="text-decoration: none; color: white;">
                         <img src='{{ url("assets/wisata/$tour->picture") }}' />
@@ -458,7 +458,7 @@
             grab-cursor="true" centered-slides="true" slides-per-view="3" coverflow-effect-rotate="30"
             coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1"
             coverflow-effect-slide-shadows="true" loop="true">
-            @foreach ($tours->take(20) as $tour)
+            @foreach ($tours as $tour)
                 <swiper-slide class="card">
                     <a href="/wisata" style="text-decoration: none; color: white;">
                         <img src='{{ url("assets/wisata/$tour->picture") }}' />
@@ -654,7 +654,7 @@
                         <article class="entry event p-3">
                             <div
                                 class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                <div class=" col-12">
+                                <div class=" col-12" style="height: 5rem;">
                                     <a href="{{ url('kuliner') }}" class="">
                                         <img src="{{ url('assets/kuliner/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
@@ -1079,21 +1079,21 @@
             <div class="row justify-content-center mt-5 mb-5">
                 <div class="col-4 text-center">
                     <a href="/layanan-produk/tourism-card">
-                        <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid img_layanan"
+                        <img src="{{ url('assets/layanan-produk/TCardIcon.png') }}" class="img-fluid img_layanan"
                             width="200px">
                         <br>
                     </a>
                 </div>
                 <div class="col-4 text-center">
                     <a href="/layanan-produk">
-                        <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid img_layanan"
+                        <img src="{{ url('assets/layanan-produk/TPackIcon.png') }}" class="img-fluid img_layanan"
                             width="200px">
                         <br>
                     </a>
                 </div>
                 <div class="col-4 text-center">
                     <a href="/layanan-produk">
-                        <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid img_layanan"
+                        <img src="{{ url('assets/layanan-produk/paketOlehIcon.png') }}" class="img-fluid img_layanan"
                             width="200px">
                         <br>
                     </a>

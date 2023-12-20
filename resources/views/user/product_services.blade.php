@@ -49,7 +49,7 @@ use Illuminate\Support\Facades\App;
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-4 text-center p-4 p-md-0">
-                        <img src="{{ url('assets/layanan-produk/tourcard.png') }}" class="img-fluid" width="100px">
+                        <img src="{{ url('assets/layanan-produk/TCardIcon.png') }}" class="img-fluid" width="100px">
                         <br>
                         <!--<div class="d-none d-md-block">-->
                         <!--    <b>Tourism Card</b>-->
@@ -59,7 +59,7 @@ use Illuminate\Support\Facades\App;
                         <!--</div>-->
                     </div>
                     <div class="col-4 text-center p-4 p-md-0">
-                        <img src="{{ url('assets/layanan-produk/tourpackage.png') }}" class="img-fluid" width="100px">
+                        <img src="{{ url('assets/layanan-produk/TPackIcon.png') }}" class="img-fluid" width="100px">
                         <br>
                         <!--<div class="d-none d-md-block">-->
                         <!--    <b>{{ __('services.tour_packages') }}</b>-->
@@ -69,7 +69,7 @@ use Illuminate\Support\Facades\App;
                         <!--</div>-->
                     </div>
                     <div class="col-4 text-center p-4 p-md-0">
-                        <img src="{{ url('assets/layanan-produk/oleholeh.png') }}" class="img-fluid" width="100px">
+                        <img src="{{ url('assets/layanan-produk/paketOlehIcon.png') }}" class="img-fluid" width="100px">
                         <br>
                         <!--<div class="d-none d-md-block">-->
                         <!--    <b>{{ __('services.souvenirs') }}</b>-->

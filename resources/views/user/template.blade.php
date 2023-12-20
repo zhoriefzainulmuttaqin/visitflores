@@ -59,6 +59,11 @@
                     display: none !important;
                 }
 
+                .swiper-slide-bg {
+                    filter: brightness(50%);
+                    /* You can adjust the percentage as needed */
+                }
+
                 .swiper_wrapper .swiper-slide {
                     margin-top: -50px !important;
 
@@ -73,8 +78,7 @@
                     }
                 }
             </style>
-            {{-- <section id="slider" class="slider-element swiper_wrapper min-vh-40 min-vh-md-100 dark include-header"
-                data-loop="true" data-autoplay="3000">
+            {{-- <section id="slider" class="slider-element swiper_wrapper min-vh-40 min-vh-md-100 dark include-header">
                 <div class="slider-inner">
                     <div class="swiper swiper-parent">
                         <div class="swiper-wrapper">
@@ -100,7 +104,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url('assets/bgkabcrb.png');">
+                                <div class="swiper-slide-bg" style="background-image: url('assets/bg/bgkabcrb.webp');">
                                 </div>
                             </div>
                             <div class="swiper-slide dark">
@@ -125,7 +129,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url('assets/bgindramayu.webp');">
+                                <div class="swiper-slide-bg"
+                                    style="background-image: url('assets/bg/bgindramayu.webp');">
                                 </div>
                             </div>
                             <div class="swiper-slide dark">
@@ -150,7 +155,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url('assets/bgmajalengka.webp');">
+                                <div class="swiper-slide-bg"
+                                    style="background-image: url('assets/bg/bgmajalengka.webp');">
                                 </div>
                             </div>
                             <div class="swiper-slide dark">
@@ -175,7 +181,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="swiper-slide-bg" style="background-image: url('assets/bgkuningan.png');">
+                                <div class="swiper-slide-bg" style="background-image: url('assets/bg/bgkuningan.webp');">
                                 </div>
                             </div>
                             <div class="swiper-slide dark">
@@ -203,20 +209,16 @@
                                 <div class="swiper-slide-bg" style="background-image: url(@yield('cover'));"></div>
                             </div>
                         </div>
-                        <!-- Slider Arrows
-                        ============================================= -->
-                        <div class="slider-arrow-left" class="bg-transparent"><i class="bi-arrow-left"></i></div>
-                        <div class="slider-arrow-right" class="bg-transparent"><i class="bi-arrow-right"></i></div>
                     </div>
                 </div>
-
             </section> --}}
+
             <section id="slider" class="slider-element slider-parallax min-vh-35 min-vh-md-100 dark include-header"
                 style="background: url(@yield('cover'))  no-repeat; background-size: 100%;margin-bottom:0px; background-position: center center;">
                 <div class="slider-inner">
                     <div class="vertical-middle slider-element-fade">
                         <div class="container-fluid py-5">
-                            <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
+                            <div class="heading-block text-center border-bottom-0 mt-2 mt-md-0">
                                 <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
                                 <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
                                     {{ strtoupper(__('home.portal_text')) }} <br>
@@ -242,18 +244,37 @@
                 </div>
             </section>
         @else
-            <section id="slider" class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
-                style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
-                <div class="slider-inner">
-                    <div class="vertical-middle slider-element-fade">
-                        <div class="container-fluid py-5">
-                            <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
+            <div class="d-none d-lg-block">
+                <section id="slider"
+                    class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
+                    style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
+                    <div class="slider-inner">
+                        <div class="vertical-middle slider-element-fade">
+                            <div class="container-fluid py-5">
+                                <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+
+            <div class=" d-block d-lg-none">
+                <section id="slider"
+                    class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header mb-5"
+                    style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
+                    <div class="slider-inner">
+                        <div class="vertical-middle slider-element-fade">
+                            <div class="container-fluid py-5">
+                                <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         @endif
 
         <style>
@@ -365,11 +386,17 @@
             .sliderIklan .owl-dots {
                 display: none !important;
             }
+
+            .owl-prev,
+            .owl-next {
+                margin-right: 25px;
+                margin-left: 25px;
+            }
         </style>
 
         <section id="content" style="margin-top:-100px">
             <div class="container-fluid d-none d-lg-block">
-                <div class="sliderIklan" style="margin-top: 6.3rem;">
+                <div class="sliderIklan" style="margin-top: 6.3rem; border-radius: 20px">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
@@ -382,14 +409,15 @@
                                 style=" height: 10rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/slider3.png" alt="" style=" height: 10rem; width: cover;">
+                            <img src="/assets/iklan/swissAtas.png" alt="iklan swiss atas"
+                                style=" height: 10rem; width: cover;">
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="container-fluid d-block d-lg-none">
-                <div class="sliderIklan" style="margin-top: 80px; margin-bottom: -10px;">
+                <div class="sliderIklan" style="margin-top: 80px; margin-bottom: -10px; border-radius: 20px">
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
@@ -401,7 +429,8 @@
                             <img src="/assets/iklan/iklan12.png" alt="" style=" height: 4rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/slider3.png" alt="" style=" height: 4rem; width: cover;">
+                            <img src="/assets/iklan/swissAtas.png" alt="iklan swiss atas"
+                                style=" height: 4rem; width: cover;">
                         </div>
                     </div>
                 </div>
@@ -438,6 +467,18 @@
     <script src="{{ url('canvas') }}/js/plugins.min.js"></script>
     <script src="{{ url('canvas') }}/js/functions.bundle.js"></script>
     <script>
+        // looping background
+        $(document).ready(function() {
+            var swiper = new Swiper('.swiper', {
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+            });
+        });
+
+        // iklan
         window.onload = function() {
             // Set a timeout of 15 seconds before triggering the ad
             setTimeout(function() {

@@ -20,8 +20,7 @@ class discountCardController extends Controller
      {
         $disc = DiscountCard::all();
 
-        //return collection of disc as a resource
-        return new DiscountCardResource(true, 'List Data Disc Card', $disc);
+        return new DiscountCardResource(true, 'List Data Tourism Card', $disc);
      }
 
 

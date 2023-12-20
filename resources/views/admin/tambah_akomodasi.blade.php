@@ -72,8 +72,7 @@
                         <div class="white-section">
                             <label>Bintang Akomodasi</label>
                         </div><input id="input-2" type="number" name="star" class="rating rating-input" max="5"
-                            data-step="1" data-stars="5" data-size="sm" value="{{ old('star') }}" tabindex="-1"
-                            required>
+                            data-step="1" data-stars="5" data-size="sm" value="{{ old('star') }}" tabindex="-1">
                         <div class="form-group">
                             <label for="address"> Alamat </label>
                             <textarea class="form-control @error('address') is-invalid @enderror" name="address" id="address"
@@ -87,7 +86,7 @@
                         <div class="form-group">
                             <label for="phone"> No. HP </label>
                             <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                id="phone" placeholder="Masukan Nomor HP . . . " value="{{ old('phone') }}" 
+                                id="phone" placeholder="Masukan Nomor HP . . . " value="{{ old('phone') }}"
                                 autocomplete="off"></input>
                             @error('phone')
                                 <div class="invalid-feedback">

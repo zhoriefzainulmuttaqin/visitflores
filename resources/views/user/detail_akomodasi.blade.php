@@ -35,18 +35,24 @@
                         <small class="p-2 rounded text-white me-2" style="background-color: #0F304F">
                             {{ $accomodation->city }}
                         </small>
-                        <div class="rating-stars" tabindex="0"><span class="empty-stars"><span class="star"
-                                    title="One Star"><span class="bi-star"></span></span><span class="star"
-                                    title="Two Stars"><span class="bi-star"></span></span><span class="star"
-                                    title="Three Stars"><span class="bi-star"></span></span><span class="star"
-                                    title="Four Stars"><span class="bi-star"></span></span><span class="star"
-                                    title="Five Stars"><span class="bi-star"></span></span></span><span class="filled-stars"
-                                style="width: {{ $accomodation->star }}%;"><span class="star" title="One Star"><span
-                                        class="bi-star-fill"></span></span><span class="star" title="Two Stars"><span
-                                        class="bi-star-fill"></span></span><span class="star" title="Three Stars"><span
-                                        class="bi-star-fill"></span></span><span class="star" title="Four Stars"><span
-                                        class="bi-star-fill"></span></span><span class="star" title="Five Stars"><span
-                                        class="bi-star-fill"></span></span></span></div>
+                        @if($accomodation->star)
+                        <div class="rating-stars" tabindex="0">
+                            <span class="empty-stars">
+                                <span class="star" title="One Star"><span class="bi-star"></span></span>
+                                <span class="star" title="Two Stars"><span class="bi-star"></span></span>
+                                <span class="star" title="Three Stars"><span class="bi-star"></span></span>
+                                <span class="star" title="Four Stars"><span class="bi-star"></span></span>
+                                <span class="star" title="Five Stars"><span class="bi-star"></span></span>
+                            </span>
+                            <span class="filled-stars" style="width: {{ $accomodation->star }}%;">
+                                <span class="star" title="One Star"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Two Stars"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Three Stars"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Four Stars"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Five Stars"><span class="bi-star-fill"></span></span>
+                            </span>
+                        </div>
+                    @endif
                     </div>
                     <div class="text-lg fw-normal fs-5">
                         <i class="uil fs-3 text-warning fa-solid fa-phone"></i>

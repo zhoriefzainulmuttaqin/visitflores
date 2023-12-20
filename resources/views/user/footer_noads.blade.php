@@ -1,26 +1,3 @@
-{{-- Iklan --}}
-<style>
-    .owl-prev,
-    .owl-next {
-        margin-right: 25px;
-        margin-left: 25px;
-    }
-</style>
-
-<div class="sliderIklan">
-    <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1" data-items-sm="1"
-        data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
-        <div class="oc-item">
-            <img src="assets/iklan/iklanbawah1.png" alt="" style="width: 1000%">
-        </div>
-        <div class="oc-item">
-            <img src="assets/iklan/swissBawah.png" alt="iklan swiss bawah" style="width: 1000%">
-        </div>
-        {{-- <div class="oc-item">
-                </div> --}}
-    </div>
-</div>
-{{-- end iklan --}}
 
 <!-- Footer
 ============================================= -->

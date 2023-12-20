@@ -41,9 +41,7 @@ use App\Http\Controllers\ProfilePartnerController;
 */
 
 Route::get('/', [UserHomeController::class, "home"]);
-// Route::get('wisata', function () {
-//     return view('user.tours');
-// });
+
 
 Route::get("atur-bahasa/{locale}", [LocaleController::class, "atur_bahasa"]);
 Route::get("set-bahasa/{locale}", [LocaleController::class, "set_bahasa"]);

@@ -28,8 +28,8 @@ class UserHomeController extends Controller
         }
 
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
-        $culiners = Restaurant::limit(3)->get();
-        $souvenirs = Shop::where("id","!=",1)->where("id","!=",4)->limit(3)->get();
+        $culiners = Restaurant::whereIn('id', [16, 18, 53])->get();
+        $souvenirs = Shop::where("id","!=",1)->whereIn('id', [4, 57, 29])->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
             ->where('categories.type', 1)
@@ -37,8 +37,8 @@ class UserHomeController extends Controller
             ->limit(3)
             ->orderBy('news.published_date', 'desc')
             ->get();
-        $tours = Tour::limit(10)->get();
-        $accomodations = Accomodation::limit(10)->get();
+        $tours = Tour::limit(20)->get();
+        $accomodations = Accomodation::limit(20)->get();
 
         $data = ([
             "events" => $events,
