@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\App;
@@ -11,7 +12,7 @@ use Illuminate\Validation\Rule;
 
 class RestaurantController extends Controller
 {
-    public function restaurants()
+    public function restaurants(Request $request)
     {
         if (Cookie::get('user-language') != NULL) {
             $locale = Cookie::get('user-language');
@@ -20,10 +21,42 @@ class RestaurantController extends Controller
             $locale = "id";
             App::setLocale("id");
         }
-        $restaurants = Restaurant::paginate(12);
+        if ($request->keyword) {
+            $keyword = $request->keyword;
+        } else {
+            $keyword = '';
+        }
 
+
+        $cafe = [];
+        if ($request->cafe_resto) {
+            $cafe = explode(",", $request->cafe_resto);
+        }
+
+        $restaurants = Restaurant::query()
+        ->when(!empty($cafe), function (Builder $query) {
+            $query->where('cafe_resto', 1);
+        }, function (Builder $query) {
+            $query->where('cafe_resto', 0);
+        })
+            ->when($locale, function (Builder $query, $locale) use ($keyword) {
+                if ($locale == 'en') {
+                    $query->where('restaurants.name_en', 'like',  '%' . $keyword . '%');
+                } else {
+                    $query->where('restaurants.name', 'like',  '%' . $keyword . '%');
+                }
+            })
+            ->paginate(12);
+        if ($request->keyword) {
+            $restaurants->appends(array('keyword' => $keyword));
+        }
+        if ($request->star_list) {
+            $restaurants->appends($cafe);
+        }
         $data = [
             'restaurants' => $restaurants,
+            'keyword' => $keyword,
+            'cafe_resto' => implode(",", $cafe),
         ];
 
         return view('user.restaurants', $data);
@@ -49,12 +82,12 @@ class RestaurantController extends Controller
         $validatedData = $request->validate(
             [
                 'slug' => 'unique:restaurants',
-                'phone' => 'unique:restaurants',
+                // 'phone' => 'unique:restaurants',
                 'image' => 'image',
             ],
             [
                 'slug.unique' => 'Slug sudah ada !',
-                'phone.unique' => 'No. Handphone sudah ada !',
+                // 'phone.unique' => 'No. Handphone sudah ada !',
                 'image.image' => 'File harus berupa gambar',
             ]
         );
@@ -80,6 +113,7 @@ class RestaurantController extends Controller
         $link_tiktok = $request->link_tiktok == "" ? NULL :  $request->link_tiktok;
         $link_youtube = $request->link_youtube == "" ? NULL :  $request->link_youtube;
 
+
         Restaurant::insert([
             'name' =>  $name,
             'name_en' =>  $name_en,
@@ -96,6 +130,8 @@ class RestaurantController extends Controller
             'slug' =>  Str::of($request->slug)->slug('-'),
             'picture' =>  $nameImage,
             'cover_picture' =>  $nameImage,
+            'cafe_resto' =>  $request->cafe_resto ?? 0,
+
         ]);
 
         session()->flash('msg_status', 'success');
@@ -134,6 +170,7 @@ class RestaurantController extends Controller
         $facilities = NULL;
         $facilities_en = NULL;
         $address = $request->address;
+        $cafe_resto = $request->cafe_resto;
 
         // optional (Boleh kosong)
         $link_instagram = $request->link_instagram == "" ? NULL :  $request->link_instagram;
@@ -141,6 +178,9 @@ class RestaurantController extends Controller
         $link_tiktok = $request->link_tiktok == "" ? NULL :  $request->link_tiktok;
         $link_youtube = $request->link_youtube == "" ? NULL :  $request->link_youtube;
 
+        if ($cafe_resto == null) {
+            $validatedData['cafe_resto'] = '0';
+        }
 
         $data_resto = Restaurant::where('id', $id)->first();
 
@@ -152,16 +192,16 @@ class RestaurantController extends Controller
             $rules['slug'] = 'required';
         }
 
-        if ($request->phone != $data_resto->phone) {
-            $rules['phone'] = 'required|unique:restaurants';
-        } else {
-            $rules['phone'] = 'required';
-        }
+        // if ($request->phone != $data_resto->phone) {
+        //     $rules['phone'] = 'required|unique:restaurants';
+        // } else {
+        //     $rules['phone'] = 'required';
+        // }
 
         $rules['image'] = 'image';
 
         $validateData = $request->validate($rules, [
-            'phone.unique' => 'No. Handphone : ' . $phone . ' sudah terdaftar !',
+            // 'phone.unique' => 'No. Handphone : ' . $phone . ' sudah terdaftar !',
             'slug.unique' => 'Slug : ' . $slug . ' sudah terdaftar !',
             'image.image' => 'File harus berupa gambar !',
         ]);
@@ -194,6 +234,7 @@ class RestaurantController extends Controller
                 'slug' =>  Str::of($slug)->slug('-'),
                 'picture' =>  $nameImage,
                 'cover_picture' =>  $nameImage,
+                'cafe_resto' =>  $cafe_resto,
             ]);
 
         session()->flash('msg_status', 'success');

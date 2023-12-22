@@ -218,7 +218,7 @@
                 <div class="slider-inner">
                     <div class="vertical-middle slider-element-fade">
                         <div class="container-fluid py-5">
-                            <div class="heading-block text-center border-bottom-0 mt-2 mt-md-0">
+                            <div class="heading-block text-center border-bottom-0 mt-5 mt-md-0">
                                 <img src="{{ url('assets/logo-light.png') }}" id="logo-on-header">
                                 <p class="text-white d-none d-md-block display-6" style="font-size: 20px;">
                                     {{ strtoupper(__('home.portal_text')) }} <br>
@@ -244,7 +244,7 @@
                 </div>
             </section>
         @else
-            <div class="d-none d-lg-block">
+            {{-- <div class=" d-block d-lg-none"> --}}
                 <section id="slider"
                     class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header"
                     style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
@@ -258,23 +258,7 @@
                         </div>
                     </div>
                 </section>
-            </div>
-
-            <div class=" d-block d-lg-none">
-                <section id="slider"
-                    class="slider-element slider-parallax min-vh-40 min-vh-md-100 dark include-header mb-5"
-                    style="background: url(@yield('cover'))  no-repeat; background-size: cover;margin-bottom:0px; background-position: center center;">
-                    <div class="slider-inner">
-                        <div class="vertical-middle slider-element-fade">
-                            <div class="container-fluid py-5">
-                                <div class="heading-block text-center border-bottom-0 mt-6 mt-md-0">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+            {{-- </div> --}}
         @endif
 
         <style>

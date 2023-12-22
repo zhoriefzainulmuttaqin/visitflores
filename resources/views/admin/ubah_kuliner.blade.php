@@ -155,6 +155,14 @@ Ubah Kuliner
                         </div>
                         @enderror
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input btn-outline-primary" name="cafe_resto" type="checkbox"
+                            value="1" {{ $restaurant->cafe_resto == '1' ? 'checked' : '' }}
+                            id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Cafe & Resto
+                        </label>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="<?= url('app-admin/data/kuliner') ?>">

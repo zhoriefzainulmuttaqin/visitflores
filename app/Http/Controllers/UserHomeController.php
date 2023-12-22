@@ -29,6 +29,7 @@ class UserHomeController extends Controller
 
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
         $culiners = Restaurant::whereIn('id', [16, 18, 53])->get();
+        $cafe = Restaurant::where('cafe_resto', '=', 1)->limit(3)->get();
         $souvenirs = Shop::where("id","!=",1)->whereIn('id', [4, 57, 29])->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
@@ -47,6 +48,7 @@ class UserHomeController extends Controller
             "news" => $news,
             "tours" => $tours,
             "accomodations" => $accomodations,
+            "cafe" => $cafe,
         ]);
 
         return view("user.home", $data);

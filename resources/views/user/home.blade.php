@@ -153,35 +153,35 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                                                #but_event {
-                                                                width: 15rem;
-                                                                height: 100px;
-                                                                font-size: 24px;
-                                                                font-weight: 500;
-                                                                margin-top: -3rem;
-                                                                margin-left: auto;
-                                                                margin-right: auto;
-                                                                display: flex;
-                                                                justify-content: center;
-                                                                align-items: center;
-                                                                border-radius: 5px;
+                                                                        #but_event {
+                                                                        width: 15rem;
+                                                                        height: 100px;
+                                                                        font-size: 24px;
+                                                                        font-weight: 500;
+                                                                        margin-top: -3rem;
+                                                                        margin-left: auto;
+                                                                        margin-right: auto;
+                                                                        display: flex;
+                                                                        justify-content: center;
+                                                                        align-items: center;
+                                                                        border-radius: 5px;
 
-                                                            }
+                                                                    }
 
-                                                            .title_event {
-                                                                font-size: 16px;
-                                                                font-weight: 999;
-                                                                margin-bottom: 1.5rem;
-                                                                margin-top: 7rem !important;
-                                                            }
+                                                                    .title_event {
+                                                                        font-size: 16px;
+                                                                        font-weight: 999;
+                                                                        margin-bottom: 1.5rem;
+                                                                        margin-top: 7rem !important;
+                                                                    }
 
-                                                            .owl-carousel .owl-dots .owl-dot {
-                                                                background-color: #676565;
-                                                                width: 2em;
-                                                                height: 2em;
-                                                            }
+                                                                    .owl-carousel .owl-dots .owl-dot {
+                                                                        background-color: #676565;
+                                                                        width: 2em;
+                                                                        height: 2em;
+                                                                    }
 
-                                                            } */
+                                                                    } */
 
         }
     </style>
@@ -196,7 +196,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                                        </p> -->
+                                                                                                </p> -->
             </p>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-6" data-items-xs="2"
@@ -335,8 +335,8 @@
 
 
         /* .mySwiper2-mobile{
-                                    margin-left:-9.75rem;
-                                } */
+                                            margin-left:-9.75rem;
+                                        } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             .mySwiper2-mobile {
                 /* margin-left:-20%; */
@@ -584,8 +584,6 @@
     </style>
     {{-- end css kuliner --}}
 
-
-
     <div class="container">
         <div class="d-none d-md-block px-4">
             <div class="row mb-5 top_kuliner">
@@ -654,7 +652,7 @@
                         <article class="entry event p-3">
                             <div
                                 class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
-                                <div class=" col-12" style="height: 5rem;">
+                                <div class=" col-12" style="height: 8.5rem;">
                                     <a href="{{ url('kuliner') }}" class="">
                                         <img src="{{ url('assets/kuliner/' . $culiner->picture) }}" class="rounded-2">
                                         <div class="image-caption text-center"
@@ -680,6 +678,182 @@
             </div>
         </div>
 
+    </div>
+
+    {{-- Cafe & Resto --}}
+    <style>
+        .top_cafe {
+            margin-top: 3rem;
+        }
+
+        #but_cafe {
+            width: 12rem;
+            height: 40px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 5rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .cafe_caption .image-caption {
+
+            font-size: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            /* Adjust the background color and opacity */
+            padding: 0.5rem;
+            backdrop-filter: blur(5px);
+            /* Adjust the blur amount */
+        }
+
+        .image-caption p {
+            color: white;
+            margin: 0;
+
+        }
+
+        @media (max-width: 760px) {
+            #but_cafe {
+                width: 9rem;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 500;
+                margin-top: -1.5rem;
+                margin-bottom: -4rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
+
+            .title_cafe {
+                font-size: 16px;
+                font-weight: 999;
+            }
+
+            #top_cafe {
+                margin-top: 6rem;
+            }
+
+            .event {
+                width: 16.5rem;
+                /* height: 100%; */
+                margin: auto;
+            }
+
+            .cafe .owl-carousel .owl-dots .owl-dot {
+                margin-top: -3rem;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="d-none d-md-block px-4">
+            <div class="row mb-5 top_cafe">
+                <div class="col-md-7">
+                    <h1 class="mb-1 ">
+                        <b>TOP {{ __('home.title_cafe') }}</b>
+                    </h1>
+                    <div class="text-lg fs-4 mb-4">
+                        {{ __('home.subtitle_cafe') }}
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="mt-5">
+                        <a href="{{ url('kuliner?cafe_resto=1&keyword=') }}"
+                            class="btn btn-primary btn-lg  float-end text-white bg-btn-visit" id="but_cafe">
+                            {{ __('home.explore_all') }} {{ __('home.title_cafe') }}
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="px-4">
+                    <div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-margin="0"
+                        data-pagi="true" data-items="2" data-items-md="2" data-items-lg="3" data-items-xl="3">
+                        @foreach ($sortedEvents as $event)
+                            <div class="oc-item">
+                                <article class="entry event p-3">
+                                    <div
+                                        class="grid-inner bg-contrast-0 row g-0 border-0 rounded-5 shadow-sm h-shadow all-ts h-translate-y-sm">
+                                        <div class="col-12 mb-md-0">
+                                            <a href="{{ url('event') }}" class="entry-image">
+                                                <img src="{{ url('assets/event/' . $event->cover_picture) }}"
+                                                    class="rounded-2" style="height: 20rem;">
+                                            </a>
+                                        </div>
+                                        <div class="col-12 p-0 p-md-4 pt-0">
+                                            <div class="entry-title nott">
+                                                @if (App::isLocale('id'))
+                                                    <h3><a href="{{ url('event') }}">{{ $event->name }}</a></h3>
+                                                @else
+                                                    <h3><a href="{{ url('event') }}">{{ $event->name_en }}</a></h3>
+                                                @endif
+                                            </div>
+                                            <div class="entry-meta no-separator mb-1 mt-0 ">
+                                                <ul>
+                                                    <li>
+                                                        <a href="{{ url('event') }}" class="text-uppercase fw-medium">
+                                                            {{ $event->location }}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="entry-content my-3">
+                                                <p class="mb-0">
+                                                    @if (App::isLocale('id'))
+                                                        <b>{{ tglIndo($event->start_date, 'd/m/Y') }}</b>
+                                                    @else
+                                                        <b>{{ date('d-M-Y', strtotime($event->start_date)) }}</b>
+                                                    @endif
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-block d-md-none cafe">
+            <div class="container text-center" id="top_cafe">
+                <b class="h1 title_cafe">TOP {{ strtoupper(__('home.title_cafe')) }}</b>
+                <br>
+                <div style="font-size:10px">
+                    {{ __('home.subtitle_cafe') }}
+                </div>
+            </div>
+            <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-6" data-items-xs="2"
+                data-items-sm="2" data-items-lg="3" data-items-xl="5">
+                @foreach ($sortedEvents as $event)
+                    <div class="oc-item">
+                        <a href="{{ url('event') }}"><img src="{{ url('assets/event/' . $event->cover_picture) }}"
+                                alt="Image 1"
+                                style="border-radius: 10px 10px 10px 10px !important; height: 10rem; width: 20rem;"></a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="container mt-5 text-center">
+                <a href="{{ url('kuliner?cafe_resto=1&keyword=') }}" class="btn btn-primary text-white bg-btn-visit"
+                    id="but_cafe">
+                    {{ __('home.explore_all') }} {{ __('home.title_cafe') }}
+                    <i class="bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
     </div>
 
     {{-- css oleh-oleh --}}
