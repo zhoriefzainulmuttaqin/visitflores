@@ -12,55 +12,55 @@ use Illuminate\Validation\Rule;
 
 class RestaurantController extends Controller
 {
-    public function restaurants(Request $request)
-    {
-        if (Cookie::get('user-language') != NULL) {
-            $locale = Cookie::get('user-language');
-            App::setLocale($locale);
-        } else {
-            $locale = "id";
-            App::setLocale("id");
-        }
-        if ($request->keyword) {
-            $keyword = $request->keyword;
-        } else {
-            $keyword = '';
-        }
+        public function restaurants(Request $request)
+        {
+            if (Cookie::get('user-language') != NULL) {
+                $locale = Cookie::get('user-language');
+                App::setLocale($locale);
+            } else {
+                $locale = "id";
+                App::setLocale("id");
+            }
+            if ($request->keyword) {
+                $keyword = $request->keyword;
+            } else {
+                $keyword = '';
+            }
 
 
-        $cafe = [];
-        if ($request->cafe_resto) {
-            $cafe = explode(",", $request->cafe_resto);
-        }
+            $cafe = [];
+            if ($request->cafe_resto) {
+                $cafe = explode(",", $request->cafe_resto);
+            }
 
-        $restaurants = Restaurant::query()
-        ->when(!empty($cafe), function (Builder $query) {
-            $query->where('cafe_resto', 1);
-        }, function (Builder $query) {
-            $query->where('cafe_resto', 0);
-        })
-            ->when($locale, function (Builder $query, $locale) use ($keyword) {
-                if ($locale == 'en') {
-                    $query->where('restaurants.name_en', 'like',  '%' . $keyword . '%');
-                } else {
-                    $query->where('restaurants.name', 'like',  '%' . $keyword . '%');
-                }
+            $restaurants = Restaurant::query()
+            ->when(!empty($cafe), function (Builder $query) {
+                $query->where('cafe_resto', 1);
+            }, function (Builder $query) {
+                $query->where('cafe_resto', 0);
             })
-            ->paginate(12);
-        if ($request->keyword) {
-            $restaurants->appends(array('keyword' => $keyword));
-        }
-        if ($request->star_list) {
-            $restaurants->appends($cafe);
-        }
-        $data = [
-            'restaurants' => $restaurants,
-            'keyword' => $keyword,
-            'cafe_resto' => implode(",", $cafe),
-        ];
+                ->when($locale, function (Builder $query, $locale) use ($keyword) {
+                    if ($locale == 'en') {
+                        $query->where('restaurants.name_en', 'like',  '%' . $keyword . '%');
+                    } else {
+                        $query->where('restaurants.name', 'like',  '%' . $keyword . '%');
+                    }
+                })
+                ->paginate(12);
+            if ($request->keyword) {
+                $restaurants->appends(array('keyword' => $keyword));
+            }
+            if ($request->star_list) {
+                $restaurants->appends($cafe);
+            }
+            $data = [
+                'restaurants' => $restaurants,
+                'keyword' => $keyword,
+                'cafe_resto' => implode(",", $cafe),
+            ];
 
-        return view('user.restaurants', $data);
-    }
+            return view('user.restaurants', $data);
+        }
 
     public function admin_kuliner()
     {

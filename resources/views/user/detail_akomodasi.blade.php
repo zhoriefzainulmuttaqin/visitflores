@@ -35,24 +35,24 @@
                         <small class="p-2 rounded text-white me-2" style="background-color: #0F304F">
                             {{ $accomodation->city }}
                         </small>
-                        @if($accomodation->star)
-                        <div class="rating-stars" tabindex="0">
-                            <span class="empty-stars">
-                                <span class="star" title="One Star"><span class="bi-star"></span></span>
-                                <span class="star" title="Two Stars"><span class="bi-star"></span></span>
-                                <span class="star" title="Three Stars"><span class="bi-star"></span></span>
-                                <span class="star" title="Four Stars"><span class="bi-star"></span></span>
-                                <span class="star" title="Five Stars"><span class="bi-star"></span></span>
-                            </span>
-                            <span class="filled-stars" style="width: {{ $accomodation->star }}%;">
-                                <span class="star" title="One Star"><span class="bi-star-fill"></span></span>
-                                <span class="star" title="Two Stars"><span class="bi-star-fill"></span></span>
-                                <span class="star" title="Three Stars"><span class="bi-star-fill"></span></span>
-                                <span class="star" title="Four Stars"><span class="bi-star-fill"></span></span>
-                                <span class="star" title="Five Stars"><span class="bi-star-fill"></span></span>
-                            </span>
-                        </div>
-                    @endif
+                        @if ($accomodation->star)
+                            <div class="rating-stars" tabindex="0">
+                                <span class="empty-stars">
+                                    <span class="star" title="One Star"><span class="bi-star"></span></span>
+                                    <span class="star" title="Two Stars"><span class="bi-star"></span></span>
+                                    <span class="star" title="Three Stars"><span class="bi-star"></span></span>
+                                    <span class="star" title="Four Stars"><span class="bi-star"></span></span>
+                                    <span class="star" title="Five Stars"><span class="bi-star"></span></span>
+                                </span>
+                                <span class="filled-stars" style="width: {{ $accomodation->star }}%;">
+                                    <span class="star" title="One Star"><span class="bi-star-fill"></span></span>
+                                    <span class="star" title="Two Stars"><span class="bi-star-fill"></span></span>
+                                    <span class="star" title="Three Stars"><span class="bi-star-fill"></span></span>
+                                    <span class="star" title="Four Stars"><span class="bi-star-fill"></span></span>
+                                    <span class="star" title="Five Stars"><span class="bi-star-fill"></span></span>
+                                </span>
+                            </div>
+                        @endif
                     </div>
                     <div class="text-lg fw-normal fs-5">
                         <i class="uil fs-3 text-warning fa-solid fa-phone"></i>
@@ -70,8 +70,13 @@
                     {{ __('accomodation_detail.start_from') }}
                     <br>
                     <font class="text-danger fs-3 float-end">
-                        Rp.-
-                        {{-- <?= number_format($accomodation->price_start_from, 0, ',', '.') ?> --}}
+                        <?php
+                        if ($accomodation->id == 6) {
+                            echo 'Rp. ' . number_format($accomodation->price_start_from, 0, ',', '.');
+                        } else {
+                            echo '-';
+                        }
+                        ?>
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">
@@ -130,33 +135,36 @@
                                         <div class="entry-meta no-separator mb-3">
                                             <ul>
                                                 @if (count($accomodation->accomodation_links) > 0)
-                                                @foreach ($accomodation->accomodation_links as $item)
-                                                    <li>
+                                                    @foreach ($accomodation->accomodation_links as $item)
+                                                        <li>
+                                                            @auth
+                                                                <a href="{{ $item->url }}"
+                                                                    class="fw-normal link-primary text-primary">
+                                                                    <i class='fa fa-link'></i>
+                                                                    {{ $item->source_name }}
+                                                                </a>
+                                                            @else
+                                                                <a href="{{ route('login') }}"
+                                                                    class="fw-normal link-primary text-primary">
+                                                                    <i class='fa fa-link'></i>
+                                                                    Login untuk akses
+                                                                </a>
+                                                            @endauth
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li class="fw-normal text-white">
                                                         @auth
-                                                            <a href="{{ $item->url }}" class="fw-normal link-primary text-primary">
-                                                                <i class='fa fa-link'></i>
-                                                                {{ $item->source_name }}
-                                                            </a>
+                                                            <i class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
                                                         @else
-                                                            <a href="{{ route('login') }}" class="fw-normal link-primary text-primary">
-                                                                <i class='fa fa-link'></i>
+                                                            <a href="{{ route('login') }}"
+                                                                class="fw-normal link-info text-dark">
+                                                                <i class="uil fs-2 fa-brands bi-dot"></i>
                                                                 Login untuk akses
                                                             </a>
                                                         @endauth
                                                     </li>
-                                                @endforeach
-                                            @else
-                                                <li class="fw-normal text-white">
-                                                    @auth
-                                                        <i class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
-                                                    @else
-                                                        <a href="{{ route('login') }}" class="fw-normal link-info text-dark">
-                                                            <i class="uil fs-2 fa-brands bi-dot"></i>
-                                                            Login untuk akses
-                                                        </a>
-                                                    @endauth
-                                                </li>
-                                            @endif
+                                                @endif
 
                                             </ul>
                                         </div>

@@ -54,7 +54,7 @@
             <div class="container">
                 <div class="row mb-5 justify-content-center">
                     <div class="col-md-12 text-center">
-                        <img src="{{ url('assets/logo-dark.png') }}" width="250px" class="img-fluid">
+                        <img src="{{ url('assets/TourCard= .png') }}" width="250px" class="img-fluid">
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -95,7 +95,13 @@
                                         <input type="password" id="login-form-password" name="password" value=""
                                             class="form-control">
                                     </div>
-
+                                    <div class="form-check">
+                                        <input class="form-check-input btn-outline-primary" name="cafe_resto" type="checkbox"
+                                            value="1" id="defaultCheck1">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Ingin membeli Tourism Card?
+                                        </label>
+                                    </div>
                                     <div class="col-12 form-group">
                                         <div class="d-flex justify-content-between">
                                             <button class="button button-3d button-black m-0" id="login-form-submit"
@@ -114,7 +120,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 d-none d-md-block">
-                        <img src="{{ url('assets/bg-login.png') }}" class='img-fluid' width="100%">
+                        <img src="{{ url('assets/iklanTourismNotAvailable.webp') }}" class='img-fluid' width="100%">
                     </div>
                 </div>
 

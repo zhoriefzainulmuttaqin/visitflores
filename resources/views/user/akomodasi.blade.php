@@ -219,24 +219,35 @@
                                                 style="background-color: #0F304F">
                                                 {{ $accomodation->city }}
                                             </small>
-                                            @if($accomodation->star)
-                                            <div class="rating-stars" tabindex="0">
-                                                <span class="empty-stars">
-                                                    <span class="star" title="One Star"><span class="bi-star"></span></span>
-                                                    <span class="star" title="Two Stars"><span class="bi-star"></span></span>
-                                                    <span class="star" title="Three Stars"><span class="bi-star"></span></span>
-                                                    <span class="star" title="Four Stars"><span class="bi-star"></span></span>
-                                                    <span class="star" title="Five Stars"><span class="bi-star"></span></span>
-                                                </span>
-                                                <span class="filled-stars" style="width: {{ $accomodation->star }}%;">
-                                                    <span class="star" title="One Star"><span class="bi-star-fill"></span></span>
-                                                    <span class="star" title="Two Stars"><span class="bi-star-fill"></span></span>
-                                                    <span class="star" title="Three Stars"><span class="bi-star-fill"></span></span>
-                                                    <span class="star" title="Four Stars"><span class="bi-star-fill"></span></span>
-                                                    <span class="star" title="Five Stars"><span class="bi-star-fill"></span></span>
-                                                </span>
-                                            </div>
-                                        @endif
+                                            @if ($accomodation->star)
+                                                <div class="rating-stars" tabindex="0">
+                                                    <span class="empty-stars">
+                                                        <span class="star" title="One Star"><span
+                                                                class="bi-star"></span></span>
+                                                        <span class="star" title="Two Stars"><span
+                                                                class="bi-star"></span></span>
+                                                        <span class="star" title="Three Stars"><span
+                                                                class="bi-star"></span></span>
+                                                        <span class="star" title="Four Stars"><span
+                                                                class="bi-star"></span></span>
+                                                        <span class="star" title="Five Stars"><span
+                                                                class="bi-star"></span></span>
+                                                    </span>
+                                                    <span class="filled-stars"
+                                                        style="width: {{ $accomodation->star }}%;">
+                                                        <span class="star" title="One Star"><span
+                                                                class="bi-star-fill"></span></span>
+                                                        <span class="star" title="Two Stars"><span
+                                                                class="bi-star-fill"></span></span>
+                                                        <span class="star" title="Three Stars"><span
+                                                                class="bi-star-fill"></span></span>
+                                                        <span class="star" title="Four Stars"><span
+                                                                class="bi-star-fill"></span></span>
+                                                        <span class="star" title="Five Stars"><span
+                                                                class="bi-star-fill"></span></span>
+                                                    </span>
+                                                </div>
+                                            @endif
                                         </div>
                                         <div class="text-lg fw-normal fs-5 mt-3">
                                             <i class="uil fs-3 text-warning uil-map-marker"></i>
@@ -290,15 +301,21 @@
                                                     </ul>
                                                 </div>
                                             @endif
-                                            <!--<p class="card-text mb-3">-->
-                                            <!--    <font>-->
-                                            <!--        {{ __('accomodation.start_from') }}-->
-                                            <!--    </font>-->
-                                            <!--    <strong class="fs-4 text-danger">-->
-                                            <!--        <br>-->
-                                            <!--        Rp<?= number_format($accomodation->price_start_from, 0, ',', '.') ?>-->
-                                            <!--    </strong>-->
-                                            <!--</p>-->
+                                            <p class="card-text mb-3">
+                                                <font>
+                                                    {{ __('accomodation.start_from') }}
+                                                </font>
+                                                <strong class="fs-4 text-danger">
+                                                    <br>
+                                                    <?php
+                                                    if ($accomodation->id == 6) {
+                                                        echo 'Rp. ' . number_format($accomodation->price_start_from, 0, ',', '.');
+                                                    } else {
+                                                        echo '-';
+                                                    }
+                                                    ?>
+                                                </strong>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

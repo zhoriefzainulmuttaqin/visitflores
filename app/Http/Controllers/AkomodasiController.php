@@ -290,11 +290,11 @@ class AkomodasiController extends Controller
         if ($request->file('cover_picture')) {
             $accomodation = Accomodation::where('id', $request->input('accomodation_id'))->first();
             if ($accomodation->cover_picture != NULL) {
-                unlink(('./assets/akomodasi/') . $accomodation->cover_picture);
+                unlink(('assets/akomodasi/') . $accomodation->cover_picture);
             }
             $image = $request->file('cover_picture');
             $nameImage = Str::random(40) . '.' . $image->getClientOriginalExtension();
-            $image->move('./assets/akomodasi/', $nameImage);
+            $image->move('assets/akomodasi/', $nameImage);
             $validatedData['cover_picture'] = $nameImage;
         }
 

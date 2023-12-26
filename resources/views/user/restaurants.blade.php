@@ -176,7 +176,7 @@ use Illuminate\Support\Facades\App;
                         </div>
                     </article>
                 @endforeach
-                {{ $restaurants->links('vendor.pagination.canvas') }}
+                {{ $restaurants->appends(['cafe_resto' => $cafe_resto, 'keyword' => $keyword])->links('vendor.pagination.canvas') }}
             </div>
         </div>
     </section>
