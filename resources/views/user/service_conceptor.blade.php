@@ -1,4 +1,4 @@
-@extends('user.template')
+@extends('user.template_no_cover')
 
 @section('title')
     {{ __('services.service_conceptor') }}

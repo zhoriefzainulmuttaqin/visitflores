@@ -116,6 +116,9 @@
                                     <li><a href="#" class="fw-normal"><i
                                                 class="uil uil-map-marker"></i>{{ nl2br($event->location) }}</a>
                                     </li>
+                                    <li>
+                                        <a class="text-warning" href="{{ $event->link_maps }}">Lihat Maps</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

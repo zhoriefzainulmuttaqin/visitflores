@@ -75,8 +75,10 @@ class ShopController extends Controller
         $facilities = NULL;
         $facilities_en = NULL;
         $address = $request->address;
+        $link_maps = $request->link_maps;
 
         // optional (Boleh kosong)
+        $phone = $request->phone == "" ? NULL :  $request->phone;;
         $link_instagram = $request->link_instagram == "" ? NULL :  $request->link_instagram;
         $link_facebook = $request->link_facebook == "" ? NULL :  $request->link_facebook;
         $link_tiktok = $request->link_tiktok == "" ? NULL :  $request->link_tiktok;
@@ -93,6 +95,7 @@ class ShopController extends Controller
             'facilities' =>  $facilities,
             'facilities_en' =>  $facilities_en,
             'address' =>  $address,
+            'link_maps' =>  $link_maps,
             'link_instagram' =>  $link_instagram,
             'link_facebook' =>  $link_facebook,
             'link_tiktok' =>  $link_tiktok,
@@ -132,7 +135,6 @@ class ShopController extends Controller
         $slug = $request->slug;
         $name = $request->name;
         $name_en = $request->name_en;
-        $phone = $request->phone;
         $price = $request->price;
         $city = $request->city;
         $details = NULL;
@@ -140,8 +142,10 @@ class ShopController extends Controller
         $facilities = NULL;
         $facilities_en = NULL;
         $address = $request->address;
+        $link_maps = $request->link_maps;
 
         // optional (Boleh kosong)
+        $phone = $request->phone == "" ? NULL :  $request->phone;;
         $link_instagram = $request->link_instagram == "" ? NULL :  $request->link_instagram;
         $link_facebook = $request->link_facebook == "" ? NULL :  $request->link_facebook;
         $link_tiktok = $request->link_tiktok == "" ? NULL :  $request->link_tiktok;
@@ -158,11 +162,11 @@ class ShopController extends Controller
             $rules['slug'] = 'required';
         }
 
-        if ($request->phone != $data_shop->phone) {
-            $rules['phone'] = 'required|unique:shops';
-        } else {
-            $rules['phone'] = 'required';
-        }
+        // if ($request->phone != $data_shop->phone) {
+        //     $rules['phone'] = 'required|unique:shops';
+        // } else {
+        //     $rules['phone'] = 'required';
+        // }
 
         $rules['image'] = 'image';
 
@@ -195,6 +199,7 @@ class ShopController extends Controller
                 'facilities' =>  $facilities,
                 'facilities_en' =>  $facilities_en,
                 'address' =>  $address,
+                'link_maps' =>  $link_maps,
                 'link_instagram' =>  $link_instagram,
                 'link_facebook' =>  $link_facebook,
                 'link_tiktok' =>  $link_tiktok,

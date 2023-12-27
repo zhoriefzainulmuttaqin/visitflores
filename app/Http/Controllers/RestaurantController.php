@@ -106,6 +106,7 @@ class RestaurantController extends Controller
         $facilities = NULL;
         $facilities_en = NULL;
         $address = $request->address;
+        $link_maps = $request->link_maps;
 
         // optional (Boleh kosong)
         $link_instagram = $request->link_instagram == "" ? NULL :  $request->link_instagram;
@@ -123,6 +124,7 @@ class RestaurantController extends Controller
             'facilities' =>  $facilities,
             'facilities_en' =>  $facilities_en,
             'address' =>  $address,
+            'link_maps' =>  $link_maps,
             'link_instagram' =>  $link_instagram,
             'link_facebook' =>  $link_facebook,
             'link_tiktok' =>  $link_tiktok,
@@ -171,6 +173,7 @@ class RestaurantController extends Controller
         $facilities_en = NULL;
         $address = $request->address;
         $cafe_resto = $request->cafe_resto;
+        $link_maps = $request->link_maps;
 
         // optional (Boleh kosong)
         $link_instagram = $request->link_instagram == "" ? NULL :  $request->link_instagram;
@@ -227,6 +230,7 @@ class RestaurantController extends Controller
                 'facilities' =>  $facilities,
                 'facilities_en' =>  $facilities_en,
                 'address' =>  $address,
+                'link_maps' =>  $link_maps,
                 'link_instagram' =>  $link_instagram,
                 'link_facebook' =>  $link_facebook,
                 'link_tiktok' =>  $link_tiktok,

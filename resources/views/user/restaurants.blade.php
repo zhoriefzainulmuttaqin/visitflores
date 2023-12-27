@@ -47,8 +47,10 @@ use Illuminate\Support\Facades\App;
                     <form action="" method="get" class="row  align-items-center">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1" class="form-label fw-bold fs-4">{{ __('restaurants.label_order') }}</label>
-                                <select class="form-select" name="cafe_resto" id="exampleFormControlSelect1" onchange="submit()">
+                                <label for="exampleFormControlSelect1"
+                                    class="form-label fw-bold fs-4">{{ __('restaurants.label_order') }}</label>
+                                <select class="form-select" name="cafe_resto" id="exampleFormControlSelect1"
+                                    onchange="submit()">
                                     <option {{ $cafe_resto == '0' ? 'selected' : '' }} value="0">kuliner</option>
                                     <option {{ $cafe_resto == '1' ? 'selected' : '' }} value="1">cafe & resto</option>
                                 </select>
@@ -106,6 +108,9 @@ use Illuminate\Support\Facades\App;
                                     <ul>
                                         <li class="fw-normal"><i class="uil text-warning uil-map-marker"></i>
                                             {{ $restaurant->address }}</li>
+                                        <li>
+                                            <a class="text-warning" href="{{ $restaurant->link_maps }}">Lihat Maps</a>
+                                        </li>
                                     </ul>
                                 </div>
                                 {{-- fasilitas --}}

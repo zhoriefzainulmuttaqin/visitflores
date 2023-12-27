@@ -61,7 +61,7 @@ Tambah Oleh - Oleh
                     <div class="form-group">
                         <label for="price"> Harga </label>
                         <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
-                            id="price" placeholder="Masukan Harga . . . " value="{{ old('price') }}" 
+                            id="price" placeholder="Masukan Harga . . . " value="{{ old('price') }}"
                             autocomplete="off">
                         @error('price')
                         <div class="invalid-feedback">
@@ -72,7 +72,7 @@ Tambah Oleh - Oleh
                     <div class="form-group">
                         <label for="phone"> No. Handphone </label>
                         <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                            id="phone" placeholder="Masukan No. Handphone . . . " value="{{ old('phone') }}" 
+                            id="phone" placeholder="Masukan No. Handphone . . . " value="{{ old('phone') }}"
                             autocomplete="off">
                         @error('phone')
                         <div class="invalid-feedback">
@@ -97,6 +97,17 @@ Tambah Oleh - Oleh
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                             id="image" onchange="previewImage()" required>
                         @error('image')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="link_maps">Link Maps</label>
+                        <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
+                            id="link_maps" value="{{ old('link_maps') }}" type="text"
+                            placeholder="Masukan Link Maps" required>
+                        @error('link_maps')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

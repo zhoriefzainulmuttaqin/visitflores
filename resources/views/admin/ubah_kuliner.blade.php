@@ -108,6 +108,18 @@ Ubah Kuliner
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="link_maps">Link Maps</label>
+                        <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
+                            id="link_maps"
+                            value="{{ old('link_maps') ? old('link_maps') : $restaurant->link_maps }}"
+                            type="text" placeholder="Masukan Link Maps">
+                        @error('link_maps')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label for="link_instagram">Link Instagram (*opsional)</label>
                         <input name="link_instagram" class="form-control @error('link_instagram') is-invalid @enderror"
                             id="link_instagram"

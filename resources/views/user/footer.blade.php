@@ -16,6 +16,9 @@
         <div class="oc-item">
             <img src="assets/iklan/swissBawah.png" alt="iklan swiss bawah" style="width: 1000%">
         </div>
+        <div class="oc-item">
+            <img src="assets/iklan/bannerIklanTCard2.png" alt="iklan Tourism" style="width: 1000%; height: 324px;">
+        </div>
         {{-- <div class="oc-item">
                 </div> --}}
     </div>

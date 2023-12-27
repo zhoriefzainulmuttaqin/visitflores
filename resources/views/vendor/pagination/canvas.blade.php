@@ -1,5 +1,5 @@
 <nav>
-    <ul class="pagination pagination-rounded pagination-3d pagination-lg">
+    <ul class="pagination pagination-rounded pagination-3d pagination-md">
         @if (!$paginator->onFirstPage())
             <li class="page-item">
                 <a class="page-link" href="{{ $paginator->previousPageUrl() }}" aria-label="Previous"> <span

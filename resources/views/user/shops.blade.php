@@ -68,6 +68,9 @@ use Illuminate\Support\Facades\App;
                                         <ul>
                                             <li class="fw-normal"><i class="uil text-warning uil-map-marker"></i>
                                                 {{ $shop->address }}</li>
+                                            <li>
+                                                <a class="text-warning" href="{{ $shop->link_maps }}">Lihat Maps</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     {{-- fasii;litas --}}

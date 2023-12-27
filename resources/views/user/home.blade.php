@@ -838,7 +838,7 @@
             </div>
             <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mt-3 mb-6" data-items-xs="2"
                 data-items-sm="2" data-items-lg="3" data-items-xl="5" data-autoplay="3000" data-loop="true">
-                @foreach ($cafe as $cf)
+                @foreach ($cafe->take as $cf)
                     <div class="oc-item cafe_caption">
                         <a href="{{ url('kuliner?cafe_resto=1&keyword=') }}"><img
                                 src="{{ url('assets/kuliner/' . $cf->cover_picture) }}" alt="Image 1"

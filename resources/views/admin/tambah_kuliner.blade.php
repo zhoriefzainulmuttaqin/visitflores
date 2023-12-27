@@ -103,11 +103,11 @@ Tambah Kuliner
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="link_instagram">Link Maps</label>
-                        <input name="link_instagram" class="form-control @error('link_instagram') is-invalid @enderror"
-                            id="link_instagram" value="{{ old('link_instagram') }}" type="text"
-                            placeholder="Masukan Link Instagram . . . ">
-                        @error('link_instagram')
+                        <label for="link_maps">Link Maps</label>
+                        <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
+                            id="link_maps" value="{{ old('link_maps') }}" type="text"
+                            placeholder="Masukan Link Maps" required>
+                        @error('link_maps')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -117,7 +117,7 @@ Tambah Kuliner
                         <label for="link_instagram">Link Instagram (*opsional)</label>
                         <input name="link_instagram" class="form-control @error('link_instagram') is-invalid @enderror"
                             id="link_instagram" value="{{ old('link_instagram') }}" type="text"
-                            placeholder="Masukan Link Instagram . . . ">
+                            placeholder="Masukan Link Maps">
                         @error('link_instagram')
                         <div class="invalid-feedback">
                             {{ $message }}

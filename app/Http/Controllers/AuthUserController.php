@@ -30,10 +30,15 @@ class AuthUserController extends Controller
                 session([
                     'user_id' => auth()->user()->id,
                 ]);
-                $request->session()->regenerate();
-                $previousUrl = session('previous_url', '/');
-                $request->session()->forget('previous_url');
-                return redirect()->to($previousUrl);
+                $tourismCard = $request->input('tourism_card', 0);
+                if ($tourismCard == 1) {
+                    return redirect('/layanan-produk/tourism-card');
+                } else {
+                    $request->session()->regenerate();
+                    $previousUrl = session('previous_url', '/');
+                    $request->session()->forget('previous_url');
+                    return redirect()->to($previousUrl);
+                }
             } else {
                 session()->flash('msg', "<strong>Maaf, login gagal.</strong> <br> Akun anda tidak aktif !");
                 session()->flash('msg_status', 'danger');

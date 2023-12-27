@@ -56,6 +56,17 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label for="link_maps">Link Maps</label>
+                            <input name="link_maps" class="form-control @error('link_maps') is-invalid @enderror"
+                                id="link_maps" value="{{ old('link_maps') }}" type="text"
+                                placeholder="Masukan Link Maps " required>
+                            @error('link_maps')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                         <label class="form-label"> Tanggal dan Waktu Acara Mulai</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
