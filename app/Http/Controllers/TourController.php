@@ -72,7 +72,7 @@ class TourController extends Controller
                 );
             })
             ->select(['tours.*', 'categories.name as category_name', 'categories.name_en as category_name_en'])
-            ->orderBy('tours.id', 'asc')
+            ->orderBy('tours.mitra_status', 'desc')
             ->paginate(12);
         if ($request->keyword) {
             $tours->appends(array('keyword' => $keyword));
@@ -119,7 +119,7 @@ class TourController extends Controller
     {
         $tours = Tour::join('categories', 'tours.category_id', '=', 'categories.id')
             ->where('categories.type', 2)
-            ->orderBy('tours.name', 'asc')
+            ->orderBy('tours.mitra_status', 'desc')
             ->select(['tours.*', 'categories.name as category_name'])
             ->get();
 
@@ -147,12 +147,12 @@ class TourController extends Controller
         $validatedData = $request->validate(
             [
                 'slug' => 'unique:tours',
-                'phone' => 'unique:tours',
+                // 'phone' => 'unique:tours',
                 'image' => 'image',
             ],
             [
                 'slug.unique' => 'Slug sudah ada !',
-                'phone.unique' => 'No. Handphone sudah ada !',
+                // 'phone.unique' => 'No. Handphone sudah ada !',
                 'image.image' => 'File harus berupa gambar',
             ]
         );
@@ -202,6 +202,8 @@ class TourController extends Controller
             'slug' =>  Str::of($request->slug)->slug('-'),
             'picture' =>  $nameImage,
             'cover_picture' =>  $nameImage,
+            'mitra_status' =>  $request->mitra_status ?? 0,
+
         ]);
 
         session()->flash('msg_status', 'success');
@@ -246,6 +248,7 @@ class TourController extends Controller
         $description = $request->description;
         $description_en = $request->description_en;
         $address = $request->address;
+        $mitra_status = $request->mitra_status;
         $link_maps = $request->link_maps;
 
         // optional (Boleh kosong)
@@ -254,6 +257,9 @@ class TourController extends Controller
         $link_tiktok = $request->link_tiktok == "" ? NULL :  $request->link_tiktok;
         $link_youtube = $request->link_youtube == "" ? NULL :  $request->link_youtube;
 
+        if ($mitra_status == null) {
+            $validatedData['mitra_status'] = '0';
+        }
 
         $data_tour = Tour::where('id', $id)->first();
 
@@ -311,6 +317,7 @@ class TourController extends Controller
                 'slug' =>  Str::of($slug)->slug('-'),
                 'picture' =>  $nameImage,
                 'cover_picture' =>  $nameImage,
+                'mitra_status' =>  $mitra_status,
             ]);
 
         session()->flash('msg_status', 'success');

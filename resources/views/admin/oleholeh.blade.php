@@ -23,6 +23,7 @@ Oleh - Oleh
                             <th>Harga</th>
                             <th>No. Handphone</th>
                             <th>Alamat</th>
+                            <th>Mitra Status</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -38,6 +39,13 @@ Oleh - Oleh
                             </td>
                             <td>{{ $shop->phone }}</td>
                             <td>{{ nl2br($shop->address) }}</td>
+                            <td class="text-center">
+                                @if ($shop->mitra_status == 1)
+                                    <small class="btn btn-small btn-success"><i class="fas fa-check"></i></small>
+                                @else
+                                    <small class="btn btn-small btn-danger">X</small>
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <a href="{{ url('/app-admin/data/ubah/oleholeh/' . $shop->slug) }}">
                                     <button type="button" class="btn btn-sm btn-success" title="Ubah">

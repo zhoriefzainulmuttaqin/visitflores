@@ -24,6 +24,7 @@ Kuliner
                             <th>No. Handphone</th>
                             <th>Alamat</th>
                             <th>Cafe & Resto</th>
+                            <th>Mitra Status</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -41,6 +42,13 @@ Kuliner
                             <td>{{ nl2br($restaurant->address) }}</td>
                             <td class="text-center">
                                 @if ($restaurant->cafe_resto == 1)
+                                    <small class="btn btn-small btn-success"><i class="fas fa-check"></i></small>
+                                @else
+                                    <small class="btn btn-small btn-danger">X</small>
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if ($restaurant->mitra_status == 1)
                                     <small class="btn btn-small btn-success"><i class="fas fa-check"></i></small>
                                 @else
                                     <small class="btn btn-small btn-danger">X</small>

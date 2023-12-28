@@ -175,6 +175,14 @@ Ubah Kuliner
                             Cafe & Resto
                         </label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input btn-outline-primary" name="mitra_status" type="checkbox"
+                            value="1" {{ $restaurant->mitra_status == '1' ? 'checked' : '' }}
+                            id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Mitra Visit Cirebon
+                        </label>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="<?= url('app-admin/data/kuliner') ?>">

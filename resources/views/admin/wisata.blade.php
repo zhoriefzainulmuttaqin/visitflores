@@ -26,6 +26,7 @@ Wisata
                             <th>Kategori</th>
                             <th>No. Handphone</th>
                             <th>Alamat</th>
+                            <th>Mitra Status</th>
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -38,6 +39,13 @@ Wisata
                             <td>{{ $tour->category_name }}</td>
                             <td>{{ $tour->phone }}</td>
                             <td>{{ nl2br($tour->address) }}</td>
+                            <td class="text-center">
+                                @if ($tour->mitra_status == 1)
+                                    <small class="btn btn-small btn-success"><i class="fas fa-check"></i></small>
+                                @else
+                                    <small class="btn btn-small btn-danger">X</small>
+                                @endif
+                            </td>
                             <td class="text-center">
                                 <a href="{{ url('/app-admin/data/ubah/wisata/' . $tour->slug) }}">
                                     <button type="button" class="btn btn-sm btn-success" title="Ubah">

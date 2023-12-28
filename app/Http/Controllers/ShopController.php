@@ -20,7 +20,10 @@ class ShopController extends Controller
             $locale = "id";
             App::setLocale("id");
         }
-        $shops = Shop::paginate(12);
+        $shops = Shop::query()
+        ->orderBy('shops.mitra_status', 'desc')
+        ->select(['shops.*'])
+        ->paginate(12);
 
         $data = [
             'shops' => $shops,
@@ -31,7 +34,7 @@ class ShopController extends Controller
 
     public function admin_oleholeh()
     {
-        $shops = Shop::orderBy('name', 'asc')->get();
+        $shops = Shop::orderBy('mitra_status', 'desc')->get();
 
         $data = [
             'shops' => $shops,
@@ -49,12 +52,12 @@ class ShopController extends Controller
         $validatedData = $request->validate(
             [
                 'slug' => 'unique:shops',
-                'phone' => 'unique:shops',
+                // 'phone' => 'unique:shops',
                 'image' => 'image',
             ],
             [
                 'slug.unique' => 'Slug sudah ada !',
-                'phone.unique' => 'No. Handphone sudah ada !',
+                // 'phone.unique' => 'No. Handphone sudah ada !',
                 'image.image' => 'File harus berupa gambar',
             ]
         );
@@ -103,6 +106,7 @@ class ShopController extends Controller
             'slug' =>  Str::of($request->slug)->slug('-'),
             'picture' =>  $nameImage,
             'cover_picture' =>  $nameImage,
+            'mitra_status' =>  $request->mitra_status ?? 0,
         ]);
 
         session()->flash('msg_status', 'success');
@@ -143,6 +147,7 @@ class ShopController extends Controller
         $facilities_en = NULL;
         $address = $request->address;
         $link_maps = $request->link_maps;
+        $mitra_status = $request->mitra_status;
 
         // optional (Boleh kosong)
         $phone = $request->phone == "" ? NULL :  $request->phone;;
@@ -151,6 +156,9 @@ class ShopController extends Controller
         $link_tiktok = $request->link_tiktok == "" ? NULL :  $request->link_tiktok;
         $link_youtube = $request->link_youtube == "" ? NULL :  $request->link_youtube;
 
+        if ($mitra_status == null) {
+            $validatedData['mitra_status'] = '0';
+        }
 
         $data_shop = Shop::where('id', $id)->first();
 
@@ -207,6 +215,7 @@ class ShopController extends Controller
                 'slug' =>  Str::of($slug)->slug('-'),
                 'picture' =>  $nameImage,
                 'cover_picture' =>  $nameImage,
+                'mitra_status' =>  $mitra_status,
             ]);
 
         session()->flash('msg_status', 'success');

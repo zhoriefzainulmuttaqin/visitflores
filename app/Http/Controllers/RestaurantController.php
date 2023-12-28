@@ -46,6 +46,8 @@ class RestaurantController extends Controller
                         $query->where('restaurants.name', 'like',  '%' . $keyword . '%');
                     }
                 })
+                ->orderBy('restaurants.mitra_status', 'desc')
+                ->select(['restaurants.*'])
                 ->paginate(12);
             if ($request->keyword) {
                 $restaurants->appends(array('keyword' => $keyword));
@@ -64,7 +66,9 @@ class RestaurantController extends Controller
 
     public function admin_kuliner()
     {
-        $restaurants = Restaurant::orderBy('name', 'asc')->get();
+        $restaurants = Restaurant::select(['restaurants.*',])
+            ->orderBy('restaurants.mitra_status', 'desc')
+            ->get();
 
         $data = [
             'restaurants' => $restaurants,
@@ -133,6 +137,7 @@ class RestaurantController extends Controller
             'picture' =>  $nameImage,
             'cover_picture' =>  $nameImage,
             'cafe_resto' =>  $request->cafe_resto ?? 0,
+            'mitra_status' =>  $request->mitra_status ?? 0,
 
         ]);
 
@@ -173,6 +178,7 @@ class RestaurantController extends Controller
         $facilities_en = NULL;
         $address = $request->address;
         $cafe_resto = $request->cafe_resto;
+        $mitra_status = $request->mitra_status;
         $link_maps = $request->link_maps;
 
         // optional (Boleh kosong)
@@ -183,6 +189,9 @@ class RestaurantController extends Controller
 
         if ($cafe_resto == null) {
             $validatedData['cafe_resto'] = '0';
+        }
+        if ($mitra_status == null) {
+            $validatedData['mitra_status'] = '0';
         }
 
         $data_resto = Restaurant::where('id', $id)->first();
@@ -239,6 +248,7 @@ class RestaurantController extends Controller
                 'picture' =>  $nameImage,
                 'cover_picture' =>  $nameImage,
                 'cafe_resto' =>  $cafe_resto,
+                'mitra_status' =>  $mitra_status,
             ]);
 
         session()->flash('msg_status', 'success');
