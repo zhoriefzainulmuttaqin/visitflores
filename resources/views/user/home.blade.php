@@ -838,7 +838,7 @@
             </div>
             <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mt-3 mb-6" data-items-xs="2"
                 data-items-sm="2" data-items-lg="3" data-items-xl="5" data-autoplay="3000" data-loop="true">
-                @foreach ($cafe->take as $cf)
+                @foreach ($cafe as $cf)
                     <div class="oc-item cafe_caption">
                         <a href="{{ url('kuliner?cafe_resto=1&keyword=') }}"><img
                                 src="{{ url('assets/kuliner/' . $cf->cover_picture) }}" alt="Image 1"
@@ -1806,6 +1806,8 @@
                             src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
                             src="{{ url('assets/sponsor/tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center" style="margin-top: 30px; "><a href="#"><img
+                            src="{{ url('assets/wiwarna.png') }}"></a></div>
             </div>
         </div>
         <div class="container text-center d-block d-md-none">
@@ -1830,6 +1832,8 @@
                             src="{{ url('assets/sponsor/grand-tryas.png') }}"></a></div>
                 <div class="oc-item align-items-center"><a href="#"><img
                             src="{{ url('assets/sponsor/tryas.png') }}"></a></div>
+                <div class="oc-item align-items-center mt-3" style="width: 100px; height: auto;"><a href="#"><img
+                            src="{{ url('assets/wiwarna.png') }}"></a></div>
             </div>
         </div>
     </div>

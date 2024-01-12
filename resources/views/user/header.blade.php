@@ -12,15 +12,26 @@ $locale = App::currentLocale();
                 <!-- Logo
                 ============================================= -->
 
-                <div id="logo">
-                    <a href="{{ url('/') }}" class="ps-2">
-                        <img class="logo-default py-1" srcset="{{ url('assets/visit-light-nobg.png') }}"
-                            src="{{ url('assets/visit-light-nobg.png') }}" alt="Logo Visit Cirebon">
-                        <img class="logo-dark py-1" srcset="{{ url('assets/logo-light.png') }}"
-                            src="{{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
-                    </a>
-                </div><!-- #logo end -->
+                <div class="d-none d-md-block" id="logo" style="display: flex; ">
+                    <a href="{{ url('/') }}" class="ps-2 d-flex">
 
+                        <img class="logo-default py-1" srcset="{{ url('assets/visit-light-nobg.png') }} {{ url('assets/visit-light-nobg.png') }}"
+                            src="{{ url('assets/visit-light-nobg.png') }}" alt="Logo Visit Cirebon">
+                        <img src="{{ url('assets/wiputih.png') }}" alt="" style="height: 50px; width: auto; margin: 0 10px;"> <!-- Sesuaikan ukuran dan margin sesuai kebutuhan -->
+                        <img class="logo-dark py-1" srcset="{{ url('assets/logo-light.png') }}"
+                            src=" {{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
+                    </a>
+                </div>
+                <div class="d-block d-md-none" id="logo" style="display: flex; ">
+                    <a href="{{ url('/') }}" class="ps-2 d-flex">
+
+                        <img class="logo-default py-1" srcset="{{ url('assets/visit-light-nobg.png') }} {{ url('assets/visit-light-nobg.png') }}"
+                            src="{{ url('assets/visit-light-nobg.png') }}" alt="Logo Visit Cirebon">
+                            <img class="logo-dark py-1 m-auto" srcset="{{ url('assets/logo-light.png') }}"
+                            src=" {{ url('assets/logo-light.png') }}" alt="Logo Visit Cirebon">
+                            <img src="{{ url('assets/wiputih.png') }}" alt="" style="height: 35px; width: auto; margin-left: 153px;"> <!-- Sesuaikan ukuran dan margin sesuai kebutuhan -->
+                    </a>
+                </div>
                 <div class="header-misc ms-auto justify-content-lg-end">
                     <!-- Primary Navigation
                     ============================================= -->
