@@ -199,7 +199,7 @@
                             style="border-radius: 40px">
                             <div class="row g-0">
                                 <div class="col-md-5">
-                                    <img src='{{ url("assets/akomodasi/$accomodation->picture") }}'
+                                    <img src='{{ url("assets/akomodasi/$accomodation->cover_picture") }}'
                                         class="img-fluid w-100 h-100" alt="...">
                                 </div>
                                 <div class="col-md-7 ps-3 pe-1">
@@ -308,7 +308,7 @@
                                                 <strong class="fs-4 text-danger">
                                                     <br>
                                                     <?php
-                                                    if ($accomodation->id == 6) {
+                                                    if ($accomodation->id == 6 || $accomodation->id == 41  || $accomodation->id == 16 || $accomodation->id == 4 ) {
                                                         echo 'Rp. ' . number_format($accomodation->price_start_from, 0, ',', '.');
                                                     } else {
                                                         echo '-';

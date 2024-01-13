@@ -118,8 +118,15 @@ use Illuminate\Support\Facades\App;
 								<div class="fw-bold">{{ nl2br($restaurant->facilities) }}</div>
 							</div> --}}
                                 <div class="mb-3">
-                                    <div class="fw-bold">Rp. -
+                                    <div class="fw-bold">
                                         {{-- <?= number_format($restaurant->price, 0, ',', '.') ?> --}}
+                                         <?php
+                                                    if ($restaurant->id == 121 || $restaurant->id == 122   ) {
+                                                        echo 'Rp. ' . number_format($restaurant->price, 0, ',', '.');
+                                                    } else {
+                                                        echo '-';
+                                                    }
+                                                    ?>
                                     </div>
                                 </div>
                                 <div class="entry-meta no-separator mb-3">
@@ -181,7 +188,7 @@ use Illuminate\Support\Facades\App;
                         </div>
                     </article>
                 @endforeach
-                {{ $restaurants->appends(['cafe_resto' => $cafe_resto, 'keyword' => $keyword])->links('vendor.pagination.canvas') }}
+                {{ $restaurants->appends(['cafe_resto' => $cafe_resto, 'keyword' => $keyword])->links('vendor.pagination.canvas')->with(['class' => 'col-12']) }}
             </div>
         </div>
     </section>

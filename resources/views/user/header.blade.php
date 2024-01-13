@@ -12,7 +12,7 @@ $locale = App::currentLocale();
                 <!-- Logo
                 ============================================= -->
 
-                <div class="d-none d-md-block" id="logo" style="display: flex; ">
+                  <div class="d-none d-md-block" id="logo" style="display: flex; ">
                     <a href="{{ url('/') }}" class="ps-2 d-flex">
 
                         <img class="logo-default py-1" srcset="{{ url('assets/visit-light-nobg.png') }} {{ url('assets/visit-light-nobg.png') }}"
@@ -32,6 +32,7 @@ $locale = App::currentLocale();
                             <img src="{{ url('assets/wiputih.png') }}" alt="" style="height: 35px; width: auto; margin-left: 153px;"> <!-- Sesuaikan ukuran dan margin sesuai kebutuhan -->
                     </a>
                 </div>
+
                 <div class="header-misc ms-auto justify-content-lg-end">
                     <!-- Primary Navigation
                     ============================================= -->

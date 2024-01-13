@@ -544,14 +544,13 @@
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
+
                         <div class="oc-item">
-                            <img src="/assets/iklan/iklan11.jpeg" alt="" style=" height: 100%; width: 100%;">
+                            <img src="/assets/iklan/Iklan Visit Cirebon (1074 x 160 px) - Jan 2024.png" alt="iklan atas"
+                                style=" height: 100%; width: 100%;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/iklan/iklan12.png" alt="" style=" height: 100%; width: 100%;">
-                        </div>
-                        <div class="oc-item">
-                            <img src="/assets/iklan/swissAtas.png" alt="iklan swiss atas"
+                            <img src="/assets/iklan/banner iklan tourism atas fix.png" alt="iklan atas"
                                 style=" height: 100%; width: 100%;">
                         </div>
                     </div>
@@ -565,14 +564,11 @@
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
                         <div class="oc-item">
-                            <img src="/assets/iklan/iklan11.jpeg" alt=""
+                            <img src="/assets/iklan/Iklan Visit Cirebon (1074 x 160 px) - Jan 2024.png" alt="iklan atas"
                                 style=" height: 5rem; width: cover;">
                         </div>
                         <div class="oc-item">
-                            <img src="/assets/iklan/iklan12.png" alt="" style=" height: 5rem; width: cover;">
-                        </div>
-                        <div class="oc-item">
-                            <img src="/assets/iklan/swissAtas.png" alt="iklan swiss atas"
+                            <img src="/assets/iklan/banner iklan tourism atas fix.png" alt="iklan atas"
                                 style=" height: 5rem; width: cover;">
                         </div>
                     </div>

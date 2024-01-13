@@ -35,30 +35,30 @@
                         <small class="p-2 rounded text-white me-2" style="background-color: #0F304F">
                             {{ $accomodation->city }}
                         </small>
-                        @if ($accomodation->star)
-                            <div class="rating-stars" tabindex="0">
-                                <span class="empty-stars">
-                                    <span class="star" title="One Star"><span class="bi-star"></span></span>
-                                    <span class="star" title="Two Stars"><span class="bi-star"></span></span>
-                                    <span class="star" title="Three Stars"><span class="bi-star"></span></span>
-                                    <span class="star" title="Four Stars"><span class="bi-star"></span></span>
-                                    <span class="star" title="Five Stars"><span class="bi-star"></span></span>
-                                </span>
-                                <span class="filled-stars" style="width: {{ $accomodation->star }}%;">
-                                    <span class="star" title="One Star"><span class="bi-star-fill"></span></span>
-                                    <span class="star" title="Two Stars"><span class="bi-star-fill"></span></span>
-                                    <span class="star" title="Three Stars"><span class="bi-star-fill"></span></span>
-                                    <span class="star" title="Four Stars"><span class="bi-star-fill"></span></span>
-                                    <span class="star" title="Five Stars"><span class="bi-star-fill"></span></span>
-                                </span>
-                            </div>
-                        @endif
+                        @if($accomodation->star)
+                        <div class="rating-stars" tabindex="0">
+                            <span class="empty-stars">
+                                <span class="star" title="One Star"><span class="bi-star"></span></span>
+                                <span class="star" title="Two Stars"><span class="bi-star"></span></span>
+                                <span class="star" title="Three Stars"><span class="bi-star"></span></span>
+                                <span class="star" title="Four Stars"><span class="bi-star"></span></span>
+                                <span class="star" title="Five Stars"><span class="bi-star"></span></span>
+                            </span>
+                            <span class="filled-stars" style="width: {{ $accomodation->star }}%;">
+                                <span class="star" title="One Star"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Two Stars"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Three Stars"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Four Stars"><span class="bi-star-fill"></span></span>
+                                <span class="star" title="Five Stars"><span class="bi-star-fill"></span></span>
+                            </span>
+                        </div>
+                    @endif
                     </div>
-                    <div class="text-lg fw-normal fs-5">
+                    <div class="text-lg fw-normal fs-5 mt-2">
                         <i class="uil fs-3 text-warning fa-solid fa-phone"></i>
                         {{ $accomodation->phone }}
                         <br>
-                        <i class="uil fs-3 text-warning uil-map-marker"></i>
+                        <i class="uil fs-3 text-warning uil-map-marker mt-2"></i>
                         {{ $accomodation->address }}.<a href="{{ $accomodation->link_maps }}" class="text-warning fw-bold">
                             {{ __('accomodation_detail.see_maps') }}</a>
                     </div>
@@ -70,13 +70,13 @@
                     {{ __('accomodation_detail.start_from') }}
                     <br>
                     <font class="text-danger fs-3 float-end">
-                        <?php
-                        if ($accomodation->id == 6) {
-                            echo 'Rp. ' . number_format($accomodation->price_start_from, 0, ',', '.');
-                        } else {
-                            echo '-';
-                        }
-                        ?>
+                       <?php
+                                                    if ($accomodation->id == 6 || $accomodation->id == 41  || $accomodation->id == 16 || $accomodation->id == 4 ) {
+                                                        echo 'Rp. ' . number_format($accomodation->price_start_from, 0, ',', '.');
+                                                    } else {
+                                                        echo '-';
+                                                    }
+                                                    ?>
                     </font>
                     <br>
                     <div class="d-grid gap-2 mt-3 w-100">
@@ -118,15 +118,7 @@
                 <div class="card border-1  overflow-hidden">
                     <div class="card-body">
                         <h5 class="card-title fs-4">
-                            {{ __('accomodation_detail.about_accomodation') }}
-                            <div class="text-lg fw-normal mt-2 fs-5">
-                                @if (App::isLocale('id'))
-                                    {!! nl2br($accomodation->details) !!}
-                                @else
-                                    {!! nl2br($accomodation->details_en) !!}
-                                @endif
-                            </div>
-                            <div class="row mt-3">
+                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <div class="fs-5 text-left float-start text-lg">
                                         <font class="fs-4">
@@ -135,42 +127,40 @@
                                         <div class="entry-meta no-separator mb-3">
                                             <ul>
                                                 @if (count($accomodation->accomodation_links) > 0)
-                                                    @foreach ($accomodation->accomodation_links as $item)
-                                                        <li>
-                                                            @auth
-                                                                <a href="{{ $item->url }}"
-                                                                    class="fw-normal link-primary text-primary">
-                                                                    <i class='fa fa-link'></i>
-                                                                    {{ $item->source_name }}
-                                                                </a>
-                                                            @else
-                                                                <a href="{{ route('login') }}"
-                                                                    class="fw-normal link-primary text-primary">
-                                                                    <i class='fa fa-link'></i>
-                                                                    Login untuk akses
-                                                                </a>
-                                                            @endauth
-                                                        </li>
-                                                    @endforeach
-                                                @else
-                                                    <li class="fw-normal text-white">
+                                                @foreach ($accomodation->accomodation_links as $item)
+                                                    <li>
                                                         @auth
-                                                            <i class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                            <a href="{{ $item->url }}" class="fw-normal link-primary text-primary">
+                                                                <i class='fa fa-link'></i>
+                                                                {{ $item->source_name }}
+                                                            </a>
                                                         @else
-                                                            <a href="{{ route('login') }}"
-                                                                class="fw-normal link-info text-dark">
-                                                                <i class="uil fs-2 fa-brands bi-dot"></i>
+                                                            <a href="{{ route('login') }}" class="fw-normal link-primary text-primary">
+                                                                <i class='fa fa-link'></i>
                                                                 Login untuk akses
                                                             </a>
                                                         @endauth
                                                     </li>
-                                                @endif
+                                                @endforeach
+                                            @else
+                                                <li class="fw-normal text-white">
+                                                    @auth
+                                                        <i class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    @else
+                                                        <a href="{{ route('login') }}" class="fw-normal link-info text-dark">
+                                                            <i class="uil fs-2 fa-brands bi-dot"></i>
+                                                            Login untuk akses
+                                                        </a>
+                                                    @endauth
+                                                </li>
+                                            @endif
 
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 ">
+                                    <div class="d-none d-md-block">
                                     <div class="fs-3 text-right float-end text-lg">
                                         <font class="fs-4">
                                             {{ __('accomodation_detail.visit') }}
@@ -218,8 +208,68 @@
                                             </div>
                                         @endif
                                     </div>
+                                    </div>
+                                    <div class="d-block d-md-none">
+                                    <div class="fs-3 text-right float-start text-lg">
+                                        <font class="fs-4">
+                                            {{ __('accomodation_detail.visit') }}
+                                        </font>
+                                        @if (
+                                            $accomodation->link_youtube != null ||
+                                                $accomodation->link_instagram != null ||
+                                                $accomodation->link_facebook != null ||
+                                                $accomodation->link_tiktok != null)
+                                            <div class="entry-meta no-separator mb-3">
+                                                <ul>
+                                                    @if ($accomodation->link_youtube != null)
+                                                        <li><a href="{{ $accomodation->link_youtube }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark uil-youtube"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_instagram != null)
+                                                        <li><a href="{{ $accomodation->link_instagram }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark bi-instagram"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_facebook != null)
+                                                        <li><a href="{{ $accomodation->link_facebook }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark uil-facebook"></i>
+                                                            </a></li>
+                                                    @endif
+                                                    @if ($accomodation->link_tiktok != null)
+                                                        <li><a href="{{ $accomodation->link_tiktok }}"
+                                                                class="fw-normal text-dark"><i
+                                                                    class="uil fs-2 link-warning text-dark fa-brands fa-tiktok"></i>
+                                                            </a></li>
+                                                    @endif
+                                                </ul>
+                                            </div>
+                                        @else
+                                            <div class="entry-meta no-separator mb-3">
+                                                <ul>
+                                                    <li class="fw-normal text-white"><i
+                                                            class="uil fs-2 link-info text-dark fa-brands bi-dot"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
+                            
+                            {{ __('accomodation_detail.about_accomodation') }}
+                            <div class="text-lg fw-normal mt-2 fs-5">
+                                @if (App::isLocale('id'))
+                                    {!! nl2br($accomodation->details) !!}
+                                @else
+                                    {!! nl2br($accomodation->details_en) !!}
+                                @endif
+                            </div>
+                           
                         </h5>
                     </div>
                 </div>
