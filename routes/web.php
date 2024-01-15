@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\IklanController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ServiceController;
@@ -159,6 +160,17 @@ Route::prefix("app-admin")->group(function () {
         Route::get("data/ubah/paket-oleh-oleh/{slug}", [GiftController::class, "ubah_paket_oleh_oleh"]);
         Route::post("data/paket-oleh-oleh/proses-ubah", [GiftController::class, "proses_ubah_paket_oleh_oleh"]);
         Route::get("data/paket-oleh-oleh/proses-hapus/{slug}", [GiftController::class, "proses_hapus_paket_oleh_oleh"]);
+
+        // iklan
+        Route::get("data/iklan", [IklanController::class, "iklan"]);
+        Route::get("data/iklan_atas", [IklanController::class, "iklanAtas"]);
+        Route::get("data/iklan_bawah", [IklanController::class, "iklanBawah"]);
+        Route::get("data/iklan_popup", [IklanController::class, "iklanPopup"]);
+        Route::get("data/tambah/iklan", [IklanController::class, "tambah_iklan"]);
+        Route::post("data/iklan/proses-tambah", [IklanController::class, "proses_tambah_iklan"]);
+        Route::get("data/iklan/ubah/{slug}", [IklanController::class, "ubah_iklan"]);
+        Route::post("data/iklan/proses-ubah", [IklanController::class, "proses_ubah_iklan"]);
+        Route::get("data/iklan/hapus/{slug}", [IklanController::class, "proses_hapus_iklan"]);
 
         // kategori wisata
         Route::get("data/wisata/kategori", [TourController::class, "admin_wisata_kategori"]);

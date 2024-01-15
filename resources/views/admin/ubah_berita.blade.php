@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card" style="padding-bottom: 15px;">
                 <div class="card-header">
-                    <h3 class="card-title">Tambah Berita</h3>
+                    <h3 class="card-title">Ubah Berita</h3>
                 </div>
                 <form method="POST" action="{{ url('app-admin/data/berita/proses-ubah') }}" enctype="multipart/form-data">
                     @csrf

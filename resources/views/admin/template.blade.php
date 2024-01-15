@@ -54,7 +54,7 @@
                         <a href="{{ url('app-admin/profil') }}" class="d-block">{{  Auth::guard('admin')->user()->name }}</a>
                     </div>
                 </div>
-                
+
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
@@ -114,6 +114,12 @@
                                     <a href="{{ url('app-admin/data/paket-oleh-oleh') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Paket Oleh - oleh</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('app-admin/data/iklan') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Iklan</p>
                                     </a>
                                 </li>
                             </ul>

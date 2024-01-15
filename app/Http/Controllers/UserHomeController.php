@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ads;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -31,6 +32,9 @@ class UserHomeController extends Controller
         $culiners = Restaurant::whereIn('id', [16, 18, 53])->get();
         $cafe = Restaurant::where('cafe_resto', '=', 1)->limit(12)->get();
         $souvenirs = Shop::where("id","!=",1)->whereIn('id', [4, 57, 29])->get();
+        // $iklanAtas = Ads::where('status', 1)->get();
+        // $iklanBawah = Ads::where('status', 2)->get();
+        // $iklanPopup = Ads::where('status', 3)->get();
         $news = News::join('categories', 'news.category_id', '=', 'categories.id')
             ->join('administrators', 'news.admin_id', '=', 'administrators.id')
             ->where('categories.type', 1)
@@ -45,6 +49,9 @@ class UserHomeController extends Controller
             "events" => $events,
             "culiners" => $culiners,
             "souvenirs" => $souvenirs,
+            // "iklanAtas" => $iklanAtas,
+            // "iklanBawah" => $iklanBawah,
+            // "iklanPopup" => $iklanPopup,
             "news" => $news,
             "tours" => $tours,
             "accomodations" => $accomodations,

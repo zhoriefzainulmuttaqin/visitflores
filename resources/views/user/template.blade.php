@@ -36,7 +36,16 @@
 </head>
 
 <body class="stretched">
+    @php
+    use App\Models\Ads;
 
+    $iklanAtas = Ads::where('status', 1)
+                    ->whereIn('active_status', [1]) // Ganti dengan nilai yang sesuai
+                    ->get();
+    $iklanPopup = Ads::where('status', 3)
+                    ->whereIn('active_status', [1]) // Ganti dengan nilai yang sesuai
+                    ->get();
+  @endphp
     <!-- Document Wrapper
  ============================================= -->
     <div id="wrapper">
@@ -511,14 +520,18 @@
                     </div>
                 </div>
                 <div class="ad-content d-none d-lg-block" style="width: 50%; height: 50%; margin:auto;">
+                    @foreach ($iklanPopup as $ads)
                     <a href="https://visitcirebon.id/layanan-produk/tourism-card">
-                        <img src="assets/iklanTourismNotAvailable.png" alt="ad">
+                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}"
                     </a>
+                    @endforeach
                 </div>
                 <div class="ad-content d-block d-lg-none" style="width: 100%; height: 100%; margin:auto;">
+                    @foreach ($iklanPopup as $ads)
                     <a href="https://visitcirebon.id/layanan-produk/tourism-card">
-                        <img src="assets/iklanTourismNotAvailable.png" alt="ad">
+                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}"
                     </a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -544,15 +557,12 @@
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-4" data-items-xs="2"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
-
-                        <div class="oc-item">
-                            <img src="/assets/iklan/Iklan Visit Cirebon (1074 x 160 px) - Jan 2024.png" alt="iklan atas"
-                                style=" height: 100%; width: 100%;">
-                        </div>
-                        <div class="oc-item">
-                            <img src="/assets/iklan/banner iklan tourism atas fix.png" alt="iklan atas"
-                                style=" height: 100%; width: 100%;">
-                        </div>
+                    @foreach ($iklanAtas as $ads)
+                    <div class="oc-item">
+                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}"
+                            style=" height: 100%; width: 100%;">
+                    </div>
+                    @endforeach
                     </div>
                 </div>
             </div>
@@ -563,14 +573,12 @@
                     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1"
                         data-items-sm="1" data-items-lg="1" data-items-xl="1" data-autoplay="3000"
                         data-loop="true">
+                        @foreach ($iklanAtas as $ads)
                         <div class="oc-item">
-                            <img src="/assets/iklan/Iklan Visit Cirebon (1074 x 160 px) - Jan 2024.png" alt="iklan atas"
+                            <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}"
                                 style=" height: 5rem; width: cover;">
                         </div>
-                        <div class="oc-item">
-                            <img src="/assets/iklan/banner iklan tourism atas fix.png" alt="iklan atas"
-                                style=" height: 5rem; width: cover;">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
