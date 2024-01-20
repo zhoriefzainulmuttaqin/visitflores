@@ -11,18 +11,7 @@
     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1" data-items-sm="1"
         data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
         <div class="oc-item">
-            @php
-            use App\Models\Ads;
-
-
-  $iklanBawah = Ads::where('status', 2)
-                  ->whereIn('active_status', [1]) // Ganti dengan nilai yang sesuai
-                  ->get();
-
-            @endphp
-            @foreach ($iklanBawah as $ads)
-            <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}" style="width: 1000%">
-            @endforeach
+            <img src="assets/iklan/Iklan Visit Cirebon (1074 x 258 px) - Jan 2024.png" alt="iklan swiss bawah" style="width: 1000%">
         </div>
         {{-- <div class="oc-item">
                 </div> --}}

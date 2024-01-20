@@ -522,14 +522,12 @@
                 <div class="ad-content d-none d-lg-block" style="width: 50%; height: 50%; margin:auto;">
                     @foreach ($iklanPopup as $ads)
                     <a href="https://visitcirebon.id/layanan-produk/tourism-card">
-                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}"
+                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}">
                     </a>
-                    @endforeach
                 </div>
                 <div class="ad-content d-block d-lg-none" style="width: 100%; height: 100%; margin:auto;">
-                    @foreach ($iklanPopup as $ads)
                     <a href="https://visitcirebon.id/layanan-produk/tourism-card">
-                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}"
+                        <img src="{{ url('assets/iklan/' . $ads->picture) }}" alt="{{ $ads->slug }}">
                     </a>
                     @endforeach
                 </div>
@@ -547,7 +545,7 @@
             .owl-prev,
             .owl-next {
                 margin-right: 25px;
-                margin-left: 25px;
+                margin-left: 25px;git
             }
         </style>
 
