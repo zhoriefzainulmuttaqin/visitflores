@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthAffiliateController;
+use App\Http\Controllers\DashboardAffiliateController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\BeritaController;
@@ -274,7 +275,7 @@ Route::prefix("app-affiliate")->group(function () {
 
 
     Route::group(["middleware" => "affiliate"], function () {
-        Route::get("dashboard", [DashboardPartnerController::class, "dashboard"]);
+        Route::get("dashboard", [DashboardAffiliateController::class, "dashboard"]);
 
         Route::get("penggunaan-kartu", [CardUsedPartnerController::class, "penggunaan_kartu"]);
         Route::post("gunakan-kartu", [CardUsedPartnerController::class, "gunakan_kartu"]);

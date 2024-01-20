@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class DashboardAffiliateController extends Controller
 {
     public function dashboard(){
-        // $uses = DiscountCardUsed::where("partner_id",Auth::guard('partner')->user()->id)
-        // ->orderBy("date_used","desc")->orderBy("id","desc")->limit(10)->get();
 
           $affiliate = Affiliate::get();
           $affiliators = Affiliators::get();
+
+          $myEarning = Affiliate::where()
 
         $data = ([
             "affiliate" => $affiliate,
