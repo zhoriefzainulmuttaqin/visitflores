@@ -5,12 +5,12 @@
 @endsection
 
 @section('content')
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>{{ $count_wisata }}</h3>
-                    <p>Tempat Wisata</p>
+                    <h3>{{ $affiliate->affiliators->nama }}</h3>
+                    <p>Pendapatan Saya</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-map-marked"></i>
@@ -22,7 +22,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>{{ $count_kuliner }}</h3>
+                    <h3>{{ $affiliate->affiliators->nama }}</h3>
                     <p>Kuliner</p>
                 </div>
                 <div class="icon">
@@ -35,7 +35,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <h3>{{ $count_oleholeh }}</h3>
+                    <h3>{{ $affiliate->affiliators->nama }}</h3>
                     <p>Oleh - Oleh</p>
                 </div>
                 <div class="icon">
@@ -48,7 +48,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>{{ $count_akomodasi }}</h3>
+                    <h3>{{ $affiliate->affiliators->nama }}</h3>
                     <p>Akomodasi</p>
                 </div>
                 <div class="icon">
@@ -58,10 +58,10 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
-    <div class="col-md-6">
+    {{-- <div class="col-md-6">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">
@@ -81,14 +81,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($giftSales as $transaction)
-                            <?php
-                            $saleKode = saleKode('P', $transaction);
-                            ?>
+                        @foreach ($affiliate as $aff)
                             <tr>
-                                <td class="text-center">#{{ $saleKode }}</td>
-                                <td>{{ $transaction->user->name }}</td>
-                                @foreach ($transaction->items as $item)
+                                <td class="text-center">{{ $aff->affiliators->location_id }}</td>
+                                <td>{{ $aff->user->name }}</td>
+                                @foreach ($aff->items as $item)
                                     <td>{{ $item->snapshot_name }}</td>
                                     <td class="text-center">
                                         {{ $item->quantity }}
@@ -114,7 +111,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> --}}
     </div>
 @endsection
 

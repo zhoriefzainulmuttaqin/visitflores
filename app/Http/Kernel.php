@@ -65,6 +65,8 @@ class Kernel extends HttpKernel
         'partner' => \App\Http\Middleware\Partner::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'GuestAdmin' => \App\Http\Middleware\GuestAdmin::class,
+        'affiliators' => \App\Http\Middleware\Affiliators::class,
+        'GuestAffiliators' => \App\Http\Middleware\GuestAffiliators::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,

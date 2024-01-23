@@ -61,12 +61,12 @@
 										@csrf
 										<div class="row">
 											<div class="col-12 form-group">
-												<label for="login-form-username">Username:</label>
+												<label for="login-form-username">Username</label>
 												<input type="text" id="login-form-username" name="username" value="" class="form-control not-dark">
 											</div>
 
 											<div class="col-12 form-group">
-												<label for="login-form-password">Password:</label>
+												<label for="login-form-password">Password</label>
 												<input type="password" id="login-form-password" name="password" value="" class="form-control not-dark">
 											</div>
 

@@ -94,7 +94,7 @@
                                     </div>
 
                                     <div class="col-12 form-group">
-                                        <label for="register-form-username">Username:</label>
+                                        <label for="register-form-username">Username</label>
                                         <input type="text" id="register-form-username" name="username"
                                             value="{{ old('username') }}" class="form-control" required>
                                     </div>
@@ -111,7 +111,7 @@
                                             id="address" placeholder="Masukan Alamat . . . " required autocomplete="off"
                                             required>{{ old('address') }}</textarea>
                                     </div>
-                                    
+
                                     <div class="col-12 form-group">
                                         <label for="register-form-password">Password</label>
                                         <input type="password" id="register-form-password" name="password"

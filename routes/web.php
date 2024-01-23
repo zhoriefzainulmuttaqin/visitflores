@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\AuthAffiliateController;
 use App\Http\Controllers\DashboardAffiliateController;
+
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\BeritaController;
@@ -224,6 +226,12 @@ Route::prefix("app-admin")->group(function () {
         Route::post("akun/pengguna/proses-ubah", [AccountController::class, "proses_ubah_akun_pengguna"]);
         Route::post("akun/pengguna/proses-reset-password", [AccountController::class, "proses_reset_password_akun_pengguna"]);
 
+        // akun affiliators
+        Route::get("akun/affiliators", [AccountController::class, "akun_affiliators"]);
+        Route::get("kelola/akun/affiliators/{id}", [AccountController::class, "kelola_akun_affiliators"]);
+        Route::post("akun/affiliators/proses-ubah", [AccountController::class, "proses_ubah_akun_affiliators"]);
+        Route::post("akun/affiliators/proses-reset-password", [AccountController::class, "proses_reset_password_akun_affiliators"]);
+
         // Pengelolaan Transaksi
         Route::get("transaksi/paket-oleholeh", [TransactionAdminController::class, "paket_oleholeh"]);
         Route::post("transaksi/paket-oleholeh/tandai", [TransactionAdminController::class, "tandai_paket_oleholeh"]);
@@ -269,21 +277,16 @@ Route::prefix("app-mitra")->group(function () {
 
 // affiliate
 Route::prefix("app-affiliate")->group(function () {
-    Route::get('/', [AuthAffiliateController::class, 'masuk'])->middleware('GuestPartner');
+    Route::get('/', [AuthAffiliateController::class, 'masuk'])->middleware('GuestAffiliators');
     Route::post('proses-masuk', [AuthAffiliateController::class, 'proses_masuk']);
-    Route::get('keluar', [AuthAffiliateController::class, 'keluar'])->middleware('partner');
+    Route::get('keluar', [AuthAffiliateController::class, 'keluar'])->middleware('affiliators');
 
 
-    Route::group(["middleware" => "affiliate"], function () {
+    Route::group(["middleware" => "affiliators"], function () {
         Route::get("dashboard", [DashboardAffiliateController::class, "dashboard"]);
-
-        Route::get("penggunaan-kartu", [CardUsedPartnerController::class, "penggunaan_kartu"]);
-        Route::post("gunakan-kartu", [CardUsedPartnerController::class, "gunakan_kartu"]);
-
-        Route::get("laporan/penggunaan-kartu", [ReportPartnerController::class, "penggunaan_kartu"]);
-        Route::get("laporan/penggunaan-kartu/cetak", [ReportPartnerController::class, "penggunaan_kartu_cetak"]);
-
-        Route::get("data-profil",[ProfilePartnerController::class, "profil"]);
+        Route::get("data/affiliate", [AffiliateController::class, "myAffiliate"]);
+        Route::get("transaksi/beli-tourism-card", [AffiliateController::class, "beli_tourism"]);
+        Route::get("transaksi/daftar-dan-beli-tourism-card", [AffiliateController::class, "daftar_beli_tourism"]);
 
         // profile
         Route::get("profil", [AccountPartnerController::class, "profil"]);

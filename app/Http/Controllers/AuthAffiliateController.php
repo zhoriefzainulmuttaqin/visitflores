@@ -17,10 +17,10 @@ class AuthAffiliateController extends Controller
 
         $username = $request->input('username');
         $password = $request->input('password');
-        if (Auth::guard('affiliate')->attempt(['username' => $username, 'password' => $password])) {
-            if (Auth::guard('affiliate')->user()->active == 1) {
+        if (Auth::guard('affiliators')->attempt(['username' => $username, 'password' => $password])) {
+            if (Auth::guard('affiliators')->user()->active == 1) {
                 session([
-                    'affiliate_id' => Auth::guard('affiliate')->user()->id,
+                    'affiliators_id' => Auth::guard('affiliators')->user()->id,
                 ]);
                 $request->session()->regenerate();
                 return redirect()->to("/app-affiliate/dashboard");
@@ -30,7 +30,7 @@ class AuthAffiliateController extends Controller
                 return back();
             }
         } else {
-            session()->flash('msg', "<strong>Maaf, login gagal.</strong> <br> Periksa kembali data login anda !");
+            session()->flash('msg', "<strong>Maaf, login gagal.</strong> <br> Periksa kembali data login anda!");
             session()->flash('msg_status', 'danger');
             return back();
         }
@@ -38,7 +38,7 @@ class AuthAffiliateController extends Controller
 
     public function keluar()
     {
-        Auth::guard('affiliate')->logout();
+        Auth::guard('affiliators')->logout();
 
         request()->session()->invalidate();
 

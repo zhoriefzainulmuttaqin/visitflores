@@ -51,7 +51,8 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="{{ url('app-affiliate/profil') }}" class="d-block">{{  Auth::guard('admin')->user()->name }}</a>
+                        <a href="{{ url('app-affiliate/profil') }}" class="d-block">{{  Auth::guard('affiliators')->user()->nama }}</a>
+                        <span class="text-white">{{  Auth::guard('affiliators')->user()->location->name }} {{  Auth::guard('affiliators')->user()->location->name }}</span>
                     </div>
                 </div>
 
@@ -75,53 +76,12 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/wisata') }}" class="nav-link">
+                                    <a href="{{ url('app-affiliate/data/affiliate') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Wisata</p>
+                                        <p>Affiliate Anda</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/event') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Event</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/kuliner') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Kuliner</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/oleholeh') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Oleh - oleh</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/akomodasi') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Akomodasi</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/berita') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Berita</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/paket-oleh-oleh') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Paket Oleh - oleh</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/data/iklan') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Iklan</p>
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -134,44 +94,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/transaksi/tourism-card') }}" class="nav-link">
+                                    <a href="{{ url('app-affiliate/transaksi/beli-tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Tourism Card</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/transaksi/paket-oleholeh') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Paket Oleh - oleh</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Akun
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/akun/admin') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Admin</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/akun/mitra') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Mitra</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/akun/pengguna') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Pengguna</p>
+                                        <p>Pembelian Tourism Card</p>
                                     </a>
                                 </li>
                             </ul>
@@ -189,18 +114,6 @@
                                     <a href="{{ url('app-affiliate/laporan/transaksi/tourism-card') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Transaksi Tourism Card</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/laporan/transaksi/paket-oleholeh') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Transaksi Paket Oleh - oleh</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/laporan/penggunaan-kartu') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Penggunaan Kartu</p>
                                     </a>
                                 </li>
                             </ul>

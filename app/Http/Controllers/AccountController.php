@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Accomodation;
+use App\Models\Affiliators;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Partner;
@@ -518,5 +519,69 @@ class AccountController extends Controller
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Password baru berhasil disimpan !</p>");
         return redirect()->to('app-admin/kelola/akun/mitra/' . $request->id);
+    }
+
+    public function akun_affiliators()
+    {
+        $affiliators = Affiliators::orderBy('name', 'asc')->get();
+
+        $data = [
+            'affiliators' => $affiliators,
+        ];
+        return view('admin.akun_affiliators', $data);
+    }
+
+    public function kelola_akun_affiliators(Request $request)
+    {
+        $dataAccount = Affiliators::where('id', $request->id)->first();
+
+        if ($dataAccount) {
+            $data = [
+                'dataAccount' => $dataAccount,
+            ];
+            return view('admin.kelola_akun_affiliators', $data);
+        } else {
+            session()->flash('msg_status', 'warning');
+            session()->flash('msg', "<h5>Gagal</h5><p>Data akun affiliators tidak ditemukan !</p>");
+            return redirect()->to('/app-admin/akun/affiliators');
+        }
+    }
+
+    public function proses_ubah_akun_affiliators(Request $request)
+    {
+        $id = $request->id;
+        $status = $request->status;
+
+        User::where('id', $id)
+            ->update([
+                'active' =>  $status,
+            ]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Akun affiliators Berhasil Diubah</p>");
+        return redirect()->to('app-admin/kelola/akun/affiliators/' . $id);
+    }
+
+    public function proses_reset_password_akun_affiliators(Request $request)
+    {
+        $validatedData = $request->validate(
+            [
+                'password' => 'required|min:5',
+                'password_confirmation' => 'required|same:password'
+            ],
+            [
+                'password.min' => 'Panjang password minimal 5 karakter !',
+                'password_confirmation.same' => 'Konfirmasi password yang anda masukan salah !',
+            ]
+        );
+
+        $validateData['password'] = Hash::make($validatedData['password']);
+
+        User::where('id', $request->id)
+            ->update(['password' => $validateData['password']]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Password baru berhasil disimpan !</p>");
+        return redirect()->to('app-admin/kelola/akun/affiliators/' . $request->id);
     }
 }

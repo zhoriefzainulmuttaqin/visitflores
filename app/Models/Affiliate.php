@@ -13,4 +13,8 @@ class Affiliate extends Model
     protected $table = 'affiliate';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
+    public function affiliators(){
+        return $this->belongsTo(Affiliators::class,'affiliator_id','id');
+    }
 }

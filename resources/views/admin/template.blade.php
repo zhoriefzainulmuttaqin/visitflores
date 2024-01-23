@@ -149,6 +149,23 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-exchange-alt"></i>
+                                <p>
+                                    Affiliate
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('app-admin/transaksi/tourism-card') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Affiliate</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Akun
@@ -172,6 +189,12 @@
                                     <a href="{{ url('app-admin/akun/pengguna') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pengguna</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('app-admin/akun/affiliators') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Affiliators</p>
                                     </a>
                                 </li>
                             </ul>
@@ -201,6 +224,12 @@
                                     <a href="{{ url('app-admin/laporan/penggunaan-kartu') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Penggunaan Kartu</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('app-admin/laporan/penggunaan-kartu') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Affiliate</p>
                                     </a>
                                 </li>
                             </ul>
