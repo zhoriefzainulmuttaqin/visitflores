@@ -31,55 +31,43 @@
                                 class="img-fluid mb-4 mb-lg-0">
                         </div>
                         <div class="col-md-8">
-                            <form method="post" action="{{ url('proses-beli/tourism-card') }}" class="mt-5">
+                            <form method="post" action="{{ route('checkout-process') }}" class="mt-5">
                                 @csrf
-                                <input type="hidden" name="price" value="{{ getOption('tourism_card_price') }}">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-7">
-                                        <div class="mb-3">
-                                            <label>{{ __('services.quantity') }}</label>
-                                            <div class="input-group input-group-lg">
-                                                <button class="btn btn-info bg-btn-visit text-white" onclick="minQuantity()"
-                                                    type="button">-</button>
-                                                <input type="number" class="form-control" name="quantity" min="1"
-                                                    value="1" placeholder="Jumlah Tourism Card Yang Dibeli"
-                                                    id="CardQuantity">
-                                                <button class="btn btn-info bg-btn-visit text-white"
-                                                    onclick="plusQuantity()" type="button">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="mb-2">
-                                            <label>{{ __('services.payment_method') }}</label>
-                                            <?php
-                                            $pno = 0;
-                                            ?>
-                                            @foreach ($payments as $payment)
-                                                <?php $pno++; ?>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="payment"
-                                                            value="{{ $payment->id }}" <?= $pno == 1 ? 'checked' : '' ?>>
-                                                        <b>{{ $payment->name }}</b> <br>
-                                                        {{ $payment->account_name }} <br>
-                                                        {{ $payment->account_number }}
-                                                    </label>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                        <div class="mb-2">
-                                            <div class="row mt-5">
-                                                <p class="h3 text-center">
-                                                    <b id="cardPrice">{{ __('services.price') }} : Rp.
-                                                        {{ number_format(getOption('tourism_card_price'), 0, ',', '.') }}</b>
-                                                </p>
-                                            </div>
-                                        </div>
+                                {{-- <input type="hidden" name="quantity" id="CardQuantity" value="1"> --}}
+
+                                <div class="mb-3">
+                                    <label>{{ __('services.quantity') }}</label>
+                                    <div class="input-group input-group-lg">
+                                        <button class="btn btn-info bg-btn-visit text-white" onclick="minQuantity()"
+                                            type="button">-</button>
+                                        <input type="number" class="form-control" name="quantity" min="1"
+                                            value="1" placeholder="Jumlah Tourism Card Yang Dibeli"
+                                            id="CardQuantityInput" readonly>
+                                        <button class="btn btn-info bg-btn-visit text-white" onclick="plusQuantity()"
+                                            type="button">+</button>
+                                    </div>
+                                </div>
+                                <div style="display: none">
+                                    @foreach ($products as $product)
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                        <input type="hidden" name="discountcardsales_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="quantity" value="{{ $product->quantity }}">
+                                        <input type="hidden" name="price" value="{{ $product->price }}">
+
                                         <div class="mb-2 d-grid gap-2">
-                                            <button type="submit" class="btn btn-success">
-                                                {{ __('services.buy') }} Tourism Card
+                                            <button type="submit" class="btn btn-success"
+                                                data-product-id="{{ $product->id }}"
+                                                data-product-price="{{ $product->price }}">
+                                                {{ __('services.buy') }} Tourism Card - {{ $product->id }}
                                             </button>
                                         </div>
-                                    </div>
+                                    @endforeach
+                                </div>
+
+                                <div class="mb-2 d-grid gap-2">
+                                    <button type="submit" class="btn btn-success">
+                                        {{ __('services.buy') }} Tourism Card
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -94,33 +82,36 @@
 @section('script')
     <script>
         function minQuantity() {
-            let cardPrice = parseInt(<?= getOption('tourism_card_price') ?>);
-            let cardQuantity = parseInt($("#CardQuantity").val());
-            let cardTotalPrice = 0;
-
+            let cardQuantity = parseInt($("#CardQuantityInput").val());
             if (cardQuantity > 1) {
                 cardQuantity -= 1;
+                updatePriceAndQuantity(cardQuantity);
             }
-
-            cardTotalPrice = cardQuantity * cardPrice;
-            let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
-
-            $("#cardPrice").html(`<?= __('services.price') ?> : Rp. ${cardValuePrice}`);
-            $("#CardQuantity").val(cardQuantity);
         }
 
         function plusQuantity() {
-            let cardPrice = parseInt(<?= getOption('tourism_card_price') ?>);
-            let cardQuantity = parseInt($("#CardQuantity").val());
-            let cardTotalPrice = 0;
-
+            let cardQuantity = parseInt($("#CardQuantityInput").val());
             cardQuantity += 1;
+            updatePriceAndQuantity(cardQuantity);
+        }
 
-            cardTotalPrice = cardQuantity * cardPrice;
-            let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
+        function updatePriceAndQuantity(cardQuantity) {
+            let cardPrice = parseInt($('[data-product-id]:checked').data('product-price'));
+            let cardTotalPrice = cardQuantity * cardPrice;
+            let cardValuePrice = new Intl.NumberFormat('en-DE').format(cardTotalPrice);
 
             $("#cardPrice").html(`<?= __('services.price') ?> : Rp. ${cardValuePrice}`);
             $("#CardQuantity").val(cardQuantity);
+            $("#CardQuantityInput").val(cardQuantity);
         }
+
+        $('[data-product-id]').on('click', function() {
+            let cardPrice = parseInt($(this).data('product-price'));
+            let cardQuantity = parseInt($("#CardQuantityInput").val());
+            let cardTotalPrice = cardQuantity * cardPrice;
+            let cardValuePrice = new Intl.NumberFormat('en-DE').format(cardTotalPrice);
+
+            $("#cardPrice").html(`<?= __('services.price') ?> : Rp. ${cardValuePrice}`);
+        });
     </script>
 @endsection

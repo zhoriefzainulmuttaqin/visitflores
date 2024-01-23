@@ -1,38 +1,34 @@
 <?php
 
-use App\Http\Controllers\AffiliateController;
-use App\Http\Controllers\AuthAffiliateController;
-use App\Http\Controllers\DashboardAffiliateController;
-
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\AkomodasiController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\IklanController;
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\UserHomeController;
-use App\Http\Controllers\TourController;
-use App\Http\Controllers\RestaurantController;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\AuthUserController;
-use App\Http\Controllers\AuthAdminController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\AccountController;
-
-use App\Http\Controllers\DashboardAdminController;
-use App\Http\Controllers\TransactionAdminController;
-use App\Http\Controllers\ReportAdminController;
-
-use App\Http\Controllers\AuthPartnerController;
-use App\Http\Controllers\DashboardPartnerController;
-use App\Http\Controllers\CardUsedPartnerController;
-use App\Http\Controllers\GiftController;
-use App\Http\Controllers\ReportPartnerController;
 use App\Http\Controllers\AccountPartnerController;
+use App\Http\Controllers\AffiliateController;
+use App\Http\Controllers\AkomodasiController;
+use App\Http\Controllers\AuthAdminController;
+use App\Http\Controllers\AuthAffiliateController;
+use App\Http\Controllers\AuthPartnerController;
+use App\Http\Controllers\AuthUserController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\BuyTurismCardController;
+use App\Http\Controllers\CardUsedPartnerController;
+use App\Http\Controllers\DashboardAdminController;
+use App\Http\Controllers\DashboardAffiliateController;
+use App\Http\Controllers\DashboardPartnerController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\GiftController;
+use App\Http\Controllers\IklanController;
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePartnerController;
-
+use App\Http\Controllers\ReportAdminController;
+use App\Http\Controllers\ReportPartnerController;
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\TourController;
+use App\Http\Controllers\TransactionAdminController;
+use App\Http\Controllers\UserHomeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,10 +39,9 @@ use App\Http\Controllers\ProfilePartnerController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', [UserHomeController::class, "home"]);
-
 
 Route::get("atur-bahasa/{locale}", [LocaleController::class, "atur_bahasa"]);
 Route::get("set-bahasa/{locale}", [LocaleController::class, "set_bahasa"]);
@@ -87,15 +82,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/proses-ubah-password-profil', [ProfileController::class, 'process_change_profile_password']);
 
     Route::get("beli/tourism-card", [ServiceController::class, "beli_tourism_card"]);
-    Route::post("proses-beli/tourism-card", [ServiceController::class, "proses_beli_tourism_card"]);
-    Route::get("konfirmasi-beli/{id}/tourism-card", [ServiceController::class, "konfirmasi_beli_tourism_card"]);
+    // Route::post("proses-beli/tourism-card", [ServiceController::class, "proses_beli_tourism_card"]);
+    // Route::get("konfirmasi-beli/{id}/tourism-card", [ServiceController::class, "konfirmasi_beli_tourism_card"]);
     Route::get("beli-layanan-produk/{slug}", [ServiceController::class, "beli_layanan_produk"]);
     Route::post("proses-beli/layanan-produk", [ServiceController::class, "proses_beli_layanan_produk"]);
     Route::get("konfirmasi-beli/{id}/layanan-produk", [ServiceController::class, "konfirmasi_beli_layanan_produk"]);
     Route::get("discount-card/{code}/download", [TransactionAdminController::class, "discount_card_generate_image"]);
-
+    // checkout
+    Route::post('/checkout', [BuyTurismCardController::class, 'process'])->name("checkout-process");
+    Route::get('/checkout/{transaction}', [BuyTurismCardController::class, 'checkout'])->name("checkout");
+    Route::get('/checkout/success/{transaction}', [BuyTurismCardController::class, 'success'])->name("checkout-success");
 });
-
 
 Route::prefix("app-admin")->group(function () {
     Route::get('/', [AuthAdminController::class, 'login'])->middleware('GuestAdmin');
@@ -250,12 +247,10 @@ Route::prefix("app-admin")->group(function () {
     });
 });
 
-
 Route::prefix("app-mitra")->group(function () {
     Route::get('/', [AuthPartnerController::class, 'masuk'])->middleware('GuestPartner');
     Route::post('proses-masuk', [AuthPartnerController::class, 'proses_masuk']);
     Route::get('keluar', [AuthPartnerController::class, 'keluar'])->middleware('partner');
-
 
     Route::group(["middleware" => "partner"], function () {
         Route::get("dashboard", [DashboardPartnerController::class, "dashboard"]);
@@ -266,7 +261,7 @@ Route::prefix("app-mitra")->group(function () {
         Route::get("laporan/penggunaan-kartu", [ReportPartnerController::class, "penggunaan_kartu"]);
         Route::get("laporan/penggunaan-kartu/cetak", [ReportPartnerController::class, "penggunaan_kartu_cetak"]);
 
-        Route::get("data-profil",[ProfilePartnerController::class, "profil"]);
+        Route::get("data-profil", [ProfilePartnerController::class, "profil"]);
 
         // profile
         Route::get("profil", [AccountPartnerController::class, "profil"]);
@@ -280,7 +275,6 @@ Route::prefix("app-affiliate")->group(function () {
     Route::get('/', [AuthAffiliateController::class, 'masuk'])->middleware('GuestAffiliators');
     Route::post('proses-masuk', [AuthAffiliateController::class, 'proses_masuk']);
     Route::get('keluar', [AuthAffiliateController::class, 'keluar'])->middleware('affiliators');
-
 
     Route::group(["middleware" => "affiliators"], function () {
         Route::get("dashboard", [DashboardAffiliateController::class, "dashboard"]);

@@ -49,6 +49,14 @@
                             </p>
                         </div>
                     </div>
+                    {{-- <div class="row mt-2">
+                        <div class="col-md-12 d-grid gap-2">
+                            <a href="{{ url('beli/tourism-card') }}" class="btn btn-success btn-lg">
+                                {{ __('services.buy') }} Tourism Card
+                            </a>
+                        </div>
+                    </div> --}}
+
                     <div class="row mt-2">
                         <div class="col-md-12 d-grid gap-2">
                             <a href="{{ url('beli/tourism-card') }}" class="btn btn-success btn-lg">
@@ -56,6 +64,7 @@
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
