@@ -283,6 +283,7 @@ Route::prefix("app-affiliate")->group(function () {
     Route::group(["middleware" => "affiliators"], function () {
         Route::get("dashboard", [DashboardAffiliateController::class, "dashboard"]);
         Route::get("data/affiliate", [AffiliateController::class, "myAffiliate"]);
+        Route::get("data/affiliate/anggota", [AffiliateController::class, "anggotaAffiliate"]);
         Route::get("transaksi/beli-tourism-card", [AffiliateController::class, "beli_tourism"]);
         Route::get("transaksi/daftar-dan-beli-tourism-card", [AffiliateController::class, "daftar_beli_tourism"]);
 

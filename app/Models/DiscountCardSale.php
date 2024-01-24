@@ -25,4 +25,7 @@ class DiscountCardSale extends Model
     public function cards(){
         return $this->hasMany(DiscountCard::class,'sale_id','id');
     }
+    public function affiliators(){
+        return $this->belongsTo(Affiliators::class,'code_reff','code_reff');
+    }
 }

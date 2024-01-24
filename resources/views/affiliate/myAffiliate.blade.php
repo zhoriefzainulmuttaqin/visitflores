@@ -25,31 +25,19 @@
                                 <th>Jumlah Nominal</th>
                                 <th>Komisi (persen)</th>
                                 <th>Komisi (IDR)</th>
-                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($tourismSale as $data)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                    <td>{{ $data->date_confirmed }}</td>
-                                    <td>{{ $data->referal }}</td>
+                                    <td>{{ $data->time_paid }}</td>
+                                    <td>{{ $data->user->name }}</td>
+                                    <td>{{ $data->code_reff }}</td>
                                     <td>{{ $data->quantity }}</td>
                                     <td>{{ $data->price }}</td>
-                                    <td>{{ $data->affiliate->commission_percent }}</td>
-                                    <td>{{ $data->affiliate->commission_idr }}</td>
-
-                                    <td class="text-center">
-                                        <a href='{{ url("/app-admin/data/ubah/data/$data->id") }}'>
-                                            <button type="button" class="btn btn-sm btn-success" title="Ubah"><i
-                                                    class="fas fa-edit"></i></button>
-                                        </a>
-                                        <a href="{{ url("/app-admin/data/hapus/data/$data->id") }}"
-                                            onclick="return confirm('Apakah anda yakin hapus?.')">
-                                            <button type="button" class="btn btn-sm btn-danger" title="hapus"><i
-                                                    class="fas fa-trash"></i></button>
-                                        </a>
-                                    </td>
+                                    <td>{{ $commission_percent }}</td>
+                                    <td>{{ $total_commission }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
