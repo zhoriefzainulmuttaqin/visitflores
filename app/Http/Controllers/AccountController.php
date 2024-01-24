@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Accomodation;
 use App\Models\Affiliators;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Partner;
@@ -127,11 +128,11 @@ class AccountController extends Controller
 
         Admin::where('id', $id)
             ->update([
-                'name' =>  $name,
-                'phone' =>  $phone,
-                'email' =>  $email,
-                'username' =>  $username,
-                'active' =>  $status,
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'username' => $username,
+                'active' => $status,
             ]);
 
         session()->flash('msg_status', 'success');
@@ -207,10 +208,10 @@ class AccountController extends Controller
 
         Admin::where('id', $id)
             ->update([
-                'name' =>  $name,
-                'phone' =>  $phone,
-                'email' =>  $email,
-                'username' =>  $username,
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'username' => $username,
             ]);
 
         session()->flash('msg_status', 'success');
@@ -274,7 +275,7 @@ class AccountController extends Controller
 
         User::where('id', $id)
             ->update([
-                'active' =>  $status,
+                'active' => $status,
             ]);
 
         session()->flash('msg_status', 'success');
@@ -340,13 +341,13 @@ class AccountController extends Controller
             $dataAccount = Partner::where('id', $request->id)->first();
 
             if ($dataAccount->type == 1) {
-                $child_selected =  Tour::where('id', $dataAccount->child_id)->first();
+                $child_selected = Tour::where('id', $dataAccount->child_id)->first();
             } elseif ($dataAccount->type == 2) {
-                $child_selected =  Shop::where('id', $dataAccount->child_id)->first();
+                $child_selected = Shop::where('id', $dataAccount->child_id)->first();
             } elseif ($dataAccount->type == 3) {
-                $child_selected =  Restaurant::where('id', $dataAccount->child_id)->first();
+                $child_selected = Restaurant::where('id', $dataAccount->child_id)->first();
             } elseif ($dataAccount->type == 4) {
-                $child_selected =  Accomodation::where('id', $dataAccount->child_id)->first();
+                $child_selected = Accomodation::where('id', $dataAccount->child_id)->first();
             }
         } else {
             $child_selected = NULL;
@@ -484,13 +485,13 @@ class AccountController extends Controller
 
         Partner::where('id', $id)
             ->update([
-                'type' =>  $type,
-                'child_id' =>  $child_id,
-                'name' =>  $name,
-                'phone' =>  $phone,
-                'email' =>  $email,
-                'username' =>  $username,
-                'active' =>  $status,
+                'type' => $type,
+                'child_id' => $child_id,
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'username' => $username,
+                'active' => $status,
             ]);
 
         session()->flash('msg_status', 'success');
@@ -521,6 +522,67 @@ class AccountController extends Controller
         return redirect()->to('app-admin/kelola/akun/mitra/' . $request->id);
     }
 
+    public function tambah_akun_affiliators()
+    {
+        $status = Affiliators::get();
+        $wilayah = Location::get();
+        $data = [
+            'wilayah' => $wilayah,
+            'status' => $status,
+        ];
+        return view('admin.tambah_akun_affiliators', $data);
+    }
+
+    public function proses_tambah_akun_affiliators(Request $request)
+    {
+        $name = $request->name;
+        $phone = $request->phone;
+        $email = $request->email;
+        $username = $request->username;
+        $status = $request->status;
+        $code_reff = $request->code_reff;
+        $active = $request->active;
+        $location_id = $request->location_id;
+        $address = $request->address;
+        $norek = $request->norek;
+        $password = $request->password;
+
+        $validatedData = $request->validate(
+            [
+                'email' => ['required', 'unique:affiliators'],
+                'username' => ['required', 'unique:affiliators'],
+                'phone' => ['required', 'unique:affiliators'],
+                'password' => 'required|min:5',
+                'password_confirmation' => 'required|same:password'
+            ],
+            [
+                'email.unique' => 'Email : ' . $email . ' sudah terdaftar !',
+                'username.unique' => 'Username : ' . $username . ' sudah terdaftar !',
+                'phone.unique' => 'No. Handphone : ' . $phone . ' sudah terdaftar !',
+                'password.min' => 'Panjang password minimal 5 karakter !',
+                'password_confirmation.same' => 'Konfirmasi password yang anda masukan salah !',
+            ]
+        );
+
+        Affiliators::insert([
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+            'username' => $username,
+            'status' => $status,
+            'code_reff' => $code_reff,
+            'active' => $active,
+            'location_id' => $location_id,
+            'address' => $address,
+            'norek' => $norek,
+            'password' => Hash::make($password),
+            'active' => $active,
+        ]);
+
+        session()->flash('msg_status', 'success');
+        session()->flash('msg', "<h5>Berhasil</h5><p>Akun Affiliators Berhasil Ditambahkan</p>");
+        return redirect()->to('/app-admin/akun/affiliators');
+    }
     public function akun_affiliators()
     {
         $affiliators = Affiliators::orderBy('name', 'asc')->get();
@@ -534,10 +596,13 @@ class AccountController extends Controller
     public function kelola_akun_affiliators(Request $request)
     {
         $dataAccount = Affiliators::where('id', $request->id)->first();
-
+        $status = Affiliators::get();
+        $wilayah = Location::get();
         if ($dataAccount) {
             $data = [
                 'dataAccount' => $dataAccount,
+                'wilayah' => $wilayah,
+                'status' => $status,
             ];
             return view('admin.kelola_akun_affiliators', $data);
         } else {
@@ -549,13 +614,62 @@ class AccountController extends Controller
 
     public function proses_ubah_akun_affiliators(Request $request)
     {
+        // wajib
         $id = $request->id;
+        $name = $request->name;
+        $phone = $request->phone;
+        $email = $request->email;
+        $username = $request->username;
         $status = $request->status;
+        $code_reff = $request->code_reff;
+        $active = $request->active;
+        $location_id = $request->location_id;
+        $address = $request->address;
+        $norek = $request->norek;
 
-        User::where('id', $id)
+        $dataAffiliate = Affiliators::where('id', $id)->first();
+
+        $rules = [];
+
+        if ($request->email != $dataAffiliate->email) {
+            $rules['email'] = 'required|unique:affiliators';
+        } else {
+            $rules['email'] = 'required';
+        }
+
+        if ($request->phone != $dataAffiliate->phone) {
+            $rules['phone'] = 'required|unique:affiliators';
+        } else {
+            $rules['phone'] = 'required';
+        }
+
+        if ($request->username != $dataAffiliate->username) {
+            $rules['username'] = 'required|unique:affiliators';
+        } else {
+            $rules['username'] = 'required';
+        }
+
+        $validateData = $request->validate($rules, [
+            'phone.unique' => 'No. Handphone : ' . $phone . ' sudah terdaftar !',
+            'email.unique' => 'Email : ' . $email . ' sudah terdaftar !',
+            'username.unique' => 'Username : ' . $username . ' sudah terdaftar !',
+        ]);
+
+        Affiliators::where('id', $id)
             ->update([
-                'active' =>  $status,
+
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+                'username' => $username,
+                'status' => $status,
+                'code_reff' => $code_reff,
+                'active' => $active,
+                'location_id' => $location_id,
+                'address' => $address,
+                'norek' => $norek,
             ]);
+
 
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Akun affiliators Berhasil Diubah</p>");
@@ -577,7 +691,7 @@ class AccountController extends Controller
 
         $validateData['password'] = Hash::make($validatedData['password']);
 
-        User::where('id', $request->id)
+        Affiliators::where('id', $request->id)
             ->update(['password' => $validateData['password']]);
 
         session()->flash('msg_status', 'success');

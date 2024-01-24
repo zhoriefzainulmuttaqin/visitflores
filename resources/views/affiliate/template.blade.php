@@ -51,11 +51,10 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="{{ url('app-affiliate/profil') }}" class="d-block">{{  Auth::guard('affiliators')->user()->nama }}</a>
-                        <span class="text-white">{{  Auth::guard('affiliators')->user()->location->name }} {{  Auth::guard('affiliators')->user()->location->name }}</span>
+                        <a href="{{ url('app-affiliate/profil') }}" class="d-block">{{  Auth::guard('affiliators')->user()->name }}</a>
+                        <span class="text-white">{{  Auth::guard('affiliators')->user()->code_reff }} {{  Auth::guard('affiliators')->user()->location->name }}</span>
                     </div>
                 </div>
-
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">

@@ -24,8 +24,9 @@ return [
     "tourism_card_purchase_success"   => "Tourism Card Purchase Successful",
     "purchase"   => "Purchase",
     "success"   => "Success",
-    "buy_tourism_card_buy_confirm_message"  => "Tourism Card order is successful, please make payment then confirm payment via admin chat by clicking the button below.",
+    "buy_tourism_card_buy_confirm_message"  => "Tourism Card order is pending, please make payment to continue the transaction.",
     "payment_confirmation" => "Payment confirmation",
+    "payment_text_confirmation" => "Please make a payment of",
     "wa_message_payment_confirmation" => "Hello, I *:name* want to confirm payment for the purchase of :product *No.:no*.",
     "buy_souvenirs" => "Buy Souvenirs Package",
     "buy_souvenirs_confirmation" => "Confirmation of Purchase of Souvenir Packages",
@@ -59,4 +60,8 @@ return [
     "service_detail1_two" => "Social Media <br> Advertising",
     "service_detail1_three" => "Tourism Marketing Consultant Services Consultation in creating and developing marketing plans Consultation on developing tourism destination identity (branding) Consultation on tourism destination marketing communications",
     "wa_message_discuss_services" => "Hello, I want about :name",
+    "transaction_success" => "Thank You!",
+    "transaction_success_message" => "Your Tourism Card purchase was successful, enjoy your trip!",
+    "transaction_success_button" => "See Tourism Card",
+
 ];

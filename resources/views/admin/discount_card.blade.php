@@ -29,16 +29,24 @@ Discount Card
                     </div>
                 </div>
                 <hr>
+                @if($transaction->status == "success")
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('generateDiscountCardForm').submit();
+        });
+    </script>
+@endif
+
                 @if(count($transaction->cards) == 0)
                 <div class="row">
                     <div class="col-md-12">
-                        <form method="post" action="{{ url('app-admin/transaksi/tourism-card/discount-card/generate') }}">
+                        <form id="generateDiscountCardForm" method="post" action="{{ url('app-admin/transaksi/tourism-card/discount-card/generate') }}">
                             @csrf
                             <input type="hidden" name="sale_id" value="{{ $transaction->id }}" />
                             <div class="form-group">
                                 <button type="submit" class="btn btn-block btn-primary">
                                     <i class="fa fa-sync"></i>
-                                    Genarate Discount Card
+                                    Generate Discount Card
                                 </button>
                             </div>
                         </form>

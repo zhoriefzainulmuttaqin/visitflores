@@ -28,7 +28,7 @@ class TransactionAdminController extends Controller
         $data = ([
             "transactions" => $transactions
         ]);
-            
+
         return view("admin/transaksi_paketoleholeh",$data);
     }
     public function tandai_paket_oleholeh(Request $request){
@@ -46,7 +46,7 @@ class TransactionAdminController extends Controller
         $data = ([
             "transactions" => $transactions
         ]);
-            
+
         return view("admin/transaksi_tourismcard",$data);
     }
     public function discount_card($id){
@@ -103,7 +103,7 @@ class TransactionAdminController extends Controller
             }elseif($newCard->id < 1000){
                 $fourthNumberCode = "0".$newCard->id;
             }else{
-                $fourthNumberCode = $newCard->id;                        
+                $fourthNumberCode = $newCard->id;
             }
 
             $newCardCode = $firstNumberCode.$secondNumberCode.$thirdNumberCode.$fourthNumberCode;
@@ -114,14 +114,16 @@ class TransactionAdminController extends Controller
         }
 
         DiscountCardSale::where("id",$sale_id)->update([
-            "status"    => 2,
+            "status"    => "success",
         ]);
 
         session()->flash('msg', "<b>Berhasil</b> <br> Discount Card Berhasil Dibuat");
         session()->flash('msg_status', 'success');
-        
+
         return redirect("app-admin/transaksi/tourism-card/".$sale_id.'/discount-card');
     }
+
+
     public function discount_card_generate_image($id){
         $card = DiscountCard::where("id",$id)->first();
 
@@ -167,7 +169,7 @@ class TransactionAdminController extends Controller
                 $textPhone .= " ".$phoneNo[$pno];
             }
         }
-        
+
         $background->text($card->user->phone, $width / 2, ($height / 2) + 95, function ($font) {
             $font->file('./assets/Poppins-Medium.ttf');
             $font->size(20);

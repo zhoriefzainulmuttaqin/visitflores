@@ -28,7 +28,7 @@ Biodata Profil
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
-                                        <input type="hidden" name="id" value="{{ Auth()->user()->id; }}">
+                                        <input type="hidden" name="id" value="{{ Auth()->user()->id }}">
                                         <div class="form-group">
                                             <label>Nama</label>
                                             <input name="name" type="text" value="<?= (old('name')) ? old('name') : Auth()->user()->name;; ?>" class="form-control" placeholder="Masukan nama . . ." required>
@@ -67,7 +67,7 @@ Biodata Profil
                                 </div>
                             </form>
                         </div>
-                            
+
                         </div>
                     </div>
                 </div>

@@ -30,22 +30,22 @@ Kelola Akun Mitra
                                             <label class='form-label'>Nama Bisnis</label>
                                             <select class="form-control" name="child_id" required>
                                                 <?php if($dataAccount->type == 1) : ?>
-                                                    <?php 
+                                                    <?php
                                                     $tour = App\Models\Tour::where('id', $dataAccount->child_id)->first();
                                                     ?>
                                                     <option selected value="{{ $tour->id }}">{{ $tour->name }} (Saat ini)</option>
                                                 <?php elseif($dataAccount->type == 2) : ?>
-                                                    <?php 
+                                                    <?php
                                                     $shop = App\Models\Shop::where('id', $dataAccount->child_id)->first();
                                                     ?>
                                                     <option selected value="{{ $shop->id }}">{{ $shop->name }} (Saat ini)</option>
-                                                <?php elseif($dataAccount->type == 3) : ?>
-                                                    <?php 
+                                                <?php elseif($dataAccount->type == 3) : ?>php
+                                                    <?php
                                                     $resto = App\Models\Restaurant::where('id', $dataAccount->child_id)->first();
                                                     ?>
                                                     <option selected value="{{ $resto->id }}">{{ $resto->name }} (Saat ini)</option>
                                                 <?php elseif($dataAccount->type == 4) : ?>
-                                                    <?php 
+                                                    <?php
                                                     $accomodation = App\Models\Accomodation::where('id', $dataAccount->child_id)->first();
                                                     ?>
                                                    <option selected value="{{ $accomodation->id }}">{{ $accomodation->name }} (Saat ini)</option>

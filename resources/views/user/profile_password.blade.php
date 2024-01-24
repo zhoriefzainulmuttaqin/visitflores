@@ -29,14 +29,14 @@ Password Profil
                                 <div class="row">
                                      @csrf
                                      <div class="col-lg-12 col-12">
-                                        <input type="hidden" name="id" value="{{ Auth()->user()->id; }}">
+                                        <input type="hidden" name="id" value="{{ Auth()->user()->id }}">
                                         <div class="form-group">
                                             <label>Password</label>
                                             <input name="password" type="password" value="<?= (old('pasword')) ; ?>" class="form-control" placeholder="Masukan password . . ." required>
                                         </div>
                                     </div>
                                      <div class="col-lg-12 col-12">
-                                        <input type="hidden" name="id" value="{{ Auth()->user()->id; }}">
+                                        <input type="hidden" name="id" value="{{ Auth()->user()->id }}">
                                         <div class="form-group">
                                             <label>Konfirmasi Password</label>
                                             <input name="password_confirmation" type="password" value="<?= (old('password_confirmation')) ; ?>" class="form-control" placeholder="Masukan konfirmasi password . . ." required>
@@ -51,7 +51,7 @@ Password Profil
                                 </div>
                             </form>
                         </div>
-                            
+
                         </div>
                     </div>
                 </div>

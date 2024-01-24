@@ -17,6 +17,7 @@ Transaksi Tourism Card
                             <th class="text-center">Nama Pembeli</th>
                             <th class="text-center">Kontak Pembeli</th>
                             <th class="text-center">Alamat Pembeli</th>
+                            <th class="text-center">Kode Referral</th>
                             <th class="text-center">Jumlah</th>
                             <th class="text-center">Harga</th>
                             <th class="text-center">Total</th>
@@ -25,7 +26,7 @@ Transaksi Tourism Card
                     </thead>
                     <tbody>
                         @foreach($transactions as $transaction)
-                        <?php                        
+                        <?php
                         $saleKode = saleKode("TC",$transaction);
                         ?>
                         <tr>
@@ -38,6 +39,9 @@ Transaksi Tourism Card
                                 </a>
                             </td>
                             <td>{{ $transaction->user->address }}</td>
+                            <td class="text-center">
+                                {{ $transaction->code_reff }}
+                            </td>
                             <td class="text-center">
                                 {{ $transaction->quantity }}
                             </td>

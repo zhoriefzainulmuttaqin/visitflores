@@ -24,8 +24,9 @@ return [
     "tourism_card_purchase_success"   => "Pembelian Tourism Card Berhasil",
     "purchase"   => "Pembelian",
     "success"   => "Berhasil",
-    "buy_tourism_card_confirm_message"  => "Pemesanan Tourism Card berhasil, silahkan lakukan pembayaran kemudian konfirmasi pembayaran melalui chat admin dengan klik tombol di bawah.",
+    "buy_tourism_card_confirm_message"  => "Pemesanan Tourism Card Ditunda, silakan lakukan pembayaran untuk melanjutkan transaksi.",
     "payment_confirmation" => "Konfirmasi Pembayaran",
+    "payment_text_confirmation" => "Silakan lakukan pembayaran senilai",
     "wa_message_payment_confirmation" => "Halo, saya *:name* ingin konfirmasi pembayaran untuk pembelian :product *No.:no*.",
     "buy_souvenirs" => "Beli Paket Oleh - oleh",
     "buy_souvenirs_confirmation" => "Konfirmasi Beli Paket Oleh - oleh",
@@ -59,4 +60,8 @@ return [
     "service_detail1_two" => "Periklanan <br> Sosial Media",
     "service_detail1_three" => "Jasa Konsultan Pemasaran Pariwisata Konsultasi dalam pembuatan dan pengembangan rencana pemasaran Konsultasi pengembangan identitas destinasi pariwisata (branding) Konsultasi komunikasi pemasaran destinasi pariwisata",
     "wa_message_discuss_services" => "Halo, saya ingin tentang :name",
+    "transaction_success" => "Terima Kasih!",
+    "transaction_success_message" => "Pembelian Tourism Card anda berhasil, nikmati perjalanan anda!",
+    "transaction_success_button" => "Lihat Tourism Card",
+
 ];

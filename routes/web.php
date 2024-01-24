@@ -91,6 +91,8 @@ Route::middleware('auth')->group(function () {
     // checkout
     Route::post('/checkout', [BuyTurismCardController::class, 'process'])->name("checkout-process");
     Route::get('/checkout/{transaction}', [BuyTurismCardController::class, 'checkout'])->name("checkout");
+    Route::post("checkout/generatecard", [BuyTurismCardController::class, "generate_discount_card_user"]);
+
     Route::get('/checkout/success/{transaction}', [BuyTurismCardController::class, 'success'])->name("checkout-success");
 });
 
@@ -225,6 +227,8 @@ Route::prefix("app-admin")->group(function () {
 
         // akun affiliators
         Route::get("akun/affiliators", [AccountController::class, "akun_affiliators"]);
+        Route::get("tambah/akun/affiliators", [AccountController::class, "tambah_akun_affiliators"]);
+        Route::post("akun/affiliators/proses-tambah", [AccountController::class, "proses_tambah_akun_affiliators"]);
         Route::get("kelola/akun/affiliators/{id}", [AccountController::class, "kelola_akun_affiliators"]);
         Route::post("akun/affiliators/proses-ubah", [AccountController::class, "proses_ubah_akun_affiliators"]);
         Route::post("akun/affiliators/proses-reset-password", [AccountController::class, "proses_reset_password_akun_affiliators"]);
