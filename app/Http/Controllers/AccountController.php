@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Accomodation;
 use App\Models\Affiliators;
+use App\Models\DiscountCardSale;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Models\Admin;
@@ -524,8 +525,10 @@ class AccountController extends Controller
 
     public function tambah_akun_affiliators()
     {
+        $tourismSale = DiscountCardSale::get();
         $status = Affiliators::get();
         $wilayah = Location::get();
+
         $data = [
             'wilayah' => $wilayah,
             'status' => $status,
@@ -546,6 +549,7 @@ class AccountController extends Controller
         $address = $request->address;
         $norek = $request->norek;
         $password = $request->password;
+        $commission_percent = $request->commission_percent;
 
         $validatedData = $request->validate(
             [
@@ -576,7 +580,7 @@ class AccountController extends Controller
             'address' => $address,
             'norek' => $norek,
             'password' => Hash::make($password),
-            'active' => $active,
+            'commission_percent' => $commission_percent,
         ]);
 
         session()->flash('msg_status', 'success');
@@ -585,7 +589,10 @@ class AccountController extends Controller
     }
     public function akun_affiliators()
     {
+        $tourismSale = DiscountCardSale::get();
         $affiliators = Affiliators::orderBy('name', 'asc')->get();
+
+            // $commission_idr = ($affiliators->commission_percent/100) * $tourismSale->price;
 
         $data = [
             'affiliators' => $affiliators,

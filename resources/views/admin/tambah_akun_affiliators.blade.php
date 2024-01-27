@@ -38,7 +38,7 @@ Tambah Akun Mitra
                     </div>
                     <div class="form-group">
                         <label for="phone"> No. Handphone </label>
-                        <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
+                        <input type="number" class="form-control @error('phone') is-invalid @enderror" name="phone"
                             id="phone" placeholder="Masukan No. Handphone . . . " value="{{ old('phone') }}" required
                             autocomplete="off">
                         @error('phone')
@@ -82,7 +82,7 @@ Tambah Akun Mitra
                     </div>
                     <div class="form-group">
                         <label for="norek"> Nomor Rekening </label>
-                        <input type="text" class="form-control @error('norek') is-invalid @enderror" name="norek"
+                        <input type="number" class="form-control @error('norek') is-invalid @enderror" name="norek"
                             id="norek" placeholder="nomor rekening" value="{{ old('norek') }}" required
                             autocomplete="off">
                         @error('norek')
@@ -123,6 +123,17 @@ Tambah Akun Mitra
                             @endforeach
                             </option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="commission_percent"> Persentase Komisi </label>
+                        <input type="text" class="form-control @error('commission_percent') is-invalid @enderror" name="commission_percent"
+                            id="commission_percent" placeholder="20" value="{{ old('commission_percent') }}" required
+                            autocomplete="off">
+                        @error('commission_percent')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="mb-2 my-3">
                         <label for="status">Pilih Status</label>

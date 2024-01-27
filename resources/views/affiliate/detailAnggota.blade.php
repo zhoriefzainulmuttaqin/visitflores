@@ -1,15 +1,15 @@
 @extends('affiliate.template')
 
 @section('title')
-    Data Affiliasi Anda
+    Data Affiliasi {{ $anggota->name  }}
 @endsection
 
 @section('content')
-    <div class="mb-3 text-right">
-        <a href="{{ url('app-affiliate/transaksi/beli-tourism-card') }}">
-            <button type="button" class="btn  btn-sm btn-primary">Tambah Pembelian Tourism Card</button>
-        </a>
-    </div>
+<div class="mb-3 text-right">
+    <a href="{{ url('app-affiliate/data/affiliate/anggota/') }}">
+        <button type="button" class="btn  btn-sm btn-primary">Kembali ke Data Anggota</button>
+    </a>
+</div>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -43,8 +43,8 @@
                         </tbody>
                     </table>
                     <table class="mt-5">
-                        <th class="">Total Komisi Anda adalah: </th>
-                        <th>{{ number_format($total_commission, 0, ',', '.') }}</th>
+                        <th class="">Total Komisi Didapatkan: </th>
+                        <th> Rp{{ number_format($total_commission, 0, ',', '.') }}</th>
                     </table>
 
                 </div>

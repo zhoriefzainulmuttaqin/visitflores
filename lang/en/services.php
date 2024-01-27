@@ -23,7 +23,7 @@ return [
     "purchase_confirmation"   => "Confirm Purchase",
     "tourism_card_purchase_success"   => "Tourism Card Purchase Successful",
     "purchase"   => "Purchase",
-    "success"   => "Success",
+    "success"   => "please make payment",
     "buy_tourism_card_buy_confirm_message"  => "Tourism Card order is pending, please make payment to continue the transaction.",
     "payment_confirmation" => "Payment confirmation",
     "payment_text_confirmation" => "Please make a payment of",

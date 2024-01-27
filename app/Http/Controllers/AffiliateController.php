@@ -12,75 +12,101 @@ use Illuminate\Support\Facades\Auth;
 class AffiliateController extends Controller
 {
     public function myAffiliate(){
-        $users = User::orderBy('name', 'asc')->get();
-        $tourismSale = DiscountCardSale::where("code_reff",Auth::guard('affiliators')->user()->code_reff)->orderBy('date_confirmed', 'asc')->get();
-        if ($tourismSale->code_reff = "K1" || $tourismSale->code_reff = "I1" || $tourismSale->code_reff = "M1" ) {
-            $commission_percent = 20/100;
-        } else {
-            $commission_percent = 11/100;
-        }
+        $anggota = Affiliators::where("code_reff", Auth::guard('affiliators')->user()->code_reff)->first();
+        $tourismSale = DiscountCardSale::where([
+            ['code_reff', Auth::guard('affiliators')->user()->code_reff],
+            ['status', 'success'],
+        ])->orderBy('date_confirmed', 'asc')->get();
+
         $total_commission = 0;
+        $commission_idr = 0;
+
         foreach ($tourismSale as $sale) {
-            $commission_idr = $commission_percent * $sale->price;
+            // Assuming commission_percent is a property of the Affiliators model
+            $commission_idr = ($anggota->commission_percent/100) * $sale->price;
             $total_commission += $commission_idr;
         }
+
         $data = [
-            'users' => $users,
+            'anggota' => $anggota,
             'tourismSale' => $tourismSale,
-            'commission_percent' => $commission_percent,
             'total_commission' => $total_commission,
+            'commission_idr' => $commission_idr,
         ];
+
         return view('affiliate.myAffiliate', $data);
     }
 
-    public function anggotaAffiliate(){
-        $users = User::orderBy('name', 'asc')->get();
-        $anggota = Affiliators::get();
-        $tourismSale = DiscountCardSale::where("code_reff",Auth::guard('affiliators')->user()->code_reff)->orderBy('date_confirmed', 'asc')->get();
-        if ($tourismSale->code_reff = "K1" || $tourismSale->code_reff = "I1" || $tourismSale->code_reff = "M1" ) {
-            $commission_percent = 20/100;
-        } else {
-            $commission_percent = 11/100;
+    public function anggotaAffiliate()
+    {
+        $anggota = Affiliators::where([
+            ['location_id', Auth::guard('affiliators')->user()->location_id],
+            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+        ])->get();
+
+        $tourismSale = DiscountCardSale::where([
+
+            ['status', 'success'],
+        ])->orderBy('date_confirmed', 'asc')->get();
+
+        $data = [];
+
+        foreach ($anggota as $aff) {
+            $total_commission = 0;
+            $commission = 20/100;
+            $share_commission = 0;
+            $total_your_commission = 0;
+
+            foreach ($tourismSale as $sale) {
+                $commission_idr = ($aff->commission_percent / 100) * $sale->price;
+                $total_commission += $commission_idr;
+
+                $share_commission = $commission - ($aff->commission_percent / 100);
+                $your_commission_idr = $share_commission  * $sale->price;
+                $total_your_commission += $your_commission_idr;
+
+            }
+
+            $data[] = [
+                'anggota' => $aff, // Change $anggota to $aff to pass individual affiliate data
+                'tourismSale' => $tourismSale,
+                'commission_idr' => $commission_idr,
+                'your_commission_idr' => $your_commission_idr,
+                'total_commission' => $total_commission,
+                'total_your_commission' => $total_your_commission,
+            ];
         }
+
+        return view('affiliate.anggotaAffiliate')->with('data', $data);
+    }
+
+    public function detailAnggota(Request $request)
+    {
+        $anggota = Affiliators::where('id', $request->id)->first();
+        $tourismSale = DiscountCardSale::where([
+            ['id', $request->id],
+            ['code_reff',$request->code_reff],
+            ['status', 'success'],
+        ])->orderBy('date_confirmed', 'asc')->get();
+
         $total_commission = 0;
-        $total_pembelian = 0;
+        $commission_idr = 0;
+
         foreach ($tourismSale as $sale) {
-            $commission_idr = $commission_percent * $sale->price;
+            // Assuming commission_percent is a property of the Affiliators model
+            $commission_idr = ($anggota->commission_percent/100) * $sale->price;
             $total_commission += $commission_idr;
         }
-        $total_pembelian += $tourismSale->price;
 
         $data = [
-            'users' => $users,
             'anggota' => $anggota,
             'tourismSale' => $tourismSale,
-            'commission_percent' => $commission_percent,
             'total_commission' => $total_commission,
-            'total_pembelian' => $total_pembelian,
-
+            'commission_idr' => $commission_idr,
         ];
-        return view('affiliate.anggotaAffiliate', $data);
+
+        return view('affiliate.detailAnggota', $data);
     }
 
-    public function beli_tourism(){
-        $users = User::orderBy('name', 'asc')->get();
-        $payments = Payment::orderBy('name', 'asc')->get();
 
-        $data = [
-            'users' => $users,
-            'payments' => $payments,
-        ];
-        return view('affiliate.beliTourism', $data);
-    }
-
-    public function daftar_beli_tourism(){
-        $users = User::orderBy('name', 'asc')->get();
-        $payments = Payment::orderBy('name', 'asc')->get();
-
-        $data = [
-            'users' => $users,
-            'payments' => $payments,
-        ];
-        return view('affiliate.beliTourismAccount', $data);
-    }
 }

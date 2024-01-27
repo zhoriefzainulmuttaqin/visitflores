@@ -11,12 +11,27 @@
                 <div class="card-header">
                     <h3 class="card-title">Belikan Tourism Card</h3>
                 </div>
-                <form method="POST" action="{{ url('app-admin/data/wisata/proses-tambah') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('konfirmasi-process') }}" class="mt-5">
                     @csrf
+                    <div style="display: none">
+                        @foreach ($products as $product)
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="discountcardsales_id" value="{{ $product->id }}">
+                            <input type="hidden" name="quantity" value="{{ $product->quantity }}">
+                            <input type="hidden" name="price" value="{{ $product->price }}">
+
+                            <div class="mb-2 d-grid gap-2">
+                                <button type="submit" class="btn btn-success" data-product-id="{{ $product->id }}"
+                                    data-product-price="{{ $product->price }}">
+                                    {{ __('services.buy') }} Tourism Card - {{ $product->id }}
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="category_id">Pilih Akun</label>
-                            <select class="form-control" id="category_id" required name="category_id">
+                            <label for="user_id">Pilih Akun</label>
+                            <select class="form-control" id="user_id" required name="user_id">
                                 <option value="">--- Pilih Akun ---</option>
                                 @foreach ($users as $akun)
                                     <option value="{{ $akun->id }}">{{ $akun->name }}</option>
@@ -24,42 +39,23 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="category_id">Pilih Metode Pembayaran</label>
-                            <select class="form-control" id="category_id" required name="category_id">
-                                <option value="">--- Pilih Metode Pembayaran ---</option>
-                                @foreach ($payments as $pay)
-                                    <option value="{{ $pay->id }}">{{ $pay->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Jumlah</label>
-                            <div class="input-group input-group-lg">
-                                <button class="btn btn-primary bg-btn-visit text-white" onclick="minQuantity()"
-                                    type="button">-</button>
-                                <input type="number" class="form-control" name="quantity" min="1" value="1"
-                                    placeholder="Jumlah Tourism Card Yang Dibeli" id="CardQuantity">
-                                <button class="btn btn-primary bg-btn-visit text-white" onclick="plusQuantity()"
-                                    type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="referal"> Kode Referral </label>
-                            <input type="text" class="form-control" name="referal"
-                                id="referal" placeholder="Kode Referral"
-                                autocomplete="off">
+                            <label for="code_reff"> Kode Referral </label>
+                            <input type="text" class="form-control" name="code_reff" id="code_reff"
+                                placeholder="Kode Referral" autocomplete="off">
                         </div>
                     </div>
                     <div class="card-footer">
                         <a href="{{ url('app-affiliate/dashboard') }}">
                             <button type="button" class="btn btn-danger float-left">Kembali</button>
                         </a>
-                        <button type="submit" class="btn btn-primary float-right">Tambah</button>
-                    </div>
-                    <div class="card-footer d-flex">
-                        <span>Pengguna belum memiliki akun?</span><a class="ms-4" href="{{ url('app-affiliate/transaksi/daftar-dan-beli-tourism-card') }}"> klik untuk daftar dan belikan tourism card </a>
+                        <button type="submit" class="btn btn-primary float-right">Selanjutnya</button>
                     </div>
                 </form>
+                <div class="card-footer d-flex">
+                    <span>Pengguna belum memiliki akun?</span><a class="ms-4"
+                        href="{{ url('app-affiliate/transaksi/daftar-dan-beli-tourism-card') }}"> klik untuk daftar dan
+                        belikan tourism card </a>
+                </div>
             </div>
         </div>
     </div>

@@ -27,6 +27,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\TransactionAdminController;
+use App\Http\Controllers\TransactionAffiliate;
 use App\Http\Controllers\UserHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -284,9 +285,19 @@ Route::prefix("app-affiliate")->group(function () {
         Route::get("dashboard", [DashboardAffiliateController::class, "dashboard"]);
         Route::get("data/affiliate", [AffiliateController::class, "myAffiliate"]);
         Route::get("data/affiliate/anggota", [AffiliateController::class, "anggotaAffiliate"]);
-        Route::get("transaksi/beli-tourism-card", [AffiliateController::class, "beli_tourism"]);
-        Route::get("transaksi/daftar-dan-beli-tourism-card", [AffiliateController::class, "daftar_beli_tourism"]);
+        Route::get("data/affiliate/anggota/{id}", [AffiliateController::class, "detailAnggota"]);
 
+        Route::get("transaksi/beli-tourism-card", [TransactionAffiliate::class, "beli_tourism"]);
+        Route::post('transaksi/beli-tourism-card', [TransactionAffiliate::class, 'konfirmasi'])->name("konfirmasi-process");
+        Route::get('transaksi/beli-tourism-card/{transaction}', [TransactionAffiliate::class, 'konfirmasi_tourism'])->name("pembayaran");
+        Route::post("transaksi/beli-tourism-card/generatecard", [TransactionAffiliate::class, "generate_discount_card_user"]);
+        Route::get('transaksi/beli-tourism-card/success/{transaction}', [TransactionAffiliate::class, 'success'])->name("payment-success");
+
+        Route::get("transaksi/daftar-dan-beli-tourism-card", [TransactionAffiliate::class, "daftar_beli_tourism"]);
+
+
+        // Route::get('/checkout/{transaction}', [BuyTurismCardController::class, 'checkout'])->name("checkout");
+        // Route::post("checkout/generatecard", [BuyTurismCardController::class, "generate_discount_card_user"]);
         // profile
         Route::get("profil", [AccountPartnerController::class, "profil"]);
         Route::post("profil/proses-ubah", [AccountPartnerController::class, "proses_ubah_profil"]);

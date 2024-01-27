@@ -1,8 +1,8 @@
-@extends('user.template_no_cover')
+@extends('affiliate.template')
 
-@section('title')
-    {{ __('services.purchase_confirmation') }} Tourism Card
-@endsection
+{{-- @section('title')
+    Konfirmasi Pembelian Tourism Card
+@endsection --}}
 
 @section('content')
     <div class="container-lg mt-5">
@@ -10,7 +10,7 @@
             <b>{{ __('services.tourism_card_purchase_success') }}</b>
         </h1>
         <div class="container mt-5" style="width: 70% !important;">
-            <form id="generateDiscountCardForm" method="post" action="{{ url('checkout/generatecard') }}">
+            <form id="generateDiscountCardForm" method="post" action="{{ url('app-affiliate/transaksi/beli-tourism-card/generatecard') }}">
                 @csrf
                 <input type="hidden" name="sale_id" value="{{ $transaction->id }}" />
                 <div class="form-group" style="display: none;">
@@ -35,11 +35,10 @@
                     </div>
                     <div class="col-md-8 pt-5 text-center m-auto">
                         <p>
-                            <b class="h3 text-center"> {{ __('services.payment_text_confirmation') }} Rp.
-                                {{ $products->first()->price }}</b>
-                            <br>
+                            {{-- <b class="h3 text-center"> {{ __('services.payment_text_confirmation') }} Rp.
+                                {{ $product->first()->price }}</b> --}}
+                            {{-- <br> --}}
                         </p>
-
                         <div class="d-grid gap-2">
                             <button class="btn btn-info bg-btn-visit text-white" id="pay-button">
                                 {{ __('services.payment_confirmation') }}

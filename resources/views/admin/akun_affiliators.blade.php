@@ -28,6 +28,8 @@ Akun Affiliators
                             <th>Kode Referral</th>
                             <th>Alamat</th>
                             <th>Status</th>
+                            <th>Persentase Komisi</th>
+                            {{-- <th>Nominal Komsisi </th> --}}
                             <th>Active</th>
                             <th class="text-center">Aksi</th>
                         </tr>
@@ -45,13 +47,16 @@ Akun Affiliators
                             <td>{{ $aff->location->name }}</td>
                             <td>{{ $aff->code_reff }}</td>
                             <td>{{ $aff->address }}</td>
+                            {{-- <td>{{ $commission_idr }}</td> --}}
                             <td class="text-center">
                                 <?php if($aff->status == 1) : ?>
                                 <span class="badge badge-primary">Ketua Wilayah</span>
                                 <?php else : ?>
                                 <span class="badge badge-success">Anggota</span>
                                 <?php endif; ?>
-                            </td>                            <td class="text-center">
+                            </td>
+                            <td>{{ $aff->commission_percent }}%</td>
+                            <td class="text-center">
                                 <?php if($aff->active == 1) : ?>
                                 <span class="badge badge-success">Aktif</span>
                                 <?php else : ?>

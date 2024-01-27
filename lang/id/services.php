@@ -23,7 +23,7 @@ return [
     "purchase_confirmation"   => "Konfirmasi Pembelian",
     "tourism_card_purchase_success"   => "Pembelian Tourism Card Berhasil",
     "purchase"   => "Pembelian",
-    "success"   => "Berhasil",
+    "success"   => "Silakan Lakukan Pembayaran",
     "buy_tourism_card_confirm_message"  => "Pemesanan Tourism Card Ditunda, silakan lakukan pembayaran untuk melanjutkan transaksi.",
     "payment_confirmation" => "Konfirmasi Pembayaran",
     "payment_text_confirmation" => "Silakan lakukan pembayaran senilai",
