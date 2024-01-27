@@ -11,8 +11,10 @@
                 <div class="card-header">
                     <h3 class="card-title">Daftar dan Belikan Tourism Card</h3>
                 </div>
-                <form method="POST" action="{{ url('app-admin/data/wisata/proses-tambah') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('konfirmasi-daftar-process') }}" class="mt-5">
                     @csrf
+                    <input type="hidden" name="active" value="1">
+
                     <div class="card-body">
                         <div class="form-group">
                             <label for="register-form-name">Nama</label>
@@ -31,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <label for="register-form-phone">No. Handphone</label>
-                            <input type="text" id="register-form-phone" name="phone" placeholder="08xxxxxxxxxx" value="{{ old('phone') }}"
+                            <input type="number" id="register-form-phone" name="phone" placeholder="08xxxxxxxxxx" value="{{ old('phone') }}"
                                 class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -51,29 +53,9 @@
                                 value="{{ old('password_confirmation') }}" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="category_id">Pilih Metode Pembayaran</label>
-                            <select class="form-control" id="category_id" required name="category_id">
-                                <option value="">--- Pilih Metode Pembayaran ---</option>
-                                @foreach ($payments as $pay)
-                                    <option value="{{ $pay->id }}">{{ $pay->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label>Jumlah</label>
-                            <div class="input-group input-group-lg">
-                                <button class="btn btn-primary bg-btn-visit text-white" onclick="minQuantity()"
-                                    type="button">-</button>
-                                <input type="number" class="form-control" name="quantity" min="1" value="1"
-                                    placeholder="Jumlah Tourism Card Yang Dibeli" id="CardQuantity">
-                                <button class="btn btn-primary bg-btn-visit text-white" onclick="plusQuantity()"
-                                    type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="referal"> Kode Referral </label>
-                            <input type="text" class="form-control" name="referal"
-                                id="referal" placeholder="Kode Referral"
+                            <label for="code_reff"> Kode Referral </label>
+                            <input type"text" class="form-control" name="code_reff"
+                                id="code_reff" placeholder="Kode Referral"
                                 autocomplete="off">
                         </div>
                     </div>
@@ -92,34 +74,6 @@
 @section('script')
     <script src="{{ url('ckeditor/ckeditor.js') }}"></script>
     <script>
-        function minQuantity() {
-            let cardPrice = parseInt(<?= getOption('tourism_card_price') ?>);
-            let cardQuantity = parseInt($("#CardQuantity").val());
-            let cardTotalPrice = 0;
 
-            if (cardQuantity > 1) {
-                cardQuantity -= 1;
-            }
-
-            cardTotalPrice = cardQuantity * cardPrice;
-            let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
-
-            $("#cardPrice").html(`<?= __('services.price') ?> : Rp. ${cardValuePrice}`);
-            $("#CardQuantity").val(cardQuantity);
-        }
-
-        function plusQuantity() {
-            let cardPrice = parseInt(<?= getOption('tourism_card_price') ?>);
-            let cardQuantity = parseInt($("#CardQuantity").val());
-            let cardTotalPrice = 0;
-
-            cardQuantity += 1;
-
-            cardTotalPrice = cardQuantity * cardPrice;
-            let cardValuePrice = Intl.NumberFormat('en-DE').format(cardTotalPrice);
-
-            $("#cardPrice").html(`<?= __('services.price') ?> : Rp. ${cardValuePrice}`);
-            $("#CardQuantity").val(cardQuantity);
-        }
     </script>
 @endsection

@@ -294,6 +294,9 @@ Route::prefix("app-affiliate")->group(function () {
         Route::get('transaksi/beli-tourism-card/success/{transaction}', [TransactionAffiliate::class, 'success'])->name("payment-success");
 
         Route::get("transaksi/daftar-dan-beli-tourism-card", [TransactionAffiliate::class, "daftar_beli_tourism"]);
+        Route::post('transaksi/daftar-dan-beli-tourism-card', [TransactionAffiliate::class, 'konfirmasi_daftar'])->name("konfirmasi-daftar-process");
+        Route::get('transaksi/beli-tourism-card/{transaction}', [TransactionAffiliate::class, 'konfirmasi_tourism'])->name("pembayaran-daftar");
+        Route::post("transaksi/beli-tourism-card/generatecard", [TransactionAffiliate::class, "generate_discount_card_user"]);
 
 
         // Route::get('/checkout/{transaction}', [BuyTurismCardController::class, 'checkout'])->name("checkout");

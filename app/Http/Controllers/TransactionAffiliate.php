@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Hash;
 
 class TransactionAffiliate extends Controller
 {
@@ -150,15 +151,84 @@ class TransactionAffiliate extends Controller
         return redirect("app-affiliate/transaksi/beli-tourism-card/success/" . $sale->id);
     }
 
-    public function daftar_beli_tourism()
+    public function daftar_beli_tourism(Transaction $transaction)
     {
         $users = User::orderBy('name', 'asc')->get();
-        $payments = Payment::orderBy('name', 'asc')->get();
+        $products = DiscountCardSale::all();
+        $product = collect($products)->firstWhere('id', $transaction->discountcardsales_id);
 
-        $data = [
+        $data  = [
+            'transaction' => $transaction,
             'users' => $users,
-            'payments' => $payments,
+            'products' => $products,
+            'product' => $product,
         ];
         return view('affiliate.beliTourismAccount', $data);
     }
+
+    public function konfirmasi_daftar(Request $request)
+    {
+        // Validate the request data
+        $validatedData = $request->validate([
+            'email' => ['required', 'unique:users'],
+            'username' => ['required', 'unique:users'],
+            'phone' => ['required', 'unique:users'],
+            'password' => 'required|min:5',
+            'password_confirmation' => 'required|same:password',
+        ], [
+            'email.unique' => 'Email ' . $request->email . ' sudah terdaftar!',
+            'username.unique' => 'Username ' . $request->username . ' sudah terdaftar!',
+            'phone.unique' => 'No. Handphone ' . $request->phone . ' sudah terdaftar!',
+            'password.min' => 'Panjang password minimal 5 karakter!',
+            'password_confirmation.same' => 'Konfirmasi password yang anda masukan salah!',
+        ]);
+
+        // Insert the user data
+        $user = User::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'username' => $request->username,
+            'email' => $request->email,
+            'picture' => null,
+            'address' => $request->address,
+            'password' => Hash::make($request->password),
+            'active' => $request->active,
+        ]);
+
+        // Insert the DiscountCardSale transaction
+        $transaction = DiscountCardSale::create([
+            'user_id' => $user->id, // Use the user ID from the inserted user
+            'price' => 25000,
+            'quantity' => 1,
+            'status' => 'pending',
+            'code_reff' => $request->code_reff,
+            'date_carted' => now(), // Use Laravel helper function now() to get the current datetime
+            'time_carted' => now(), // Use Laravel helper function now() to get the current datetime
+        ]);
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => $transaction->price, // Menggunakan price dari transaction
+            ),
+            'customer_details' => array(
+                'first_name' => $user->name,
+                'email' => $user->email,
+            ),
+        );
+
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $transaction->snap_token = $snapToken;
+        $transaction->save();
+        return redirect()->route('pembayaran-daftar', $transaction->id);
+    }
+
 }
