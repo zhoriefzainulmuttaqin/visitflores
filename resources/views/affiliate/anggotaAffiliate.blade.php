@@ -22,32 +22,40 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $total_your_commissions = 0; // Move this line outside the loop
+                            $total_commission = 0; // Move this line outside the loop
+                            @endphp
+
                             @foreach ($data as $items)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
                                     <td>{{ $items['anggota']->name }}</td>
                                     <td>{{ $items['anggota']->code_reff }}</td>
                                     <td>{{ $items['anggota']->commission_percent }}%</td>
-                                    <td>{{ number_format($items['commission_idr'], 0, ',', '.') }}</td>
-                                    <td>{{ number_format($items['your_commission_idr'], 0, ',', '.') }}</td>
+                                    <td>{{ number_format($items['total_commission'], 0, ',', '.') }}</td>
+                                    <td>{{ number_format($items['total_your_commission'], 0, ',', '.') }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('/app-affiliate/data/affiliate/anggota/' . $items['anggota']->id) }}">
                                             <button type="button" class="btn btn-sm btn-secondary" title="kelola">
-                                               Lihat Detail
+                                                Lihat Detail
                                             </button>
                                         </a>
                                     </td>
                                 </tr>
+
+                                @php
+                                $total_your_commissions += $items['total_your_commission'];
+                                @endphp
                             @endforeach
                         </tbody>
                     </table>
+
                     <table class="mt-5">
                         <th class="">Total Komisi Anda dari anggota: </th>
-                        @foreach ($data as $datas)
-
-                        @endforeach
-                        <td> Rp{{ number_format($datas['total_your_commission'], 0, ',', '.') }}</td>
+                        <td> Rp{{ number_format($total_your_commissions, 0, ',', '.') }}</td>
                     </table>
+
                 </div>
             </div>
         </div>

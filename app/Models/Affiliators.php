@@ -18,4 +18,7 @@ class Affiliators extends Authenticatable
     public function location(){
         return $this->belongsTo(Location::class,'location_id','id');
     }
+    public function discount_card_sale(){
+        return $this->belongsTo(DiscountCardSale::class,'code_reff','code_reff');
+    }
 }

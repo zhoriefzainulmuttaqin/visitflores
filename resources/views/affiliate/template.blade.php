@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Administrator | {{ config('app.name') }}</title>
+    <title>Affiliate | {{ config('app.name') }}</title>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -127,10 +127,10 @@
                             </a>
                             <ul class="nav nav-treeview" style='font-size:14px'>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/laporan/transaksi/tourism-card') }}"
+                                    <a href="{{ url('app-affiliate/laporan/transaksi/affiliate') }}"
                                         class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Transaksi Tourism Card</p>
+                                        <p>Transaksi Affiliate</p>
                                     </a>
                                 </li>
                             </ul>

@@ -24,14 +24,14 @@ class ReportAdminController extends Controller
 
         if($type == "date"){
             $date = $request->date;
-            $rows = DiscountCardSale::where("date_carted",$date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = DiscountCardSale::where("date_carted",$date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Pada Tanggal ".tglIndo($date);
         }elseif($type == "between_date"){
             $start_date = $request->start_date;
             $end_date = $request->end_date;
 
-            $rows = DiscountCardSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = DiscountCardSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Dari Tanggal ".tglIndo($start_date)." Sampai Tanggal ".tglIndo($end_date);
         }elseif($type == "month"){
@@ -43,7 +43,7 @@ class ReportAdminController extends Controller
             $start_date = $year."-".$month."-01";
             $end_date = $year."-".$month."-".$days_in_month;
 
-            $rows = DiscountCardSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = DiscountCardSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Pada Bulan ".getBulanIndo()[$month-1]." Tahun ".$year;
         }elseif($type == "year"){
@@ -52,7 +52,7 @@ class ReportAdminController extends Controller
             $start_date = $year."-01-01";
             $end_date = $year."-12-31";
 
-            $rows = DiscountCardSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = DiscountCardSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Pada Tahun ".$year;
         }else{
@@ -76,14 +76,14 @@ class ReportAdminController extends Controller
 
         if($type == "date"){
             $date = $request->date;
-            $rows = GiftSale::where("date_carted",$date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = GiftSale::where("date_carted",$date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Pada Tanggal ".tglIndo($date);
         }elseif($type == "between_date"){
             $start_date = $request->start_date;
             $end_date = $request->end_date;
 
-            $rows = GiftSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = GiftSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Dari Tanggal ".tglIndo($start_date)." Sampai Tanggal ".tglIndo($end_date);
         }elseif($type == "month"){
@@ -95,7 +95,7 @@ class ReportAdminController extends Controller
             $start_date = $year."-".$month."-01";
             $end_date = $year."-".$month."-".$days_in_month;
 
-            $rows = GiftSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = GiftSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Pada Bulan ".getBulanIndo()[$month-1]." Tahun ".$year;
         }elseif($type == "year"){
@@ -104,7 +104,7 @@ class ReportAdminController extends Controller
             $start_date = $year."-01-01";
             $end_date = $year."-12-31";
 
-            $rows = GiftSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status","!=",1)->orderBy("id","desc")->get();
+            $rows = GiftSale::where("date_carted",">=",$start_date)->where("date_carted","<=",$end_date)->where("status", "success")->orderBy("id","desc")->get();
 
             $title = "Pada Tahun ".$year;
         }else{

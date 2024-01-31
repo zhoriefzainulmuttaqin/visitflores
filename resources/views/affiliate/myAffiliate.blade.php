@@ -36,7 +36,7 @@
                                     <td>{{ $data->code_reff }}</td>
                                     <td>{{ $data->quantity }}</td>
                                     <td>{{ number_format($data->price, 0, ',', '.') }}</td>
-                                    <td>{{ $anggota->commission_percent }}</td>
+                                    <td>{{ $anggota->commission_percent }}%</td>
                                     <td>{{ number_format($commission_idr, 0, ',', '.') }}</td>
                                 </tr>
                             @endforeach

@@ -22,7 +22,7 @@
                                 <th>Nama Pengguna</th>
                                 <th>Kode Referal</th>
                                 <th>Jumlah Beli</th>
-                                <th>Jumlah Nominal</th>
+                                <th>Nominal Beli</th>
                                 <th>Persentase Komisi</th>
                                 <th>Nominal Komisi</th>
                             </tr>

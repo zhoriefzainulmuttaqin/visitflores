@@ -1,7 +1,7 @@
-@extends("admin.template")
+@extends("affiliate.template")
 
 @section("title")
-Laporan Transaksi Tourism Card
+Laporan Transaksi Affiliate
 @endsection
 
 @section("content")
@@ -28,7 +28,7 @@ Laporan Transaksi Tourism Card
             <div class="card-body">
                 <div class="tab-content" id="custom-tabs-three-tabContent">
                     <div class="tab-pane fade show active" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                        <form method="get" action="{{ url('app-admin/laporan/transaksi/tourism-card/cetak') }}" target="_blank">
+                        <form method="get" action="{{ url('app-affiliate/laporan/transaksi/affiliate/cetak') }}" target="_blank">
                             @csrf
                             <input type="hidden" name="type" value="date">
                             <div class="row">
@@ -52,7 +52,7 @@ Laporan Transaksi Tourism Card
                         </form>
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
-                        <form method="get" action="{{ url('app-admin/laporan/transaksi/tourism-card/cetak') }}" target="_blank">
+                        <form method="get" action="{{ url('app-affiliate/laporan/transaksi/affiliate/cetak') }}" target="_blank">
                             @csrf
                             <input type="hidden" name="type" value="between_date">
                             <div class="row">
@@ -82,7 +82,7 @@ Laporan Transaksi Tourism Card
                         </form>
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
-                        <form method="get" action="{{ url('app-admin/laporan/transaksi/tourism-card/cetak') }}" target="_blank">
+                        <form method="get" action="{{ url('app-affiliate/laporan/transaksi/affiliate/cetak') }}" target="_blank">
                             @csrf
                             <input type="hidden" name="type" value="month">
                             <div class="row">
@@ -130,7 +130,7 @@ Laporan Transaksi Tourism Card
                         </form>
                     </div>
                     <div class="tab-pane fade" id="custom-tabs-three-settings" role="tabpanel" aria-labelledby="custom-tabs-three-settings-tab">
-                        <form method="get" action="{{ url('app-admin/laporan/transaksi/tourism-card/cetak') }}" target="_blank">
+                        <form method="get" action="{{ url('app-affiliate/laporan/transaksi/affiliate/cetak') }}" target="_blank">
                             @csrf
                             <input type="hidden" name="type" value="year">
                             <div class="row">

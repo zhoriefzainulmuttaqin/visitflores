@@ -21,6 +21,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePartnerController;
 use App\Http\Controllers\ReportAdminController;
+use App\Http\Controllers\ReportAffiliateController;
 use App\Http\Controllers\ReportPartnerController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\ServiceController;
@@ -305,5 +306,10 @@ Route::prefix("app-affiliate")->group(function () {
         Route::get("profil", [AccountPartnerController::class, "profil"]);
         Route::post("profil/proses-ubah", [AccountPartnerController::class, "proses_ubah_profil"]);
         Route::post("profil/proses-reset-password", [AccountPartnerController::class, "proses_reset_password_profil"]);
+
+        Route::get("laporan/transaksi/affiliate", [ReportAffiliateController::class, "transaksi_tourism_card"]);
+        Route::get("laporan/transaksi/affiliate/cetak", [ReportAffiliateController::class, "cetak_transaksi_tourism_card"]);
+
+
     });
 });

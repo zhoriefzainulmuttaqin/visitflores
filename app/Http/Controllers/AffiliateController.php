@@ -45,30 +45,44 @@ class AffiliateController extends Controller
         ])->get();
 
         $tourismSale = DiscountCardSale::where([
-
+            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
             ['status', 'success'],
         ])->orderBy('date_confirmed', 'asc')->get();
 
         $data = [];
 
+        // Initialize an array to keep track of total commission and your commission for each code_reff
+        $totalCommissions = [];
+        $yourCommissions = [];
+
         foreach ($anggota as $aff) {
             $total_commission = 0;
-            $commission = 20/100;
+            $commission = (20/100);
             $share_commission = 0;
+            $commission_idr = 0;
+            $your_commission_idr = 0;
             $total_your_commission = 0;
 
             foreach ($tourismSale as $sale) {
-                $commission_idr = ($aff->commission_percent / 100) * $sale->price;
-                $total_commission += $commission_idr;
+                // Check if the current sale belongs to the current affiliate (code_reff)
+                if ($sale->code_reff == $aff->code_reff) {
+                    $commission_idr = ($aff->commission_percent / 100) * $sale->price;
+                    $total_commission += $commission_idr;
 
-                $share_commission = $commission - ($aff->commission_percent / 100);
-                $your_commission_idr = $share_commission  * $sale->price;
-                $total_your_commission += $your_commission_idr;
+                    $share_commission = $commission - ($aff->commission_percent / 100);
+                    $your_commission_idr = $share_commission * $sale->price;
+                    $total_your_commission += $your_commission_idr;
 
+                    // Store the your_commission_idr in the associative array
+                    $yourCommissions[$aff->code_reff] = $total_your_commission;
+                }
             }
 
+            // Store the total commission in the associative array
+            $totalCommissions[$aff->code_reff] = $total_your_commission;
+
             $data[] = [
-                'anggota' => $aff, // Change $anggota to $aff to pass individual affiliate data
+                'anggota' => $aff,
                 'tourismSale' => $tourismSale,
                 'commission_idr' => $commission_idr,
                 'your_commission_idr' => $your_commission_idr,
@@ -77,6 +91,8 @@ class AffiliateController extends Controller
             ];
         }
 
+        // Now, $totalCommissions and $yourCommissions arrays contain the total commission and your commission for each code_reff, respectively
+
         return view('affiliate.anggotaAffiliate')->with('data', $data);
     }
 
@@ -84,8 +100,8 @@ class AffiliateController extends Controller
     {
         $anggota = Affiliators::where('id', $request->id)->first();
         $tourismSale = DiscountCardSale::where([
-            ['id', $request->id],
-            ['code_reff',$request->code_reff],
+            // ['id', $request->id],
+            ['code_reff',$anggota->code_reff],
             ['status', 'success'],
         ])->orderBy('date_confirmed', 'asc')->get();
 
