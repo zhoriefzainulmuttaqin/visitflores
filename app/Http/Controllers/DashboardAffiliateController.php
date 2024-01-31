@@ -93,7 +93,7 @@ class DashboardAffiliateController extends Controller
                 $totalCommissions[$aff->code_reff] = $total_commission;
             }        }
 
-        return view("affiliate/dashboard", compact('jmlAnggota', 'totalCommissions', 'myCommission', 'yourCommissions', 'mydata', 'myTransaction', 'Commissions', ));
+        return view("affiliate/dashboard", compact('jmlAnggota', 'totalCommissions', 'myCommission', 'yourCommissions', 'mydata', 'myTransaction', 'Commissions', 'affiliators'));
 
     }
 
