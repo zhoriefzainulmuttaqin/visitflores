@@ -1,15 +1,10 @@
-@extends('affiliate.template')
+@extends('admin.template')
 
 @section('title')
-    Data Affiliasi Anda
+    Data Anggota {{ $ketua->name }}
 @endsection
 
 @section('content')
-    <div class="mb-3 text-right">
-        <a href="{{ url('app-affiliate/transaksi/beli-tourism-card') }}">
-            <button type="button" class="btn  btn-sm btn-primary">Tambah Pembelian Tourism Card</button>
-        </a>
-    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -19,25 +14,38 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Kode Referal</th>
-                                <th>Total Pembelian</th>
-                                <th>Total Nominal Pembelian</th>
-                                <th>Komisi (persen)</th>
-                                <th>Total Komisi (IDR)</th>
+                                <th>Kode Referral</th>
+                                <th>Persentase Komisi</th>
+                                <th>Total Komisi</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($anggota as $data)
+                            @php
+                                $total_your_commissions = 0; // Move this line outside the loop
+                                $total_commission = 0; // Move this line outside the loop
+                            @endphp
+
+                            @foreach ($data as $items)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                    <td>{{ $data->name }}</td>
-                                    <td>{{ $data->code_reff }}</td>
-                                    <td>{{ $data-> }}</td>
-                                    <td>{{ $data->quantity }}</td>
-                                    <td>{{ $data->price }}</td>
-                                    <td>{{ $commission_percent }}</td>
-                                    <td>{{ $total_commission }}</td>
+                                    <td>{{ $items['anggota']->name }}</td>
+                                    <td>{{ $items['anggota']->code_reff }}</td>
+                                    <td>{{ $items['anggota']->commission_percent }}%</td>
+                                    <td>{{ number_format($items['total_commission'], 0, ',', '.') }}</td>
+                                    <td class="text-center">
+                                        <a
+                                            href="{{ url('app-admin/affiliate/anggota/' . $items['anggota']->id) }}">
+                                            <button type="button" class="btn btn-sm btn-secondary" title="kelola">
+                                                Lihat Detail
+                                            </button>
+                                        </a>
+                                    </td>
                                 </tr>
+
+                                @php
+                                    $total_your_commissions += $items['total_your_commission'];
+                                @endphp
                             @endforeach
                         </tbody>
                     </table>

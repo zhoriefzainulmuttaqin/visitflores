@@ -20,7 +20,8 @@ class ReportAffiliateController extends Controller
         if ($type == "date") {
             $date = $request->date;
             $anggota = Affiliators::where("code_reff", Auth::guard('affiliators')->user()->code_reff)->first();
-            $rows = DiscountCardSale::where('code_reff', Auth::guard('affiliators')->user()->code_reff)->orderBy('date_confirmed', 'asc')->get();
+            $rows = DiscountCardSale::where('code_reff', Auth::guard('affiliators')->user()->code_reff)->whereDate('time_paid', '=', $date)
+            ->orderBy('date_confirmed', 'asc')->get();
 
             $title = "Pada Tanggal " . tglIndo($date);
             $total_commission = 0;
@@ -31,17 +32,16 @@ class ReportAffiliateController extends Controller
                 $commission_idr = ($anggota->commission_percent / 100) * $sale->price;
                 $total_commission += $commission_idr;
             }
+            // anggota
+            $anggotaAff = Affiliators::where([
+                ['location_id', Auth::guard('affiliators')->user()->location_id],
+                ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+            ])->get();
 
-                        // anggota
-                        $anggotaAff = Affiliators::where([
-                            ['location_id', Auth::guard('affiliators')->user()->location_id],
-                            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
-                        ])->get();
-
-                        $tourismSale = DiscountCardSale::where([
-                            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
-                            ['status', 'success'],
-                        ])->orderBy('date_confirmed', 'asc')->get();
+            $tourismSale = DiscountCardSale::where([
+                ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+                ['status', 'success'],
+                ])->whereDate('time_paid', '=', $date)->orderBy('date_confirmed', 'asc')->get();
 
 
         } elseif ($type == "between_date") {
@@ -49,7 +49,7 @@ class ReportAffiliateController extends Controller
             $end_date = $request->end_date;
 
             $anggota = Affiliators::where("code_reff", Auth::guard('affiliators')->user()->code_reff)->first();
-            $rows = DiscountCardSale::where("date_carted", ">=", $start_date)->where("date_carted", "<=", $end_date)->where([
+            $rows = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
                 ['code_reff', Auth::guard('affiliators')->user()->code_reff],
                 ['status', 'success'],
             ])->orderBy('date_confirmed', 'asc')->get();
@@ -64,18 +64,16 @@ class ReportAffiliateController extends Controller
                 $total_commission += $commission_idr;
             }
 
-                        // anggota
-                        $anggotaAff = Affiliators::where([
-                            ['location_id', Auth::guard('affiliators')->user()->location_id],
-                            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
-                        ])->get();
+            // anggota
+            $anggotaAff = Affiliators::where([
+                ['location_id', Auth::guard('affiliators')->user()->location_id],
+                ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+            ])->get();
 
-                        $tourismSale = DiscountCardSale::where([
-                            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
-                            ['status', 'success'],
-                            ["date_carted", ">=", $start_date],
-                            ["date_carted", "<=", $end_date],
-                        ])->orderBy('date_confirmed', 'asc')->get();
+            $tourismSale = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
+                ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+                ['status', 'success'],
+            ])->orderBy('date_confirmed', 'asc')->get();
 
         } elseif ($type == "month") {
             $month = $request->month;
@@ -87,7 +85,7 @@ class ReportAffiliateController extends Controller
             $end_date = $year . "-" . $month . "-" . $days_in_month;
 
             $anggota = Affiliators::where("code_reff", Auth::guard('affiliators')->user()->code_reff)->first();
-            $rows = DiscountCardSale::where("date_carted", ">=", $start_date)->where("date_carted", "<=", $end_date)->where([
+            $rows = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
                 ['code_reff', Auth::guard('affiliators')->user()->code_reff],
                 ['status', 'success'],
             ])->orderBy('date_confirmed', 'asc')->get();
@@ -102,18 +100,16 @@ class ReportAffiliateController extends Controller
                 $total_commission += $commission_idr;
             }
 
-                        // anggota
-                        $anggotaAff = Affiliators::where([
-                            ['location_id', Auth::guard('affiliators')->user()->location_id],
-                            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
-                        ])->get();
+            // anggota
+            $anggotaAff = Affiliators::where([
+                ['location_id', Auth::guard('affiliators')->user()->location_id],
+                ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+            ])->get();
 
-                        $tourismSale = DiscountCardSale::where([
-                            ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
-                            ['status', 'success'],
-                            ["date_carted", ">=", $start_date],
-                            ["date_carted", "<=", $end_date],
-                        ])->orderBy('date_confirmed', 'asc')->get();
+            $tourismSale = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
+                ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
+                ['status', 'success'],
+            ])->orderBy('date_confirmed', 'asc')->get();
 
         } elseif ($type == "year") {
             $year = $request->year;
@@ -122,7 +118,7 @@ class ReportAffiliateController extends Controller
             $end_date = $year . "-12-31";
 
             $anggota = Affiliators::where("code_reff", Auth::guard('affiliators')->user()->code_reff)->first();
-            $rows = DiscountCardSale::where("date_carted", ">=", $start_date)->where("date_carted", "<=", $end_date)->where([
+            $rows = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
                 ['code_reff', Auth::guard('affiliators')->user()->code_reff],
                 ['status', 'success'],
             ])->orderBy('date_confirmed', 'asc')->get();
@@ -143,11 +139,9 @@ class ReportAffiliateController extends Controller
                 ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
             ])->get();
 
-            $tourismSale = DiscountCardSale::where([
+            $tourismSale = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
                 ['code_reff', '!=', Auth::guard('affiliators')->user()->code_reff],
                 ['status', 'success'],
-                ["date_carted", ">=", $start_date],
-                ["date_carted", "<=", $end_date],
             ])->orderBy('date_confirmed', 'asc')->get();
 
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AccountPartnerController;
+use App\Http\Controllers\AffiliateAdminController;
 use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\AkomodasiController;
 use App\Http\Controllers\AuthAdminController;
@@ -113,6 +114,13 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/event/proses-ubah", [EventController::class, "proses_ubah_event"]);
         Route::get('buatSlug', [EventController::class, "buat_slug"]);
         Route::get("data/hapus/event/{Event:id}", [EventController::class, "hapus_event"]);
+
+        // affiliate
+        Route::get("/affiliate/ketua", [AffiliateAdminController::class, "affiliate_ketua"]);
+        Route::get("/affiliate/ketua/{id}", [AffiliateAdminController::class, "detail_ketua"]);
+        Route::get("/affiliate/anggota/ketua/{id}", [AffiliateAdminController::class, "anggota"]);
+        Route::get("/affiliate/anggota/{id}", [AffiliateAdminController::class, "detail_anggota"]);
+
 
         // akomodasi
         Route::get("data/akomodasi", [AkomodasiController::class, "admin_akomodasi"]);
@@ -229,6 +237,7 @@ Route::prefix("app-admin")->group(function () {
 
         // akun affiliators
         Route::get("akun/affiliators", [AccountController::class, "akun_affiliators"]);
+        Route::get('akun/affiliators/{id}/ktp', [AccountController::class, 'showKtp'])->name("show_ktp");
         Route::get("tambah/akun/affiliators", [AccountController::class, "tambah_akun_affiliators"]);
         Route::post("akun/affiliators/proses-tambah", [AccountController::class, "proses_tambah_akun_affiliators"]);
         Route::get("kelola/akun/affiliators/{id}", [AccountController::class, "kelola_akun_affiliators"]);
@@ -250,6 +259,8 @@ Route::prefix("app-admin")->group(function () {
         Route::get("laporan/transaksi/paket-oleholeh/cetak", [ReportAdminController::class, "cetak_transaksi_paket_oleholeh"]);
         Route::get("laporan/penggunaan-kartu", [ReportAdminController::class, "penggunaan_kartu"]);
         Route::get("laporan/penggunaan-kartu/cetak", [ReportAdminController::class, "penggunaan_kartu_cetak"]);
+        Route::get("laporan/transaksi/affiliate", [ReportAdminController::class, "transaksi_affiliate"]);
+        Route::get("laporan/transaksi/affiliate/cetak", [ReportAdminController::class, "cetak_transaksi_affiliate"]);
     });
 });
 

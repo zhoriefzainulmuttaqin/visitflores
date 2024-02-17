@@ -15,7 +15,6 @@ class AuthAdminController extends Controller
 
     public function proses_masuk(Request $request)
     {
-
         $username = $request->input('username');
         $password = $request->input('password');
         if (Auth::guard('admin')->attempt(['username' => $username, 'password' => $password])) {

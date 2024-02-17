@@ -7,7 +7,7 @@ Dashboard
 @section("content")
 
 <div class="row">
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-2 col-6">
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{ $count_wisata }}</h3>
@@ -19,7 +19,7 @@ Dashboard
             <a href="{{ url('app-admin/data/wisata') }}" class="small-box-footer">Kelola Data <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-2 col-6">
         <div class="small-box bg-success">
             <div class="inner">
                 <h3>{{ $count_kuliner }}</h3>
@@ -31,7 +31,7 @@ Dashboard
             <a href="{{ url('app-admin/data/kuliner') }}" class="small-box-footer">Kelola Data <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-2 col-6">
         <div class="small-box bg-warning">
             <div class="inner">
                 <h3>{{ $count_oleholeh }}</h3>
@@ -43,7 +43,7 @@ Dashboard
             <a href="{{ url('app-admin/data/oleholeh') }}" class="small-box-footer">Kelola Data <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <div class="col-lg-3 col-6">
+    <div class="col-lg-2 col-6">
         <div class="small-box bg-danger">
             <div class="inner">
                 <h3>{{ $count_akomodasi }}</h3>
@@ -53,6 +53,30 @@ Dashboard
                 <i class="fa fa-home"></i>
             </div>
             <a href="{{ url('app-admin/data/akomodasi') }}" class="small-box-footer">Kelola Data <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-6">
+        <div class="small-box bg-secondary">
+            <div class="inner">
+                <h3>{{ $count_affiliators }}</h3>
+                <p>Affiliators</p>
+            </div>
+            <div class="icon">
+                <i class="fa fa-users"></i>
+            </div>
+            <a href="{{ url('app-admin/affiliate/ketua') }}" class="small-box-footer">Kelola Data <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-2 col-6">
+        <div class="small-box bg-dark">
+            <div class="inner">
+                <h3>{{ $count_tourism }}</h3>
+                <p>Tourism Card</p>
+            </div>
+            <div class="icon" style="color: white; opacity: 0.3;">
+                <i class="fa fa-credit-card"></i>
+            </div>
+            <a href="{{ url('app-admin/transaksi/tourism-card') }}" class="small-box-footer">Kelola Data <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 </div>
@@ -157,12 +181,12 @@ Dashboard
                     </thead>
                     <tbody>
                         @foreach($cardSales as $transaction)
-                        <?php                        
+                        <?php
                         $saleKode = saleKode("TC",$transaction);
                         ?>
                         <tr>
                             <td class="text-center">#{{ $saleKode }}</td>
-                            <td>{{ $transaction->user->name }}</td>                            
+                            <td>{{ $transaction->user->name }}</td>
                             <td class="text-center">
                                 {{ $transaction->quantity }}
                             </td>
@@ -207,12 +231,12 @@ Dashboard
                     </thead>
                     <tbody>
                         @foreach($giftSales as $transaction)
-                        <?php                        
+                        <?php
                         $saleKode = saleKode("P",$transaction);
                         ?>
                         <tr>
                             <td class="text-center">#{{ $saleKode }}</td>
-                            <td>{{ $transaction->user->name }}</td>                            
+                            <td>{{ $transaction->user->name }}</td>
                             @foreach($transaction->items as $item)
                             <td>{{ $item->snapshot_name }}</td>
                             <td class="text-center">

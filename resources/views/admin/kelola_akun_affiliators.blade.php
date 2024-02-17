@@ -15,6 +15,7 @@
                     <form class="fr-login" action="<?= url('app-admin/akun/affiliators/proses-ubah') ?>" method="post">
                         @csrf
                         <div class="form-floating form-login">
+                            <input type="hidden" name="affiliators" value="{{ $dataAccount->id }}">
 
                             <div class="mb-2">
                                 <label for="name"> Nama </label>
@@ -113,6 +114,18 @@
                                 </select>
                             </div>
                             <div class="mb-2 my-3">
+                                <label for="commission_percent"> Persentase Komisi </label>
+                                <input type="text"
+                                    value="<?= old('commission_percent') ? old('commission_percent') : $dataAccount->commission_percent ?>"
+                                    class="form-control shadow-none @error('commission_percent')is-invalid @enderror"
+                                    name="commission_percent" id="commission_percent" placeholder="commission_percent" required autocomplete="off">
+                                @error('commission_percent')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-2 my-3">
                                 <label for="status">Pilih Status</label>
                                 <select class="form-control" id="status" required name="status">
                                     <option value="">--- Pilih Status ---</option>
@@ -121,6 +134,19 @@
                                     <option value="2" {{ $dataAccount->status == 2 ? 'selected' : '' }}>Anggota
                                     </option>
                                 </select>
+                            </div>
+                            <div class="mb-2 my-3">
+                                <label for="ktp" class="form-label">Gambar</label>
+                                <br>
+                                <img id="addImage" src='{{ url("/assets/affiliators/$dataAccount->ktp") }}'
+                                    class="img-preview mb-3 img-fluid" style="max-height: 300px; width: auto;">
+                                <input class="form-control @error('ktp') is-invalid @enderror" type="file" name="ktp"
+                                    id="ktp" onchange="previewImage()">
+                                @error('ktp')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                             <div class="mt-2">
                                 <label>Status Aktif</label>
@@ -193,18 +219,19 @@
             }
         });
 
-        $("#type").change(function() {
-            $.ajax({
-                url: "<?= url('app-admin/akun/affiliators/pilih-tipe') ?>",
-                type: "get",
-                data: {
-                    type: $('#type').val(),
-                    id: $('#id').val(),
-                },
-                success: function(data) {
-                    $("#select_type").replaceWith(data)
-                }
-            });
-        });
+        function previewImage() {
+            const ktp = document.querySelector('#ktp');
+            const imgPreview = document.querySelector('#addImage');
+
+            imgPreview.style.display = 'block';
+
+            const ofReader = new FileReader();
+            ofReader.readAsDataURL(ktp.files[0]);
+
+            ofReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
     </script>
 @endsection

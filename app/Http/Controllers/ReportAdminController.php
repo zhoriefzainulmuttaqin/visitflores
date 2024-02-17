@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Affiliators;
 use Illuminate\Http\Request;
 
 use App\Models\Payment;
@@ -170,5 +171,109 @@ class ReportAdminController extends Controller
         ]);
 
         return view("admin/cetak_laporan_penggunaan_kartu",$data);
+    }
+
+    // affiliate
+    public function transaksi_affiliate()
+    {
+        return view("admin/laporan_transaksi_affiliate");
+    }
+    public function cetak_transaksi_affiliate(Request $request)
+    {
+        $type = $request->type;
+
+        if ($type == "date") {
+            $date = $request->date;
+
+            $title = "Pada Tanggal " . tglIndo($date);
+
+            // anggota
+            $affiliators = Affiliators::get();
+
+            $tourismSale = DiscountCardSale::where([
+                // ['code_reff', $affiliators->code_reff],
+                ['status', 'success'],
+            ])->whereDate('time_paid', '=', $date)->orderBy('date_confirmed', 'asc')->get();
+
+
+
+
+        } elseif ($type == "between_date") {
+            $start_date = $request->start_date;
+            $end_date = $request->end_date;
+
+            $title = "Dari Tanggal " . tglIndo($start_date) . " Sampai Tanggal " . tglIndo($end_date);
+
+            // anggota
+          $affiliators = Affiliators::get();
+
+            $tourismSale = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
+                // ['code_reff', $affiliators->code_reff],
+                ['status', 'success'],
+            ])->orderBy('date_confirmed', 'asc')->get();
+
+
+        } elseif ($type == "month") {
+            $month = $request->month;
+            $year = $request->year;
+
+            $days_in_month = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+            $start_date = $year . "-" . $month . "-01";
+            $end_date = $year . "-" . $month . "-" . $days_in_month;
+
+
+
+            $title = "Pada Bulan " . getBulanIndo()[$month - 1] . " Tahun " . $year;
+
+            // anggota
+          $affiliators = Affiliators::get();
+
+            $tourismSale = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
+                // ['code_reff', $affiliators->code_reff],
+                ['status', 'success'],
+            ])->orderBy('date_confirmed', 'asc')->get();
+
+
+        } elseif ($type == "year") {
+            $year = $request->year;
+
+            $start_date = $year . "-01-01";
+            $end_date = $year . "-12-31";
+
+            // anggota
+            $title = "Pada Tahun " . $year;
+            $affiliators = Affiliators::get();
+
+            $tourismSale = DiscountCardSale::whereDate('time_paid', '>=', $start_date)->whereDate('time_paid', '<=', $end_date)->where([
+                // ['code_reff', $affiliators->code_reff],
+                ['status', 'success'],
+            ])->orderBy('date_confirmed', 'asc')->get();
+
+
+
+        } else {
+
+
+            $title = "Keseluruhan";
+
+            // anggota
+            $affiliators = Affiliators::get();
+
+            $tourismSale = DiscountCardSale::where([
+                // ['code_reff', $affiliators->code_reff],
+                ['status', 'success'],
+            ])->orderBy('date_confirmed', 'asc')->get();
+
+        }
+
+        $data = ([
+            'title' => $title,
+            'affiliators' => $affiliators,
+            'tourismSale' => $tourismSale,
+
+        ]);
+
+        return view("admin/cetak_laporan_transaksi_affiliate", $data);
     }
 }

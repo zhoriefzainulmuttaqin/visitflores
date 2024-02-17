@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use DateTime;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -55,6 +56,7 @@ class EventController extends Controller
         if ($request->star_list) {
             $events->appends($order);
         }
+
         $data = [
             'events' => $events,
             'keyword' => $keyword,
@@ -202,4 +204,7 @@ class EventController extends Controller
         session()->flash('msg', "<h5>Berhasil</h5><p>Event Berhasil Dihapus</p>");
         return redirect()->to("/app-admin/data/event");
     }
+
+
+
 }

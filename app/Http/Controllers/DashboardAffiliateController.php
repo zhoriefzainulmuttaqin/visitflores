@@ -49,7 +49,9 @@ class DashboardAffiliateController extends Controller
 
         $myCommission = 0;
         $myCommission_idr = 0;
+        $myCommission_idr = 0;
         $Commissions = []; // Initialize $Commissions as an array
+        $totalCommissions = []; // Initialize $Commissions as an array
 
         foreach ($tourismSale as $trans) {
             // Assuming commission_percent is a property of the Affiliators model

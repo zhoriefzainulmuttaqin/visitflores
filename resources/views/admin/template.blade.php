@@ -157,7 +157,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/transaksi/tourism-card') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/affiliate/ketua') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Affiliate</p>
                                     </a>
@@ -227,7 +227,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-admin/laporan/penggunaan-kartu') }}" class="nav-link">
+                                    <a href="{{ url('app-admin/laporan/transaksi/affiliate') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Affiliate</p>
                                     </a>

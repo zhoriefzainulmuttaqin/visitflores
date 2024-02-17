@@ -15,6 +15,7 @@ use App\Models\Tour;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AccountController extends Controller
 {
@@ -557,7 +558,8 @@ class AccountController extends Controller
                 'username' => ['required', 'unique:affiliators'],
                 'phone' => ['required', 'unique:affiliators'],
                 'password' => 'required|min:5',
-                'password_confirmation' => 'required|same:password'
+                'password_confirmation' => 'required|same:password',
+                'ktp' => 'image',
             ],
             [
                 'email.unique' => 'Email : ' . $email . ' sudah terdaftar !',
@@ -565,8 +567,13 @@ class AccountController extends Controller
                 'phone.unique' => 'No. Handphone : ' . $phone . ' sudah terdaftar !',
                 'password.min' => 'Panjang password minimal 5 karakter !',
                 'password_confirmation.same' => 'Konfirmasi password yang anda masukan salah !',
+                'ktp.image' => 'File harus berupa gambar',
             ]
         );
+
+        $ktp = $request->file('ktp');
+        $nameKTP = Str::random(40) . '.' . $ktp->getClientOriginalExtension();
+        $ktp->move('./assets/affiliators/', $nameKTP);
 
         Affiliators::insert([
             'name' => $name,
@@ -581,6 +588,7 @@ class AccountController extends Controller
             'norek' => $norek,
             'password' => Hash::make($password),
             'commission_percent' => $commission_percent,
+            'ktp' => $nameKTP,
         ]);
 
         session()->flash('msg_status', 'success');
@@ -592,12 +600,23 @@ class AccountController extends Controller
         $tourismSale = DiscountCardSale::get();
         $affiliators = Affiliators::orderBy('name', 'asc')->get();
 
-            // $commission_idr = ($affiliators->commission_percent/100) * $tourismSale->price;
+        // $commission_idr = ($affiliators->commission_percent/100) * $tourismSale->price;
 
         $data = [
             'affiliators' => $affiliators,
         ];
         return view('admin.akun_affiliators', $data);
+    }
+
+    public function showKtp($id)
+    {
+        $affiliator = Affiliators::findOrFail($id);
+
+        // Retrieve the KTP image path (assuming it's stored in a `ktp_path` field)
+        $ktpPath = $affiliator->ktp_path;
+
+        // Serve the image with appropriate headers
+        return response()->file($ktpPath);
     }
 
     public function kelola_akun_affiliators(Request $request)
@@ -633,25 +652,27 @@ class AccountController extends Controller
         $location_id = $request->location_id;
         $address = $request->address;
         $norek = $request->norek;
+        $commission_percent = $request->commission_percent;
 
-        $dataAffiliate = Affiliators::where('id', $id)->first();
+
+        $nameKTP = null; // Initialize $nameKTP to null
+        $data_aff = Affiliators::where('id', $id)->first();
 
         $rules = [];
-
-        if ($request->email != $dataAffiliate->email) {
-            $rules['email'] = 'required|unique:affiliators';
+        if ($request->email != $data_aff->email) {
+            $rules['email'] = 'required|unique:administrators';
         } else {
             $rules['email'] = 'required';
         }
 
-        if ($request->phone != $dataAffiliate->phone) {
-            $rules['phone'] = 'required|unique:affiliators';
+        if ($request->phone != $data_aff->phone) {
+            $rules['phone'] = 'required|unique:administrators';
         } else {
             $rules['phone'] = 'required';
         }
 
-        if ($request->username != $dataAffiliate->username) {
-            $rules['username'] = 'required|unique:affiliators';
+        if ($request->username != $data_aff->username) {
+            $rules['username'] = 'required|unique:administrators';
         } else {
             $rules['username'] = 'required';
         }
@@ -662,9 +683,18 @@ class AccountController extends Controller
             'username.unique' => 'Username : ' . $username . ' sudah terdaftar !',
         ]);
 
-        Affiliators::where('id', $id)
-            ->update([
+        if ($request->hasFile('ktp')) {
+            $aff = Affiliators::where('id', $request->input('affiliators_id'))->first();
+            if ($aff->ktp != NULL) {
+                unlink(('./assets/affiliators/') . $aff->ktp);
+            }
+            $ktp = $request->file('ktp');
+            $nameKTP = Str::random(40) . '.' . $ktp->getClientOriginalExtension();
+            $ktp->move('./assets/affiliators/', $nameKTP);
+        }
 
+        Affiliators::where('id', $request->input('affiliators_id'))
+            ->update([
                 'name' => $name,
                 'phone' => $phone,
                 'email' => $email,
@@ -675,13 +705,14 @@ class AccountController extends Controller
                 'location_id' => $location_id,
                 'address' => $address,
                 'norek' => $norek,
+                'commission_percent' => $commission_percent,
+                'ktp' => $nameKTP,
             ]);
-
-
         session()->flash('msg_status', 'success');
         session()->flash('msg', "<h5>Berhasil</h5><p>Akun affiliators Berhasil Diubah</p>");
-        return redirect()->to('app-admin/kelola/akun/affiliators/' . $id);
+        return redirect()->to("app-admin/kelola/akun/affiliators/$aff->id");
     }
+
 
     public function proses_reset_password_akun_affiliators(Request $request)
     {
