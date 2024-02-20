@@ -174,6 +174,14 @@ Route::prefix("app-admin")->group(function () {
         Route::post("data/paket-oleh-oleh/proses-ubah", [GiftController::class, "proses_ubah_paket_oleh_oleh"]);
         Route::get("data/paket-oleh-oleh/proses-hapus/{slug}", [GiftController::class, "proses_hapus_paket_oleh_oleh"]);
 
+        // // paket wisata
+        // Route::get("data/paket-oleh-oleh", [GiftController::class, "admin_paket_wisata"]);
+        // Route::get("data/tambah/paket-oleh-oleh", [GiftController::class, "tambah_paket_wisata"]);
+        // Route::post("data/paket-oleh-oleh/proses-tambah", [GiftController::class, "proses_tambah_paket_wisata"]);
+        // Route::get("data/ubah/paket-oleh-oleh/{slug}", [GiftController::class, "ubah_paket_wisata"]);
+        // Route::post("data/paket-oleh-oleh/proses-ubah", [GiftController::class, "proses_ubah_paket_wisata"]);
+        // Route::get("data/paket-oleh-oleh/proses-hapus/{slug}", [GiftController::class, "proses_hapus_paket_wisata"]);
+
         // iklan
         Route::get("data/iklan", [IklanController::class, "iklan"]);
         Route::get("data/iklan_atas", [IklanController::class, "iklanAtas"]);

@@ -175,4 +175,15 @@ class GiftController extends Controller
             return redirect()->to('/app-admin/data/paket-oleh-oleh');
         }
     }
+
+    // paket wisata
+    public function admin_paket_wisata()
+    {
+        $patterns = Gift::orderBy('name', 'asc')->get();
+
+        $data = [
+            'patterns' => $patterns,
+        ];
+        return view('admin.paket_wisata', $data);
+    }
 }
