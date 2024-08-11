@@ -20,18 +20,18 @@ class UserHomeController extends Controller
     //
     public function home()
     {
-        if(Cookie::get('user-language') != NULL){
+        if (Cookie::get('user-language') != NULL) {
             $locale = Cookie::get('user-language');
             App::setLocale($locale);
-        }else{
+        } else {
             $locale = "id";
             App::setLocale("id");
         }
 
         $events = Event::orderBy("start_date", "asc")->orderBy("id", "asc")->get();
-        $culiners = Restaurant::whereIn('id', [16, 18, 53])->get();
+        $culiners = Restaurant::whereIn('id', [130, 131, 132])->get();
         $cafe = Restaurant::where('cafe_resto', '=', 1)->limit(12)->get();
-        $souvenirs = Shop::where("id","!=",1)->whereIn('id', [4, 57, 29])->get();
+        $souvenirs = Shop::where("id", "!=", 1)->whereIn('id', [68, 69, 70])->get();
         // $iklanAtas = Ads::where('status', 1)->get();
         // $iklanBawah = Ads::where('status', 2)->get();
         // $iklanPopup = Ads::where('status', 3)->get();

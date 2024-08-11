@@ -6,13 +6,21 @@
         margin-left: 25px;
     }
 </style>
+@php
+    use App\Models\Ads;
 
+    $iklanBawah = Ads::where('status', 2)
+        ->whereIn('active_status', [1]) // Ganti dengan nilai yang sesuai
+        ->get();
+@endphp
 <div class="sliderIklan">
     <div id="oc-images" class="owl-carousel image-carousel  carousel-widget" data-items-xs="1" data-items-sm="1"
         data-items-lg="1" data-items-xl="1" data-autoplay="3000" data-loop="true">
-        <div class="oc-item">
-            <img src="assets/iklan/Iklan Visit Cirebon (1074 x 258 px) - Jan 2024.png" alt="iklan swiss bawah" style="width: 1000%">
-        </div>
+        @foreach ($iklanBawah as $ads)
+            <div class="oc-item">
+                <img src="assets/iklan/{{ $ads->picture }}" alt="{{ $ads->slug }}" style="width: 1000%">
+            </div>
+        @endforeach
         {{-- <div class="oc-item">
                 </div> --}}
     </div>
@@ -30,12 +38,12 @@
             <p class="text-center">
                 <b class="h3">{{ getOption('slogan') }}</b>
                 <br>
-                with <span class='text-warning'>visitcirebon.id</span>
+                with <span class='text-warning'>ujicobantt.id</span>
                 <br>
                 <a href="{{ getOption('fb_link') }}" target="_blank" class="h5">
                     <i class='uil-facebook-f'></i>
                 </a>
-                <a href="https://www.instagram.com/visitcirebon.id?igshid=ODA1NTc5OTg5Nw==" target="_blank" class="h5">
+                <a href="#" target="_blank" class="h5">
                     <i class='uil-instagram'></i>
                 </a>
                 <a href="https://www.tiktok.com/@visit.cirebon.id?_t=8iKVr2u4Z6e&_r=1" target="_blank" class="h5">
@@ -52,7 +60,7 @@
                     $footer_year = config('app.year_made') . ' - ' . date('Y');
                 }
                 ?>
-                <b class="text-warning">Copyright &copy; {{ config('app.year_made') }}</b>
+                <b class="text-warning">Copyright &copy; {{ config('app.author') }} {{ config('app.year_made') }}</b>
             </p>
         </div>
     </div><!-- #copyrights end -->

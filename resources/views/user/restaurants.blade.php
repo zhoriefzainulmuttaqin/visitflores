@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 @endsection
 
 @section('cover')
-    <?= url('assets/bg/kuliner.png') ?>
+    <?= url('assets/bg/kolo.webp') ?>
 @endsection
 
 @section('content')
@@ -120,13 +120,13 @@ use Illuminate\Support\Facades\App;
                                 <div class="mb-3">
                                     <div class="fw-bold">
                                         {{-- <?= number_format($restaurant->price, 0, ',', '.') ?> --}}
-                                         <?php
-                                                    if ($restaurant->id == 121 || $restaurant->id == 122   ) {
-                                                        echo 'Rp. ' . number_format($restaurant->price, 0, ',', '.');
-                                                    } else {
-                                                        echo '-';
-                                                    }
-                                                    ?>
+                                        <?php
+                                        if ($restaurant->id == 121 || $restaurant->id == 122) {
+                                            echo 'Rp. ' . number_format($restaurant->price, 0, ',', '.');
+                                        } else {
+                                            echo '-';
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="entry-meta no-separator mb-3">

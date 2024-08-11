@@ -102,8 +102,7 @@
                             }
                             ?>
                         </div><input id="input-2" type="number" name="star" class="rating rating-input" max="5"
-                            data-step="1" data-stars="5" data-size="sm" value="{{ old('star') ?? $star }}" tabindex="-1"
-                            >
+                            data-step="1" data-stars="5" data-size="sm" value="{{ old('star') ?? $star }}" tabindex="-1">
                         <div class="form-group">
                             <label for="address"> Alamat </label>
                             <textarea class="form-control @error('address') is-invalid @enderror" name="address" id="address"
@@ -241,7 +240,7 @@
                                 value="1" {{ $accomodation->mitra_status == '1' ? 'checked' : '' }}
                                 id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
-                                Akomodasi Sudah Bermitra Dengan Visit Cirebon
+                                Akomodasi Sudah Bermitra Dengan UJICOBANTT
                             </label>
                         </div>
                     </div>

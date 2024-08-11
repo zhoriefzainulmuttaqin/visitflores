@@ -5,7 +5,7 @@
 @endsection
 
 @section('cover')
-    <?= url('assets/bg/imageevent.png') ?>
+    <?= url('assets/bg/event.jpg') ?>
 @endsection
 
 @section('content')

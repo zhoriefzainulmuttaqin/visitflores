@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 @endsection
 
 @section('cover')
-    <?= url('assets/bg/wisata.png') ?>
+    <?= url('assets/bg/wisata.jpg') ?>
 @endsection
 
 @section('content')
@@ -48,7 +48,7 @@ use Illuminate\Support\Facades\App;
                             <input type="text" id="icons-filter" name="keyword" class="form-control border-end-0"
                                 value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}"
                                 placeholder="{{ __("
-                                							tours.search_destination_placeholder") }}">
+                                                                							tours.search_destination_placeholder") }}">
                             <button type="submit" class="input-group-text bg-white border-start-0">
                                 <i class="uil uil-search"></i>
                             </button>

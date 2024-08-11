@@ -16,20 +16,38 @@ return [
     |
     */
 
-    'name' => "Visit Cirebon",
+    'name' => "UJICOBANTT",
+    'author' => "Zhorief Zainul Muttaqin",
 
-    'year_made' => 2023,
+    'year_made' => 2024,
 
     'slogan' => "Never - Ending Experience",
 
-    'cities'    => ([
-        "Kota Cirebon",
-        "Kabupaten Cirebon",
-        "Kabupaten Kuningan",
-        "Kabupaten Majalengka",
-        "Kabupaten Indramayu"
+    'cities' => ([
+        "Kabupaten Alor",
+        "Kabupaten Belu",
+        "Kabupaten Ende",
+        "Kabupaten Flores Timur",
+        "Kabupaten Kupang",
+        "Kabupaten Lembata",
+        "Kabupaten Malaka",
+        "Kabupaten Manggarai",
+        "Kabupaten Manggarai Barat",
+        "Kabupaten Manggarai Timur",
+        "Kabupaten Nagekeo",
+        "Kabupaten Ngada",
+        "Kabupaten Rote Ndao",
+        "Kabupaten Sabu Raijua",
+        "Kabupaten Sikka",
+        "Kabupaten Sumba Barat",
+        "Kabupaten Sumba Barat Daya",
+        "Kabupaten Sumba Tengah",
+        "Kabupaten Sumba Timur",
+        "Kabupaten Timor Tengah Selatan",
+        "Kabupaten Timor Tengah Utara",
+        "Kota Kupang",
     ]),
-    'days'    => [
+    'days' => [
         'Monday' => "Senin",
         'Tuesday' => "Selasa",
         'Wednesday' => "Rabu",
@@ -38,7 +56,7 @@ return [
         'Saturday' => "Sabtu",
         'Sunday' => "Minggu",
     ],
-    'months'    => [
+    'months' => [
         'January' => "Januari",
         'February' => "Februari",
         'March' => "Maret",

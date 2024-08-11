@@ -5,7 +5,7 @@
 @endsection
 
 @section('cover')
-    <?= url('assets/akomodasi/bg-2.jpg') ?>
+    <?= url('assets/bg/bintang.webp') ?>
 @endsection
 @section('style')
     <link rel="stylesheet" href="{{ url('canvas') }}/css/components/bs-rating.css">
@@ -308,7 +308,7 @@
                                                 <strong class="fs-4 text-danger">
                                                     <br>
                                                     <?php
-                                                    if ($accomodation->id == 6 || $accomodation->id == 41  || $accomodation->id == 16 || $accomodation->id == 4 ) {
+                                                    if ($accomodation->id == 6 || $accomodation->id == 41 || $accomodation->id == 16 || $accomodation->id == 4) {
                                                         echo 'Rp. ' . number_format($accomodation->price_start_from, 0, ',', '.');
                                                     } else {
                                                         echo '-';

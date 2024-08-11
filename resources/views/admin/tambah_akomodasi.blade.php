@@ -207,7 +207,7 @@
                             <input class="form-check-input btn-outline-primary" name="mitra_status" type="checkbox"
                                 value="1" id="defaultCheck1">
                             <label class="form-check-label" for="defaultCheck1">
-                                Akomodasi Sudah Bermitra Dengan Visit Cirebon
+                                Akomodasi Sudah Bermitra Dengan UJICOBANTT
                             </label>
                         </div>
                     </div>

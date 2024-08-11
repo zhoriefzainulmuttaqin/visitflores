@@ -17,8 +17,8 @@ class OptionSeeder extends Seeder
         //
         $options = ([
             ([
-                "option_code"   => "tourism_card_price",
-                "option_value"  => "25000",
+                "option_code" => "tourism_card_price",
+                "option_value" => "25000",
             ]),
             ([
                 "option_code" => "cs_phone",
@@ -26,7 +26,7 @@ class OptionSeeder extends Seeder
             ]),
             ([
                 "option_code" => "email",
-                "option_value" => "visitcirebon@gmail.com",
+                "option_value" => "ujicobantt@gmail.com",
             ]),
             ([
                 "option_code" => "slogan",

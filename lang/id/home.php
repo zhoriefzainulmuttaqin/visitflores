@@ -4,7 +4,7 @@
 
 return [
     "portal_text" => "Portal Informasi Pariwisata Cirebon Raya",
-    "highlight_title_web" => "Website Visit Cirebon",
+    "highlight_title_web" => "Website UJICOBANTT",
     "highlight_title_events" => "Majestic Event",
     "highlight_title_destination_360" => "Destinasi 360<sup>0</sup>",
     "highlight_description_web" => "Dapatkan semua fitur dalam satu genggaman",
@@ -18,9 +18,9 @@ return [
     "title_souvenirs" => "Oleh-oleh",
     "title_accommodations" => "Akomodasi",
     "title_service_products" => "Produk Layanan Kami",
-    "title_news"    => "Berita Terkini",
-    "title_news_general"    => "Berita",
-    "title_calender_events"   => "Kalender Event",
+    "title_news" => "Berita Terkini",
+    "title_news_general" => "Berita",
+    "title_calender_events" => "Kalender Event",
     "subtitle_destinations" => "Berikut ini daftar wisata yang sering dikunjungi wisatawan.",
     "subtitle_culinaries" => "Berikut ini daftar kuliner yang sering dinikmati wisatawan.",
     "subtitle_cafe" => "Berikut ini daftar cafe & resto yang sering dikunjungi wisatawan.",

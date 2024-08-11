@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 @endsection
 
 @section('cover')
-    <?= url('assets/oleh-oleh/bg.png') ?>
+    <?= url('assets/bg/oleholeh.webp') ?>
 @endsection
 
 @section('content')

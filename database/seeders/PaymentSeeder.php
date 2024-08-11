@@ -16,24 +16,24 @@ class PaymentSeeder extends Seeder
         //
         $payments = ([
             ([
-                "name"              => "BNI",
-                "account_name"      => "Visit Cirebon ID",
-                "account_number"    => "20230231"
+                "name" => "BNI",
+                "account_name" => "UJICOBANTT ID",
+                "account_number" => "20230231"
             ]),
             ([
-                "name"              => "BRI",
-                "account_name"      => "Visit Cirebon ID",
-                "account_number"    => "20230231"
+                "name" => "BRI",
+                "account_name" => "UJICOBANTT ID",
+                "account_number" => "20230231"
             ]),
             ([
-                "name"              => "BCA",
-                "account_name"      => "Visit Cirebon ID",
-                "account_number"    => "20230231"
+                "name" => "BCA",
+                "account_name" => "UJICOBANTT ID",
+                "account_number" => "20230231"
             ]),
             ([
-                "name"              => "Mandiri",
-                "account_name"      => "Visit Cirebon ID",
-                "account_number"    => "20230231"
+                "name" => "Mandiri",
+                "account_name" => "UJICOBANTT ID",
+                "account_number" => "20230231"
             ]),
         ]);
 

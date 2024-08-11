@@ -127,8 +127,7 @@
                             </a>
                             <ul class="nav nav-treeview" style='font-size:14px'>
                                 <li class="nav-item">
-                                    <a href="{{ url('app-affiliate/laporan/transaksi/affiliate') }}"
-                                        class="nav-link">
+                                    <a href="{{ url('app-affiliate/laporan/transaksi/affiliate') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Transaksi Affiliate</p>
                                     </a>
@@ -166,7 +165,7 @@
                 &nbsp;
             </div>
             <strong>Copyright &copy; {{ config('app.year_made') }} <a
-                    href="https://visitcirebon.id">{{ config('app.name') }}</a>.</strong> All rights reserved.
+                    href="https://ujicobantt.id">{{ config('app.name') }}</a>.</strong> All rights reserved.
         </footer>
     </div>
 

@@ -1,7 +1,5 @@
 @extends('user.template')
 
-
-
 @section('title')
     Home
 @endsection
@@ -13,7 +11,9 @@
         body {
             /* overflow-x: hidden; */
         }
-
+        br {
+            line-height: 0.1em !important;
+        }
         #home-event-container {
             background-image: url("<?= url('assets/ellipse.png') ?>");
             background-position: center;
@@ -153,35 +153,35 @@
             }
 
             /* @media (min-width: 768px) and (max-width: 1920px) {
-                                                                                    #but_event {
-                                                                                    width: 15rem;
-                                                                                    height: 100px;
-                                                                                    font-size: 24px;
-                                                                                    font-weight: 500;
-                                                                                    margin-top: -3rem;
-                                                                                    margin-left: auto;
-                                                                                    margin-right: auto;
-                                                                                    display: flex;
-                                                                                    justify-content: center;
-                                                                                    align-items: center;
-                                                                                    border-radius: 5px;
+                                                                                            #but_event {
+                                                                                            width: 15rem;
+                                                                                            height: 100px;
+                                                                                            font-size: 24px;
+                                                                                            font-weight: 500;
+                                                                                            margin-top: -3rem;
+                                                                                            margin-left: auto;
+                                                                                            margin-right: auto;
+                                                                                            display: flex;
+                                                                                            justify-content: center;
+                                                                                            align-items: center;
+                                                                                            border-radius: 5px;
 
-                                                                                }
+                                                                                        }
 
-                                                                                .title_event {
-                                                                                    font-size: 16px;
-                                                                                    font-weight: 999;
-                                                                                    margin-bottom: 1.5rem;
-                                                                                    margin-top: 7rem !important;
-                                                                                }
+                                                                                        .title_event {
+                                                                                            font-size: 16px;
+                                                                                            font-weight: 999;
+                                                                                            margin-bottom: 1.5rem;
+                                                                                            margin-top: 7rem !important;
+                                                                                        }
 
-                                                                                .owl-carousel .owl-dots .owl-dot {
-                                                                                    background-color: #676565;
-                                                                                    width: 2em;
-                                                                                    height: 2em;
-                                                                                }
+                                                                                        .owl-carousel .owl-dots .owl-dot {
+                                                                                            background-color: #676565;
+                                                                                            width: 2em;
+                                                                                            height: 2em;
+                                                                                        }
 
-                                                                                } */
+                                                                                        } */
 
         }
     </style>
@@ -196,7 +196,7 @@
 
                 {{ strtoupper(__('home.title_calender_events')) }}
                 <!-- <p>                                                                                 {{ __('content.welcome') }}
-                                                                                                            </p> -->
+                                                                                                                    </p> -->
             </p>
             <div class="d-block d-md-none">
                 <div id="oc-images" class="owl-carousel image-carousel  carousel-widget mb-6" data-items-xs="2"
@@ -335,8 +335,8 @@
 
 
         /* .mySwiper2-mobile{
-                                                        margin-left:-9.75rem;
-                                                    } */
+                                                                margin-left:-9.75rem;
+                                                            } */
         @media only screen and (min-width: 200px) and (max-width: 767px) {
             .mySwiper2-mobile {
                 /* margin-left:-20%; */
@@ -714,7 +714,7 @@
             /* Adjust the blur amount */
         }
 
-        .cafe_caption .entry-image{
+        .cafe_caption .entry-image {
             height: 220px;
         }
 
@@ -1422,7 +1422,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="entry-content mt-1" style="margin-top: -0rem; margin-bottom: 1rem">
+                                    <div class="entry-content mt-1"
+                                        style="margin-top: -0rem; margin-bottom: 1rem; line-height:">
                                         {!! mb_substr(nl2br($news[0]->content_en), 0, 450) !!}
                                         <br>
                                         <a href="{{ url("/detail-berita/{$news[0]->slug}") }}" class="more-link">
@@ -1846,5 +1847,3 @@
     <!-- Initialize Swiper -->
     <script></script>
 @endsection
-
-

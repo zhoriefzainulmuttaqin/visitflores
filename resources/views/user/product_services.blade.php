@@ -144,7 +144,7 @@ use Illuminate\Support\Facades\App;
                             <p>
                                 <a href="{{ url('paket-wisata/' . $pattern->slug) }}"
                                     class="btn btn-info bg-btn-visit text-white">
-                                    {{ __('services.show_details') }}
+                                    {{ __('services.link_web') }}
                                 </a>
                             </p>
                         </div>

@@ -1,4 +1,3 @@
-
 <!-- Footer
 ============================================= -->
 <footer id="footer" class="dark bg-blue-visit">
@@ -10,18 +9,18 @@
             <p class="text-center">
                 <b class="h3">{{ getOption('slogan') }}</b>
                 <br>
-                with <span class='text-warning'>visitcirebon.id</span>
+                with <span class='text-warning'>ujicobantt.id</span>
                 <br>
                 <a href="{{ getOption('fb_link') }}" target="_blank" class="h5">
                     <i class='uil-facebook-f'></i>
                 </a>
-                <a href="https://www.instagram.com/visitcirebon.id?igshid=ODA1NTc5OTg5Nw==" target="_blank" class="h5">
+                <a href="#" target="_blank" class="h5">
                     <i class='uil-instagram'></i>
                 </a>
-                <a href="https://www.tiktok.com/@visit.cirebon.id?_t=8iKVr2u4Z6e&_r=1" target="_blank" class="h5">
+                <a href="#" target="_blank" class="h5">
                     <i class='fa-brands fa-tiktok'></i>
                 </a>
-                <a href="https://youtube.com/@VisitCirebonId?si=AS4mL5Y_ehCoyXBE" target="_blank" class="h5">
+                <a href="#" target="_blank" class="h5">
                     <i class='uil-youtube'></i>
                 </a>
                 <br><br>
@@ -32,7 +31,7 @@
                     $footer_year = config('app.year_made') . ' - ' . date('Y');
                 }
                 ?>
-                <b class="text-warning">Copyright &copy; {{ config('app.year_made') }}</b>
+                <b class="text-warning">Copyright &copy; {{ config('app.author') }} {{ config('app.year_made') }}</b>
             </p>
         </div>
     </div><!-- #copyrights end -->
